@@ -1,5 +1,21 @@
-﻿.venv/
+﻿# Environments
+.venv/
+venv/
+
+# PyCharm
 .idea/
+
+# Python
 __pycache__/
 *.pyc
+*.pyo
+
+# System
 .DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
