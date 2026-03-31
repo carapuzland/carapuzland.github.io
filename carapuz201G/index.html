@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-US" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carapuz201G — Discord Bot</title>
+    <link rel="stylesheet" href="/carapuz201g/assets/css/style.css">
+</head>
+<body>
+
+    <div class="top-badge">
+        <a href="https://carapuzland.github.io" target="_blank" rel="noopener noreferrer">🏝️ carapuzland.github.io</a>
+    </div>
+
+    <nav>
+        <div class="nav-inner">
+            <div class="nav-left nav-links">
+                <a data-nav href="/carapuz201g/" data-i18n="nav.about">About</a>
+                <a data-nav href="/carapuz201g/features/" data-i18n="nav.features">Features</a>
+                <a data-nav href="/carapuz201g/commands/" data-i18n="nav.commands">Commands</a>
+                <a data-nav href="/carapuz201g/privacy-policy/" data-i18n="nav.privacy">Privacy Policy</a>
+                <a data-nav href="/carapuz201g/terms-of-service/" data-i18n="nav.tos">Terms of Service</a>
+                <a data-nav href="/carapuz201g/support/" data-i18n="nav.support">Support</a>
+                <a data-nav href="/carapuz201g/status/" data-i18n="nav.status">Status</a>
+            </div>
+
+            <div class="nav-right">
+                <select id="languageSelect" class="select">
+                    <option value="en-US">English (US)</option>
+                    <option value="en-GB">English (UK)</option>
+                    <option value="ru">Русский</option>
+                    <option value="uk">Українська</option>
+                    <option value="bg">Български</option>
+                    <option value="hr">Hrvatski</option>
+                    <option value="cs">Čeština</option>
+                    <option value="da">Dansk</option>
+                    <option value="nl">Nederlands</option>
+                    <option value="et">Eesti</option>
+                    <option value="fi">Suomi</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                    <option value="el">Ελληνικά</option>
+                    <option value="hu">Magyar</option>
+                    <option value="ga">Gaeilge</option>
+                    <option value="it">Italiano</option>
+                    <option value="lv">Latviešu</option>
+                    <option value="lt">Lietuvių</option>
+                    <option value="mt">Malti</option>
+                    <option value="pl">Polski</option>
+                    <option value="pt">Português</option>
+                    <option value="ro">Română</option>
+                    <option value="sk">Slovenčina</option>
+                    <option value="sl">Slovenščina</option>
+                    <option value="es">Español</option>
+                    <option value="sv">Svenska</option>
+                </select>
+
+                <button id="themeToggle" class="theme-toggle">🌙 Dark</button>
+
+                <a class="nav-btn success" href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer" data-i18n="nav.support_server">Support Server</a>
+                <a class="nav-btn primary" href="https://discord.com/oauth2/authorize?client_id=1372950477477777548&permissions=8&integration_type=0&scope=bot%20applications.commands" target="_blank" rel="noopener noreferrer" data-i18n="nav.add_bot">Add Bot</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <div class="hero-icon">🤖</div>
+            <h1 data-i18n="hero.title">Carapuz201G</h1>
+            <p class="subtitle" data-i18n="hero.subtitle">A multi-purpose Discord bot for moderation, economy, utility, verification and voice features.</p>
+            <p class="description" data-i18n="hero.description">
+                Carapuz201G is an independent Discord bot project created to help Discord communities with moderation, automation, economy systems, support tools, and optional locally-hosted AI features.
+            </p>
+
+            <div class="hero-buttons">
+                <a class="btn primary" href="https://discord.com/oauth2/authorize?client_id=1372950477477777548&permissions=8&integration_type=0&scope=bot%20applications.commands" target="_blank" rel="noopener noreferrer" data-i18n="hero.add_bot">Add to Discord</a>
+                <a class="btn secondary" href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer" data-i18n="hero.join_support">Join Support Server</a>
+            </div>
+
+            <div class="official-note" data-i18n="hero.official">
+                Official project links: carapuzland.github.io • discord.gg/pBh4rRK3TT
+            </div>
+        </section>
+
+        <section class="grid">
+            <div class="card">
+                <div class="icon">🛡️</div>
+                <h3>Moderation</h3>
+                <p>Warnings, mutes, bans, anti-raid, filters and logging systems.</p>
+            </div>
+            <div class="card">
+                <div class="icon">💰</div>
+                <h3>Economy</h3>
+                <p>Daily rewards, jobs, casino, shop, ratings, quests and investments.</p>
+            </div>
+            <div class="card">
+                <div class="icon">✅</div>
+                <h3>Verification</h3>
+                <p>Captcha, role verification and optional Roblox / Steam workflows.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🔊</div>
+                <h3>Voice Features</h3>
+                <p>Music, TTS, countdowns, radio and private voice room tools.</p>
+            </div>
+        </section>
+
+        <section class="page-section">
+            <h2 data-i18n="status.section_title">Bot Status</h2>
+            <p data-i18n="status.section_subtitle">Live or fallback bot status information</p>
+            <div id="statusContainer"></div>
+        </section>
+
+        <section class="box">
+            <h2>Quick Navigation</h2>
+            <p>Use the sections below to explore the project:</p>
+            <ul>
+                <li><a href="/carapuz201g/about/">About the project and architecture</a></li>
+                <li><a href="/carapuz201g/features/">Feature overview</a></li>
+                <li><a href="/carapuz201g/commands/">Command reference</a></li>
+                <li><a href="/carapuz201g/privacy-policy/">Privacy Policy</a></li>
+                <li><a href="/carapuz201g/terms-of-service/">Terms of Service</a></li>
+                <li><a href="/carapuz201g/support/">Support and contact</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p><span data-i18n="hero.title">Carapuz201G</span> — <span data-i18n="footer.rights">All rights reserved.</span></p>
+            <p data-i18n="footer.operated">Operated by carapuz201</p>
+        </footer>
+    </div>
+
+    <script src="/carapuz201g/assets/js/theme.js"></script>
+    <script src="/carapuz201g/assets/js/language.js"></script>
+    <script src="/carapuz201g/assets/js/status.js"></script>
+    <script src="/carapuz201g/assets/js/app.js"></script>
+</body>
+</html>

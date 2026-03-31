@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarapuzLand 🏝️</title>
+    <style>
+        /* ============ CSS VARIABLES & THEMES ============ */
+        :root {
+            --transition-speed: 0.4s;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --bg-card: rgba(17, 24, 39, 0.85);
+            --bg-header: rgba(10, 14, 26, 0.92);
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --text-accent: #38bdf8;
+            --ocean-top: #0a1628;
+            --ocean-mid: #0c2340;
+            --ocean-bottom: #0d3b66;
+            --island-sand: #c2a54f;
+            --island-green: #2d6a4f;
+            --island-dark-green: #1b4332;
+            --wave-color: rgba(56, 189, 248, 0.08);
+            --border-color: rgba(56, 189, 248, 0.15);
+            --shadow-color: rgba(0, 0, 0, 0.5);
+            --dropdown-bg: #1e293b;
+            --dropdown-hover: #334155;
+            --glow: rgba(56, 189, 248, 0.3);
+            --star-color: #ffffff;
+            --cloud-color: rgba(255,255,255,0.03);
+            --foam-color: rgba(255,255,255,0.15);
+            --tooltip-bg: rgba(15, 23, 42, 0.95);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #e0f2fe;
+            --bg-secondary: #f0f9ff;
+            --bg-card: rgba(255, 255, 255, 0.88);
+            --bg-header: rgba(224, 242, 254, 0.94);
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-accent: #0284c7;
+            --ocean-top: #7dd3fc;
+            --ocean-mid: #38bdf8;
+            --ocean-bottom: #0ea5e9;
+            --island-sand: #e8d44d;
+            --island-green: #22c55e;
+            --island-dark-green: #15803d;
+            --wave-color: rgba(255, 255, 255, 0.2);
+            --border-color: rgba(2, 132, 199, 0.2);
+            --shadow-color: rgba(0, 0, 0, 0.15);
+            --dropdown-bg: #ffffff;
+            --dropdown-hover: #f1f5f9;
+            --glow: rgba(2, 132, 199, 0.25);
+            --star-color: transparent;
+            --cloud-color: rgba(255,255,255,0.6);
+            --foam-color: rgba(255,255,255,0.5);
+            --tooltip-bg: rgba(30, 41, 59, 0.92);
+        }
+
+        /* ============ RESET & BASE ============ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            transition: background var(--transition-speed), color var(--transition-speed);
+            min-height: 100vh;
+        }
+
+        /* ============ HEADER ============ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--bg-header);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0 2rem;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background var(--transition-speed), border-color var(--transition-speed);
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            user-select: none;
+        }
+
+        .header-logo .emoji {
+            font-size: 1.6rem;
+            animation: float-logo 3s ease-in-out infinite;
+        }
+
+        @keyframes float-logo {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* ============ THEME TOGGLE ============ */
+        .theme-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            color: var(--text-primary);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--text-accent);
+            box-shadow: 0 0 12px var(--glow);
+            transform: rotate(20deg);
+        }
+
+        /* ============ LANGUAGE DROPDOWN ============ */
+        .lang-dropdown {
+            position: relative;
+        }
+
+        .lang-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--text-accent);
+            box-shadow: 0 0 12px var(--glow);
+        }
+
+        .lang-btn .arrow {
+            transition: transform 0.3s;
+            font-size: 0.7rem;
+        }
+
+        .lang-btn.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        .lang-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: var(--dropdown-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 0.5rem 0;
+            min-width: 220px;
+            max-height: 420px;
+            overflow-y: auto;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+            box-shadow: 0 20px 40px var(--shadow-color);
+            z-index: 1001;
+        }
+
+        .lang-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .lang-menu::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .lang-menu::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .lang-menu::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 3px;
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.55rem 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 0.88rem;
+            color: var(--text-primary);
+        }
+
+        .lang-option:hover {
+            background: var(--dropdown-hover);
+        }
+
+        .lang-option.active {
+            color: var(--text-accent);
+            font-weight: 600;
+        }
+
+        .lang-option .flag {
+            font-size: 1.2rem;
+            width: 1.5rem;
+            text-align: center;
+        }
+
+        /* ============ MOBILE MENU ============ */
+        .mobile-menu-btn {
+            display: none;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-size: 1.3rem;
+        }
+
+        /* ============ OCEAN SCENE ============ */
+        .ocean-scene {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            padding-top: 64px;
+            overflow: hidden;
+            background: linear-gradient(180deg, var(--ocean-top) 0%, var(--ocean-mid) 50%, var(--ocean-bottom) 100%);
+            transition: background var(--transition-speed);
+        }
+
+        /* Stars (dark theme only) */
+        .stars-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--star-color);
+            border-radius: 50%;
+            animation: twinkle var(--duration) ease-in-out infinite;
+            opacity: 0;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: var(--max-opacity); }
+        }
+
+        /* Clouds */
+        .clouds-container {
+            position: absolute;
+            top: 5%;
+            left: 0;
+            width: 100%;
+            height: 25%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .cloud {
+            position: absolute;
+            background: var(--cloud-color);
+            border-radius: 50%;
+            filter: blur(20px);
+            animation: drift-cloud linear infinite;
+        }
+
+        @keyframes drift-cloud {
+            from { transform: translateX(-200px); }
+            to { transform: translateX(calc(100vw + 200px)); }
+        }
+
+        /* Waves */
+        .waves-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .wave-layer {
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            bottom: 0;
+            left: 0;
+            opacity: 0.6;
+        }
+
+        .wave-layer svg {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 3rem;
+            min-height: 50vh;
+        }
+
+        .hero-emoji {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            animation: hero-bounce 4s ease-in-out infinite;
+            filter: drop-shadow(0 8px 24px var(--shadow-color));
+        }
+
+        @keyframes hero-bounce {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            25% { transform: translateY(-12px) rotate(1deg); }
+            50% { transform: translateY(-4px) rotate(-1deg); }
+            75% { transform: translateY(-16px) rotate(2deg); }
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--text-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* ============ ISLANDS GRID ============ */
+        .islands-section {
+            position: relative;
+            z-index: 10;
+            padding: 2rem 2rem 6rem;
+        }
+
+        .islands-title {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            color: var(--text-primary);
+        }
+
+        .islands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ============ ISLAND CARD ============ */
+        .island-card {
+            position: relative;
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .island-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--card-accent, var(--text-accent)), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .island-card:hover::before {
+            opacity: 1;
+        }
+
+        .island-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px var(--shadow-color);
+            border-color: var(--text-accent);
+        }
+
+        .island-card-wave {
+            position: absolute;
+            bottom: -2px;
+            left: -10%;
+            width: 120%;
+            height: 60px;
+            pointer-events: none;
+            opacity: 0.06;
+        }
+
+        .island-card-wave svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .card-icon {
+            font-size: 2.4rem;
+            margin-bottom: 0.25rem;
+            display: inline-block;
+            animation: card-float 5s ease-in-out infinite;
+            animation-delay: var(--delay, 0s);
+        }
+
+        @keyframes card-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .card-desc {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        .card-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: var(--border-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            color: var(--text-accent);
+            width: fit-content;
+            margin-top: 0.25rem;
+        }
+
+        /* ============ FLOATING MINI ISLANDS ============ */
+        .floating-islands {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .mini-island {
+            position: absolute;
+            font-size: var(--size, 1.5rem);
+            opacity: var(--opacity, 0.25);
+            animation: mini-float var(--speed, 20s) linear infinite;
+            filter: blur(var(--blur, 0px));
+        }
+
+        @keyframes mini-float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(var(--dx1, 30px), var(--dy1, -20px)) rotate(5deg);
+            }
+            50% {
+                transform: translate(var(--dx2, -20px), var(--dy2, 15px)) rotate(-3deg);
+            }
+            75% {
+                transform: translate(var(--dx3, 15px), var(--dy3, -30px)) rotate(4deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-header);
+            backdrop-filter: blur(20px);
+        }
+
+        .footer a {
+            color: var(--text-accent);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============ WATER RIPPLE CURSOR ============ */
+        .ripple {
+            position: fixed;
+            border-radius: 50%;
+            border: 1px solid var(--text-accent);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 9999;
+            animation: ripple-effect 0.8s ease-out forwards;
+        }
+
+        @keyframes ripple-effect {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 0.5;
+            }
+            100% {
+                width: 80px;
+                height: 80px;
+                opacity: 0;
+                margin-top: -40px;
+                margin-left: -40px;
+            }
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 768px) {
+            .header {
+                padding: 0 1rem;
+            }
+
+            .header-controls .lang-btn .lang-label {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-emoji {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .islands-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .islands-section {
+                padding: 2rem 1rem 4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 4rem 1rem 2rem;
+            }
+
+            .hero-title {
+                font-size: 1.6rem;
+            }
+
+            .island-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* ============ ANIMATIONS ON SCROLL ============ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading animation */
+        .page-loader {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-primary);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1rem;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .page-loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-island {
+            font-size: 3rem;
+            animation: loader-bounce 1s ease-in-out infinite;
+        }
+
+        @keyframes loader-bounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.1); }
+        }
+
+        .loader-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+        }
+
+        .loader-bar {
+            width: 120px;
+            height: 3px;
+            background: var(--border-color);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .loader-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--text-accent);
+            border-radius: 3px;
+            animation: loader-fill 1.5s ease forwards;
+        }
+
+        @keyframes loader-fill {
+            to { width: 100%; }
+        }
+
+        /* Particle effects */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--foam-color);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particle-rise var(--speed, 4s) ease-in infinite;
+            opacity: 0;
+        }
+
+        @keyframes particle-rise {
+            0% { opacity: 0; transform: translateY(0) scale(0); }
+            20% { opacity: 0.8; transform: translateY(-20px) scale(1); }
+            100% { opacity: 0; transform: translateY(-100px) scale(0.3); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-island">🏝️</div>
+        <div class="loader-text">CARAPUZLAND</div>
+        <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="header-logo">
+            <span class="emoji">🏝️</span>
+            <span>CarapuzLand</span>
+        </a>
+        <div class="header-controls">
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+
+            <!-- Language Dropdown -->
+            <div class="lang-dropdown" id="langDropdown">
+                <button class="lang-btn" id="langBtn">
+                    <span class="flag" id="currentFlag">🇬🇧</span>
+                    <span class="lang-label" id="currentLang">English (UK)</span>
+                    <span class="arrow">▼</span>
+                </button>
+                <div class="lang-menu" id="langMenu"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Ocean Scene -->
+    <div class="ocean-scene">
+        <!-- Stars -->
+        <div class="stars-container" id="starsContainer"></div>
+
+        <!-- Clouds -->
+        <div class="clouds-container" id="cloudsContainer"></div>
+
+        <!-- Floating mini islands -->
+        <div class="floating-islands" id="floatingIslands"></div>
+
+        <!-- Water Particles -->
+        <div id="particlesContainer"></div>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-emoji">🏝️</div>
+            <h1 class="hero-title" data-i18n="hero_title">CarapuzLand</h1>
+            <p class="hero-subtitle" data-i18n="hero_subtitle">Digital creator crafting programs, bots, websites, and tools. Explore the islands below to discover my projects.</p>
+        </section>
+
+        <!-- Islands -->
+        <section class="islands-section">
+            <h2 class="islands-title reveal" data-i18n="islands_title">🏝️ Explore the Islands</h2>
+            <div class="islands-grid" id="islandsGrid"></div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 <a href="https://carapuzland.github.io">CarapuzLand</a> 🏝️ — <span data-i18n="footer_text">All islands are connected by the ocean.</span></p>
+    </footer>
+
+<script>
+/* ================================================================
+   TRANSLATIONS — 27 languages
+   ================================================================ */
+const TRANSLATIONS = {
+    "en-gb": {
+        name: "English (UK)", flag: "🇬🇧",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Digital creator crafting programs, bots, websites, and tools. Explore the islands below to discover my projects.",
+        islands_title: "🏝️ Explore the Islands",
+        footer_text: "All islands are connected by the ocean.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "A versatile Discord bot with moderation, fun commands, and utility features.", tag: "Discord Bot" },
+            weather: { title: "Weather", desc: "Real-time weather forecasts with beautiful visuals and detailed data.", tag: "Web App" },
+            "bg-remove": { title: "BG Remove", desc: "Remove backgrounds from images instantly with AI-powered precision.", tag: "Tool" },
+            speedtest: { title: "Speed Test", desc: "Test your internet connection speed — download, upload, and ping.", tag: "Web App" },
+            ocr: { title: "OCR", desc: "Extract text from images using powerful optical character recognition.", tag: "Tool" },
+            "anti-virus": { title: "Anti-Virus", desc: "Scan files online for viruses, malware, and other threats.", tag: "Security" }
+        }
+    },
+    "en-us": {
+        name: "English (US)", flag: "🇺🇸",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Digital creator building programs, bots, websites, and tools. Explore the islands below to discover my projects.",
+        islands_title: "🏝️ Explore the Islands",
+        footer_text: "All islands are connected by the ocean.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "A versatile Discord bot with moderation, fun commands, and utility features.", tag: "Discord Bot" },
+            weather: { title: "Weather", desc: "Real-time weather forecasts with beautiful visuals and detailed data.", tag: "Web App" },
+            "bg-remove": { title: "BG Remove", desc: "Remove backgrounds from images instantly with AI-powered precision.", tag: "Tool" },
+            speedtest: { title: "Speed Test", desc: "Test your internet connection speed — download, upload, and ping.", tag: "Web App" },
+            ocr: { title: "OCR", desc: "Extract text from images using powerful optical character recognition.", tag: "Tool" },
+            "anti-virus": { title: "Anti-Virus", desc: "Scan files online for viruses, malware, and other threats.", tag: "Security" }
+        }
+    },
+    "uk": {
+        name: "Українська", flag: "🇺🇦",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Цифровий розробник, що створює програми, ботів, сайти та інструменти. Досліджуйте острови нижче.",
+        islands_title: "🏝️ Досліджуйте острови",
+        footer_text: "Усі острови з'єднані океаном.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Універсальний Discord-бот з модерацією, розважальними командами та утилітами.", tag: "Discord Бот" },
+            weather: { title: "Погода", desc: "Прогноз погоди в реальному часі з красивою візуалізацією.", tag: "Веб-додаток" },
+            "bg-remove": { title: "Видалення фону", desc: "Миттєве видалення фону зображень за допомогою ШІ.", tag: "Інструмент" },
+            speedtest: { title: "Тест швидкості", desc: "Перевірте швидкість інтернету — завантаження, вивантаження та пінг.", tag: "Веб-додаток" },
+            ocr: { title: "OCR", desc: "Витягнення тексту із зображень за допомогою оптичного розпізнавання.", tag: "Інструмент" },
+            "anti-virus": { title: "Антивірус", desc: "Онлайн-сканування файлів на віруси та шкідливе ПЗ.", tag: "Безпека" }
+        }
+    },
+    "ru": {
+        name: "Русский", flag: "🇷🇺",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Цифровой разработчик, создающий программы, ботов, сайты и инструменты. Исследуйте острова ниже.",
+        islands_title: "🏝️ Исследуйте острова",
+        footer_text: "Все острова соединены океаном.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Универсальный Discord-бот с модерацией, развлечениями и утилитами.", tag: "Discord Бот" },
+            weather: { title: "Погода", desc: "Прогноз погоды в реальном времени с красивой визуализацией.", tag: "Веб-приложение" },
+            "bg-remove": { title: "Удаление фона", desc: "Мгновенное удаление фона изображений с помощью ИИ.", tag: "Инструмент" },
+            speedtest: { title: "Тест скорости", desc: "Проверьте скорость интернета — загрузка, выгрузка и пинг.", tag: "Веб-приложение" },
+            ocr: { title: "OCR", desc: "Извлечение текста из изображений с помощью оптического распознавания.", tag: "Инструмент" },
+            "anti-virus": { title: "Антивирус", desc: "Онлайн-сканирование файлов на вирусы и вредоносное ПО.", tag: "Безопасность" }
+        }
+    },
+    "bg": {
+        name: "Български", flag: "🇧🇬",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Дигитален създател на програми, ботове, сайтове и инструменти. Разгледайте островите по-долу.",
+        islands_title: "🏝️ Разгледайте островите",
+        footer_text: "Всички острови са свързани чрез океана.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Универсален Discord бот с модерация, забавни команди и помощни функции.", tag: "Discord Бот" },
+            weather: { title: "Време", desc: "Прогноза за времето в реално време с красиви визуализации.", tag: "Уеб приложение" },
+            "bg-remove": { title: "Премахване на фон", desc: "Премахнете фона на изображения мигновено с ИИ.", tag: "Инструмент" },
+            speedtest: { title: "Тест за скорост", desc: "Тествайте скоростта на интернет — изтегляне, качване и пинг.", tag: "Уеб приложение" },
+            ocr: { title: "OCR", desc: "Извличане на текст от изображения чрез оптично разпознаване.", tag: "Инструмент" },
+            "anti-virus": { title: "Антивирус", desc: "Онлайн сканиране на файлове за вируси и зловреден софтуер.", tag: "Сигурност" }
+        }
+    },
+    "hr": {
+        name: "Hrvatski", flag: "🇭🇷",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Digitalni kreator koji stvara programe, botove, web stranice i alate. Istražite otoke u nastavku.",
+        islands_title: "🏝️ Istražite otoke",
+        footer_text: "Svi otoci povezani su oceanom.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Svestrani Discord bot s moderacijom, zabavnim naredbama i korisnim funkcijama.", tag: "Discord Bot" },
+            weather: { title: "Vrijeme", desc: "Prognoza vremena u stvarnom vremenu s lijepim vizualima.", tag: "Web aplikacija" },
+            "bg-remove": { title: "Uklanjanje pozadine", desc: "Trenutno uklonite pozadinu slika pomoću AI-ja.", tag: "Alat" },
+            speedtest: { title: "Test brzine", desc: "Testirajte brzinu interneta — preuzimanje, upload i ping.", tag: "Web aplikacija" },
+            ocr: { title: "OCR", desc: "Izvucite tekst iz slika korištenjem optičkog prepoznavanja.", tag: "Alat" },
+            "anti-virus": { title: "Antivirus", desc: "Skenirajte datoteke online za viruse i zlonamjerni softver.", tag: "Sigurnost" }
+        }
+    },
+    "cs": {
+        name: "Čeština", flag: "🇨🇿",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Digitální tvůrce programů, botů, webových stránek a nástrojů. Prozkoumejte ostrovy níže.",
+        islands_title: "🏝️ Prozkoumejte ostrovy",
+        footer_text: "Všechny ostrovy jsou propojeny oceánem.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Všestranný Discord bot s moderací, zábavnými příkazy a užitečnými funkcemi.", tag: "Discord Bot" },
+            weather: { title: "Počasí", desc: "Předpověď počasí v reálném čase s krásnými vizuály.", tag: "Webová aplikace" },
+            "bg-remove": { title: "Odstranění pozadí", desc: "Okamžitě odstraňte pozadí obrázků pomocí AI.", tag: "Nástroj" },
+            speedtest: { title: "Test rychlosti", desc: "Otestujte rychlost internetu — stahování, nahrávání a ping.", tag: "Webová aplikace" },
+            ocr: { title: "OCR", desc: "Extrakce textu z obrázků pomocí optického rozpoznávání.", tag: "Nástroj" },
+            "anti-virus": { title: "Antivirus", desc: "Online skenování souborů na viry a malware.", tag: "Bezpečnost" }
+        }
+    },
+    "da": {
+        name: "Dansk", flag: "🇩🇰",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Digital skaber af programmer, bots, hjemmesider og værktøjer. Udforsk øerne nedenfor.",
+        islands_title: "🏝️ Udforsk øerne",
+        footer_text: "Alle øer er forbundet af havet.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "En alsidig Discord-bot med moderation, sjove kommandoer og nyttige funktioner.", tag: "Discord Bot" },
+            weather: { title: "Vejr", desc: "Vejrudsigt i realtid med smukke visualiseringer.", tag: "Webapp" },
+            "bg-remove": { title: "Fjern baggrund", desc: "Fjern baggrunde fra billeder øjeblikkeligt med AI.", tag: "Værktøj" },
+            speedtest: { title: "Hastighedstest", desc: "Test din internethastighed — download, upload og ping.", tag: "Webapp" },
+            ocr: { title: "OCR", desc: "Udtræk tekst fra billeder ved hjælp af optisk tegngenkendelse.", tag: "Værktøj" },
+            "anti-virus": { title: "Antivirus", desc: "Scan filer online for vira og malware.", tag: "Sikkerhed" }
+        }
+    },
+    "nl": {
+        name: "Nederlands", flag: "🇳🇱",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Digitale maker van programma's, bots, websites en tools. Ontdek de eilanden hieronder.",
+        islands_title: "🏝️ Ontdek de eilanden",
+        footer_text: "Alle eilanden zijn verbonden door de oceaan.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Een veelzijdige Discord-bot met moderatie, leuke commando's en handige functies.", tag: "Discord Bot" },
+            weather: { title: "Weer", desc: "Realtime weersvoorspellingen met mooie visualisaties.", tag: "Web-app" },
+            "bg-remove": { title: "Achtergrond verwijderen", desc: "Verwijder achtergronden van afbeeldingen direct met AI.", tag: "Tool" },
+            speedtest: { title: "Snelheidstest", desc: "Test je internetsnelheid — download, upload en ping.", tag: "Web-app" },
+            ocr: { title: "OCR", desc: "Haal tekst uit afbeeldingen met optische tekenherkenning.", tag: "Tool" },
+            "anti-virus": { title: "Antivirus", desc: "Scan bestanden online op virussen en malware.", tag: "Beveiliging" }
+        }
+    },
+    "et": {
+        name: "Eesti", flag: "🇪🇪",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Digitaalne looja, kes teeb programme, botte, veebilehti ja tööriistu. Avasta saared allpool.",
+        islands_title: "🏝️ Avasta saared",
+        footer_text: "Kõik saared on ühendatud ookeaniga.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Mitmekülgne Discord-bot modereerimise, lõbusate käskude ja utiliitidega.", tag: "Discord Bot" },
+            weather: { title: "Ilm", desc: "Reaalajas ilmaennustused kaunite visuaalidega.", tag: "Veebirakendus" },
+            "bg-remove": { title: "Tausta eemaldamine", desc: "Eemaldage piltidelt taustad koheselt AI abil.", tag: "Tööriist" },
+            speedtest: { title: "Kiiruse test", desc: "Testige oma internetikiirust — allalaadimine, üleslaadimine ja ping.", tag: "Veebirakendus" },
+            ocr: { title: "OCR", desc: "Eraldage tekst piltidelt optilise märgituvastuse abil.", tag: "Tööriist" },
+            "anti-virus": { title: "Viirusetõrje", desc: "Skannige faile veebis viiruste ja pahavara suhtes.", tag: "Turvalisus" }
+        }
+    },
+    "fi": {
+        name: "Suomi", flag: "🇫🇮",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Digitaalinen tekijä, joka luo ohjelmia, botteja, verkkosivuja ja työkaluja. Tutustu saariin alla.",
+        islands_title: "🏝️ Tutustu saariin",
+        footer_text: "Kaikki saaret ovat yhdistettyjä valtameren kautta.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Monipuolinen Discord-botti moderointiin, hauskoihin komentoihin ja hyötyominaisuuksiin.", tag: "Discord Botti" },
+            weather: { title: "Sää", desc: "Reaaliaikaiset sääennusteet kauniilla visualisoinneilla.", tag: "Verkkosovellus" },
+            "bg-remove": { title: "Taustan poisto", desc: "Poista kuvien taustat välittömästi tekoälyn avulla.", tag: "Työkalu" },
+            speedtest: { title: "Nopeustesti", desc: "Testaa internet-nopeutesi — lataus, lähetys ja ping.", tag: "Verkkosovellus" },
+            ocr: { title: "OCR", desc: "Poimi tekstiä kuvista optisen merkintunnistuksen avulla.", tag: "Työkalu" },
+            "anti-virus": { title: "Virustorjunta", desc: "Skannaa tiedostot verkossa virusten ja haittaohjelmien varalta.", tag: "Turvallisuus" }
+        }
+    },
+    "fr": {
+        name: "Français", flag: "🇫🇷",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Créateur numérique de programmes, bots, sites web et outils. Explorez les îles ci-dessous.",
+        islands_title: "🏝️ Explorez les îles",
+        footer_text: "Toutes les îles sont reliées par l'océan.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Un bot Discord polyvalent avec modération, commandes amusantes et fonctionnalités utiles.", tag: "Bot Discord" },
+            weather: { title: "Météo", desc: "Prévisions météo en temps réel avec de belles visualisations.", tag: "Application web" },
+            "bg-remove": { title: "Suppr. d'arrière-plan", desc: "Supprimez instantanément les arrière-plans d'images grâce à l'IA.", tag: "Outil" },
+            speedtest: { title: "Test de vitesse", desc: "Testez votre vitesse internet — téléchargement, envoi et ping.", tag: "Application web" },
+            ocr: { title: "OCR", desc: "Extrayez du texte à partir d'images grâce à la reconnaissance optique.", tag: "Outil" },
+            "anti-virus": { title: "Antivirus", desc: "Analysez vos fichiers en ligne contre les virus et malwares.", tag: "Sécurité" }
+        }
+    },
+    "de": {
+        name: "Deutsch", flag: "🇩🇪",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Digitaler Entwickler von Programmen, Bots, Websites und Tools. Entdecke die Inseln unten.",
+        islands_title: "🏝️ Entdecke die Inseln",
+        footer_text: "Alle Inseln sind durch den Ozean verbunden.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Ein vielseitiger Discord-Bot mit Moderation, lustigen Befehlen und nützlichen Funktionen.", tag: "Discord Bot" },
+            weather: { title: "Wetter", desc: "Echtzeit-Wettervorhersagen mit schönen Visualisierungen.", tag: "Web-App" },
+            "bg-remove": { title: "Hintergrund entfernen", desc: "Entfernen Sie Hintergründe von Bildern sofort mit KI.", tag: "Werkzeug" },
+            speedtest: { title: "Geschwindigkeitstest", desc: "Testen Sie Ihre Internetgeschwindigkeit — Download, Upload und Ping.", tag: "Web-App" },
+            ocr: { title: "OCR", desc: "Extrahieren Sie Text aus Bildern mit optischer Zeichenerkennung.", tag: "Werkzeug" },
+            "anti-virus": { title: "Antivirus", desc: "Scannen Sie Dateien online auf Viren und Malware.", tag: "Sicherheit" }
+        }
+    },
+    "el": {
+        name: "Ελληνικά", flag: "🇬🇷",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Ψηφιακός δημιουργός προγραμμάτων, bots, ιστοσελίδων και εργαλείων. Εξερευνήστε τα νησιά παρακάτω.",
+        islands_title: "🏝️ Εξερευνήστε τα νησιά",
+        footer_text: "Όλα τα νησιά συνδέονται μέσω του ωκεανού.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Ένα ευέλικτο Discord bot με εποπτεία, διασκεδαστικές εντολές και χρήσιμες λειτουργίες.", tag: "Discord Bot" },
+            weather: { title: "Καιρός", desc: "Προβλέψεις καιρού σε πραγματικό χρόνο με όμορφα γραφικά.", tag: "Εφαρμογή web" },
+            "bg-remove": { title: "Αφαίρεση φόντου", desc: "Αφαιρέστε φόντα από εικόνες αμέσως με AI.", tag: "Εργαλείο" },
+            speedtest: { title: "Τεστ ταχύτητας", desc: "Ελέγξτε την ταχύτητα internet — λήψη, αποστολή και ping.", tag: "Εφαρμογή web" },
+            ocr: { title: "OCR", desc: "Εξαγωγή κειμένου από εικόνες με οπτική αναγνώριση χαρακτήρων.", tag: "Εργαλείο" },
+            "anti-virus": { title: "Antivirus", desc: "Σαρώστε αρχεία online για ιούς και κακόβουλο λογισμικό.", tag: "Ασφάλεια" }
+        }
+    },
+    "hu": {
+        name: "Magyar", flag: "🇭🇺",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Digitális alkotó, aki programokat, botokat, weboldalakat és eszközöket készít. Fedezd fel a szigeteket lent.",
+        islands_title: "🏝️ Fedezd fel a szigeteket",
+        footer_text: "Minden sziget az óceán által kapcsolódik össze.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Sokoldalú Discord bot moderálással, szórakoztató parancsokkal és hasznos funkciókkal.", tag: "Discord Bot" },
+            weather: { title: "Időjárás", desc: "Valós idejű időjárás-előrejelzés gyönyörű vizualizációkkal.", tag: "Webalkalmazás" },
+            "bg-remove": { title: "Háttér eltávolítás", desc: "Távolítsd el a képek hátterét azonnal AI segítségével.", tag: "Eszköz" },
+            speedtest: { title: "Sebességteszt", desc: "Teszteld az internet sebességedet — letöltés, feltöltés és ping.", tag: "Webalkalmazás" },
+            ocr: { title: "OCR", desc: "Szöveg kinyerése képekből optikai karakterfelismeréssel.", tag: "Eszköz" },
+            "anti-virus": { title: "Vírusirtó", desc: "Fájlok online ellenőrzése vírusok és kártékony szoftverek ellen.", tag: "Biztonság" }
+        }
+    },
+    "ga": {
+        name: "Gaeilge", flag: "🇮🇪",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Cruthaitheoir digiteach a dhéanann cláir, botaí, suíomhanna gréasáin agus uirlisí. Déan iniúchadh ar na hoileáin thíos.",
+        islands_title: "🏝️ Déan iniúchadh ar na hoileáin",
+        footer_text: "Tá na hoileáin go léir ceangailte ag an aigéan.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Bot Discord ilúsáideach le modhnóireacht, orduithe spraíúla agus gnéithe fóntais.", tag: "Bot Discord" },
+            weather: { title: "Aimsir", desc: "Réamhaisnéis aimsire fíor-ama le pictiúir áille.", tag: "Aip ghréasáin" },
+            "bg-remove": { title: "Bain cúlra", desc: "Bain cúlraí ó íomhánna láithreach le AI.", tag: "Uirlis" },
+            speedtest: { title: "Tástáil luais", desc: "Tástáil luas do idirlín — íoslódáil, uaslódáil agus ping.", tag: "Aip ghréasáin" },
+            ocr: { title: "OCR", desc: "Bain téacs as íomhánna le haithint optúil carachtar.", tag: "Uirlis" },
+            "anti-virus": { title: "Frith-víreas", desc: "Scan comhaid ar líne le haghaidh víris agus bogearraí mailíseacha.", tag: "Slándáil" }
+        }
+    },
+    "it": {
+        name: "Italiano", flag: "🇮🇹",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Creatore digitale di programmi, bot, siti web e strumenti. Esplora le isole qui sotto.",
+        islands_title: "🏝️ Esplora le isole",
+        footer_text: "Tutte le isole sono collegate dall'oceano.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Un bot Discord versatile con moderazione, comandi divertenti e funzioni utili.", tag: "Bot Discord" },
+            weather: { title: "Meteo", desc: "Previsioni meteo in tempo reale con belle visualizzazioni.", tag: "App web" },
+            "bg-remove": { title: "Rimozione sfondo", desc: "Rimuovi lo sfondo delle immagini istantaneamente con l'IA.", tag: "Strumento" },
+            speedtest: { title: "Test velocità", desc: "Testa la velocità internet — download, upload e ping.", tag: "App web" },
+            ocr: { title: "OCR", desc: "Estrai testo dalle immagini con il riconoscimento ottico dei caratteri.", tag: "Strumento" },
+            "anti-virus": { title: "Antivirus", desc: "Scansiona file online alla ricerca di virus e malware.", tag: "Sicurezza" }
+        }
+    },
+    "lv": {
+        name: "Latviešu", flag: "🇱🇻",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Digitālais veidotājs, kas veido programmas, botus, vietnes un rīkus. Izpētiet salas zemāk.",
+        islands_title: "🏝️ Izpētiet salas",
+        footer_text: "Visas salas ir savienotas ar okeānu.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Daudzpusīgs Discord bots ar moderēšanu, jautrām komandām un noderīgām funkcijām.", tag: "Discord Bots" },
+            weather: { title: "Laiks", desc: "Reāllaika laika prognozes ar skaistām vizualizācijām.", tag: "Tīmekļa lietotne" },
+            "bg-remove": { title: "Fona noņemšana", desc: "Noņemiet attēlu fonus uzreiz ar AI palīdzību.", tag: "Rīks" },
+            speedtest: { title: "Ātruma tests", desc: "Pārbaudiet interneta ātrumu — lejupielāde, augšupielāde un ping.", tag: "Tīmekļa lietotne" },
+            ocr: { title: "OCR", desc: "Iegūstiet tekstu no attēliem ar optisko rakstzīmju atpazīšanu.", tag: "Rīks" },
+            "anti-virus": { title: "Antivīruss", desc: "Skenējiet failus tiešsaistē pret vīrusiem un ļaunatūru.", tag: "Drošība" }
+        }
+    },
+    "lt": {
+        name: "Lietuvių", flag: "🇱🇹",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Skaitmeninis kūrėjas, kuriantis programas, botus, svetaines ir įrankius. Tyrinėkite salas žemiau.",
+        islands_title: "🏝️ Tyrinėkite salas",
+        footer_text: "Visos salos sujungtos vandenynu.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Universalus Discord botas su moderavimu, linksmomis komandomis ir naudingomis funkcijomis.", tag: "Discord Botas" },
+            weather: { title: "Orai", desc: "Realaus laiko orų prognozės su gražiomis vizualizacijomis.", tag: "Žiniatinklio programa" },
+            "bg-remove": { title: "Fono šalinimas", desc: "Akimirksniu pašalinkite vaizdų fonus naudodami AI.", tag: "Įrankis" },
+            speedtest: { title: "Greičio testas", desc: "Patikrinkite interneto greitį — atsisiuntimas, įkėlimas ir ping.", tag: "Žiniatinklio programa" },
+            ocr: { title: "OCR", desc: "Išskleiskite tekstą iš vaizdų naudodami optinį simbolių atpažinimą.", tag: "Įrankis" },
+            "anti-virus": { title: "Antivirusinė", desc: "Skenuokite failus internete dėl virusų ir kenkėjiškos programinės įrangos.", tag: "Saugumas" }
+        }
+    },
+    "mt": {
+        name: "Malti", flag: "🇲🇹",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Kreatur diġitali li joħloq programmi, bots, websajts u għodod. Esplora l-gżejjer hawn taħt.",
+        islands_title: "🏝️ Esplora l-gżejjer",
+        footer_text: "Il-gżejjer kollha huma konnessi mill-oċean.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Bot Discord versatili b'moderazzjoni, kmandi divertenti u funzjonijiet utli.", tag: "Discord Bot" },
+            weather: { title: "Temp", desc: "Previżjoni tat-temp f'ħin reali b'viżwalizzazzjonijiet sbieħ.", tag: "App tal-web" },
+            "bg-remove": { title: "Neħħi sfond", desc: "Neħħi l-isfond mill-immaġni istantanjament bl-AI.", tag: "Għodda" },
+            speedtest: { title: "Test tal-veloċità", desc: "Ittestja l-veloċità tal-internet — download, upload u ping.", tag: "App tal-web" },
+            ocr: { title: "OCR", desc: "Estratti test minn immaġni b'rikonoxximent ottiku tal-karattri.", tag: "Għodda" },
+            "anti-virus": { title: "Anti-Virus", desc: "Skennja fajls online għal viruses u malware.", tag: "Sigurtà" }
+        }
+    },
+    "pl": {
+        name: "Polski", flag: "🇵🇱",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Cyfrowy twórca programów, botów, stron internetowych i narzędzi. Poznaj wyspy poniżej.",
+        islands_title: "🏝️ Poznaj wyspy",
+        footer_text: "Wszystkie wyspy łączy ocean.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Wszechstronny bot Discord z moderacją, zabawnymi komendami i przydatnymi funkcjami.", tag: "Bot Discord" },
+            weather: { title: "Pogoda", desc: "Prognoza pogody w czasie rzeczywistym z pięknymi wizualizacjami.", tag: "Aplikacja webowa" },
+            "bg-remove": { title: "Usuwanie tła", desc: "Natychmiast usuń tło ze zdjęć za pomocą AI.", tag: "Narzędzie" },
+            speedtest: { title: "Test prędkości", desc: "Sprawdź prędkość internetu — pobieranie, wysyłanie i ping.", tag: "Aplikacja webowa" },
+            ocr: { title: "OCR", desc: "Wyodrębnij tekst ze zdjęć za pomocą optycznego rozpoznawania znaków.", tag: "Narzędzie" },
+            "anti-virus": { title: "Antywirus", desc: "Skanuj pliki online w poszukiwaniu wirusów i złośliwego oprogramowania.", tag: "Bezpieczeństwo" }
+        }
+    },
+    "pt": {
+        name: "Português", flag: "🇵🇹",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Criador digital de programas, bots, sites e ferramentas. Explore as ilhas abaixo.",
+        islands_title: "🏝️ Explore as ilhas",
+        footer_text: "Todas as ilhas estão conectadas pelo oceano.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Um bot Discord versátil com moderação, comandos divertidos e funções úteis.", tag: "Bot Discord" },
+            weather: { title: "Clima", desc: "Previsão do tempo em tempo real com belas visualizações.", tag: "Aplicação web" },
+            "bg-remove": { title: "Remover fundo", desc: "Remova fundos de imagens instantaneamente com IA.", tag: "Ferramenta" },
+            speedtest: { title: "Teste de velocidade", desc: "Teste a velocidade da internet — download, upload e ping.", tag: "Aplicação web" },
+            ocr: { title: "OCR", desc: "Extraia texto de imagens com reconhecimento ótico de caracteres.", tag: "Ferramenta" },
+            "anti-virus": { title: "Antivírus", desc: "Analise ficheiros online contra vírus e malware.", tag: "Segurança" }
+        }
+    },
+    "ro": {
+        name: "Română", flag: "🇷🇴",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Creator digital de programe, boți, site-uri web și instrumente. Explorează insulele de mai jos.",
+        islands_title: "🏝️ Explorează insulele",
+        footer_text: "Toate insulele sunt conectate de ocean.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Un bot Discord versatil cu moderare, comenzi distractive și funcții utile.", tag: "Bot Discord" },
+            weather: { title: "Vreme", desc: "Prognoză meteo în timp real cu vizualizări frumoase.", tag: "Aplicație web" },
+            "bg-remove": { title: "Eliminare fundal", desc: "Eliminați fundalurile imaginilor instantaneu cu AI.", tag: "Instrument" },
+            speedtest: { title: "Test de viteză", desc: "Testați viteza internetului — descărcare, încărcare și ping.", tag: "Aplicație web" },
+            ocr: { title: "OCR", desc: "Extrageți text din imagini cu recunoaștere optică a caracterelor.", tag: "Instrument" },
+            "anti-virus": { title: "Antivirus", desc: "Scanați fișiere online pentru viruși și malware.", tag: "Securitate" }
+        }
+    },
+    "sk": {
+        name: "Slovenčina", flag: "🇸🇰",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Digitálny tvorca programov, botov, webových stránok a nástrojov. Preskúmajte ostrovy nižšie.",
+        islands_title: "🏝️ Preskúmajte ostrovy",
+        footer_text: "Všetky ostrovy sú prepojené oceánom.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Všestranný Discord bot s moderáciou, zábavnými príkazmi a užitočnými funkciami.", tag: "Discord Bot" },
+            weather: { title: "Počasie", desc: "Predpoveď počasia v reálnom čase s krásnymi vizuálmi.", tag: "Webová aplikácia" },
+            "bg-remove": { title: "Odstránenie pozadia", desc: "Okamžite odstráňte pozadie obrázkov pomocou AI.", tag: "Nástroj" },
+            speedtest: { title: "Test rýchlosti", desc: "Otestujte rýchlosť internetu — sťahovanie, nahrávanie a ping.", tag: "Webová aplikácia" },
+            ocr: { title: "OCR", desc: "Extrakcia textu z obrázkov pomocou optického rozpoznávania znakov.", tag: "Nástroj" },
+            "anti-virus": { title: "Antivírus", desc: "Skenujte súbory online na vírusy a malvér.", tag: "Bezpečnosť" }
+        }
+    },
+    "sl": {
+        name: "Slovenščina", flag: "🇸🇮",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Digitalni ustvarjalec programov, botov, spletnih strani in orodij. Raziščite otoke spodaj.",
+        islands_title: "🏝️ Raziščite otoke",
+        footer_text: "Vsi otoki so povezani z oceanom.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Vsestranski Discord bot z moderacijo, zabavnimi ukazi in uporabnimi funkcijami.", tag: "Discord Bot" },
+            weather: { title: "Vreme", desc: "Napoved vremena v realnem času z lepimi vizualizacijami.", tag: "Spletna aplikacija" },
+            "bg-remove": { title: "Odstranitev ozadja", desc: "Takoj odstranite ozadja slik s pomočjo AI.", tag: "Orodje" },
+            speedtest: { title: "Test hitrosti", desc: "Preizkusite hitrost interneta — prenos, nalaganje in ping.", tag: "Spletna aplikacija" },
+            ocr: { title: "OCR", desc: "Izvlecite besedilo iz slik z optičnim prepoznavanjem znakov.", tag: "Orodje" },
+            "anti-virus": { title: "Protivirusni program", desc: "Preglejte datoteke na spletu za viruse in zlonamerno programsko opremo.", tag: "Varnost" }
+        }
+    },
+    "es": {
+        name: "Español", flag: "🇪🇸",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Creador digital de programas, bots, sitios web y herramientas. Explora las islas a continuación.",
+        islands_title: "🏝️ Explora las islas",
+        footer_text: "Todas las islas están conectadas por el océano.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "Un bot de Discord versátil con moderación, comandos divertidos y funciones útiles.", tag: "Bot de Discord" },
+            weather: { title: "Clima", desc: "Pronóstico del tiempo en tiempo real con hermosas visualizaciones.", tag: "App web" },
+            "bg-remove": { title: "Eliminar fondo", desc: "Elimina fondos de imágenes al instante con IA.", tag: "Herramienta" },
+            speedtest: { title: "Test de velocidad", desc: "Prueba tu velocidad de internet — descarga, subida y ping.", tag: "App web" },
+            ocr: { title: "OCR", desc: "Extrae texto de imágenes con reconocimiento óptico de caracteres.", tag: "Herramienta" },
+            "anti-virus": { title: "Antivirus", desc: "Escanea archivos en línea en busca de virus y malware.", tag: "Seguridad" }
+        }
+    },
+    "sv": {
+        name: "Svenska", flag: "🇸🇪",
+        hero_title: "CarapuzLand",
+        hero_subtitle: "Digital skapare av program, botar, webbplatser och verktyg. Utforska öarna nedan.",
+        islands_title: "🏝️ Utforska öarna",
+        footer_text: "Alla öar är förbundna av havet.",
+        cards: {
+            carapuz201G: { title: "Carapuz201G", desc: "En mångsidig Discord-bot med moderering, roliga kommandon och användbara funktioner.", tag: "Discord Bot" },
+            weather: { title: "Väder", desc: "Väderprognoser i realtid med vackra visualiseringar.", tag: "Webbapp" },
+            "bg-remove": { title: "Ta bort bakgrund", desc: "Ta bort bakgrunder från bilder direkt med AI.", tag: "Verktyg" },
+            speedtest: { title: "Hastighetstest", desc: "Testa din internethastighet — nedladdning, uppladdning och ping.", tag: "Webbapp" },
+            ocr: { title: "OCR", desc: "Extrahera text från bilder med optisk teckenigenkänning.", tag: "Verktyg" },
+            "anti-virus": { title: "Antivirus", desc: "Skanna filer online efter virus och skadlig programvara.", tag: "Säkerhet" }
+        }
+    }
+};
+
+/* ================================================================
+   ISLAND CARDS CONFIG
+   ================================================================ */
+const ISLANDS = [
+    { id: "carapuz201G", icon: "🤖", href: "/carapuz201G", accent: "#5865F2", delay: "0s" },
+    { id: "weather", icon: "🌦️", href: "/weather", accent: "#38bdf8", delay: "0.3s" },
+    { id: "bg-remove", icon: "🖼️", href: "/bg-remove", accent: "#a78bfa", delay: "0.6s" },
+    { id: "speedtest", icon: "⚡", href: "/speedtest", accent: "#fbbf24", delay: "0.9s" },
+    { id: "ocr", icon: "📝", href: "/ocr", accent: "#34d399", delay: "1.2s" },
+    { id: "anti-virus", icon: "🛡️", href: "/anti-virus", accent: "#f87171", delay: "1.5s" }
+];
+
+/* ================================================================
+   APP STATE
+   ================================================================ */
+let currentLang = localStorage.getItem('cl-lang') || 'en-gb';
+let currentTheme = localStorage.getItem('cl-theme') || 'dark';
+
+/* ================================================================
+   INITIALIZATION
+   ================================================================ */
+document.addEventListener('DOMContentLoaded', () => {
+    applyTheme(currentTheme);
+    buildLanguageMenu();
+    buildIslandCards();
+    generateStars();
+    generateClouds();
+    generateFloatingIslands();
+    generateParticles();
+    applyLanguage(currentLang);
+    setupEventListeners();
+    setupScrollReveal();
+
+    // Hide loader
+    setTimeout(() => {
+        document.getElementById('pageLoader').classList.add('hidden');
+    }, 1600);
+});
+
+/* ================================================================
+   THEME
+   ================================================================ */
+function applyTheme(theme) {
+    currentTheme = theme;
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('cl-theme', theme);
+    const btn = document.getElementById('themeToggle');
+    btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+
+function toggleTheme() {
+    applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+}
+
+/* ================================================================
+   LANGUAGE
+   ================================================================ */
+function buildLanguageMenu() {
+    const menu = document.getElementById('langMenu');
+    menu.innerHTML = '';
+    const keys = Object.keys(TRANSLATIONS);
+    keys.sort((a, b) => TRANSLATIONS[a].name.localeCompare(TRANSLATIONS[b].name));
+
+    keys.forEach(code => {
+        const lang = TRANSLATIONS[code];
+        const opt = document.createElement('div');
+        opt.className = 'lang-option' + (code === currentLang ? ' active' : '');
+        opt.innerHTML = `<span class="flag">${lang.flag}</span><span>${lang.name}</span>`;
+        opt.addEventListener('click', () => {
+            applyLanguage(code);
+            closeLangMenu();
+        });
+        menu.appendChild(opt);
+    });
+}
+
+function applyLanguage(code) {
+    if (!TRANSLATIONS[code]) code = 'en-gb';
+    currentLang = code;
+    localStorage.setItem('cl-lang', code);
+    const t = TRANSLATIONS[code];
+
+    // Update header
+    document.getElementById('currentFlag').textContent = t.flag;
+    document.getElementById('currentLang').textContent = t.name;
+
+    // Update static i18n elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) el.textContent = t[key];
+    });
+
+    // Update cards
+    document.querySelectorAll('.island-card').forEach(card => {
+        const id = card.getAttribute('data-island');
+        if (t.cards && t.cards[id]) {
+            card.querySelector('.card-title').textContent = t.cards[id].title;
+            card.querySelector('.card-desc').textContent = t.cards[id].desc;
+            card.querySelector('.card-tag').textContent = t.cards[id].tag;
+        }
+    });
+
+    // Update active state in menu
+    document.querySelectorAll('.lang-option').forEach(opt => {
+        opt.classList.remove('active');
+    });
+    const keys = Object.keys(TRANSLATIONS);
+    keys.sort((a, b) => TRANSLATIONS[a].name.localeCompare(TRANSLATIONS[b].name));
+    const idx = keys.indexOf(code);
+    const options = document.querySelectorAll('.lang-option');
+    if (options[idx]) options[idx].classList.add('active');
+
+    // Set html lang attribute
+    document.documentElement.lang = code;
+}
+
+function toggleLangMenu() {
+    const menu = document.getElementById('langMenu');
+    const btn = document.getElementById('langBtn');
+    const isOpen = menu.classList.contains('show');
+    if (isOpen) {
+        closeLangMenu();
+    } else {
+        menu.classList.add('show');
+        btn.classList.add('open');
+    }
+}
+
+function closeLangMenu() {
+    document.getElementById('langMenu').classList.remove('show');
+    document.getElementById('langBtn').classList.remove('open');
+}
+
+/* ================================================================
+   ISLAND CARDS
+   ================================================================ */
+function buildIslandCards() {
+    const grid = document.getElementById('islandsGrid');
+    grid.innerHTML = '';
+    ISLANDS.forEach((island, i) => {
+        const card = document.createElement('a');
+        card.className = 'island-card reveal';
+        card.setAttribute('data-island', island.id);
+        card.href = island.href;
+        card.style.setProperty('--card-accent', island.accent);
+        card.style.transitionDelay = `${i * 0.1}s`;
+
+        card.innerHTML = `
+            <span class="card-icon" style="--delay:${island.delay}">${island.icon}</span>
+            <div class="card-title">${island.id}</div>
+            <div class="card-desc">...</div>
+            <span class="card-tag">...</span>
+            <div class="island-card-wave">
+                <svg viewBox="0 0 500 50" preserveAspectRatio="none">
+                    <path d="M0,25 C125,45 375,5 500,25 L500,50 L0,50 Z" fill="${island.accent}" opacity="0.15"/>
+                </svg>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+/* ================================================================
+   VISUAL EFFECTS
+   ================================================================ */
+function generateStars() {
+    const container = document.getElementById('starsContainer');
+    for (let i = 0; i < 120; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.setProperty('--duration', (2 + Math.random() * 4) + 's');
+        star.style.setProperty('--max-opacity', (0.3 + Math.random() * 0.7));
+        star.style.animationDelay = Math.random() * 5 + 's';
+        star.style.width = (1 + Math.random() * 2) + 'px';
+        star.style.height = star.style.width;
+        container.appendChild(star);
+    }
+}
+
+function generateClouds() {
+    const container = document.getElementById('cloudsContainer');
+    for (let i = 0; i < 6; i++) {
+        const cloud = document.createElement('div');
+        cloud.className = 'cloud';
+        const size = 80 + Math.random() * 200;
+        cloud.style.width = size + 'px';
+        cloud.style.height = (size * 0.4) + 'px';
+        cloud.style.top = (Math.random() * 80) + '%';
+        cloud.style.left = '-200px';
+        cloud.style.animationDuration = (30 + Math.random() * 40) + 's';
+        cloud.style.animationDelay = (Math.random() * 30) + 's';
+        cloud.style.opacity = 0.3 + Math.random() * 0.5;
+        container.appendChild(cloud);
+    }
+}
+
+function generateFloatingIslands() {
+    const container = document.getElementById('floatingIslands');
+    const emojis = ['🏝️', '🏝️', '🌊', '🏝️', '⛵', '🏝️', '🐚', '🏝️', '🌴', '🏝️', '🐠', '🏝️'];
+    for (let i = 0; i < 18; i++) {
+        const island = document.createElement('div');
+        island.className = 'mini-island';
+        island.textContent = emojis[i % emojis.length];
+        island.style.left = (Math.random() * 95) + '%';
+        island.style.top = (15 + Math.random() * 75) + '%';
+        island.style.setProperty('--size', (0.8 + Math.random() * 1.5) + 'rem');
+        island.style.setProperty('--opacity', (0.08 + Math.random() * 0.2));
+        island.style.setProperty('--speed', (15 + Math.random() * 30) + 's');
+        island.style.setProperty('--blur', Math.random() > 0.5 ? '1px' : '0px');
+        island.style.setProperty('--dx1', (Math.random() * 60 - 30) + 'px');
+        island.style.setProperty('--dy1', (Math.random() * 40 - 20) + 'px');
+        island.style.setProperty('--dx2', (Math.random() * 60 - 30) + 'px');
+        island.style.setProperty('--dy2', (Math.random() * 40 - 20) + 'px');
+        island.style.setProperty('--dx3', (Math.random() * 60 - 30) + 'px');
+        island.style.setProperty('--dy3', (Math.random() * 40 - 20) + 'px');
+        island.style.animationDelay = (Math.random() * 10) + 's';
+        container.appendChild(island);
+    }
+}
+
+function generateParticles() {
+    const container = document.getElementById('particlesContainer');
+    for (let i = 0; i < 25; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = (Math.random() * 100) + '%';
+        particle.style.bottom = (Math.random() * 30) + '%';
+        particle.style.setProperty('--speed', (3 + Math.random() * 5) + 's');
+        particle.style.animationDelay = (Math.random() * 6) + 's';
+        particle.style.width = (2 + Math.random() * 4) + 'px';
+        particle.style.height = particle.style.width;
+        container.appendChild(particle);
+    }
+}
+
+/* ================================================================
+   SCROLL REVEAL
+   ================================================================ */
+function setupScrollReveal() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+/* ================================================================
+   EVENT LISTENERS
+   ================================================================ */
+function setupEventListeners() {
+    // Theme toggle
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+    // Language dropdown
+    document.getElementById('langBtn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleLangMenu();
+    });
+
+    // Close dropdown on outside click
+    document.addEventListener('click', (e) => {
+        if (!document.getElementById('langDropdown').contains(e.target)) {
+            closeLangMenu();
+        }
+    });
+
+    // Ripple effect on click
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.header') || e.target.closest('.lang-menu')) return;
+        const ripple = document.createElement('div');
+        ripple.className = 'ripple';
+        ripple.style.left = e.clientX + 'px';
+        ripple.style.top = e.clientY + 'px';
+        document.body.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 800);
+    });
+
+    // Keyboard: Escape closes dropdown
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLangMenu();
+    });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "site": {
+    "title": "Carapuz201G - Discord Bot"
+  },
+  "nav": {
+    "about": "Maidir",
+    "features": "Gnéithe",
+    "commands": "Orduithe",
+    "privacy": "Beartas Príobháideachta",
+    "tos": "Téarmaí Seirbhíse",
+    "support": "Tacaíocht",
+    "status": "Stádas",
+    "add_bot": "Cuir Bot leis",
+    "support_server": "Freastalaí Tacaíochta"
+  },
+  "hero": {
+    "title": "Carapuz201G",
+    "subtitle": "Bot Discord ilchuspóireach le haghaidh modhnóireacht, geilleagar, fóntais, fíorú agus gnéithe gutha.",
+    "description": "Is tionscadal bot Discord neamhspleách é Carapuz201G a cruthaíodh chun cabhrú le pobail Discord le modhnóireacht, uathoibriú, córais gheilleagair, uirlisí tacaíochta, agus gnéithe roghnacha AI arna óstáil go háitiúil.",
+    "add_bot": "Cuir le Discord",
+    "join_support": "Cláraigh le Freastalaí Tacaíochta",
+    "official": "Naisc oifigiúla tionscadail: carapuzland.github.io • discord.gg/pBh4rRK3TT"
+  },
+  "status": {
+    "section_title": "Stádas Bot",
+    "section_subtitle": "Faisnéis stádais bot beo nó cúltaca",
+    "bot_status": "Stádas Bot",
+    "guilds": "Guilds",
+    "users": "Úsáideoirí",
+    "latency": "Lagacht",
+    "uptime": "Aga fónaimh",
+    "version": "Leagan"
+  },
+  "footer": {
+    "rights": "Gach ceart ar cosaint.",
+    "operated": "Arna oibriú ag Carapuz201"
+  }
+}

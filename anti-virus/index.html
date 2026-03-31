@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🛡️ Safe File Scanner</title>
+<style>
+:root{--bg:#111827;--card:#1f2937;--pri:#10b981;--tx:#f3f4f6;--bor:#374151}
+[data-theme="light"]{--bg:#f0f4f8;--card:#fff;--tx:#1e293b;--bor:#e2e8f0}
+body{font-family:sans-serif;background:var(--bg);color:var(--tx);text-align:center;padding:2rem;transition:.3s}
+.card{background:var(--card);max-width:600px;margin:0 auto;padding:2rem;border-radius:12px;border:1px solid var(--bor);box-shadow:0 8px 30px rgba(0,0,0,.1)}
+.drop{border:3px dashed var(--bor);padding:3rem;border-radius:12px;margin:1.5rem 0;cursor:pointer;position:relative;background:rgba(128,128,128,.1);transition:.3s}
+.drop:hover{border-color:var(--pri)}
+.drop input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+.prog{height:10px;background:var(--bor);border-radius:5px;margin-top:1rem;display:none;overflow:hidden}
+.fill{height:100%;background:var(--pri);width:0%;transition:width .1s}
+.res{margin-top:1.5rem;padding:1rem;background:rgba(0,0,0,.2);border-radius:8px;word-break:break-all;display:none}
+.btn{display:inline-block;margin-top:1rem;padding:.8rem 1.5rem;background:var(--pri);color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(16,185,129,.4)}
+.theme-btn{position:absolute;top:1rem;right:1rem;background:transparent;border:1px solid var(--bor);color:var(--tx);padding:.5rem;border-radius:8px;cursor:pointer}
+</style>
+</head>
+<body>
+<button class="theme-btn" onclick="document.documentElement.setAttribute('data-theme',document.documentElement.getAttribute('data-theme')==='light'?'':'light')">🌓 Theme</button>
+<div class="card">
+    <h1>🛡️ Secure Hash Scanner</h1>
+    <p style="color:#9ca3af;font-size:0.9rem;margin-top:.5rem">
+        Browsers can't hold AV databases. We generate a SHA-256 fingerprint of your file <b>offline</b> and check it against VirusTotal's database of 70+ antiviruses.
+    </p>
+
+    <div class="drop">
+        <h2 style="margin-bottom:.5rem">📄 Drop file here</h2>
+        <p style="color:#9ca3af">File NEVER leaves your device</p>
+        <input type="file" id="fi">
+    </div>
+
+    <div class="prog" id="prog"><div class="fill" id="fill"></div></div>
+    <div id="stat" style="margin-top:.5rem;color:#9ca3af;font-weight:bold"></div>
+
+    <div class="res" id="res">
+        <div style="color:#9ca3af;font-size:.8rem;margin-bottom:.5rem">SHA-256 Hash:</div>
+        <div id="hashOut" style="font-family:monospace;color:var(--pri);font-size:1.1rem"></div>
+        <a id="vtBtn" class="btn" href="#" target="_blank">🔍 Check on VirusTotal</a>
+    </div>
+</div>
+
+<script>
+const fi=document.getElementById('fi'), fill=document.getElementById('fill'),
+      prog=document.getElementById('prog'), stat=document.getElementById('stat'),
+      res=document.getElementById('res'), hashOut=document.getElementById('hashOut'),
+      vtBtn=document.getElementById('vtBtn');
+
+fi.addEventListener('change', async(e)=>{
+    const file=e.target.files[0]; if(!file)return;
+    prog.style.display='block'; res.style.display='none'; fill.style.width='0%';
+    stat.textContent='Reading file...';
+
+    // Читаем файл как ArrayBuffer. Для браузера безопасный лимит около 500MB - 1GB
+    if(file.size > 500*1024*1024) {
+        stat.textContent='⚠️ File too large for browser memory (Max ~500MB).';
+        return;
+    }
+
+    const reader=new FileReader();
+    reader.onload=async(ev)=>{
+        stat.textContent='Calculating SHA-256...';
+        fill.style.width='50%';
+        try{
+            // Web Crypto API вычисляет хеш молниеносно
+            const hashBuffer=await crypto.subtle.digest('SHA-256', ev.target.result);
+            const hashArr=Array.from(new Uint8Array(hashBuffer));
+            const hashHex=hashArr.map(b=>b.toString(16).padStart(2,'0')).join('');
+
+            fill.style.width='100%';
+            stat.textContent='✅ Done!';
+            hashOut.textContent=hashHex;
+            vtBtn.href=`https://www.virustotal.com/gui/file/${hashHex}`;
+            res.style.display='block';
+        }catch(err){stat.textContent='❌ Error: '+err.message;}
+    };
+    reader.onprogress=(ev)=>{if(ev.lengthComputable) fill.style.width=(ev.loaded/ev.total*50)+'%';};
+    reader.readAsArrayBuffer(file);
+});
+</script>
+</body>
+</html>

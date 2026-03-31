@@ -1,0 +1,38 @@
+{
+  "site": {
+    "title": "Carapuz201G – „Discord Bot“."
+  },
+  "nav": {
+    "about": "Apie",
+    "features": "Savybės",
+    "commands": "Komandos",
+    "privacy": "Privatumo politika",
+    "tos": "Paslaugų teikimo sąlygos",
+    "support": "Palaikymas",
+    "status": "Būsena",
+    "add_bot": "Pridėti Botą",
+    "support_server": "Palaikymo serveris"
+  },
+  "hero": {
+    "title": "Carapuz201G",
+    "subtitle": "Daugiafunkcis „Discord“ robotas, skirtas moderavimui, ekonomiškumui, naudingumui, tikrinimui ir balso funkcijoms.",
+    "description": "„Carapuz201G“ yra nepriklausomas „Discord“ roboto projektas, sukurtas siekiant padėti „Discord“ bendruomenėms su moderavimu, automatizavimu, ekonomiškomis sistemomis, palaikymo įrankiais ir pasirenkamomis vietoje priglobtomis AI funkcijomis.",
+    "add_bot": "Pridėti prie Discord",
+    "join_support": "Prisijunkite prie palaikymo serverio",
+    "official": "Oficialios projekto nuorodos: carapuzland.github.io • discord.gg/pBh4rRK3TT"
+  },
+  "status": {
+    "section_title": "Boto būsena",
+    "section_subtitle": "Tiesioginė arba atsarginė roboto būsenos informacija",
+    "bot_status": "Boto būsena",
+    "guilds": "Gildijos",
+    "users": "Vartotojai",
+    "latency": "Latencija",
+    "uptime": "Veiklos laikas",
+    "version": "Versija"
+  },
+  "footer": {
+    "rights": "Visos teisės saugomos.",
+    "operated": "Valdo carapuz201"
+  }
+}

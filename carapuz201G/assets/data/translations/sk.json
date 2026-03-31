@@ -1,0 +1,38 @@
+{
+  "site": {
+    "title": "Carapuz201G — Discord Bot"
+  },
+  "nav": {
+    "about": "O",
+    "features": "Vlastnosti",
+    "commands": "Príkazy",
+    "privacy": "Zásady ochrany osobných údajov",
+    "tos": "Zmluvné podmienky",
+    "support": "Podpora",
+    "status": "Stav",
+    "add_bot": "Pridať robota",
+    "support_server": "Server podpory"
+  },
+  "hero": {
+    "title": "Carapuz201G",
+    "subtitle": "Viacúčelový robot Discord pre moderovanie, hospodárnosť, užitočnosť, overovanie a hlasové funkcie.",
+    "description": "Carapuz201G je nezávislý projekt robotov Discord vytvorený s cieľom pomôcť komunitám Discord s moderovaním, automatizáciou, ekonomickými systémami, podpornými nástrojmi a voliteľnými lokálne hostenými funkciami AI.",
+    "add_bot": "Pridať do Discordu",
+    "join_support": "Pripojte sa k serveru podpory",
+    "official": "Oficiálne odkazy na projekt: carapuzland.github.io • discord.gg/pBh4rRK3TT"
+  },
+  "status": {
+    "section_title": "Stav robota",
+    "section_subtitle": "Informácie o stave živého alebo záložného robota",
+    "bot_status": "Stav robota",
+    "guilds": "cechy",
+    "users": "Používatelia",
+    "latency": "Latencia",
+    "uptime": "Uptime",
+    "version": "Verzia"
+  },
+  "footer": {
+    "rights": "Všetky práva vyhradené.",
+    "operated": "Prevádzkuje carapuz201"
+  }
+}

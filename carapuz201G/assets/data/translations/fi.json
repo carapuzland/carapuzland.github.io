@@ -1,0 +1,38 @@
+{
+  "site": {
+    "title": "Carapuz201G — Discord Bot"
+  },
+  "nav": {
+    "about": "Noin",
+    "features": "Ominaisuudet",
+    "commands": "komennot",
+    "privacy": "Tietosuojakäytäntö",
+    "tos": "Palveluehdot",
+    "support": "Tukea",
+    "status": "Status",
+    "add_bot": "Lisää Bot",
+    "support_server": "Tukipalvelin"
+  },
+  "hero": {
+    "title": "Carapuz201G",
+    "subtitle": "Monikäyttöinen Discord-botti moderointiin, taloudellisuuteen, hyödyllisyyteen, vahvistukseen ja puheominaisuuksiin.",
+    "description": "Carapuz201G on itsenäinen Discord-bottiprojekti, joka on luotu auttamaan Discord-yhteisöjä moderoinnin, automaation, taloudellisten järjestelmien, tukityökalujen ja valinnaisten paikallisesti isännöityjen tekoälyominaisuuksien avulla.",
+    "add_bot": "Lisää Discordiin",
+    "join_support": "Liity tukipalvelimeen",
+    "official": "Viralliset projektilinkit: carapuzland.github.io • discord.gg/pBh4rRK3TT"
+  },
+  "status": {
+    "section_title": "Botin tila",
+    "section_subtitle": "Live- tai varabotin tilatiedot",
+    "bot_status": "Botin tila",
+    "guilds": "Kiltoja",
+    "users": "Käyttäjät",
+    "latency": "Latenssi",
+    "uptime": "Päällä",
+    "version": "Versio"
+  },
+  "footer": {
+    "rights": "Kaikki oikeudet pidätetään.",
+    "operated": "Operaattori carapuz201"
+  }
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📝 OCR Image to Text</title>
+<style>
+:root{--bg:#f0f4f8;--card:#fff;--pri:#7c3aed;--tx:#1e293b;--bor:#e2e8f0;--hov:#f8fafc}
+[data-theme="dark"]{--bg:#0f172a;--card:#1e293b;--tx:#f1f5f9;--bor:#334155;--hov:#334155}
+body{font-family:sans-serif;background:var(--bg);color:var(--tx);margin:0;transition:.3s}
+.hdr{background:linear-gradient(135deg,#4c1d95,#7c3aed);color:#fff;padding:1.5rem;text-align:center;position:relative}
+.hdr-btns{position:absolute;top:1rem;right:1rem;display:flex;gap:.5rem}
+.hdr-btns button, .hdr-btns select{background:rgba(0,0,0,.2);color:#fff;border:none;border-radius:8px;padding:.5rem;cursor:pointer}
+.wrap{max-width:800px;margin:2rem auto;padding:0 1rem}
+.card{background:var(--card);padding:1.5rem;border-radius:16px;border:1px solid var(--bor);box-shadow:0 8px 30px rgba(0,0,0,.1)}
+.drop{border:3px dashed var(--bor);padding:3rem 1rem;text-align:center;border-radius:12px;cursor:pointer;position:relative;background:var(--hov);transition:.3s}
+.drop:hover{border-color:var(--pri)}
+.drop input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+textarea{width:100%;min-height:250px;padding:1rem;border:2px solid var(--bor);border-radius:8px;background:var(--hov);color:var(--tx);font-size:1rem;margin-top:1rem;resize:vertical;font-family:inherit}
+textarea:focus{outline:none;border-color:var(--pri)}
+.btn{display:block;width:100%;padding:1rem;background:var(--pri);color:#fff;border:none;border-radius:8px;font-size:1.1rem;font-weight:bold;cursor:pointer;margin-top:1rem;transition:.2s}
+.btn:hover{opacity:.9;transform:translateY(-1px)}
+#prog{height:6px;background:var(--bor);margin-top:1rem;border-radius:3px;display:none;overflow:hidden}
+#fill{height:100%;background:var(--pri);width:0%;transition:.2s}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+</head>
+<body>
+<div class="hdr">
+  <div class="hdr-btns">
+    <button onclick="document.documentElement.setAttribute('data-theme',document.documentElement.getAttribute('data-theme')==='dark'?'':'dark');localStorage.setItem('ocrTheme',document.documentElement.getAttribute('data-theme'))">🌓</button>
+  </div>
+  <h1>📝 Image to Text (OCR)</h1>
+</div>
+<div class="wrap">
+  <div class="card">
+    <label style="font-weight:bold;display:block;margin-bottom:.5rem">Select Text Language:</label>
+    <select id="langSel" style="padding:.8rem;border-radius:8px;border:1px solid var(--bor);background:var(--hov);color:var(--tx);width:100%;margin-bottom:1rem;font-size:1rem" onchange="localStorage.setItem('ocrLang',this.value)">
+      <option value="eng">🇬🇧 English</option>
+      <option value="ukr">🇺🇦 Ukrainian</option>
+      <option value="rus">🇷🇺 Russian</option>
+      <option value="deu">🇩🇪 German</option>
+      <option value="fra">🇫🇷 French</option>
+      <option value="spa">🇪🇸 Spanish</option>
+      <option value="pol">🇵🇱 Polish</option>
+    </select>
+
+    <div class="drop" id="drop">
+      <h2 style="margin-bottom:.5rem">📸 Drop image here or click</h2>
+      <p style="color:var(--tx3)">Supports Paste (Ctrl+V)</p>
+      <input type="file" id="fi" accept="image/*">
+    </div>
+
+    <div id="prog"><div id="fill"></div></div>
+    <div id="stat" style="text-align:center;margin-top:.5rem;font-size:.85rem;color:var(--tx3);font-weight:bold"></div>
+
+    <textarea id="out" placeholder="Extracted text will appear here..."></textarea>
+    <button class="btn" onclick="copy()">📋 Copy Text</button>
+  </div>
+</div>
+
+<script>
+if(localStorage.getItem('ocrTheme')==='dark') document.documentElement.setAttribute('data-theme','dark');
+if(localStorage.getItem('ocrLang')) document.getElementById('langSel').value=localStorage.getItem('ocrLang');
+
+const fi=document.getElementById('fi'), out=document.getElementById('out'), stat=document.getElementById('stat'), prog=document.getElementById('prog'), fill=document.getElementById('fill');
+
+document.addEventListener('paste',e=>{
+  const items=e.clipboardData.items;
+  for(let i=0;i<items.length;i++){if(items[i].type.startsWith('image/')) runOCR(items[i].getAsFile());}
+});
+
+fi.onchange=e=>{if(e.target.files[0]) runOCR(e.target.files[0])};
+
+async function runOCR(file){
+  prog.style.display='block'; fill.style.width='0%'; out.value='';
+  const lang=document.getElementById('langSel').value;
+  try{
+    const worker = await Tesseract.createWorker(lang, 1, {
+      logger: m => {
+        stat.textContent = m.status;
+        if(m.status==='recognizing text') fill.style.width=(m.progress*100)+'%';
+      }
+    });
+    const {data} = await worker.recognize(file);
+    await worker.terminate();
+    out.value = data.text;
+    stat.textContent='✅ Done!';
+  }catch(e){stat.textContent='❌ Error: '+e.message;}
+}
+
+function copy(){navigator.clipboard.writeText(out.value); alert('Copied to clipboard!');}
+</script>
+</body>
+</html>

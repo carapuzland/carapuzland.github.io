@@ -1,0 +1,38 @@
+{
+  "site": {
+    "title": "Carapuz201G — Discord bot"
+  },
+  "nav": {
+    "about": "Oko",
+    "features": "Značajke",
+    "commands": "Naredbe",
+    "privacy": "Politika privatnosti",
+    "tos": "Uvjeti usluge",
+    "support": "podrška",
+    "status": "Status",
+    "add_bot": "Dodaj Bot",
+    "support_server": "Poslužitelj za podršku"
+  },
+  "hero": {
+    "title": "Carapuz201G",
+    "subtitle": "Višenamjenski Discord bot za moderiranje, ekonomičnost, korisnost, verifikaciju i glasovne značajke.",
+    "description": "Carapuz201G je neovisni Discord bot projekt stvoren da pomogne Discord zajednicama s moderiranjem, automatizacijom, ekonomskim sustavima, alatima za podršku i izbornim lokalno hostiranim AI značajkama.",
+    "add_bot": "Dodaj u Discord",
+    "join_support": "Pridružite se poslužitelju za podršku",
+    "official": "Službene veze projekta: carapuzland.github.io • discord.gg/pBh4rRK3TT"
+  },
+  "status": {
+    "section_title": "Status bota",
+    "section_subtitle": "Informacije o statusu aktivnog ili rezervnog bota",
+    "bot_status": "Status bota",
+    "guilds": "Cehovi",
+    "users": "Korisnici",
+    "latency": "Latencija",
+    "uptime": "Vrijeme rada",
+    "version": "Verzija"
+  },
+  "footer": {
+    "rights": "Sva prava pridržana.",
+    "operated": "Upravlja carapuz201"
+  }
+}

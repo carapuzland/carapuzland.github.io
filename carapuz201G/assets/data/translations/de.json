@@ -1,0 +1,38 @@
+{
+  "site": {
+    "title": "Carapuz201G — Discord Bot"
+  },
+  "nav": {
+    "about": "Um",
+    "features": "Merkmale",
+    "commands": "Befehle",
+    "privacy": "Datenschutzrichtlinie",
+    "tos": "Nutzungsbedingungen",
+    "support": "Unterstützung",
+    "status": "Status",
+    "add_bot": "Bot hinzufügen",
+    "support_server": "Support-Server"
+  },
+  "hero": {
+    "title": "Carapuz201G",
+    "subtitle": "Ein vielseitiger Discord-Bot für Moderation, Wirtschaftlichkeit, Nutzen, Verifizierung und Sprachfunktionen.",
+    "description": "Carapuz201G ist ein unabhängiges Discord-Bot-Projekt, das erstellt wurde, um Discord-Communitys mit Moderation, Automatisierung, Wirtschaftssystemen, Support-Tools und optionalen lokal gehosteten KI-Funktionen zu unterstützen.",
+    "add_bot": "Zu Discord hinzufügen",
+    "join_support": "Treten Sie dem Support-Server bei",
+    "official": "Offizielle Projektlinks: carapuzland.github.io • discord.gg/pBh4rRK3TT"
+  },
+  "status": {
+    "section_title": "Bot-Status",
+    "section_subtitle": "Live- oder Fallback-Bot-Statusinformationen",
+    "bot_status": "Bot-Status",
+    "guilds": "Gilden",
+    "users": "Benutzer",
+    "latency": "Latenz",
+    "uptime": "Betriebszeit",
+    "version": "Version"
+  },
+  "footer": {
+    "rights": "Alle Rechte vorbehalten.",
+    "operated": "Betrieben von carapuz201"
+  }
+}

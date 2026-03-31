@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✂️ AI BG Remover</title>
+<style>
+:root{--bg:#f0f4f8;--card:#fff;--pri:#ec4899;--tx:#1e293b;--bor:#e2e8f0;--r:16px}
+[data-theme="dark"]{--bg:#0f172a;--card:#1e293b;--tx:#f1f5f9;--bor:#334155}
+body{font-family:sans-serif;background:var(--bg);color:var(--tx);margin:0;transition:.3s}
+.hdr{background:linear-gradient(135deg,#4c1d95,#ec4899);color:#fff;padding:1.5rem;text-align:center;position:relative}
+.hdr-btns{position:absolute;top:1rem;right:1rem;display:flex;gap:.5rem}
+.hdr-btns select,.hdr-btns button{background:rgba(0,0,0,.2);color:#fff;border:none;border-radius:8px;padding:.5rem;cursor:pointer}
+.wrap{max-width:900px;margin:2rem auto;padding:0 1rem}
+.drop{border:3px dashed var(--bor);padding:3rem 1rem;text-align:center;border-radius:var(--r);background:var(--card);cursor:pointer;position:relative}
+.drop input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+.editor{display:none;background:var(--card);padding:1.5rem;border-radius:var(--r);text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.1)}
+.canvas-wrap{background-image:linear-gradient(45deg,#ccc 25%,transparent 25%),linear-gradient(-45deg,#ccc 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#ccc 75%),linear-gradient(-45deg,transparent 75%,#ccc 75%);background-size:20px 20px;background-position:0 0,0 10px,10px -10px,-10px 0;display:inline-block;border-radius:8px;border:1px solid var(--bor);overflow:hidden}
+canvas{max-width:100%;display:block;cursor:crosshair}
+.tools{display:flex;gap:1rem;justify-content:center;margin:1rem 0;flex-wrap:wrap;align-items:center}
+.btn{padding:.8rem 1.5rem;background:var(--pri);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:bold;transition:.2s}
+.btn.active{box-shadow:0 0 0 3px var(--tx)}
+.btn.out{background:transparent;border:2px solid var(--bor);color:var(--tx)}
+#prog{height:8px;background:var(--bor);border-radius:4px;margin-top:1rem;overflow:hidden;display:none}
+#fill{height:100%;background:var(--pri);width:0%}
+</style>
+<script type="module">
+  import imglyRemoveBackground from "https://unpkg.com/@imgly/background-removal@1.4.3/dist/browser/esm/index.js";
+  window.imglyRemoveBackground = imglyRemoveBackground;
+</script>
+</head>
+<body>
+<div class="hdr">
+  <div class="hdr-btns">
+    <select id="langSel" onchange="chLang(this.value)"><option value="en">EN</option><option value="uk">UK</option><option value="ru">RU</option></select>
+    <button onclick="document.documentElement.setAttribute('data-theme',document.documentElement.getAttribute('data-theme')==='dark'?'':'dark');localStorage.setItem('bgTheme',document.documentElement.getAttribute('data-theme'))">🌓</button>
+  </div>
+  <h1 id="tTitle">✂️ AI Background Remover</h1>
+</div>
+
+<div class="wrap">
+  <div class="drop" id="dropZ">
+    <h2 id="tDrop">Drop image here or click</h2>
+    <p id="tSub">100% Free · Runs locally in browser</p>
+    <input type="file" id="fi" accept="image/*">
+  </div>
+
+  <div id="loader" style="display:none;text-align:center;margin:2rem">
+    <h2 id="tLoad">Loading AI...</h2>
+    <div id="prog"><div id="fill"></div></div>
+  </div>
+
+  <div class="editor" id="editor">
+    <h3 id="tEdit">Draw to edit mask</h3>
+    <div class="tools">
+      <button class="btn active" id="bErase" onclick="setMode('erase')">🔴 Erase</button>
+      <button class="btn out" id="bRestore" onclick="setMode('restore')">🟢 Restore</button>
+      <label>Size: <input type="range" id="brushSize" min="5" max="100" value="30"></label>
+    </div>
+    <div class="canvas-wrap"><canvas id="cvs"></canvas></div>
+    <div class="tools">
+      <button class="btn" id="bSave" onclick="download()">💾 Download PNG</button>
+      <button class="btn out" onclick="location.reload()">🔄 New Image</button>
+    </div>
+  </div>
+</div>
+
+<script>
+if(localStorage.getItem('bgTheme')==='dark') document.documentElement.setAttribute('data-theme','dark');
+const TR={
+  en:{title:'✂️ AI BG Remover',drop:'Drop image here',sub:'Runs locally in browser',load:'Processing...',erase:'🔴 Erase',restore:'🟢 Restore',save:'💾 Download PNG',edit:'Draw to edit mask'},
+  uk:{title:'✂️ Видалення фону',drop:'Киньте фото сюди',sub:'Працює локально в браузері',load:'Обробка...',erase:'🔴 Стерти',restore:'🟢 Відновити',save:'💾 Скачати PNG',edit:'Малюйте для редагування'},
+  ru:{title:'✂️ Удаление фона',drop:'Бросьте фото сюда',sub:'Работает локально в браузере',load:'Обработка...',erase:'🔴 Стереть',restore:'🟢 Восстановить',save:'💾 Скачать PNG',edit:'Рисуйте для правки'}
+};
+let lang=localStorage.getItem('bgLang')||'en';
+const $=id=>document.getElementById(id);
+const t=k=>TR[lang][k];
+
+function chLang(l){lang=l;localStorage.setItem('bgLang',l);applyUI()}
+function applyUI(){
+  $('langSel').value=lang; $('tTitle').textContent=t('title'); $('tDrop').textContent=t('drop');
+  $('tSub').textContent=t('sub'); $('tLoad').textContent=t('load'); $('bErase').textContent=t('erase');
+  $('bRestore').textContent=t('restore'); $('bSave').textContent=t('save'); $('tEdit').textContent=t('edit');
+}
+
+let origImg=null, maskImg=null, mode='erase', isDraw=false;
+const cvs=$('cvs'), ctx=cvs.getContext('2d');
+
+$('fi').onchange=async(e)=>{
+  const f=e.target.files[0]; if(!f)return;
+  $('dropZ').style.display='none'; $('loader').style.display='block'; $('prog').style.display='block';
+
+  origImg=new Image(); origImg.src=URL.createObjectURL(f);
+  await new Promise(r=>origImg.onload=r);
+
+  try{
+    const blob = await window.imglyRemoveBackground(f, {
+      publicPath: "https://unpkg.com/@imgly/background-removal@1.4.3/dist/",
+      progress: (k, c, tot) => { if(k.includes('fetch')) $('fill').style.width=(c/tot*100)+'%'; }
+    });
+
+    maskImg=new Image(); maskImg.src=URL.createObjectURL(blob);
+    await new Promise(r=>maskImg.onload=r);
+
+    $('loader').style.display='none'; $('editor').style.display='block';
+    cvs.width=origImg.width; cvs.height=origImg.height;
+    ctx.drawImage(maskImg,0,0);
+  }catch(err){alert('Error: '+err.message); location.reload();}
+};
+
+document.addEventListener('paste', e=>{
+  const items=e.clipboardData.items;
+  for(let i=0;i<items.length;i++){
+    if(items[i].type.startsWith('image/')){
+      const file=items[i].getAsFile();
+      const dt=new DataTransfer(); dt.items.add(file); $('fi').files=dt.files;
+      $('fi').dispatchEvent(new Event('change')); break;
+    }
+  }
+});
+
+function setMode(m){
+  mode=m; $('bErase').className=`btn ${m==='erase'?'active':'out'}`; $('bRestore').className=`btn ${m==='restore'?'active':'out'}`;
+}
+
+function getPos(e){
+  const rect=cvs.getBoundingClientRect(); const scaleX=cvs.width/rect.width; const scaleY=cvs.height/rect.height;
+  return {x:(e.clientX-rect.left)*scaleX, y:(e.clientY-rect.top)*scaleY};
+}
+
+cvs.onmousedown=e=>{isDraw=true; draw(e)};
+cvs.onmousemove=e=>{if(isDraw)draw(e)};
+window.onmouseup=()=>isDraw=false;
+
+function draw(e){
+  const pos=getPos(e); const size=+$('brushSize').value;
+  ctx.beginPath(); ctx.arc(pos.x, pos.y, size, 0, Math.PI*2);
+  if(mode==='erase'){
+    ctx.globalCompositeOperation='destination-out'; ctx.fill();
+  } else {
+    ctx.globalCompositeOperation='source-over'; ctx.save(); ctx.clip(); ctx.drawImage(origImg,0,0); ctx.restore();
+  }
+}
+
+function download(){const a=document.createElement('a');a.download='nobg.png';a.href=cvs.toDataURL('image/png');a.click();}
+applyUI();
+</script>
+</body>
+</html>

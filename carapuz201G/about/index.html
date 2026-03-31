@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-US" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carapuz201G — About</title>
+    <link rel="stylesheet" href="/carapuz201g/assets/css/style.css">
+</head>
+<body>
+
+    <div class="top-badge">
+        <a href="https://carapuzland.github.io" target="_blank" rel="noopener noreferrer">🏝️ carapuzland.github.io</a>
+    </div>
+
+    <nav>
+        <div class="nav-inner">
+            <div class="nav-left nav-links">
+                <a data-nav href="/carapuz201g/" data-i18n="nav.about">About</a>
+                <a data-nav href="/carapuz201g/features/" data-i18n="nav.features">Features</a>
+                <a data-nav href="/carapuz201g/commands/" data-i18n="nav.commands">Commands</a>
+                <a data-nav href="/carapuz201g/privacy-policy/" data-i18n="nav.privacy">Privacy Policy</a>
+                <a data-nav href="/carapuz201g/terms-of-service/" data-i18n="nav.tos">Terms of Service</a>
+                <a data-nav href="/carapuz201g/support/" data-i18n="nav.support">Support</a>
+                <a data-nav href="/carapuz201g/status/" data-i18n="nav.status">Status</a>
+            </div>
+
+            <div class="nav-right">
+                <select id="languageSelect" class="select">
+                    <option value="en-US">English (US)</option>
+                    <option value="en-GB">English (UK)</option>
+                    <option value="ru">Русский</option>
+                    <option value="uk">Українська</option>
+                    <option value="bg">Български</option>
+                    <option value="hr">Hrvatski</option>
+                    <option value="cs">Čeština</option>
+                    <option value="da">Dansk</option>
+                    <option value="nl">Nederlands</option>
+                    <option value="et">Eesti</option>
+                    <option value="fi">Suomi</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                    <option value="el">Ελληνικά</option>
+                    <option value="hu">Magyar</option>
+                    <option value="ga">Gaeilge</option>
+                    <option value="it">Italiano</option>
+                    <option value="lv">Latviešu</option>
+                    <option value="lt">Lietuvių</option>
+                    <option value="mt">Malti</option>
+                    <option value="pl">Polski</option>
+                    <option value="pt">Português</option>
+                    <option value="ro">Română</option>
+                    <option value="sk">Slovenčina</option>
+                    <option value="sl">Slovenščina</option>
+                    <option value="es">Español</option>
+                    <option value="sv">Svenska</option>
+                </select>
+
+                <button id="themeToggle" class="theme-toggle">🌙 Dark</button>
+
+                <a class="nav-btn success" href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer" data-i18n="nav.support_server">Support Server</a>
+                <a class="nav-btn primary" href="https://discord.com/oauth2/authorize?client_id=1372950477477777548&permissions=8&integration_type=0&scope=bot%20applications.commands" target="_blank" rel="noopener noreferrer" data-i18n="nav.add_bot">Add Bot</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="page-header">
+            <h1>About Carapuz201G</h1>
+            <p>Project overview, architecture, storage and feature philosophy</p>
+        </div>
+
+        <section class="page-section">
+            <h2>What is Carapuz201G?</h2>
+            <p>
+                Carapuz201G is a large multi-purpose Discord bot focused on combining server administration,
+                moderation, utility tools, economy systems, verification, profile tools, reminders, giveaways,
+                voice features and optional local AI features into a single bot.
+            </p>
+            <p>
+                The bot is developed and maintained as an independent project by a single developer.
+                It is intended for practical use in Discord communities rather than as a simple demonstration bot.
+            </p>
+        </section>
+
+        <section class="page-section">
+            <h2>How the Bot Works</h2>
+            <p>
+                The bot runs as a long-living Discord application process and reacts to:
+            </p>
+            <ul>
+                <li>slash commands,</li>
+                <li>text prefix commands,</li>
+                <li>message events,</li>
+                <li>voice state changes,</li>
+                <li>scheduled background loops such as reminders, backups, temp role checks and giveaway checks.</li>
+            </ul>
+            <p>
+                It stores configuration and internal state in encrypted local files and uses runtime memory
+                for temporary data, queues, and active session state.
+            </p>
+        </section>
+
+        <section class="page-section">
+            <h2>Project Architecture</h2>
+            <p>
+                The current public build is a large monolithic Python bot file using <strong>discord.py</strong>.
+                The bot uses a central encrypted configuration store, language files for responses,
+                optional local AI integration, voice support, and multiple UI systems such as buttons, modals and select menus.
+            </p>
+            <div class="highlight">
+                The bot is intentionally designed as a highly integrated all-in-one system instead of splitting every feature into separate micro-bots.
+            </div>
+        </section>
+
+        <section class="page-section">
+            <h2>Data Storage</h2>
+            <p>
+                Depending on the deployment environment, bot data may be stored:
+            </p>
+            <ul>
+                <li>on the operator’s local computer,</li>
+                <li>on a self-hosted server,</li>
+                <li>or on a hosting provider used to operate the bot.</li>
+            </ul>
+            <p>
+                Persistent data is encrypted at rest. Temporary files may also be created for voice or media processing.
+            </p>
+        </section>
+
+        <section class="page-section">
+            <h2>Optional Local AI</h2>
+            <p>
+                Some builds of Carapuz201G may support local AI processing through <strong>Ollama</strong>.
+            </p>
+            <ul>
+                <li>AI usage is intended only for feature execution.</li>
+                <li>Discord user messages are <strong>not</strong> used to train or fine-tune models.</li>
+                <li>Any local context history, if enabled, is intended only to preserve short feature context.</li>
+                <li>The project is designed to avoid training models on Discord content.</li>
+            </ul>
+            <div class="highlight green">
+                The intended AI model strategy is local-only processing whenever AI is enabled.
+            </div>
+        </section>
+
+        <section class="page-section">
+            <h2>Voice and Media</h2>
+            <p>
+                The bot may use voice features such as music, speech, countdowns, and radio-style playback.
+                These features depend on the current host environment and may be limited or disabled if the host
+                does not support them reliably.
+            </p>
+        </section>
+
+        <section class="page-section">
+            <h2>Why This Bot Exists</h2>
+            <p>
+                The goal of Carapuz201G is to give Discord communities a single powerful assistant for:
+            </p>
+            <ul>
+                <li>moderation and recovery,</li>
+                <li>server automation,</li>
+                <li>economy and game features,</li>
+                <li>verification and user tools,</li>
+                <li>voice and utility features.</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>Carapuz201G — <span data-i18n="footer.rights">All rights reserved.</span></p>
+            <p data-i18n="footer.operated">Operated by carapuz201</p>
+        </footer>
+
+    </div>
+
+    <script src="/carapuz201g/assets/js/theme.js"></script>
+    <script src="/carapuz201g/assets/js/language.js"></script>
+    <script src="/carapuz201g/assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "site": {
+    "title": "Carapuz201G — Discord Bot"
+  },
+  "nav": {
+    "about": "About",
+    "features": "Features",
+    "commands": "Commands",
+    "privacy": "Privacy Policy",
+    "tos": "Terms of Service",
+    "support": "Support",
+    "status": "Status",
+    "add_bot": "Add Bot",
+    "support_server": "Support Server"
+  },
+  "hero": {
+    "title": "Carapuz201G",
+    "subtitle": "A multi-purpose Discord bot for moderation, economy, utility, verification and voice features.",
+    "description": "Carapuz201G is an independent Discord bot project created to help Discord communities with moderation, automation, economy systems, support tools, and optional locally-hosted AI features.",
+    "add_bot": "Add to Discord",
+    "join_support": "Join Support Server",
+    "official": "Official project links: carapuzland.github.io • discord.gg/pBh4rRK3TT"
+  },
+  "status": {
+    "section_title": "Bot Status",
+    "section_subtitle": "Live or fallback bot status information",
+    "bot_status": "Bot Status",
+    "guilds": "Guilds",
+    "users": "Users",
+    "latency": "Latency",
+    "uptime": "Uptime",
+    "version": "Version"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "operated": "Operated by carapuz201"
+  }
+}

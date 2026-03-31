@@ -1,0 +1,38 @@
+{
+  "site": {
+    "title": "Carapuz201G — Bot Discord"
+  },
+  "nav": {
+    "about": "Despre",
+    "features": "Funcții",
+    "commands": "Comenzi",
+    "privacy": "Politica de confidențialitate",
+    "tos": "Termeni de utilizare",
+    "support": "Suport",
+    "status": "Stare",
+    "add_bot": "Adaugă botul",
+    "support_server": "Server de suport"
+  },
+  "hero": {
+    "title": "Carapuz201G",
+    "subtitle": "Un bot Discord multifuncțional pentru moderare, economie, utilitare, verificare și funcții vocale.",
+    "description": "Carapuz201G este un proiect independent de bot Discord creat pentru a ajuta comunitățile Discord cu moderare, automatizare, sisteme economice, instrumente de suport și funcții AI locale opționale.",
+    "add_bot": "Adaugă în Discord",
+    "join_support": "Accesează serverul de suport",
+    "official": "Linkuri oficiale ale proiectului: carapuzland.github.io • discord.gg/pBh4rRK3TT"
+  },
+  "status": {
+    "section_title": "Starea botului",
+    "section_subtitle": "Informații live sau de rezervă despre starea botului",
+    "bot_status": "Starea botului",
+    "guilds": "Servere",
+    "users": "Utilizatori",
+    "latency": "Latență",
+    "uptime": "Uptime",
+    "version": "Versiune"
+  },
+  "footer": {
+    "rights": "Toate drepturile rezervate.",
+    "operated": "Proiect administrat de carapuz201"
+  }
+}

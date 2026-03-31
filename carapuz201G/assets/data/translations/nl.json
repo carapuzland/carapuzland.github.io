@@ -1,0 +1,38 @@
+{
+  "site": {
+    "title": "Carapuz201G — Discord-bot"
+  },
+  "nav": {
+    "about": "Over",
+    "features": "Functies",
+    "commands": "Commando's",
+    "privacy": "Privacybeleid",
+    "tos": "Gebruiksvoorwaarden",
+    "support": "Ondersteuning",
+    "status": "Status",
+    "add_bot": "Bot toevoegen",
+    "support_server": "Ondersteuningsserver"
+  },
+  "hero": {
+    "title": "Carapuz201G",
+    "subtitle": "Een multifunctionele Discord-bot voor moderatie, economie, hulpprogramma's, verificatie en spraakfuncties.",
+    "description": "Carapuz201G is een onafhankelijk Discord-botproject gemaakt om Discord-gemeenschappen te helpen met moderatie, automatisering, economische systemen, ondersteuningstools en optionele lokaal gehoste AI-functies.",
+    "add_bot": "Toevoegen aan Discord",
+    "join_support": "Ga naar ondersteuningsserver",
+    "official": "Officiële projectlinks: carapuzland.github.io • discord.gg/pBh4rRK3TT"
+  },
+  "status": {
+    "section_title": "Botstatus",
+    "section_subtitle": "Live of reserve-statusinformatie van de bot",
+    "bot_status": "Botstatus",
+    "guilds": "Servers",
+    "users": "Gebruikers",
+    "latency": "Vertraging",
+    "uptime": "Uptime",
+    "version": "Versie"
+  },
+  "footer": {
+    "rights": "Alle rechten voorbehouden.",
+    "operated": "Project beheerd door carapuz201"
+  }
+}

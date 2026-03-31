@@ -1,0 +1,328 @@
+<!-- ============================= -->
+<!-- /carapuz201g/commands/index.html -->
+<!-- ============================= -->
+<!DOCTYPE html>
+<html lang="en-US" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carapuz201G — Commands</title>
+    <link rel="stylesheet" href="/carapuz201g/assets/css/style.css">
+</head>
+<body>
+
+    <div class="top-badge">
+        <a href="https://carapuzland.github.io" target="_blank" rel="noopener noreferrer">🏝️ carapuzland.github.io</a>
+    </div>
+
+    <nav>
+        <div class="nav-inner">
+            <div class="nav-left nav-links">
+                <a data-nav href="/carapuz201g/">About</a>
+                <a data-nav href="/carapuz201g/features/">Features</a>
+                <a data-nav href="/carapuz201g/commands/">Commands</a>
+                <a data-nav href="/carapuz201g/privacy-policy/">Privacy Policy</a>
+                <a data-nav href="/carapuz201g/terms-of-service/">Terms of Service</a>
+                <a data-nav href="/carapuz201g/support/">Support</a>
+                <a data-nav href="/carapuz201g/status/">Status</a>
+            </div>
+
+            <div class="nav-right">
+                <select id="languageSelect" class="select">
+                    <option value="en-US">English (US)</option>
+                    <option value="en-GB">English (UK)</option>
+                    <option value="ru">Русский</option>
+                    <option value="uk">Українська</option>
+                    <option value="bg">Български</option>
+                    <option value="hr">Hrvatski</option>
+                    <option value="cs">Čeština</option>
+                    <option value="da">Dansk</option>
+                    <option value="nl">Nederlands</option>
+                    <option value="et">Eesti</option>
+                    <option value="fi">Suomi</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                    <option value="el">Ελληνικά</option>
+                    <option value="hu">Magyar</option>
+                    <option value="ga">Gaeilge</option>
+                    <option value="it">Italiano</option>
+                    <option value="lv">Latviešu</option>
+                    <option value="lt">Lietuvių</option>
+                    <option value="mt">Malti</option>
+                    <option value="pl">Polski</option>
+                    <option value="pt">Português</option>
+                    <option value="ro">Română</option>
+                    <option value="sk">Slovenčina</option>
+                    <option value="sl">Slovenščina</option>
+                    <option value="es">Español</option>
+                    <option value="sv">Svenska</option>
+                </select>
+
+                <button id="themeToggle" class="theme-toggle">🌙 Dark</button>
+                <a class="nav-btn success" href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">Support Server</a>
+                <a class="nav-btn primary" href="https://discord.com/oauth2/authorize?client_id=1372950477477777548&permissions=8&integration_type=0&scope=bot%20applications.commands" target="_blank" rel="noopener noreferrer">Add Bot</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Commands</h1>
+            <p>Main slash and prefix command overview</p>
+        </div>
+
+        <section class="page-section">
+            <input id="commandSearch" class="command-search" type="text" placeholder="Search commands...">
+        </section>
+
+        <section class="page-section command-category">
+            <h2>Moderation</h2>
+            <div class="command-list">
+                <div class="command-item">
+                    <code>/warn member reason</code>
+                    <p>Issue a warning to a member and increase their server warn count.</p>
+                </div>
+                <div class="command-item">
+                    <code>/mute member time reason</code>
+                    <p>Timeout a user for a specific duration.</p>
+                </div>
+                <div class="command-item">
+                    <code>/kick member reason</code>
+                    <p>Kick a member from the guild.</p>
+                </div>
+                <div class="command-item">
+                    <code>/ban member reason</code>
+                    <p>Ban a member from the guild.</p>
+                </div>
+                <div class="command-item">
+                    <code>/clear amount</code>
+                    <p>Bulk delete recent messages from the current channel.</p>
+                </div>
+                <div class="command-item">
+                    <code>/clearuser member amount</code>
+                    <p>Delete recent messages from a specific member.</p>
+                </div>
+                <div class="command-item">
+                    <code>/clearwarns user amount</code>
+                    <p>Remove warns from a member.</p>
+                </div>
+                <div class="command-item">
+                    <code>!warn / !mute / !kick / !ban</code>
+                    <p>Prefix moderation duplicates for reply-based moderation workflows.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section command-category">
+            <h2>Economy</h2>
+            <div class="command-list">
+                <div class="command-item">
+                    <code>/daily</code>
+                    <p>Claim your daily reward.</p>
+                </div>
+                <div class="command-item">
+                    <code>/work</code>
+                    <p>Choose a job and earn virtual currency.</p>
+                </div>
+                <div class="command-item">
+                    <code>/balance</code>
+                    <p>Check your current balance.</p>
+                </div>
+                <div class="command-item">
+                    <code>/shop</code>
+                    <p>Open the economy shop for utility and worker upgrades.</p>
+                </div>
+                <div class="command-item">
+                    <code>/casino amount multipliers</code>
+                    <p>Bet coins and try your luck.</p>
+                </div>
+                <div class="command-item">
+                    <code>/transfer member amount</code>
+                    <p>Transfer currency to another user.</p>
+                </div>
+                <div class="command-item">
+                    <code>/inventory</code>
+                    <p>View your workers and utility level.</p>
+                </div>
+                <div class="command-item">
+                    <code>/rating</code>
+                    <p>Show economy and XP rankings.</p>
+                </div>
+                <div class="command-item">
+                    <code>/quest</code>
+                    <p>View your current daily quest.</p>
+                </div>
+                <div class="command-item">
+                    <code>/profile</code>
+                    <p>Generate a profile card image.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section command-category">
+            <h2>Kingdoms</h2>
+            <div class="command-list">
+                <div class="command-item">
+                    <code>/kingdom_create kingdom_name</code>
+                    <p>Create a kingdom for the current guild.</p>
+                </div>
+                <div class="command-item">
+                    <code>/kingdom_info</code>
+                    <p>Show current kingdom statistics.</p>
+                </div>
+                <div class="command-item">
+                    <code>/kingdom_upgrade stat</code>
+                    <p>Upgrade defense, walls or towers.</p>
+                </div>
+                <div class="command-item">
+                    <code>/kingdom_train unit_type amount</code>
+                    <p>Train warriors, archers or mages.</p>
+                </div>
+                <div class="command-item">
+                    <code>/kingdom_raid target_guild_id</code>
+                    <p>Attack another guild kingdom.</p>
+                </div>
+                <div class="command-item">
+                    <code>/bank</code>
+                    <p>Manage the guild treasury.</p>
+                </div>
+                <div class="command-item">
+                    <code>/invest amount target_guild</code>
+                    <p>Invest in another kingdom.</p>
+                </div>
+                <div class="command-item">
+                    <code>/withdraw_invest target_guild</code>
+                    <p>Withdraw your investment.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section command-category">
+            <h2>Verification, Tickets and Server Systems</h2>
+            <div class="command-list">
+                <div class="command-item">
+                    <code>/settings</code>
+                    <p>Open the main interactive server management panel.</p>
+                </div>
+                <div class="command-item">
+                    <code>/language</code>
+                    <p>Set the bot language for the current server.</p>
+                </div>
+                <div class="command-item">
+                    <code>/prefix</code>
+                    <p>Change the text command prefix.</p>
+                </div>
+                <div class="command-item">
+                    <code>/cc_add / /cc_remove / /cc_list</code>
+                    <p>Create and manage custom prefix commands for the guild.</p>
+                </div>
+                <div class="command-item">
+                    <code>/ask</code>
+                    <p>Ask a question using the guild FAQ system.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section command-category">
+            <h2>Voice & Music</h2>
+            <div class="command-list">
+                <div class="command-item">
+                    <code>/play query</code>
+                    <p>Play music from a URL or search query.</p>
+                </div>
+                <div class="command-item">
+                    <code>/leave</code>
+                    <p>Disconnect the bot from the voice channel.</p>
+                </div>
+                <div class="command-item">
+                    <code>/say text</code>
+                    <p>Make the bot speak text in your voice channel.</p>
+                </div>
+                <div class="command-item">
+                    <code>/soundpad url</code>
+                    <p>Play direct audio by URL.</p>
+                </div>
+                <div class="command-item">
+                    <code>/countdown seconds</code>
+                    <p>Run a spoken countdown.</p>
+                </div>
+                <div class="command-item">
+                    <code>/time city_or_timezone</code>
+                    <p>Speak current time in a selected timezone or city.</p>
+                </div>
+                <div class="command-item">
+                    <code>/weather city</code>
+                    <p>Get and optionally speak weather information.</p>
+                </div>
+                <div class="command-item">
+                    <code>/carapuz_radiofm</code>
+                    <p>Start radio mode if supported by the host.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section command-category">
+            <h2>Utility & Information</h2>
+            <div class="command-list">
+                <div class="command-item">
+                    <code>/ping</code>
+                    <p>Check bot latency.</p>
+                </div>
+                <div class="command-item">
+                    <code>/help</code>
+                    <p>Open command help and categories.</p>
+                </div>
+                <div class="command-item">
+                    <code>/about</code>
+                    <p>Show information about the bot.</p>
+                </div>
+                <div class="command-item">
+                    <code>/search query</code>
+                    <p>Search Google and return links.</p>
+                </div>
+                <div class="command-item">
+                    <code>/wiki query</code>
+                    <p>Search Wikipedia.</p>
+                </div>
+                <div class="command-item">
+                    <code>/define word</code>
+                    <p>Get a dictionary definition.</p>
+                </div>
+                <div class="command-item">
+                    <code>/translate language text</code>
+                    <p>Translate text into another language.</p>
+                </div>
+                <div class="command-item">
+                    <code>/password</code>
+                    <p>Generate a random password.</p>
+                </div>
+                <div class="command-item">
+                    <code>/textstats text</code>
+                    <p>Show text statistics.</p>
+                </div>
+                <div class="command-item">
+                    <code>/calculator expression</code>
+                    <p>Run calculator expressions and average calculations.</p>
+                </div>
+                <div class="command-item">
+                    <code>/embed</code>
+                    <p>Create and send a custom embed.</p>
+                </div>
+                <div class="command-item">
+                    <code>/serverinfo / /userinfo / /botinfo</code>
+                    <p>Show information about guilds, members and the bot.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Carapuz201G — All rights reserved.</p>
+            <p>Operated by carapuz201</p>
+        </footer>
+    </div>
+
+    <script src="/carapuz201g/assets/js/theme.js"></script>
+    <script src="/carapuz201g/assets/js/language.js"></script>
+    <script src="/carapuz201g/assets/js/app.js"></script>
+</body>
+</html>
