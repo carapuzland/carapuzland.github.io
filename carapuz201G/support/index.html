@@ -1,16 +1,210 @@
-<!-- ============================= -->
-<!-- /carapuz201g/support/index.html -->
-<!-- ============================= -->
+<!-- support.html -->
 <!DOCTYPE html>
 <html lang="en-US" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carapuz201G — Support</title>
-    <link rel="stylesheet" href="/carapuz201g/assets/css/style.css">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --bg-soft: #172033;
+            --bg-card: #1e293b;
+            --text: #e5e7eb;
+            --text-soft: #94a3b8;
+            --primary: #60a5fa;
+            --primary-strong: #3b82f6;
+            --success: #22c55e;
+            --border: #334155;
+            --shadow: rgba(0, 0, 0, 0.25);
+        }
+
+        [data-theme="light"] {
+            --bg: #f8fafc;
+            --bg-soft: #ffffff;
+            --bg-card: #f1f5f9;
+            --text: #0f172a;
+            --text-soft: #475569;
+            --primary: #2563eb;
+            --primary-strong: #1d4ed8;
+            --success: #16a34a;
+            --border: #cbd5e1;
+            --shadow: rgba(0, 0, 0, 0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Inter, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { color: var(--primary-strong); }
+
+        .top-badge {
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            z-index: 1100;
+            background: rgba(15, 23, 42, 0.92);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 8px 14px;
+            box-shadow: 0 4px 18px var(--shadow);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.96);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+            z-index: 1000;
+        }
+
+        .nav-inner {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 999px;
+        }
+
+        .nav-links a:hover { background: var(--bg-card); }
+
+        .nav-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .nav-btn.primary {
+            background: #5865f2;
+            color: white;
+        }
+
+        .nav-btn.success {
+            background: rgba(34, 197, 94, 0.12);
+            border: 1px solid var(--success);
+            color: var(--success);
+        }
+
+        .select, .theme-toggle {
+            background: var(--bg-card);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 8px 12px;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .container {
+            width: min(1080px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 110px 0 60px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin: 6px 0 28px;
+        }
+
+        .page-header h1 {
+            font-size: 38px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            color: var(--text-soft);
+        }
+
+        .page-section {
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 22px var(--shadow);
+        }
+
+        .page-section h2 {
+            color: var(--primary);
+            font-size: 26px;
+            margin-bottom: 14px;
+        }
+
+        .page-section p {
+            color: var(--text);
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .page-section ul {
+            margin: 12px 0 12px 22px;
+            color: var(--text);
+        }
+
+        .page-section li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            margin-top: 14px;
+            padding: 14px 18px;
+            border-radius: 14px;
+            background: rgba(96, 165, 250, 0.10);
+            border: 1px solid rgba(96, 165, 250, 0.28);
+            color: #dbeafe;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-soft);
+            font-size: 13px;
+            padding: 40px 20px 20px;
+            border-top: 1px solid var(--border);
+            margin-top: 48px;
+        }
+    </style>
 </head>
 <body>
-
     <div class="top-badge">
         <a href="https://carapuzland.github.io" target="_blank" rel="noopener noreferrer">🏝️ carapuzland.github.io</a>
     </div>
@@ -18,46 +212,17 @@
     <nav>
         <div class="nav-inner">
             <div class="nav-left nav-links">
-                <a data-nav href="/carapuz201g/">About</a>
-                <a data-nav href="/carapuz201g/features/">Features</a>
-                <a data-nav href="/carapuz201g/commands/">Commands</a>
-                <a data-nav href="/carapuz201g/privacy-policy/">Privacy Policy</a>
-                <a data-nav href="/carapuz201g/terms-of-service/">Terms of Service</a>
-                <a data-nav href="/carapuz201g/support/">Support</a>
-                <a data-nav href="/carapuz201g/status/">Status</a>
+                <a href="index.html">About</a>
+                <a href="features.html">Features</a>
+                <a href="commands.html">Commands</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="support.html">Support</a>
+                <a href="status.html">Status</a>
             </div>
 
             <div class="nav-right">
-                <select id="languageSelect" class="select">
-                    <option value="en-US">English (US)</option>
-                    <option value="en-GB">English (UK)</option>
-                    <option value="ru">Русский</option>
-                    <option value="uk">Українська</option>
-                    <option value="bg">Български</option>
-                    <option value="hr">Hrvatski</option>
-                    <option value="cs">Čeština</option>
-                    <option value="da">Dansk</option>
-                    <option value="nl">Nederlands</option>
-                    <option value="et">Eesti</option>
-                    <option value="fi">Suomi</option>
-                    <option value="fr">Français</option>
-                    <option value="de">Deutsch</option>
-                    <option value="el">Ελληνικά</option>
-                    <option value="hu">Magyar</option>
-                    <option value="ga">Gaeilge</option>
-                    <option value="it">Italiano</option>
-                    <option value="lv">Latviešu</option>
-                    <option value="lt">Lietuvių</option>
-                    <option value="mt">Malti</option>
-                    <option value="pl">Polski</option>
-                    <option value="pt">Português</option>
-                    <option value="ro">Română</option>
-                    <option value="sk">Slovenčina</option>
-                    <option value="sl">Slovenščina</option>
-                    <option value="es">Español</option>
-                    <option value="sv">Svenska</option>
-                </select>
-
+                <select id="languageSelect" class="select"></select>
                 <button id="themeToggle" class="theme-toggle">🌙 Dark</button>
                 <a class="nav-btn success" href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">Support Server</a>
                 <a class="nav-btn primary" href="https://discord.com/oauth2/authorize?client_id=1372950477477777548&permissions=8&integration_type=0&scope=bot%20applications.commands" target="_blank" rel="noopener noreferrer">Add Bot</a>
@@ -67,64 +232,275 @@
 
     <div class="container">
         <div class="page-header">
-            <h1>Support</h1>
-            <p>Where to get help, report issues, and contact the project</p>
+            <h1 data-i18n="page.title">Support</h1>
+            <p data-i18n="page.subtitle">How to get help and contact the project</p>
         </div>
 
         <section class="page-section">
-            <h2>Official Support Server</h2>
-            <p>
+            <h2 data-i18n="section.server.title">Official Support Server</h2>
+            <p data-i18n="section.server.p1">
                 The fastest way to get support is through the official Discord support server.
             </p>
             <p>
-                <a href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">Join the support server</a>
+                <a href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">discord.gg/pBh4rRK3TT</a>
             </p>
         </section>
 
         <section class="page-section">
-            <h2>In-Bot Support</h2>
-            <p>
-                You can use the <code>/support</code> command inside Discord to send a support request directly to the bot owner.
+            <h2 data-i18n="section.bot.title">In-Bot Support</h2>
+            <p data-i18n="section.bot.p1">
+                You can use the /support command inside Discord to send a support request directly to the bot owner.
             </p>
         </section>
 
         <section class="page-section">
-            <h2>Bug Reports</h2>
-            <p>If you report a bug, it helps to include:</p>
+            <h2 data-i18n="section.bugs.title">Bug Reports</h2>
+            <p data-i18n="section.bugs.p1">
+                If you report a bug, it helps to include the command used, expected result, actual result, and any error text or screenshot.
+            </p>
             <ul>
-                <li>the command used,</li>
-                <li>what you expected to happen,</li>
-                <li>what actually happened,</li>
-                <li>error text or screenshot if available,</li>
-                <li>whether the issue happened on a single server or multiple servers.</li>
+                <li data-i18n="section.bugs.li1">What command you used</li>
+                <li data-i18n="section.bugs.li2">What you expected to happen</li>
+                <li data-i18n="section.bugs.li3">What actually happened</li>
+                <li data-i18n="section.bugs.li4">Any visible error message or screenshot</li>
+                <li data-i18n="section.bugs.li5">Whether the issue affects one or multiple servers</li>
             </ul>
         </section>
 
         <section class="page-section">
-            <h2>Privacy Requests</h2>
-            <p>
-                If you want to remove your data from the bot, use the <code>/deletedata</code> command where available.
-                You may also contact support if you need clarification regarding stored bot data.
+            <h2 data-i18n="section.data.title">Privacy and Data Requests</h2>
+            <p data-i18n="section.data.p1">
+                If you want to remove your data from the bot, use the /deletedata command where available.
+                You may also contact support for clarification about stored bot data.
             </p>
+            <div class="highlight" data-i18n="section.data.highlight">
+                For privacy-related questions, always use the official support paths listed on this page.
+            </div>
         </section>
 
         <section class="page-section">
-            <h2>Contact</h2>
+            <h2 data-i18n="section.contact.title">Contact</h2>
             <ul>
-                <li>Email: <a href="mailto:carapuz201@gmail.com">carapuz201@gmail.com</a></li>
-                <li>Support server: <a href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">discord.gg/pBh4rRK3TT</a></li>
-                <li>Website: <a href="https://carapuzland.github.io" target="_blank" rel="noopener noreferrer">carapuzland.github.io</a></li>
+                <li><strong>Email:</strong> <a href="mailto:carapuz201@gmail.com">carapuz201@gmail.com</a></li>
+                <li><strong>Support server:</strong> <a href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">discord.gg/pBh4rRK3TT</a></li>
+                <li><strong>Website:</strong> <a href="https://carapuzland.github.io" target="_blank" rel="noopener noreferrer">carapuzland.github.io</a></li>
             </ul>
         </section>
 
         <footer>
-            <p>Carapuz201G — All rights reserved.</p>
-            <p>Operated by carapuz201</p>
+            <p data-i18n="footer.rights">Carapuz201G — All rights reserved.</p>
+            <p data-i18n="footer.operated">Operated by carapuz201</p>
         </footer>
     </div>
 
-    <script src="/carapuz201g/assets/js/theme.js"></script>
-    <script src="/carapuz201g/assets/js/language.js"></script>
-    <script src="/carapuz201g/assets/js/app.js"></script>
+    <script>
+        const LANGUAGES = {
+            "en-US": "English (US)",
+            "en-GB": "English (UK)",
+            "ru": "Русский",
+            "uk": "Українська"
+        };
+
+        const translations = {
+            "en-US": {
+                page: {
+                    title: "Support",
+                    subtitle: "How to get help and contact the project"
+                },
+                section: {
+                    server: {
+                        title: "Official Support Server",
+                        p1: "The fastest way to get support is through the official Discord support server."
+                    },
+                    bot: {
+                        title: "In-Bot Support",
+                        p1: "You can use the /support command inside Discord to send a support request directly to the bot owner."
+                    },
+                    bugs: {
+                        title: "Bug Reports",
+                        p1: "If you report a bug, it helps to include the command used, expected result, actual result, and any error text or screenshot.",
+                        li1: "What command you used",
+                        li2: "What you expected to happen",
+                        li3: "What actually happened",
+                        li4: "Any visible error message or screenshot",
+                        li5: "Whether the issue affects one or multiple servers"
+                    },
+                    data: {
+                        title: "Privacy and Data Requests",
+                        p1: "If you want to remove your data from the bot, use the /deletedata command where available. You may also contact support for clarification about stored bot data.",
+                        highlight: "For privacy-related questions, always use the official support paths listed on this page."
+                    },
+                    contact: {
+                        title: "Contact"
+                    }
+                },
+                footer: {
+                    rights: "Carapuz201G — All rights reserved.",
+                    operated: "Operated by carapuz201"
+                }
+            },
+            "en-GB": {
+                page: {
+                    title: "Support",
+                    subtitle: "How to get help and contact the project"
+                },
+                section: {
+                    server: {
+                        title: "Official Support Server",
+                        p1: "The fastest way to get support is through the official Discord support server."
+                    },
+                    bot: {
+                        title: "In-Bot Support",
+                        p1: "You can use the /support command inside Discord to send a support request directly to the bot owner."
+                    },
+                    bugs: {
+                        title: "Bug Reports",
+                        p1: "If you report a bug, it helps to include the command used, expected result, actual result, and any error text or screenshot.",
+                        li1: "What command you used",
+                        li2: "What you expected to happen",
+                        li3: "What actually happened",
+                        li4: "Any visible error message or screenshot",
+                        li5: "Whether the issue affects one or multiple servers"
+                    },
+                    data: {
+                        title: "Privacy and Data Requests",
+                        p1: "If you want to remove your data from the bot, use the /deletedata command where available. You may also contact support for clarification about stored bot data.",
+                        highlight: "For privacy-related questions, always use the official support paths listed on this page."
+                    },
+                    contact: {
+                        title: "Contact"
+                    }
+                },
+                footer: {
+                    rights: "Carapuz201G — All rights reserved.",
+                    operated: "Operated by carapuz201"
+                }
+            },
+            "ru": {
+                page: {
+                    title: "Поддержка",
+                    subtitle: "Как получить помощь и связаться с проектом"
+                },
+                section: {
+                    server: {
+                        title: "Официальный сервер поддержки",
+                        p1: "Самый быстрый способ получить помощь — воспользоваться официальным Discord-сервером поддержки."
+                    },
+                    bot: {
+                        title: "Поддержка через бота",
+                        p1: "Вы можете использовать команду /support в Discord, чтобы отправить запрос напрямую владельцу бота."
+                    },
+                    bugs: {
+                        title: "Сообщения об ошибках",
+                        p1: "Если вы сообщаете об ошибке, желательно указать использованную команду, ожидаемый результат, фактический результат и текст ошибки или скриншот.",
+                        li1: "Какую команду вы использовали",
+                        li2: "Что вы ожидали увидеть",
+                        li3: "Что произошло на самом деле",
+                        li4: "Текст ошибки или скриншот",
+                        li5: "Возникает ли проблема на одном сервере или на нескольких"
+                    },
+                    data: {
+                        title: "Конфиденциальность и запросы по данным",
+                        p1: "Если вы хотите удалить свои данные из бота, используйте команду /deletedata, если она доступна. Вы также можете обратиться в поддержку за разъяснением по хранимым данным.",
+                        highlight: "По вопросам конфиденциальности используйте только официальные способы связи, указанные на этой странице."
+                    },
+                    contact: {
+                        title: "Контакты"
+                    }
+                },
+                footer: {
+                    rights: "Carapuz201G — Все права защищены.",
+                    operated: "Проект ведёт carapuz201"
+                }
+            },
+            "uk": {
+                page: {
+                    title: "Підтримка",
+                    subtitle: "Як отримати допомогу та зв’язатися з проєктом"
+                },
+                section: {
+                    server: {
+                        title: "Офіційний сервер підтримки",
+                        p1: "Найшвидший спосіб отримати допомогу — скористатися офіційним Discord-сервером підтримки."
+                    },
+                    bot: {
+                        title: "Підтримка через бота",
+                        p1: "Ви можете використати команду /support у Discord, щоб надіслати запит напряму власнику бота."
+                    },
+                    bugs: {
+                        title: "Повідомлення про помилки",
+                        p1: "Якщо ви повідомляєте про помилку, бажано вказати використану команду, очікуваний результат, фактичний результат і текст помилки або скріншот.",
+                        li1: "Яку команду ви використали",
+                        li2: "Що ви очікували побачити",
+                        li3: "Що сталося насправді",
+                        li4: "Текст помилки або скріншот",
+                        li5: "Чи виникає проблема на одному сервері чи на кількох"
+                    },
+                    data: {
+                        title: "Конфіденційність і запити щодо даних",
+                        p1: "Якщо ви хочете видалити свої дані з бота, використайте команду /deletedata, якщо вона доступна. Ви також можете звернутися в підтримку за уточненням щодо збережених даних.",
+                        highlight: "З питань конфіденційності використовуйте лише офіційні способи зв’язку, вказані на цій сторінці."
+                    },
+                    contact: {
+                        title: "Контакти"
+                    }
+                },
+                footer: {
+                    rights: "Carapuz201G — Усі права захищені.",
+                    operated: "Проєкт веде carapuz201"
+                }
+            }
+        };
+
+        function getNested(obj, path) {
+            return path.split(".").reduce((acc, part) => acc && acc[part], obj);
+        }
+
+        function initLanguageSelector() {
+            const selector = document.getElementById("languageSelect");
+            Object.entries(LANGUAGES).forEach(([code, name]) => {
+                const option = document.createElement("option");
+                option.value = code;
+                option.textContent = name;
+                selector.appendChild(option);
+            });
+        }
+
+        function applyLanguage(lang) {
+            const current = translations[lang] || translations["en-US"];
+            document.querySelectorAll("[data-i18n]").forEach((el) => {
+                const key = el.getAttribute("data-i18n");
+                const value = getNested(current, key);
+                if (value) el.textContent = value;
+            });
+            localStorage.setItem("carapuz_lang", lang);
+            document.getElementById("languageSelect").value = lang;
+        }
+
+        function applyTheme(theme) {
+            document.documentElement.setAttribute("data-theme", theme);
+            localStorage.setItem("carapuz_theme", theme);
+            document.getElementById("themeToggle").textContent = theme === "light" ? "🌞 Light" : "🌙 Dark";
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            initLanguageSelector();
+
+            const savedLang = localStorage.getItem("carapuz_lang") || "en-US";
+            applyLanguage(savedLang);
+
+            document.getElementById("languageSelect").addEventListener("change", (e) => {
+                applyLanguage(e.target.value);
+            });
+
+            const savedTheme = localStorage.getItem("carapuz_theme") || "dark";
+            applyTheme(savedTheme);
+
+            document.getElementById("themeToggle").addEventListener("click", () => {
+                const current = document.documentElement.getAttribute("data-theme") || "dark";
+                applyTheme(current === "dark" ? "light" : "dark");
+            });
+        });
+    </script>
 </body>
 </html>

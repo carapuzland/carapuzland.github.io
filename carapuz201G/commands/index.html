@@ -1,16 +1,225 @@
-<!-- ============================= -->
-<!-- /carapuz201g/commands/index.html -->
-<!-- ============================= -->
+<!-- commands.html -->
 <!DOCTYPE html>
 <html lang="en-US" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carapuz201G — Commands</title>
-    <link rel="stylesheet" href="/carapuz201g/assets/css/style.css">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --bg-soft: #172033;
+            --bg-card: #1e293b;
+            --text: #e5e7eb;
+            --text-soft: #94a3b8;
+            --primary: #60a5fa;
+            --primary-strong: #3b82f6;
+            --success: #22c55e;
+            --border: #334155;
+            --shadow: rgba(0, 0, 0, 0.25);
+        }
+
+        [data-theme="light"] {
+            --bg: #f8fafc;
+            --bg-soft: #ffffff;
+            --bg-card: #f1f5f9;
+            --text: #0f172a;
+            --text-soft: #475569;
+            --primary: #2563eb;
+            --primary-strong: #1d4ed8;
+            --success: #16a34a;
+            --border: #cbd5e1;
+            --shadow: rgba(0, 0, 0, 0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Inter, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { color: var(--primary-strong); }
+
+        .top-badge {
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            z-index: 1100;
+            background: rgba(15, 23, 42, 0.92);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 8px 14px;
+            box-shadow: 0 4px 18px var(--shadow);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.96);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+            z-index: 1000;
+        }
+
+        .nav-inner {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 999px;
+        }
+
+        .nav-links a:hover { background: var(--bg-card); }
+
+        .nav-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .nav-btn.primary {
+            background: #5865f2;
+            color: white;
+        }
+
+        .nav-btn.success {
+            background: rgba(34, 197, 94, 0.12);
+            border: 1px solid var(--success);
+            color: var(--success);
+        }
+
+        .select, .theme-toggle {
+            background: var(--bg-card);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 8px 12px;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .container {
+            width: min(1080px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 110px 0 60px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin: 6px 0 28px;
+        }
+
+        .page-header h1 {
+            font-size: 38px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            color: var(--text-soft);
+        }
+
+        .page-section {
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 22px var(--shadow);
+        }
+
+        .page-section h2 {
+            color: var(--primary);
+            font-size: 26px;
+            margin-bottom: 14px;
+        }
+
+        .page-section p {
+            color: var(--text);
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .command-search {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text);
+            margin-bottom: 18px;
+            outline: none;
+        }
+
+        .command-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .command-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 16px;
+        }
+
+        .command-item code {
+            display: inline-block;
+            background: rgba(96, 165, 250, 0.12);
+            color: var(--primary);
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-soft);
+            font-size: 13px;
+            padding: 40px 20px 20px;
+            border-top: 1px solid var(--border);
+            margin-top: 48px;
+        }
+    </style>
 </head>
 <body>
-
     <div class="top-badge">
         <a href="https://carapuzland.github.io" target="_blank" rel="noopener noreferrer">🏝️ carapuzland.github.io</a>
     </div>
@@ -18,46 +227,17 @@
     <nav>
         <div class="nav-inner">
             <div class="nav-left nav-links">
-                <a data-nav href="/carapuz201g/">About</a>
-                <a data-nav href="/carapuz201g/features/">Features</a>
-                <a data-nav href="/carapuz201g/commands/">Commands</a>
-                <a data-nav href="/carapuz201g/privacy-policy/">Privacy Policy</a>
-                <a data-nav href="/carapuz201g/terms-of-service/">Terms of Service</a>
-                <a data-nav href="/carapuz201g/support/">Support</a>
-                <a data-nav href="/carapuz201g/status/">Status</a>
+                <a href="index.html">About</a>
+                <a href="features.html">Features</a>
+                <a href="commands.html">Commands</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="support.html">Support</a>
+                <a href="status.html">Status</a>
             </div>
 
             <div class="nav-right">
-                <select id="languageSelect" class="select">
-                    <option value="en-US">English (US)</option>
-                    <option value="en-GB">English (UK)</option>
-                    <option value="ru">Русский</option>
-                    <option value="uk">Українська</option>
-                    <option value="bg">Български</option>
-                    <option value="hr">Hrvatski</option>
-                    <option value="cs">Čeština</option>
-                    <option value="da">Dansk</option>
-                    <option value="nl">Nederlands</option>
-                    <option value="et">Eesti</option>
-                    <option value="fi">Suomi</option>
-                    <option value="fr">Français</option>
-                    <option value="de">Deutsch</option>
-                    <option value="el">Ελληνικά</option>
-                    <option value="hu">Magyar</option>
-                    <option value="ga">Gaeilge</option>
-                    <option value="it">Italiano</option>
-                    <option value="lv">Latviešu</option>
-                    <option value="lt">Lietuvių</option>
-                    <option value="mt">Malti</option>
-                    <option value="pl">Polski</option>
-                    <option value="pt">Português</option>
-                    <option value="ro">Română</option>
-                    <option value="sk">Slovenčina</option>
-                    <option value="sl">Slovenščina</option>
-                    <option value="es">Español</option>
-                    <option value="sv">Svenska</option>
-                </select>
-
+                <select id="languageSelect" class="select"></select>
                 <button id="themeToggle" class="theme-toggle">🌙 Dark</button>
                 <a class="nav-btn success" href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">Support Server</a>
                 <a class="nav-btn primary" href="https://discord.com/oauth2/authorize?client_id=1372950477477777548&permissions=8&integration_type=0&scope=bot%20applications.commands" target="_blank" rel="noopener noreferrer">Add Bot</a>
@@ -67,262 +247,384 @@
 
     <div class="container">
         <div class="page-header">
-            <h1>Commands</h1>
-            <p>Main slash and prefix command overview</p>
+            <h1 data-i18n="page.title">Commands</h1>
+            <p data-i18n="page.subtitle">Main slash and prefix command overview</p>
         </div>
 
         <section class="page-section">
             <input id="commandSearch" class="command-search" type="text" placeholder="Search commands...">
         </section>
 
-        <section class="page-section command-category">
-            <h2>Moderation</h2>
+        <section class="page-section">
+            <h2 data-i18n="sections.moderation.title">Moderation</h2>
             <div class="command-list">
-                <div class="command-item">
-                    <code>/warn member reason</code>
-                    <p>Issue a warning to a member and increase their server warn count.</p>
-                </div>
-                <div class="command-item">
-                    <code>/mute member time reason</code>
-                    <p>Timeout a user for a specific duration.</p>
-                </div>
-                <div class="command-item">
-                    <code>/kick member reason</code>
-                    <p>Kick a member from the guild.</p>
-                </div>
-                <div class="command-item">
-                    <code>/ban member reason</code>
-                    <p>Ban a member from the guild.</p>
-                </div>
-                <div class="command-item">
-                    <code>/clear amount</code>
-                    <p>Bulk delete recent messages from the current channel.</p>
-                </div>
-                <div class="command-item">
-                    <code>/clearuser member amount</code>
-                    <p>Delete recent messages from a specific member.</p>
-                </div>
-                <div class="command-item">
-                    <code>/clearwarns user amount</code>
-                    <p>Remove warns from a member.</p>
-                </div>
-                <div class="command-item">
-                    <code>!warn / !mute / !kick / !ban</code>
-                    <p>Prefix moderation duplicates for reply-based moderation workflows.</p>
-                </div>
+                <div class="command-item"><code>/warn member reason</code><p data-i18n="sections.moderation.c1">Issue a warning to a member.</p></div>
+                <div class="command-item"><code>/mute member time reason</code><p data-i18n="sections.moderation.c2">Timeout a member for a specific duration.</p></div>
+                <div class="command-item"><code>/kick member reason</code><p data-i18n="sections.moderation.c3">Kick a member from the guild.</p></div>
+                <div class="command-item"><code>/ban member reason</code><p data-i18n="sections.moderation.c4">Ban a member from the guild.</p></div>
+                <div class="command-item"><code>/clear amount</code><p data-i18n="sections.moderation.c5">Bulk delete recent messages.</p></div>
+                <div class="command-item"><code>/clearuser member amount</code><p data-i18n="sections.moderation.c6">Delete recent messages from a specific member.</p></div>
+                <div class="command-item"><code>/clearwarns user amount</code><p data-i18n="sections.moderation.c7">Remove warns from a member.</p></div>
+                <div class="command-item"><code>!warn / !mute / !kick / !ban</code><p data-i18n="sections.moderation.c8">Prefix-based moderation duplicates.</p></div>
             </div>
         </section>
 
-        <section class="page-section command-category">
-            <h2>Economy</h2>
+        <section class="page-section">
+            <h2 data-i18n="sections.economy.title">Economy</h2>
             <div class="command-list">
-                <div class="command-item">
-                    <code>/daily</code>
-                    <p>Claim your daily reward.</p>
-                </div>
-                <div class="command-item">
-                    <code>/work</code>
-                    <p>Choose a job and earn virtual currency.</p>
-                </div>
-                <div class="command-item">
-                    <code>/balance</code>
-                    <p>Check your current balance.</p>
-                </div>
-                <div class="command-item">
-                    <code>/shop</code>
-                    <p>Open the economy shop for utility and worker upgrades.</p>
-                </div>
-                <div class="command-item">
-                    <code>/casino amount multipliers</code>
-                    <p>Bet coins and try your luck.</p>
-                </div>
-                <div class="command-item">
-                    <code>/transfer member amount</code>
-                    <p>Transfer currency to another user.</p>
-                </div>
-                <div class="command-item">
-                    <code>/inventory</code>
-                    <p>View your workers and utility level.</p>
-                </div>
-                <div class="command-item">
-                    <code>/rating</code>
-                    <p>Show economy and XP rankings.</p>
-                </div>
-                <div class="command-item">
-                    <code>/quest</code>
-                    <p>View your current daily quest.</p>
-                </div>
-                <div class="command-item">
-                    <code>/profile</code>
-                    <p>Generate a profile card image.</p>
-                </div>
+                <div class="command-item"><code>/daily</code><p data-i18n="sections.economy.c1">Claim your daily reward.</p></div>
+                <div class="command-item"><code>/work</code><p data-i18n="sections.economy.c2">Choose a job and earn virtual currency.</p></div>
+                <div class="command-item"><code>/balance</code><p data-i18n="sections.economy.c3">Check your balance.</p></div>
+                <div class="command-item"><code>/shop</code><p data-i18n="sections.economy.c4">Open the economy shop.</p></div>
+                <div class="command-item"><code>/casino amount multipliers</code><p data-i18n="sections.economy.c5">Bet coins and try your luck.</p></div>
+                <div class="command-item"><code>/transfer member amount</code><p data-i18n="sections.economy.c6">Transfer currency to another user.</p></div>
+                <div class="command-item"><code>/inventory</code><p data-i18n="sections.economy.c7">View your economy inventory.</p></div>
+                <div class="command-item"><code>/rating</code><p data-i18n="sections.economy.c8">Show economy and XP rankings.</p></div>
+                <div class="command-item"><code>/quest</code><p data-i18n="sections.economy.c9">View your daily quest.</p></div>
+                <div class="command-item"><code>/profile</code><p data-i18n="sections.economy.c10">Generate a profile card.</p></div>
             </div>
         </section>
 
-        <section class="page-section command-category">
-            <h2>Kingdoms</h2>
+        <section class="page-section">
+            <h2 data-i18n="sections.voice.title">Voice & Music</h2>
             <div class="command-list">
-                <div class="command-item">
-                    <code>/kingdom_create kingdom_name</code>
-                    <p>Create a kingdom for the current guild.</p>
-                </div>
-                <div class="command-item">
-                    <code>/kingdom_info</code>
-                    <p>Show current kingdom statistics.</p>
-                </div>
-                <div class="command-item">
-                    <code>/kingdom_upgrade stat</code>
-                    <p>Upgrade defense, walls or towers.</p>
-                </div>
-                <div class="command-item">
-                    <code>/kingdom_train unit_type amount</code>
-                    <p>Train warriors, archers or mages.</p>
-                </div>
-                <div class="command-item">
-                    <code>/kingdom_raid target_guild_id</code>
-                    <p>Attack another guild kingdom.</p>
-                </div>
-                <div class="command-item">
-                    <code>/bank</code>
-                    <p>Manage the guild treasury.</p>
-                </div>
-                <div class="command-item">
-                    <code>/invest amount target_guild</code>
-                    <p>Invest in another kingdom.</p>
-                </div>
-                <div class="command-item">
-                    <code>/withdraw_invest target_guild</code>
-                    <p>Withdraw your investment.</p>
-                </div>
+                <div class="command-item"><code>/play query</code><p data-i18n="sections.voice.c1">Play music from a URL or search query.</p></div>
+                <div class="command-item"><code>/leave</code><p data-i18n="sections.voice.c2">Disconnect the bot from voice.</p></div>
+                <div class="command-item"><code>/say text</code><p data-i18n="sections.voice.c3">Make the bot speak in voice.</p></div>
+                <div class="command-item"><code>/soundpad url</code><p data-i18n="sections.voice.c4">Play direct audio from a URL.</p></div>
+                <div class="command-item"><code>/countdown seconds</code><p data-i18n="sections.voice.c5">Run a spoken countdown.</p></div>
+                <div class="command-item"><code>/time city_or_timezone</code><p data-i18n="sections.voice.c6">Speak current time in a city or timezone.</p></div>
+                <div class="command-item"><code>/weather city</code><p data-i18n="sections.voice.c7">Get weather information and optional speech output.</p></div>
+                <div class="command-item"><code>/carapuz_radiofm</code><p data-i18n="sections.voice.c8">Start radio mode if supported by the host.</p></div>
             </div>
         </section>
 
-        <section class="page-section command-category">
-            <h2>Verification, Tickets and Server Systems</h2>
+        <section class="page-section">
+            <h2 data-i18n="sections.utility.title">Utility & Info</h2>
             <div class="command-list">
-                <div class="command-item">
-                    <code>/settings</code>
-                    <p>Open the main interactive server management panel.</p>
-                </div>
-                <div class="command-item">
-                    <code>/language</code>
-                    <p>Set the bot language for the current server.</p>
-                </div>
-                <div class="command-item">
-                    <code>/prefix</code>
-                    <p>Change the text command prefix.</p>
-                </div>
-                <div class="command-item">
-                    <code>/cc_add / /cc_remove / /cc_list</code>
-                    <p>Create and manage custom prefix commands for the guild.</p>
-                </div>
-                <div class="command-item">
-                    <code>/ask</code>
-                    <p>Ask a question using the guild FAQ system.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="page-section command-category">
-            <h2>Voice & Music</h2>
-            <div class="command-list">
-                <div class="command-item">
-                    <code>/play query</code>
-                    <p>Play music from a URL or search query.</p>
-                </div>
-                <div class="command-item">
-                    <code>/leave</code>
-                    <p>Disconnect the bot from the voice channel.</p>
-                </div>
-                <div class="command-item">
-                    <code>/say text</code>
-                    <p>Make the bot speak text in your voice channel.</p>
-                </div>
-                <div class="command-item">
-                    <code>/soundpad url</code>
-                    <p>Play direct audio by URL.</p>
-                </div>
-                <div class="command-item">
-                    <code>/countdown seconds</code>
-                    <p>Run a spoken countdown.</p>
-                </div>
-                <div class="command-item">
-                    <code>/time city_or_timezone</code>
-                    <p>Speak current time in a selected timezone or city.</p>
-                </div>
-                <div class="command-item">
-                    <code>/weather city</code>
-                    <p>Get and optionally speak weather information.</p>
-                </div>
-                <div class="command-item">
-                    <code>/carapuz_radiofm</code>
-                    <p>Start radio mode if supported by the host.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="page-section command-category">
-            <h2>Utility & Information</h2>
-            <div class="command-list">
-                <div class="command-item">
-                    <code>/ping</code>
-                    <p>Check bot latency.</p>
-                </div>
-                <div class="command-item">
-                    <code>/help</code>
-                    <p>Open command help and categories.</p>
-                </div>
-                <div class="command-item">
-                    <code>/about</code>
-                    <p>Show information about the bot.</p>
-                </div>
-                <div class="command-item">
-                    <code>/search query</code>
-                    <p>Search Google and return links.</p>
-                </div>
-                <div class="command-item">
-                    <code>/wiki query</code>
-                    <p>Search Wikipedia.</p>
-                </div>
-                <div class="command-item">
-                    <code>/define word</code>
-                    <p>Get a dictionary definition.</p>
-                </div>
-                <div class="command-item">
-                    <code>/translate language text</code>
-                    <p>Translate text into another language.</p>
-                </div>
-                <div class="command-item">
-                    <code>/password</code>
-                    <p>Generate a random password.</p>
-                </div>
-                <div class="command-item">
-                    <code>/textstats text</code>
-                    <p>Show text statistics.</p>
-                </div>
-                <div class="command-item">
-                    <code>/calculator expression</code>
-                    <p>Run calculator expressions and average calculations.</p>
-                </div>
-                <div class="command-item">
-                    <code>/embed</code>
-                    <p>Create and send a custom embed.</p>
-                </div>
-                <div class="command-item">
-                    <code>/serverinfo / /userinfo / /botinfo</code>
-                    <p>Show information about guilds, members and the bot.</p>
-                </div>
+                <div class="command-item"><code>/ping</code><p data-i18n="sections.utility.c1">Check bot latency.</p></div>
+                <div class="command-item"><code>/help</code><p data-i18n="sections.utility.c2">Open command help and category navigation.</p></div>
+                <div class="command-item"><code>/about</code><p data-i18n="sections.utility.c3">Show information about the bot.</p></div>
+                <div class="command-item"><code>/search query</code><p data-i18n="sections.utility.c4">Search online via Google search.</p></div>
+                <div class="command-item"><code>/wiki query</code><p data-i18n="sections.utility.c5">Search Wikipedia.</p></div>
+                <div class="command-item"><code>/define word</code><p data-i18n="sections.utility.c6">Get a dictionary definition.</p></div>
+                <div class="command-item"><code>/translate language text</code><p data-i18n="sections.utility.c7">Translate text.</p></div>
+                <div class="command-item"><code>/password</code><p data-i18n="sections.utility.c8">Generate a random password.</p></div>
+                <div class="command-item"><code>/calculator expression</code><p data-i18n="sections.utility.c9">Use built-in calculator expressions.</p></div>
             </div>
         </section>
 
         <footer>
-            <p>Carapuz201G — All rights reserved.</p>
-            <p>Operated by carapuz201</p>
+            <p data-i18n="footer.rights">Carapuz201G — All rights reserved.</p>
+            <p data-i18n="footer.operated">Operated by carapuz201</p>
         </footer>
     </div>
 
-    <script src="/carapuz201g/assets/js/theme.js"></script>
-    <script src="/carapuz201g/assets/js/language.js"></script>
-    <script src="/carapuz201g/assets/js/app.js"></script>
+    <script>
+        const LANGUAGES = {
+            "en-US": "English (US)",
+            "en-GB": "English (UK)",
+            "ru": "Русский",
+            "uk": "Українська"
+        };
+
+        const translations = {
+            "en-US": {
+                page: {
+                    title: "Commands",
+                    subtitle: "Main slash and prefix command overview"
+                },
+                sections: {
+                    moderation: {
+                        title: "Moderation",
+                        c1: "Issue a warning to a member.",
+                        c2: "Timeout a member for a specific duration.",
+                        c3: "Kick a member from the guild.",
+                        c4: "Ban a member from the guild.",
+                        c5: "Bulk delete recent messages.",
+                        c6: "Delete recent messages from a specific member.",
+                        c7: "Remove warns from a member.",
+                        c8: "Prefix-based moderation duplicates."
+                    },
+                    economy: {
+                        title: "Economy",
+                        c1: "Claim your daily reward.",
+                        c2: "Choose a job and earn virtual currency.",
+                        c3: "Check your balance.",
+                        c4: "Open the economy shop.",
+                        c5: "Bet coins and try your luck.",
+                        c6: "Transfer currency to another user.",
+                        c7: "View your economy inventory.",
+                        c8: "Show economy and XP rankings.",
+                        c9: "View your daily quest.",
+                        c10: "Generate a profile card."
+                    },
+                    voice: {
+                        title: "Voice & Music",
+                        c1: "Play music from a URL or search query.",
+                        c2: "Disconnect the bot from voice.",
+                        c3: "Make the bot speak in voice.",
+                        c4: "Play direct audio from a URL.",
+                        c5: "Run a spoken countdown.",
+                        c6: "Speak current time in a city or timezone.",
+                        c7: "Get weather information and optional speech output.",
+                        c8: "Start radio mode if supported by the host."
+                    },
+                    utility: {
+                        title: "Utility & Info",
+                        c1: "Check bot latency.",
+                        c2: "Open command help and category navigation.",
+                        c3: "Show information about the bot.",
+                        c4: "Search online via Google search.",
+                        c5: "Search Wikipedia.",
+                        c6: "Get a dictionary definition.",
+                        c7: "Translate text.",
+                        c8: "Generate a random password.",
+                        c9: "Use built-in calculator expressions."
+                    }
+                },
+                footer: {
+                    rights: "Carapuz201G — All rights reserved.",
+                    operated: "Operated by carapuz201"
+                }
+            },
+            "en-GB": {
+                page: {
+                    title: "Commands",
+                    subtitle: "Main slash and prefix command overview"
+                },
+                sections: {
+                    moderation: {
+                        title: "Moderation",
+                        c1: "Issue a warning to a member.",
+                        c2: "Timeout a member for a specific duration.",
+                        c3: "Kick a member from the guild.",
+                        c4: "Ban a member from the guild.",
+                        c5: "Bulk delete recent messages.",
+                        c6: "Delete recent messages from a specific member.",
+                        c7: "Remove warns from a member.",
+                        c8: "Prefix-based moderation duplicates."
+                    },
+                    economy: {
+                        title: "Economy",
+                        c1: "Claim your daily reward.",
+                        c2: "Choose a job and earn virtual currency.",
+                        c3: "Check your balance.",
+                        c4: "Open the economy shop.",
+                        c5: "Bet coins and try your luck.",
+                        c6: "Transfer currency to another user.",
+                        c7: "View your economy inventory.",
+                        c8: "Show economy and XP rankings.",
+                        c9: "View your daily quest.",
+                        c10: "Generate a profile card."
+                    },
+                    voice: {
+                        title: "Voice & Music",
+                        c1: "Play music from a URL or search query.",
+                        c2: "Disconnect the bot from voice.",
+                        c3: "Make the bot speak in voice.",
+                        c4: "Play direct audio from a URL.",
+                        c5: "Run a spoken countdown.",
+                        c6: "Speak current time in a city or timezone.",
+                        c7: "Get weather information and optional speech output.",
+                        c8: "Start radio mode if supported by the host."
+                    },
+                    utility: {
+                        title: "Utility & Info",
+                        c1: "Check bot latency.",
+                        c2: "Open command help and category navigation.",
+                        c3: "Show information about the bot.",
+                        c4: "Search online via Google search.",
+                        c5: "Search Wikipedia.",
+                        c6: "Get a dictionary definition.",
+                        c7: "Translate text.",
+                        c8: "Generate a random password.",
+                        c9: "Use built-in calculator expressions."
+                    }
+                },
+                footer: {
+                    rights: "Carapuz201G — All rights reserved.",
+                    operated: "Operated by carapuz201"
+                }
+            },
+            "ru": {
+                page: {
+                    title: "Команды",
+                    subtitle: "Основной обзор slash- и prefix-команд"
+                },
+                sections: {
+                    moderation: {
+                        title: "Модерация",
+                        c1: "Выдать предупреждение участнику.",
+                        c2: "Выдать таймаут на определённое время.",
+                        c3: "Кикнуть участника с сервера.",
+                        c4: "Забанить участника на сервере.",
+                        c5: "Массово удалить недавние сообщения.",
+                        c6: "Удалить недавние сообщения конкретного участника.",
+                        c7: "Снять варны у участника.",
+                        c8: "Текстовые дубли moderation-команд через префикс."
+                    },
+                    economy: {
+                        title: "Экономика",
+                        c1: "Получить ежедневную награду.",
+                        c2: "Выбрать работу и заработать виртуальную валюту.",
+                        c3: "Проверить баланс.",
+                        c4: "Открыть магазин экономики.",
+                        c5: "Поставить монеты и испытать удачу.",
+                        c6: "Перевести валюту другому пользователю.",
+                        c7: "Посмотреть инвентарь экономики.",
+                        c8: "Показать рейтинги экономики и XP.",
+                        c9: "Посмотреть ежедневный квест.",
+                        c10: "Сгенерировать карточку профиля."
+                    },
+                    voice: {
+                        title: "Голос и музыка",
+                        c1: "Проигрывать музыку по URL или поисковому запросу.",
+                        c2: "Отключить бота от голосового канала.",
+                        c3: "Заставить бота говорить в голосовом канале.",
+                        c4: "Проиграть прямой аудиофайл по URL.",
+                        c5: "Запустить голосовой обратный отсчёт.",
+                        c6: "Озвучить текущее время в городе или часовом поясе.",
+                        c7: "Получить информацию о погоде и опциональную озвучку.",
+                        c8: "Запустить радио-режим, если он поддерживается хостом."
+                    },
+                    utility: {
+                        title: "Утилиты и информация",
+                        c1: "Проверить задержку бота.",
+                        c2: "Открыть справку по командам и категориям.",
+                        c3: "Показать информацию о боте.",
+                        c4: "Искать в интернете через Google Search.",
+                        c5: "Искать на Wikipedia.",
+                        c6: "Получить словарное определение.",
+                        c7: "Перевести текст.",
+                        c8: "Сгенерировать случайный пароль.",
+                        c9: "Использовать встроенный калькулятор."
+                    }
+                },
+                footer: {
+                    rights: "Carapуз201G — Все права защищены.",
+                    operated: "Проект ведёт carapuz201"
+                }
+            },
+            "uk": {
+                page: {
+                    title: "Команди",
+                    subtitle: "Основний огляд slash- та prefix-команд"
+                },
+                sections: {
+                    moderation: {
+                        title: "Модерація",
+                        c1: "Видати попередження учаснику.",
+                        c2: "Видати таймаут на певний час.",
+                        c3: "Вигнати учасника з сервера.",
+                        c4: "Забанити учасника на сервері.",
+                        c5: "Масово видалити нещодавні повідомлення.",
+                        c6: "Видалити нещодавні повідомлення конкретного учасника.",
+                        c7: "Зняти варни з учасника.",
+                        c8: "Текстові дублікати moderation-команд через префікс."
+                    },
+                    economy: {
+                        title: "Економіка",
+                        c1: "Отримати щоденну нагороду.",
+                        c2: "Обрати роботу та заробити віртуальну валюту.",
+                        c3: "Перевірити баланс.",
+                        c4: "Відкрити магазин економіки.",
+                        c5: "Поставити монети й випробувати удачу.",
+                        c6: "Переказати валюту іншому користувачу.",
+                        c7: "Переглянути інвентар економіки.",
+                        c8: "Показати рейтинги економіки та XP.",
+                        c9: "Переглянути щоденний квест.",
+                        c10: "Згенерувати картку профілю."
+                    },
+                    voice: {
+                        title: "Голос і музика",
+                        c1: "Відтворювати музику за URL або пошуковим запитом.",
+                        c2: "Відключити бота від голосового каналу.",
+                        c3: "Змусити бота говорити у голосовому каналі.",
+                        c4: "Відтворити прямий аудіофайл за URL.",
+                        c5: "Запустити голосовий зворотний відлік.",
+                        c6: "Озвучити поточний час у місті або часовому поясі.",
+                        c7: "Отримати інформацію про погоду та опціональне озвучення.",
+                        c8: "Запустити радіо-режим, якщо його підтримує хост."
+                    },
+                    utility: {
+                        title: "Утиліти та інформація",
+                        c1: "Перевірити затримку бота.",
+                        c2: "Відкрити довідку по командах і категоріях.",
+                        c3: "Показати інформацію про бота.",
+                        c4: "Шукати в інтернеті через Google Search.",
+                        c5: "Шукати у Wikipedia.",
+                        c6: "Отримати словникове визначення.",
+                        c7: "Перекласти текст.",
+                        c8: "Згенерувати випадковий пароль.",
+                        c9: "Використовувати вбудований калькулятор."
+                    }
+                },
+                footer: {
+                    rights: "Carapuz201G — Усі права захищені.",
+                    operated: "Проєкт веде carapuz201"
+                }
+            }
+        };
+
+        function getNested(obj, path) {
+            return path.split(".").reduce((acc, part) => acc && acc[part], obj);
+        }
+
+        function initLanguageSelector() {
+            const selector = document.getElementById("languageSelect");
+            Object.entries(LANGUAGES).forEach(([code, name]) => {
+                const option = document.createElement("option");
+                option.value = code;
+                option.textContent = name;
+                selector.appendChild(option);
+            });
+        }
+
+        function applyLanguage(lang) {
+            const current = translations[lang] || translations["en-US"];
+            document.querySelectorAll("[data-i18n]").forEach((el) => {
+                const key = el.getAttribute("data-i18n");
+                const value = getNested(current, key);
+                if (value) el.textContent = value;
+            });
+            localStorage.setItem("carapuz_lang", lang);
+            document.getElementById("languageSelect").value = lang;
+        }
+
+        function applyTheme(theme) {
+            document.documentElement.setAttribute("data-theme", theme);
+            localStorage.setItem("carapuz_theme", theme);
+            document.getElementById("themeToggle").textContent = theme === "light" ? "🌞 Light" : "🌙 Dark";
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            initLanguageSelector();
+
+            const savedLang = localStorage.getItem("carapuz_lang") || "en-US";
+            applyLanguage(savedLang);
+
+            document.getElementById("languageSelect").addEventListener("change", (e) => {
+                applyLanguage(e.target.value);
+            });
+
+            const savedTheme = localStorage.getItem("carapuz_theme") || "dark";
+            applyTheme(savedTheme);
+
+            document.getElementById("themeToggle").addEventListener("click", () => {
+                const current = document.documentElement.getAttribute("data-theme") || "dark";
+                applyTheme(current === "dark" ? "light" : "dark");
+            });
+
+            const searchInput = document.getElementById("commandSearch");
+            searchInput.addEventListener("input", () => {
+                const value = searchInput.value.toLowerCase().trim();
+                document.querySelectorAll(".command-item").forEach((item) => {
+                    const text = item.textContent.toLowerCase();
+                    item.style.display = text.includes(value) ? "" : "none";
+                });
+            });
+        });
+    </script>
 </body>
 </html>

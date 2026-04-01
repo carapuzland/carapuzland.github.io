@@ -1,13 +1,210 @@
+<!-- terms-of-service.html -->
 <!DOCTYPE html>
 <html lang="en-US" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carapuz201G — Discord Bot</title>
-    <link rel="stylesheet" href="/carapuz201g/assets/css/style.css">
+    <title>Carapuz201G — Terms of Service</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --bg-soft: #172033;
+            --bg-card: #1e293b;
+            --text: #e5e7eb;
+            --text-soft: #94a3b8;
+            --primary: #60a5fa;
+            --primary-strong: #3b82f6;
+            --success: #22c55e;
+            --border: #334155;
+            --shadow: rgba(0, 0, 0, 0.25);
+        }
+
+        [data-theme="light"] {
+            --bg: #f8fafc;
+            --bg-soft: #ffffff;
+            --bg-card: #f1f5f9;
+            --text: #0f172a;
+            --text-soft: #475569;
+            --primary: #2563eb;
+            --primary-strong: #1d4ed8;
+            --success: #16a34a;
+            --border: #cbd5e1;
+            --shadow: rgba(0, 0, 0, 0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Inter, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { color: var(--primary-strong); }
+
+        .top-badge {
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            z-index: 1100;
+            background: rgba(15, 23, 42, 0.92);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 8px 14px;
+            box-shadow: 0 4px 18px var(--shadow);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.96);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+            z-index: 1000;
+        }
+
+        .nav-inner {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 999px;
+        }
+
+        .nav-links a:hover { background: var(--bg-card); }
+
+        .nav-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .nav-btn.primary {
+            background: #5865f2;
+            color: white;
+        }
+
+        .nav-btn.success {
+            background: rgba(34, 197, 94, 0.12);
+            border: 1px solid var(--success);
+            color: var(--success);
+        }
+
+        .select, .theme-toggle {
+            background: var(--bg-card);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 8px 12px;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .container {
+            width: min(1080px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 110px 0 60px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin: 6px 0 28px;
+        }
+
+        .page-header h1 {
+            font-size: 38px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            color: var(--text-soft);
+        }
+
+        .page-section {
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 22px var(--shadow);
+        }
+
+        .page-section h2 {
+            color: var(--primary);
+            font-size: 26px;
+            margin-bottom: 14px;
+        }
+
+        .page-section p {
+            color: var(--text);
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .page-section ul {
+            margin: 12px 0 12px 22px;
+            color: var(--text);
+        }
+
+        .page-section li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            margin-top: 14px;
+            padding: 14px 18px;
+            border-radius: 14px;
+            background: rgba(96, 165, 250, 0.10);
+            border: 1px solid rgba(96, 165, 250, 0.28);
+            color: #dbeafe;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-soft);
+            font-size: 13px;
+            padding: 40px 20px 20px;
+            border-top: 1px solid var(--border);
+            margin-top: 48px;
+        }
+    </style>
 </head>
 <body>
-
     <div class="top-badge">
         <a href="https://carapuzland.github.io" target="_blank" rel="noopener noreferrer">🏝️ carapuzland.github.io</a>
     </div>
@@ -15,124 +212,417 @@
     <nav>
         <div class="nav-inner">
             <div class="nav-left nav-links">
-                <a data-nav href="/carapuz201g/" data-i18n="nav.about">About</a>
-                <a data-nav href="/carapuz201g/features/" data-i18n="nav.features">Features</a>
-                <a data-nav href="/carapuz201g/commands/" data-i18n="nav.commands">Commands</a>
-                <a data-nav href="/carapuz201g/privacy-policy/" data-i18n="nav.privacy">Privacy Policy</a>
-                <a data-nav href="/carapuz201g/terms-of-service/" data-i18n="nav.tos">Terms of Service</a>
-                <a data-nav href="/carapuz201g/support/" data-i18n="nav.support">Support</a>
-                <a data-nav href="/carapuz201g/status/" data-i18n="nav.status">Status</a>
+                <a href="index.html">About</a>
+                <a href="features.html">Features</a>
+                <a href="commands.html">Commands</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="support.html">Support</a>
+                <a href="status.html">Status</a>
             </div>
 
             <div class="nav-right">
-                <select id="languageSelect" class="select">
-                    <option value="en-US">English (US)</option>
-                    <option value="en-GB">English (UK)</option>
-                    <option value="ru">Русский</option>
-                    <option value="uk">Українська</option>
-                    <option value="bg">Български</option>
-                    <option value="hr">Hrvatski</option>
-                    <option value="cs">Čeština</option>
-                    <option value="da">Dansk</option>
-                    <option value="nl">Nederlands</option>
-                    <option value="et">Eesti</option>
-                    <option value="fi">Suomi</option>
-                    <option value="fr">Français</option>
-                    <option value="de">Deutsch</option>
-                    <option value="el">Ελληνικά</option>
-                    <option value="hu">Magyar</option>
-                    <option value="ga">Gaeilge</option>
-                    <option value="it">Italiano</option>
-                    <option value="lv">Latviešu</option>
-                    <option value="lt">Lietuvių</option>
-                    <option value="mt">Malti</option>
-                    <option value="pl">Polski</option>
-                    <option value="pt">Português</option>
-                    <option value="ro">Română</option>
-                    <option value="sk">Slovenčina</option>
-                    <option value="sl">Slovenščina</option>
-                    <option value="es">Español</option>
-                    <option value="sv">Svenska</option>
-                </select>
-
+                <select id="languageSelect" class="select"></select>
                 <button id="themeToggle" class="theme-toggle">🌙 Dark</button>
-
-                <a class="nav-btn success" href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer" data-i18n="nav.support_server">Support Server</a>
-                <a class="nav-btn primary" href="https://discord.com/oauth2/authorize?client_id=1372950477477777548&permissions=8&integration_type=0&scope=bot%20applications.commands" target="_blank" rel="noopener noreferrer" data-i18n="nav.add_bot">Add Bot</a>
+                <a class="nav-btn success" href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">Support Server</a>
+                <a class="nav-btn primary" href="https://discord.com/oauth2/authorize?client_id=1372950477477777548&permissions=8&integration_type=0&scope=bot%20applications.commands" target="_blank" rel="noopener noreferrer">Add Bot</a>
             </div>
         </div>
     </nav>
 
     <div class="container">
-        <section class="hero">
-            <div class="hero-icon">🤖</div>
-            <h1 data-i18n="hero.title">Carapuz201G</h1>
-            <p class="subtitle" data-i18n="hero.subtitle">A multi-purpose Discord bot for moderation, economy, utility, verification and voice features.</p>
-            <p class="description" data-i18n="hero.description">
-                Carapuz201G is an independent Discord bot project created to help Discord communities with moderation, automation, economy systems, support tools, and optional locally-hosted AI features.
-            </p>
+        <div class="page-header">
+            <h1 data-i18n="page.title">Terms of Service</h1>
+            <p data-i18n="page.subtitle">Rules for using Carapuz201G</p>
+        </div>
 
-            <div class="hero-buttons">
-                <a class="btn primary" href="https://discord.com/oauth2/authorize?client_id=1372950477477777548&permissions=8&integration_type=0&scope=bot%20applications.commands" target="_blank" rel="noopener noreferrer" data-i18n="hero.add_bot">Add to Discord</a>
-                <a class="btn secondary" href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer" data-i18n="hero.join_support">Join Support Server</a>
-            </div>
-
-            <div class="official-note" data-i18n="hero.official">
-                Official project links: carapuzland.github.io • discord.gg/pBh4rRK3TT
-            </div>
-        </section>
-
-        <section class="grid">
-            <div class="card">
-                <div class="icon">🛡️</div>
-                <h3>Moderation</h3>
-                <p>Warnings, mutes, bans, anti-raid, filters and logging systems.</p>
-            </div>
-            <div class="card">
-                <div class="icon">💰</div>
-                <h3>Economy</h3>
-                <p>Daily rewards, jobs, casino, shop, ratings, quests and investments.</p>
-            </div>
-            <div class="card">
-                <div class="icon">✅</div>
-                <h3>Verification</h3>
-                <p>Captcha, role verification and optional Roblox / Steam workflows.</p>
-            </div>
-            <div class="card">
-                <div class="icon">🔊</div>
-                <h3>Voice Features</h3>
-                <p>Music, TTS, countdowns, radio and private voice room tools.</p>
-            </div>
+        <section class="page-section">
+            <h2 data-i18n="sections.s1.title">1. Acceptance</h2>
+            <p data-i18n="sections.s1.p1">By inviting, enabling, or using Carapuz201G, you agree to these Terms of Service. If you do not agree, do not use the Bot.</p>
         </section>
 
         <section class="page-section">
-            <h2 data-i18n="status.section_title">Bot Status</h2>
-            <p data-i18n="status.section_subtitle">Live or fallback bot status information</p>
-            <div id="statusContainer"></div>
+            <h2 data-i18n="sections.s2.title">2. Service Description</h2>
+            <p data-i18n="sections.s2.p1">Carapuz201G is a multi-purpose Discord bot that may provide moderation, economy, utility, support, verification, profile, voice and optional locally-hosted AI features depending on the current public build.</p>
         </section>
 
-        <section class="box">
-            <h2>Quick Navigation</h2>
-            <p>Use the sections below to explore the project:</p>
+        <section class="page-section">
+            <h2 data-i18n="sections.s3.title">3. Eligibility</h2>
+            <p data-i18n="sections.s3.p1">You must be old enough to use Discord under Discord’s Terms of Service and any applicable local laws.</p>
+        </section>
+
+        <section class="page-section">
+            <h2 data-i18n="sections.s4.title">4. Acceptable Use</h2>
+            <p data-i18n="sections.s4.p1">You agree not to:</p>
             <ul>
-                <li><a href="/carapuz201g/about/">About the project and architecture</a></li>
-                <li><a href="/carapuz201g/features/">Feature overview</a></li>
-                <li><a href="/carapuz201g/commands/">Command reference</a></li>
-                <li><a href="/carapuz201g/privacy-policy/">Privacy Policy</a></li>
-                <li><a href="/carapuz201g/terms-of-service/">Terms of Service</a></li>
-                <li><a href="/carapuz201g/support/">Support and contact</a></li>
+                <li data-i18n="sections.s4.li1">use the Bot to violate Discord’s Terms, Community Guidelines, Developer Terms or Developer Policy,</li>
+                <li data-i18n="sections.s4.li2">use the Bot for spam, harassment, scams, abuse or illegal activity,</li>
+                <li data-i18n="sections.s4.li3">exploit bugs, unfair automation or loopholes in economy or moderation systems,</li>
+                <li data-i18n="sections.s4.li4">attempt to reverse-engineer, overload or interfere with the Bot’s intended operation,</li>
+                <li data-i18n="sections.s4.li5">use the Bot to impersonate Discord, staff or unrelated third parties.</li>
+            </ul>
+        </section>
+
+        <section class="page-section">
+            <h2 data-i18n="sections.s5.title">5. Local AI / Ollama</h2>
+            <p data-i18n="sections.s5.p1">Some builds of the Bot may use a locally-hosted Ollama model to perform feature-specific tasks.</p>
+            <ul>
+                <li data-i18n="sections.s5.li1">Such AI use is intended only for requested bot functionality.</li>
+                <li data-i18n="sections.s5.li2">Discord content is not intended to be used for model training or fine-tuning.</li>
+                <li data-i18n="sections.s5.li3">The Bot is not intended to turn Discord messages into AI training datasets.</li>
+            </ul>
+        </section>
+
+        <section class="page-section">
+            <h2 data-i18n="sections.s6.title">6. Cmail and User Contact</h2>
+            <p data-i18n="sections.s6.p1">The Bot may provide an optional user messaging feature (cmail).</p>
+            <ul>
+                <li data-i18n="sections.s6.li1">Users must explicitly opt in before receiving cmail.</li>
+                <li data-i18n="sections.s6.li2">You may not use cmail for spam, ads, harassment, scams or abusive messaging.</li>
+                <li data-i18n="sections.s6.li3">We may restrict or disable abusive use of this feature.</li>
+            </ul>
+        </section>
+
+        <section class="page-section">
+            <h2 data-i18n="sections.s7.title">7. Availability</h2>
+            <p data-i18n="sections.s7.p1">The Bot is provided on an “as is” and “as available” basis.</p>
+            <ul>
+                <li data-i18n="sections.s7.li1">We do not guarantee uninterrupted service.</li>
+                <li data-i18n="sections.s7.li2">Features may be changed, limited, removed or temporarily unavailable.</li>
+                <li data-i18n="sections.s7.li3">Voice and media features may depend on the host and may not always work.</li>
+            </ul>
+        </section>
+
+        <section class="page-section">
+            <h2 data-i18n="sections.s8.title">8. Virtual Economy Disclaimer</h2>
+            <p data-i18n="sections.s8.p1">Any balances, items, quests, workers, investments, kingdoms or other economy values inside the Bot are purely virtual and have no real-world monetary value.</p>
+        </section>
+
+        <section class="page-section">
+            <h2 data-i18n="sections.s9.title">9. Enforcement</h2>
+            <p data-i18n="sections.s9.p1">We may restrict or block use of the Bot if necessary, including for abuse, feature exploitation, policy violations, or behavior that creates risk for the Bot, its users, or infrastructure.</p>
+        </section>
+
+        <section class="page-section">
+            <h2 data-i18n="sections.s10.title">10. Third-Party and Hosting Dependencies</h2>
+            <p data-i18n="sections.s10.p1">Some commands may rely on third-party services or the current hosting environment. We are not responsible for outages, changes, restrictions or policy decisions of external providers.</p>
+        </section>
+
+        <section class="page-section">
+            <h2 data-i18n="sections.s11.title">11. Limitation of Liability</h2>
+            <p data-i18n="sections.s11.p1">To the maximum extent permitted by law, the Bot is provided without warranties of any kind. We are not liable for indirect, incidental, consequential, or special damages arising from the use or inability to use the Bot.</p>
+        </section>
+
+        <section class="page-section">
+            <h2 data-i18n="sections.s12.title">12. Changes to These Terms</h2>
+            <p data-i18n="sections.s12.p1">We may update these Terms at any time. Continued use of the Bot after changes means you accept the updated Terms.</p>
+        </section>
+
+        <section class="page-section">
+            <h2 data-i18n="sections.s13.title">13. Contact</h2>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:carapuz201@gmail.com">carapuz201@gmail.com</a></li>
+                <li><strong>Support server:</strong> <a href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">discord.gg/pBh4rRK3TT</a></li>
+                <li><strong>Website:</strong> <a href="https://carapuzland.github.io" target="_blank" rel="noopener noreferrer">carapuzland.github.io</a></li>
             </ul>
         </section>
 
         <footer>
-            <p><span data-i18n="hero.title">Carapuz201G</span> — <span data-i18n="footer.rights">All rights reserved.</span></p>
+            <p data-i18n="footer.rights">Carapuz201G — All rights reserved.</p>
             <p data-i18n="footer.operated">Operated by carapuz201</p>
         </footer>
     </div>
 
-    <script src="/carapuz201g/assets/js/theme.js"></script>
-    <script src="/carapuz201g/assets/js/language.js"></script>
-    <script src="/carapuz201g/assets/js/status.js"></script>
-    <script src="/carapuz201g/assets/js/app.js"></script>
+    <script>
+        const LANGUAGES = {
+            "en-US": "English",
+            "ru": "Русский",
+            "de": "Deutsch"
+        };
+
+        const translations = {
+            "en-US": {
+                page: {
+                    title: "Terms of Service",
+                    subtitle: "Rules for using Carapuz201G"
+                },
+                sections: {
+                    s1: {
+                        title: "1. Acceptance",
+                        p1: "By inviting, enabling, or using Carapuz201G, you agree to these Terms of Service. If you do not agree, do not use the Bot."
+                    },
+                    s2: {
+                        title: "2. Service Description",
+                        p1: "Carapuz201G is a multi-purpose Discord bot that may provide moderation, economy, utility, support, verification, profile, voice and optional locally-hosted AI features depending on the current public build."
+                    },
+                    s3: {
+                        title: "3. Eligibility",
+                        p1: "You must be old enough to use Discord under Discord’s Terms of Service and any applicable local laws."
+                    },
+                    s4: {
+                        title: "4. Acceptable Use",
+                        p1: "You agree not to:",
+                        li1: "use the Bot to violate Discord’s Terms, Community Guidelines, Developer Terms or Developer Policy,",
+                        li2: "use the Bot for spam, harassment, scams, abuse or illegal activity,",
+                        li3: "exploit bugs, unfair automation or loopholes in economy or moderation systems,",
+                        li4: "attempt to reverse-engineer, overload or interfere with the Bot’s intended operation,",
+                        li5: "use the Bot to impersonate Discord, staff or unrelated third parties."
+                    },
+                    s5: {
+                        title: "5. Local AI / Ollama",
+                        p1: "Some builds of the Bot may use a locally-hosted Ollama model to perform feature-specific tasks.",
+                        li1: "Such AI use is intended only for requested bot functionality.",
+                        li2: "Discord content is not intended to be used for model training or fine-tuning.",
+                        li3: "The Bot is not intended to turn Discord messages into AI training datasets."
+                    },
+                    s6: {
+                        title: "6. Cmail and User Contact",
+                        p1: "The Bot may provide an optional user messaging feature (cmail).",
+                        li1: "Users must explicitly opt in before receiving cmail.",
+                        li2: "You may not use cmail for spam, ads, harassment, scams or abusive messaging.",
+                        li3: "We may restrict or disable abusive use of this feature."
+                    },
+                    s7: {
+                        title: "7. Availability",
+                        p1: "The Bot is provided on an “as is” and “as available” basis.",
+                        li1: "We do not guarantee uninterrupted service.",
+                        li2: "Features may be changed, limited, removed or temporarily unavailable.",
+                        li3: "Voice and media features may depend on the host and may not always work."
+                    },
+                    s8: {
+                        title: "8. Virtual Economy Disclaimer",
+                        p1: "Any balances, items, quests, workers, investments, kingdoms or other economy values inside the Bot are purely virtual and have no real-world monetary value."
+                    },
+                    s9: {
+                        title: "9. Enforcement",
+                        p1: "We may restrict or block use of the Bot if necessary, including for abuse, feature exploitation, policy violations, or behavior that creates risk for the Bot, its users, or infrastructure."
+                    },
+                    s10: {
+                        title: "10. Third-Party and Hosting Dependencies",
+                        p1: "Some commands may rely on third-party services or the current hosting environment. We are not responsible for outages, changes, restrictions or policy decisions of external providers."
+                    },
+                    s11: {
+                        title: "11. Limitation of Liability",
+                        p1: "To the maximum extent permitted by law, the Bot is provided without warranties of any kind. We are not liable for indirect, incidental, consequential, or special damages arising from the use or inability to use the Bot."
+                    },
+                    s12: {
+                        title: "12. Changes to These Terms",
+                        p1: "We may update these Terms at any time. Continued use of the Bot after changes means you accept the updated Terms."
+                    },
+                    s13: {
+                        title: "13. Contact"
+                    }
+                },
+                footer: {
+                    rights: "Carapuz201G — All rights reserved.",
+                    operated: "Operated by carapuz201"
+                }
+            },
+            "ru": {
+                page: {
+                    title: "Условия использования",
+                    subtitle: "Правила использования Carapuz201G"
+                },
+                sections: {
+                    s1: {
+                        title: "1. Принятие условий",
+                        p1: "Приглашая, включая или используя Carapuz201G, вы соглашаетесь с этими Условиями использования. Если вы не согласны, не используйте бота."
+                    },
+                    s2: {
+                        title: "2. Описание сервиса",
+                        p1: "Carapuz201G — это многофункциональный Discord-бот, который может предоставлять модерацию, экономику, утилиты, поддержку, верификацию, профили, голосовые и опциональные локальные AI-функции в зависимости от текущей публичной сборки."
+                    },
+                    s3: {
+                        title: "3. Допустимость использования",
+                        p1: "Вы должны быть достаточно взрослыми для использования Discord в соответствии с условиями Discord и применимым законодательством."
+                    },
+                    s4: {
+                        title: "4. Допустимое использование",
+                        p1: "Вы соглашаетесь не:",
+                        li1: "использовать бота для нарушения условий Discord, правил сообщества, Developer Terms или Developer Policy,",
+                        li2: "использовать бота для спама, домогательств, мошенничества, злоупотреблений или незаконной деятельности,",
+                        li3: "эксплуатировать баги, нечестную автоматизацию или лазейки в экономике или модерации,",
+                        li4: "пытаться реверс-инженерить, перегружать или мешать нормальной работе бота,",
+                        li5: "использовать бота для выдачи себя за Discord, сотрудников или третьих лиц."
+                    },
+                    s5: {
+                        title: "5. Локальный AI / Ollama",
+                        p1: "Некоторые сборки бота могут использовать локально размещённую модель Ollama для выполнения отдельных функций.",
+                        li1: "Такое использование AI предназначено только для выполнения запрошенной функциональности бота.",
+                        li2: "Контент Discord не предназначен для обучения или дообучения модели.",
+                        li3: "Бот не предназначен для превращения сообщений Discord в AI-датасеты."
+                    },
+                    s6: {
+                        title: "6. Cmail и контакт с пользователями",
+                        p1: "Бот может предоставлять опциональную функцию пользовательских сообщений (cmail).",
+                        li1: "Пользователь должен явно включить возможность получать cmail.",
+                        li2: "Нельзя использовать cmail для спама, рекламы, домогательств, мошенничества или злоупотреблений.",
+                        li3: "Мы можем ограничить или отключить злоупотребление этой функцией."
+                    },
+                    s7: {
+                        title: "7. Доступность",
+                        p1: "Бот предоставляется по принципу «как есть» и «как доступно».",
+                        li1: "Мы не гарантируем бесперебойную работу.",
+                        li2: "Функции могут изменяться, ограничиваться, удаляться или быть временно недоступными.",
+                        li3: "Голосовые и медиа-функции могут зависеть от хоста и работать не всегда."
+                    },
+                    s8: {
+                        title: "8. Отказ от ответственности по виртуальной экономике",
+                        p1: "Любые балансы, предметы, квесты, рабочие, инвестиции, королевства и другие значения экономики внутри бота являются исключительно виртуальными и не имеют реальной денежной ценности."
+                    },
+                    s9: {
+                        title: "9. Принудительные меры",
+                        p1: "Мы можем ограничить или заблокировать использование бота при необходимости, включая злоупотребление, эксплуатацию функций, нарушения правил или поведение, создающее риск для бота, пользователей или инфраструктуры."
+                    },
+                    s10: {
+                        title: "10. Сторонние зависимости и хостинг",
+                        p1: "Некоторые команды могут зависеть от сторонних сервисов или текущей среды хостинга. Мы не несём ответственности за сбои, изменения, ограничения или решения внешних провайдеров."
+                    },
+                    s11: {
+                        title: "11. Ограничение ответственности",
+                        p1: "В максимально допустимой законом степени бот предоставляется без каких-либо гарантий. Мы не несём ответственности за косвенные, случайные, последующие или специальные убытки, возникающие из-за использования или невозможности использования бота."
+                    },
+                    s12: {
+                        title: "12. Изменение условий",
+                        p1: "Мы можем обновлять эти Условия в любое время. Продолжение использования бота после изменений означает принятие обновлённой версии."
+                    },
+                    s13: {
+                        title: "13. Контакты"
+                    }
+                },
+                footer: {
+                    rights: "Carapuz201G — Все права защищены.",
+                    operated: "Проект ведёт carapuz201"
+                }
+            },
+            "de": {
+                page: {
+                    title: "Nutzungsbedingungen",
+                    subtitle: "Regeln für die Nutzung von Carapuz201G"
+                },
+                sections: {
+                    s1: {
+                        title: "1. Annahme",
+                        p1: "Durch das Einladen, Aktivieren oder Nutzen von Carapuz201G stimmst du diesen Nutzungsbedingungen zu. Wenn du nicht zustimmst, nutze den Bot nicht."
+                    },
+                    s2: {
+                        title: "2. Beschreibung des Dienstes",
+                        p1: "Carapuz201G ist ein multifunktionaler Discord-Bot, der je nach öffentlichem Build Moderation, Wirtschaftssysteme, Hilfsfunktionen, Support, Verifizierung, Profile, Sprachfunktionen und optionale lokal gehostete KI-Funktionen bereitstellen kann."
+                    },
+                    s3: {
+                        title: "3. Berechtigung",
+                        p1: "Du musst alt genug sein, um Discord gemäß den Discord-Nutzungsbedingungen und geltendem Recht zu verwenden."
+                    },
+                    s4: {
+                        title: "4. Zulässige Nutzung",
+                        p1: "Du verpflichtest dich, den Bot nicht zu verwenden, um:",
+                        li1: "gegen Discord-Bedingungen, Community-Richtlinien, Developer Terms oder Developer Policy zu verstoßen,",
+                        li2: "Spam, Belästigung, Betrug, Missbrauch oder illegale Aktivitäten zu betreiben,",
+                        li3: "Fehler, unfaire Automatisierung oder Schlupflöcher in Wirtschafts- oder Moderationssystemen auszunutzen,",
+                        li4: "den Bot zurückzuentwickeln, zu überlasten oder seinen normalen Betrieb zu stören,",
+                        li5: "sich als Discord, Mitarbeitende oder Dritte auszugeben."
+                    },
+                    s5: {
+                        title: "5. Lokale KI / Ollama",
+                        p1: "Einige Builds des Bots können ein lokal gehostetes Ollama-Modell verwenden, um bestimmte Funktionen auszuführen.",
+                        li1: "Eine solche KI-Nutzung ist nur für angeforderte Bot-Funktionalität vorgesehen.",
+                        li2: "Discord-Inhalte sind nicht für Modelltraining oder Feinabstimmung vorgesehen.",
+                        li3: "Der Bot ist nicht dafür gedacht, Discord-Nachrichten in KI-Trainingsdatensätze umzuwandeln."
+                    },
+                    s6: {
+                        title: "6. Cmail und Nutzerkontakt",
+                        p1: "Der Bot kann eine optionale Nutzer-zu-Nutzer-Nachrichtenfunktion (cmail) bereitstellen.",
+                        li1: "Nutzer müssen ausdrücklich zustimmen, bevor sie cmail erhalten.",
+                        li2: "Du darfst cmail nicht für Spam, Werbung, Belästigung, Betrug oder missbräuchliche Nachrichten verwenden.",
+                        li3: "Wir können missbräuchliche Nutzung dieser Funktion einschränken oder deaktivieren."
+                    },
+                    s7: {
+                        title: "7. Verfügbarkeit",
+                        p1: "Der Bot wird auf einer „wie besehen“ und „wie verfügbar“-Basis bereitgestellt.",
+                        li1: "Wir garantieren keinen unterbrechungsfreien Dienst.",
+                        li2: "Funktionen können geändert, eingeschränkt, entfernt oder vorübergehend nicht verfügbar sein.",
+                        li3: "Sprach- und Medienfunktionen können vom Host abhängen und funktionieren nicht immer."
+                    },
+                    s8: {
+                        title: "8. Hinweis zur virtuellen Wirtschaft",
+                        p1: "Alle Guthaben, Gegenstände, Quests, Arbeiter, Investitionen, Königreiche und sonstigen Wirtschaftswerte innerhalb des Bots sind rein virtuell und haben keinen realen Geldwert."
+                    },
+                    s9: {
+                        title: "9. Durchsetzung",
+                        p1: "Wir können die Nutzung des Bots einschränken oder blockieren, wenn dies erforderlich ist, insbesondere bei Missbrauch, Funktionsausnutzung, Richtlinienverstößen oder Verhalten, das ein Risiko für den Bot, seine Nutzer oder die Infrastruktur darstellt."
+                    },
+                    s10: {
+                        title: "10. Drittanbieter- und Hosting-Abhängigkeiten",
+                        p1: "Einige Befehle können von Drittanbieterdiensten oder der aktuellen Hosting-Umgebung abhängen. Wir sind nicht verantwortlich für Ausfälle, Änderungen, Einschränkungen oder Entscheidungen externer Anbieter."
+                    },
+                    s11: {
+                        title: "11. Haftungsbeschränkung",
+                        p1: "Soweit gesetzlich zulässig, wird der Bot ohne jegliche Garantien bereitgestellt. Wir haften nicht für indirekte, zufällige, Folge- oder besondere Schäden, die aus der Nutzung oder der Unmöglichkeit der Nutzung des Bots entstehen."
+                    },
+                    s12: {
+                        title: "12. Änderungen dieser Bedingungen",
+                        p1: "Wir können diese Bedingungen jederzeit aktualisieren. Die weitere Nutzung des Bots nach Änderungen bedeutet die Annahme der aktualisierten Version."
+                    },
+                    s13: {
+                        title: "13. Kontakt"
+                    }
+                },
+                footer: {
+                    rights: "Carapuz201G — Alle Rechte vorbehalten.",
+                    operated: "Projekt betrieben von carapuz201"
+                }
+            }
+        };
+
+        function getNested(obj, path) {
+            return path.split(".").reduce((acc, part) => acc && acc[part], obj);
+        }
+
+        function initLanguageSelector() {
+            const selector = document.getElementById("languageSelect");
+            Object.entries(LANGUAGES).forEach(([code, name]) => {
+                const option = document.createElement("option");
+                option.value = code;
+                option.textContent = name;
+                selector.appendChild(option);
+            });
+        }
+
+        function applyLanguage(lang) {
+            const current = translations[lang] || translations["en-US"];
+            document.querySelectorAll("[data-i18n]").forEach((el) => {
+                const key = el.getAttribute("data-i18n");
+                const value = getNested(current, key);
+                if (value) el.textContent = value;
+            });
+            localStorage.setItem("carapuz_lang", lang);
+            document.getElementById("languageSelect").value = lang;
+        }
+
+        function applyTheme(theme) {
+            document.documentElement.setAttribute("data-theme", theme);
+            localStorage.setItem("carapuz_theme", theme);
+            document.getElementById("themeToggle").textContent = theme === "light" ? "🌞 Light" : "🌙 Dark";
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            initLanguageSelector();
+
+            const savedLang = localStorage.getItem("carapuz_lang") || "en-US";
+            applyLanguage(savedLang);
+
+            document.getElementById("languageSelect").addEventListener("change", (e) => {
+                applyLanguage(e.target.value);
+            });
+
+            const savedTheme = localStorage.getItem("carapuz_theme") || "dark";
+            applyTheme(savedTheme);
+
+            document.getElementById("themeToggle").addEventListener("click", () => {
+                const current = document.documentElement.getAttribute("data-theme") || "dark";
+                applyTheme(current === "dark" ? "light" : "dark");
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,16 +1,216 @@
-<!-- ====================================== -->
-<!-- /carapuz201g/privacy-policy/index.html -->
-<!-- ====================================== -->
+<!-- privacy-policy.html -->
 <!DOCTYPE html>
 <html lang="en-US" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carapuz201G — Privacy Policy</title>
-    <link rel="stylesheet" href="/carapuz201g/assets/css/style.css">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --bg-soft: #172033;
+            --bg-card: #1e293b;
+            --text: #e5e7eb;
+            --text-soft: #94a3b8;
+            --primary: #60a5fa;
+            --primary-strong: #3b82f6;
+            --success: #22c55e;
+            --border: #334155;
+            --shadow: rgba(0, 0, 0, 0.25);
+        }
+
+        [data-theme="light"] {
+            --bg: #f8fafc;
+            --bg-soft: #ffffff;
+            --bg-card: #f1f5f9;
+            --text: #0f172a;
+            --text-soft: #475569;
+            --primary: #2563eb;
+            --primary-strong: #1d4ed8;
+            --success: #16a34a;
+            --border: #cbd5e1;
+            --shadow: rgba(0, 0, 0, 0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Inter, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { color: var(--primary-strong); }
+
+        .top-badge {
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            z-index: 1100;
+            background: rgba(15, 23, 42, 0.92);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 8px 14px;
+            box-shadow: 0 4px 18px var(--shadow);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.96);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+            z-index: 1000;
+        }
+
+        .nav-inner {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 999px;
+        }
+
+        .nav-links a:hover { background: var(--bg-card); }
+
+        .nav-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .nav-btn.primary {
+            background: #5865f2;
+            color: white;
+        }
+
+        .nav-btn.success {
+            background: rgba(34, 197, 94, 0.12);
+            border: 1px solid var(--success);
+            color: var(--success);
+        }
+
+        .select, .theme-toggle {
+            background: var(--bg-card);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 8px 12px;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .container {
+            width: min(1080px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 110px 0 60px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin: 6px 0 28px;
+        }
+
+        .page-header h1 {
+            font-size: 38px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            color: var(--text-soft);
+        }
+
+        .page-section {
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 22px var(--shadow);
+        }
+
+        .page-section h2 {
+            color: var(--primary);
+            font-size: 26px;
+            margin-bottom: 14px;
+        }
+
+        .page-section p {
+            color: var(--text);
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .page-section ul {
+            margin: 12px 0 12px 22px;
+            color: var(--text);
+        }
+
+        .page-section li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            margin-top: 14px;
+            padding: 14px 18px;
+            border-radius: 14px;
+            background: rgba(96, 165, 250, 0.10);
+            border: 1px solid rgba(96, 165, 250, 0.28);
+            color: #dbeafe;
+            font-size: 14px;
+        }
+
+        .highlight.green {
+            background: rgba(34, 197, 94, 0.10);
+            border: 1px solid rgba(34, 197, 94, 0.28);
+            color: #bbf7d0;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-soft);
+            font-size: 13px;
+            padding: 40px 20px 20px;
+            border-top: 1px solid var(--border);
+            margin-top: 48px;
+        }
+    </style>
 </head>
 <body>
-
     <div class="top-badge">
         <a href="https://carapuzland.github.io" target="_blank" rel="noopener noreferrer">🏝️ carapuzland.github.io</a>
     </div>
@@ -18,46 +218,17 @@
     <nav>
         <div class="nav-inner">
             <div class="nav-left nav-links">
-                <a data-nav href="/carapuz201g/">About</a>
-                <a data-nav href="/carapuz201g/features/">Features</a>
-                <a data-nav href="/carapuz201g/commands/">Commands</a>
-                <a data-nav href="/carapuz201g/privacy-policy/">Privacy Policy</a>
-                <a data-nav href="/carapuz201g/terms-of-service/">Terms of Service</a>
-                <a data-nav href="/carapuz201g/support/">Support</a>
-                <a data-nav href="/carapuz201g/status/">Status</a>
+                <a href="index.html">About</a>
+                <a href="features.html">Features</a>
+                <a href="commands.html">Commands</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="support.html">Support</a>
+                <a href="status.html">Status</a>
             </div>
 
             <div class="nav-right">
-                <select id="languageSelect" class="select">
-                    <option value="en-US">English (US)</option>
-                    <option value="en-GB">English (UK)</option>
-                    <option value="ru">Русский</option>
-                    <option value="uk">Українська</option>
-                    <option value="bg">Български</option>
-                    <option value="hr">Hrvatski</option>
-                    <option value="cs">Čeština</option>
-                    <option value="da">Dansk</option>
-                    <option value="nl">Nederlands</option>
-                    <option value="et">Eesti</option>
-                    <option value="fi">Suomi</option>
-                    <option value="fr">Français</option>
-                    <option value="de">Deutsch</option>
-                    <option value="el">Ελληνικά</option>
-                    <option value="hu">Magyar</option>
-                    <option value="ga">Gaeilge</option>
-                    <option value="it">Italiano</option>
-                    <option value="lv">Latviešu</option>
-                    <option value="lt">Lietuvių</option>
-                    <option value="mt">Malti</option>
-                    <option value="pl">Polski</option>
-                    <option value="pt">Português</option>
-                    <option value="ro">Română</option>
-                    <option value="sk">Slovenčina</option>
-                    <option value="sl">Slovenščina</option>
-                    <option value="es">Español</option>
-                    <option value="sv">Svenska</option>
-                </select>
-
+                <select id="languageSelect" class="select"></select>
                 <button id="themeToggle" class="theme-toggle">🌙 Dark</button>
                 <a class="nav-btn success" href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">Support Server</a>
                 <a class="nav-btn primary" href="https://discord.com/oauth2/authorize?client_id=1372950477477777548&permissions=8&integration_type=0&scope=bot%20applications.commands" target="_blank" rel="noopener noreferrer">Add Bot</a>
@@ -67,162 +238,412 @@
 
     <div class="container">
         <div class="page-header">
-            <h1>Privacy Policy</h1>
-            <p>How Carapuz201G handles data</p>
+            <h1 data-i18n="page.title">Privacy Policy</h1>
+            <p data-i18n="page.subtitle">How Carapuz201G handles data</p>
         </div>
 
         <section class="page-section">
-            <h2>1. Introduction</h2>
-            <p>
-                This Privacy Policy explains how Carapuz201G ("the Bot", "we", "us", "our") collects, stores,
-                uses, and deletes data when users interact with the Bot through Discord.
-            </p>
-            <p>
-                By using the Bot, you acknowledge this Privacy Policy. If you do not agree, do not use the Bot.
-            </p>
+            <h2 data-i18n="sections.s1.title">1. Introduction</h2>
+            <p data-i18n="sections.s1.p1">This Privacy Policy explains how Carapuz201G collects, stores, uses, and deletes data when users interact with the Bot through Discord.</p>
+            <p data-i18n="sections.s1.p2">By using the Bot, you acknowledge this Privacy Policy. If you do not agree, do not use the Bot.</p>
         </section>
 
         <section class="page-section">
-            <h2>2. Data We Collect</h2>
-            <p>The Bot may collect only the data reasonably necessary for its functionality, including:</p>
+            <h2 data-i18n="sections.s2.title">2. Data We Collect</h2>
+            <p data-i18n="sections.s2.p1">The Bot may collect only the data reasonably necessary for its functionality, including:</p>
             <ul>
-                <li><strong>Discord user IDs</strong> — for moderation, economy, reminders, verification and bot systems.</li>
-                <li><strong>Discord guild IDs and configuration data</strong> — for server-specific bot settings.</li>
-                <li><strong>Economy-related values</strong> — balances, workers, utility levels, quests, investments and similar virtual values.</li>
-                <li><strong>Moderation data</strong> — warning counts and related guild moderation settings.</li>
-                <li><strong>Temporary verification session data</strong> — for Roblox / Steam verification flows.</li>
-                <li><strong>Temporary encrypted anti-raid backups</strong> — limited server metadata and recent message snapshots used only for restore features.</li>
-                <li><strong>Opt-in cmail preference</strong> — whether a user enabled or disabled receiving cmail messages.</li>
+                <li data-i18n="sections.s2.li1">Discord user IDs for moderation, economy, reminders, verification and bot systems.</li>
+                <li data-i18n="sections.s2.li2">Discord guild IDs and configuration data for server-specific bot settings.</li>
+                <li data-i18n="sections.s2.li3">Economy-related values such as balances, workers, utility levels, quests and investments.</li>
+                <li data-i18n="sections.s2.li4">Moderation data such as warning counts and related guild settings.</li>
+                <li data-i18n="sections.s2.li5">Temporary verification session data for Roblox / Steam verification flows.</li>
+                <li data-i18n="sections.s2.li6">Temporary encrypted anti-raid backups containing limited server metadata and recent message snapshots.</li>
+                <li data-i18n="sections.s2.li7">Opt-in cmail preference data.</li>
             </ul>
-
-            <div class="highlight">
-                The Bot is designed not to request or collect passwords, Discord tokens, or private login credentials.
-            </div>
+            <div class="highlight" data-i18n="sections.s2.highlight">The Bot is designed not to request or collect passwords, Discord tokens, or login credentials.</div>
         </section>
 
         <section class="page-section">
-            <h2>3. How We Use Data</h2>
+            <h2 data-i18n="sections.s3.title">3. How We Use Data</h2>
             <ul>
-                <li>To provide moderation, economy, verification, profile, reminder, giveaway, utility and support features.</li>
-                <li>To store per-server settings chosen by guild administrators.</li>
-                <li>To support anti-raid restore features using temporary encrypted backups.</li>
-                <li>To maintain, secure, and improve the intended functionality of the Bot.</li>
+                <li data-i18n="sections.s3.li1">To provide moderation, economy, verification, profile, reminder, giveaway, utility and support features.</li>
+                <li data-i18n="sections.s3.li2">To store per-server settings chosen by guild administrators.</li>
+                <li data-i18n="sections.s3.li3">To support anti-raid restore features using temporary encrypted backups.</li>
+                <li data-i18n="sections.s3.li4">To maintain, secure and improve the intended functionality of the Bot.</li>
             </ul>
-
-            <div class="highlight green">
-                We do not sell, rent, broker, or monetize Discord API data.
-            </div>
+            <div class="highlight green" data-i18n="sections.s3.highlight">We do not sell, rent, broker, or monetize Discord API data.</div>
         </section>
 
         <section class="page-section">
-            <h2>4. Ollama / Local AI</h2>
-            <p>
-                Some builds of the Bot may optionally use a locally-hosted Ollama model for feature-specific processing.
-            </p>
+            <h2 data-i18n="sections.s4.title">4. Ollama / Local AI</h2>
+            <p data-i18n="sections.s4.p1">Some builds of the Bot may optionally use a locally-hosted Ollama model for feature-specific processing.</p>
             <ul>
-                <li>When used, local AI is intended only to provide requested bot functionality.</li>
-                <li>Discord user message content is <strong>not</strong> used to train, fine-tune, or improve the model.</li>
-                <li>The Bot is not intended to create AI training datasets from Discord user content.</li>
+                <li data-i18n="sections.s4.li1">When used, local AI is intended only to provide requested bot functionality.</li>
+                <li data-i18n="sections.s4.li2">Discord user message content is not used to train, fine-tune, or improve the model.</li>
+                <li data-i18n="sections.s4.li3">The Bot is not intended to create AI training datasets from Discord user content.</li>
             </ul>
-
-            <div class="highlight">
-                Local AI processing is intended for feature execution only, not for model training on Discord user data.
-            </div>
+            <div class="highlight" data-i18n="sections.s4.highlight">Local AI processing is intended for feature execution only, not for model training on Discord user data.</div>
         </section>
 
         <section class="page-section">
-            <h2>5. Data Sharing</h2>
-            <p>We do not share data with ad networks, data brokers, or monetization services.</p>
-            <p>Data may only be disclosed in limited cases such as:</p>
-            <ul>
-                <li>when required by law or valid legal process,</li>
-                <li>when required to provide a requested bot feature using a third-party service,</li>
-                <li>when the user explicitly requests an action requiring submitted input to be sent to an external service.</li>
-            </ul>
+            <h2 data-i18n="sections.s5.title">5. Data Sharing</h2>
+            <p data-i18n="sections.s5.p1">We do not share data with ad networks, data brokers or monetization services.</p>
+            <p data-i18n="sections.s5.p2">Data may only be disclosed in limited cases such as legal requirements, requested third-party functionality, or explicit user-requested actions.</p>
         </section>
 
         <section class="page-section">
-            <h2>6. Storage and Security</h2>
-            <p>Persistent bot data is stored with encryption at rest.</p>
-            <p>Depending on deployment, data may be stored on:</p>
-            <ul>
-                <li>the operator’s computer,</li>
-                <li>a private or dedicated server,</li>
-                <li>or a hosting platform used to run the Bot.</li>
-            </ul>
-            <p>
-                Temporary files may also be created for media, backup, or runtime processing.
-            </p>
+            <h2 data-i18n="sections.s6.title">6. Storage and Security</h2>
+            <p data-i18n="sections.s6.p1">Persistent bot data is stored with encryption at rest.</p>
+            <p data-i18n="sections.s6.p2">Depending on deployment, data may be stored on the operator’s computer, on a private server, or on a hosting environment used to run the Bot.</p>
         </section>
 
         <section class="page-section">
-            <h2>7. Temporary Backups</h2>
-            <p>
-                Anti-raid protection may create encrypted temporary backups containing limited server metadata
-                and recent message snapshots strictly for restoration and recovery purposes.
-            </p>
+            <h2 data-i18n="sections.s7.title">7. Temporary Backups</h2>
+            <p data-i18n="sections.s7.p1">Anti-raid protection may create encrypted temporary backups containing limited server metadata and recent message snapshots strictly for restoration and recovery purposes.</p>
+        </section>
+
+        <section class="page-section">
+            <h2 data-i18n="sections.s8.title">8. User Rights and Deletion</h2>
+            <p data-i18n="sections.s8.p1">Users may request deletion of their bot-related data through tools such as /deletedata.</p>
+        </section>
+
+        <section class="page-section">
+            <h2 data-i18n="sections.s9.title">9. Cmail / User Messaging</h2>
+            <p data-i18n="sections.s9.p1">The Bot may provide an optional user-to-user messaging feature (cmail).</p>
             <ul>
-                <li>These backups are not intended for analytics or profiling.</li>
-                <li>They are intended to be temporary and periodically cleaned up.</li>
+                <li data-i18n="sections.s9.li1">Users must explicitly opt in before receiving cmail.</li>
+                <li data-i18n="sections.s9.li2">Users can disable cmail at any time.</li>
+                <li data-i18n="sections.s9.li3">The feature is not intended for unsolicited advertising or spam.</li>
             </ul>
         </section>
 
         <section class="page-section">
-            <h2>8. User Rights and Deletion</h2>
-            <p>
-                Users may request deletion of their bot-related data through available bot tools such as <code>/deletedata</code>.
-            </p>
-            <p>This may include, where relevant:</p>
+            <h2 data-i18n="sections.s10.title">10. Children’s Privacy</h2>
+            <p data-i18n="sections.s10.p1">The Bot is not directed to children under 13. Use of the Bot must comply with Discord’s minimum age requirements and applicable law.</p>
+        </section>
+
+        <section class="page-section">
+            <h2 data-i18n="sections.s11.title">11. Changes to This Policy</h2>
+            <p data-i18n="sections.s11.p1">We may update this Privacy Policy from time to time. Continued use of the Bot after changes means you accept the updated version.</p>
+        </section>
+
+        <section class="page-section">
+            <h2 data-i18n="sections.s12.title">12. Contact</h2>
             <ul>
-                <li>economy data,</li>
-                <li>warn-related data,</li>
-                <li>verification data,</li>
-                <li>investment data,</li>
-                <li>some user-linked backup content where technically possible.</li>
-            </ul>
-        </section>
-
-        <section class="page-section">
-            <h2>9. Cmail / User Messaging</h2>
-            <p>The Bot may provide an optional user-to-user messaging feature ("cmail").</p>
-            <ul>
-                <li>Users must explicitly opt in before receiving cmail.</li>
-                <li>Users can disable cmail at any time.</li>
-                <li>The feature is not intended for unsolicited advertising or spam.</li>
-            </ul>
-        </section>
-
-        <section class="page-section">
-            <h2>10. Children’s Privacy</h2>
-            <p>
-                The Bot is not directed to children under 13. Use of the Bot must comply with Discord’s minimum age requirements and applicable law.
-            </p>
-        </section>
-
-        <section class="page-section">
-            <h2>11. Changes to This Policy</h2>
-            <p>
-                We may update this Privacy Policy from time to time. Continued use of the Bot after changes means you accept the updated version.
-            </p>
-        </section>
-
-        <section class="page-section">
-            <h2>12. Contact</h2>
-            <ul>
-                <li>Email: <a href="mailto:carapuz201@gmail.com">carapuz201@gmail.com</a></li>
-                <li>Support server: <a href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">discord.gg/pBh4rRK3TT</a></li>
-                <li>Website: <a href="https://carapuzland.github.io" target="_blank" rel="noopener noreferrer">carapuzland.github.io</a></li>
+                <li><strong>Email:</strong> <a href="mailto:carapuz201@gmail.com">carapuz201@gmail.com</a></li>
+                <li><strong>Support server:</strong> <a href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">discord.gg/pBh4rRK3TT</a></li>
+                <li><strong>Website:</strong> <a href="https://carapuzland.github.io" target="_blank" rel="noopener noreferrer">carapuzland.github.io</a></li>
             </ul>
         </section>
 
         <footer>
-            <p>Carapuz201G — All rights reserved.</p>
-            <p>Operated by carapuz201</p>
+            <p data-i18n="footer.rights">Carapuz201G — All rights reserved.</p>
+            <p data-i18n="footer.operated">Operated by carapuz201</p>
         </footer>
     </div>
 
-    <script src="/carapuz201g/assets/js/theme.js"></script>
-    <script src="/carapuz201g/assets/js/language.js"></script>
-    <script src="/carapuz201g/assets/js/app.js"></script>
+    <script>
+        const LANGUAGES = {
+            "en-US": "English",
+            "ru": "Русский",
+            "de": "Deutsch"
+        };
+
+        const translations = {
+            "en-US": {
+                page: {
+                    title: "Privacy Policy",
+                    subtitle: "How Carapuz201G handles data"
+                },
+                sections: {
+                    s1: {
+                        title: "1. Introduction",
+                        p1: "This Privacy Policy explains how Carapuz201G collects, stores, uses, and deletes data when users interact with the Bot through Discord.",
+                        p2: "By using the Bot, you acknowledge this Privacy Policy. If you do not agree, do not use the Bot."
+                    },
+                    s2: {
+                        title: "2. Data We Collect",
+                        p1: "The Bot may collect only the data reasonably necessary for its functionality, including:",
+                        li1: "Discord user IDs for moderation, economy, reminders, verification and bot systems.",
+                        li2: "Discord guild IDs and configuration data for server-specific bot settings.",
+                        li3: "Economy-related values such as balances, workers, utility levels, quests and investments.",
+                        li4: "Moderation data such as warning counts and related guild settings.",
+                        li5: "Temporary verification session data for Roblox / Steam verification flows.",
+                        li6: "Temporary encrypted anti-raid backups containing limited server metadata and recent message snapshots.",
+                        li7: "Opt-in cmail preference data.",
+                        highlight: "The Bot is designed not to request or collect passwords, Discord tokens, or login credentials."
+                    },
+                    s3: {
+                        title: "3. How We Use Data",
+                        li1: "To provide moderation, economy, verification, profile, reminder, giveaway, utility and support features.",
+                        li2: "To store per-server settings chosen by guild administrators.",
+                        li3: "To support anti-raid restore features using temporary encrypted backups.",
+                        li4: "To maintain, secure and improve the intended functionality of the Bot.",
+                        highlight: "We do not sell, rent, broker, or monetize Discord API data."
+                    },
+                    s4: {
+                        title: "4. Ollama / Local AI",
+                        p1: "Some builds of the Bot may optionally use a locally-hosted Ollama model for feature-specific processing.",
+                        li1: "When used, local AI is intended only to provide requested bot functionality.",
+                        li2: "Discord user message content is not used to train, fine-tune, or improve the model.",
+                        li3: "The Bot is not intended to create AI training datasets from Discord user content.",
+                        highlight: "Local AI processing is intended for feature execution only, not for model training on Discord user data."
+                    },
+                    s5: {
+                        title: "5. Data Sharing",
+                        p1: "We do not share data with ad networks, data brokers or monetization services.",
+                        p2: "Data may only be disclosed in limited cases such as legal requirements, requested third-party functionality, or explicit user-requested actions."
+                    },
+                    s6: {
+                        title: "6. Storage and Security",
+                        p1: "Persistent bot data is stored with encryption at rest.",
+                        p2: "Depending on deployment, data may be stored on the operator’s computer, on a private server, or on a hosting environment used to run the Bot."
+                    },
+                    s7: {
+                        title: "7. Temporary Backups",
+                        p1: "Anti-raid protection may create encrypted temporary backups containing limited server metadata and recent message snapshots strictly for restoration and recovery purposes."
+                    },
+                    s8: {
+                        title: "8. User Rights and Deletion",
+                        p1: "Users may request deletion of their bot-related data through tools such as /deletedata."
+                    },
+                    s9: {
+                        title: "9. Cmail / User Messaging",
+                        p1: "The Bot may provide an optional user-to-user messaging feature (cmail).",
+                        li1: "Users must explicitly opt in before receiving cmail.",
+                        li2: "Users can disable cmail at any time.",
+                        li3: "The feature is not intended for unsolicited advertising or spam."
+                    },
+                    s10: {
+                        title: "10. Children’s Privacy",
+                        p1: "The Bot is not directed to children under 13. Use of the Bot must comply with Discord’s minimum age requirements and applicable law."
+                    },
+                    s11: {
+                        title: "11. Changes to This Policy",
+                        p1: "We may update this Privacy Policy from time to time. Continued use of the Bot after changes means you accept the updated version."
+                    },
+                    s12: {
+                        title: "12. Contact"
+                    }
+                },
+                footer: {
+                    rights: "Carapuz201G — All rights reserved.",
+                    operated: "Operated by carapuz201"
+                }
+            },
+            "ru": {
+                page: {
+                    title: "Политика конфиденциальности",
+                    subtitle: "Как Carapuz201G обращается с данными"
+                },
+                sections: {
+                    s1: {
+                        title: "1. Введение",
+                        p1: "Эта Политика конфиденциальности объясняет, как Carapuz201G собирает, хранит, использует и удаляет данные при взаимодействии пользователей с ботом через Discord.",
+                        p2: "Используя бота, вы подтверждаете ознакомление с этой Политикой конфиденциальности. Если вы не согласны, не используйте бота."
+                    },
+                    s2: {
+                        title: "2. Какие данные мы собираем",
+                        p1: "Бот может собирать только те данные, которые разумно необходимы для его функциональности, включая:",
+                        li1: "Discord user ID для модерации, экономики, напоминаний, верификации и систем бота.",
+                        li2: "Discord guild ID и данные конфигурации для настроек сервера.",
+                        li3: "Данные экономики, такие как баланс, рабочие, уровень утилит, квесты и инвестиции.",
+                        li4: "Данные модерации, такие как количество варнов и связанные настройки сервера.",
+                        li5: "Временные данные сессии верификации для Roblox / Steam.",
+                        li6: "Временные зашифрованные anti-raid бэкапы с ограниченными метаданными сервера и последними сообщениями.",
+                        li7: "Настройки opt-in для cmail.",
+                        highlight: "Бот не предназначен для запроса или сбора паролей, Discord токенов или логин-данных."
+                    },
+                    s3: {
+                        title: "3. Как мы используем данные",
+                        li1: "Для предоставления функций модерации, экономики, верификации, профилей, напоминаний, розыгрышей, утилит и поддержки.",
+                        li2: "Для хранения серверных настроек, выбранных администраторами.",
+                        li3: "Для anti-raid восстановления через временные зашифрованные бэкапы.",
+                        li4: "Для поддержки, безопасности и улучшения предполагаемой функциональности бота.",
+                        highlight: "Мы не продаём, не сдаём в аренду, не брокерим и не монетизируем Discord API-данные."
+                    },
+                    s4: {
+                        title: "4. Ollama / локальный AI",
+                        p1: "Некоторые сборки бота могут опционально использовать локально размещённую модель Ollama для выполнения отдельных функций.",
+                        li1: "Когда локальный AI используется, он предназначен только для выполнения функций бота.",
+                        li2: "Содержимое сообщений Discord не используется для обучения, дообучения или улучшения модели.",
+                        li3: "Бот не предназначен для создания AI-датасетов из контента Discord.",
+                        highlight: "Локальная AI-обработка предназначена только для выполнения функций, а не для обучения модели на данных пользователей Discord."
+                    },
+                    s5: {
+                        title: "5. Передача данных",
+                        p1: "Мы не передаём данные рекламным сетям, брокерам данных или сервисам монетизации.",
+                        p2: "Данные могут раскрываться только в ограниченных случаях, например по закону, для работы нужной функции или по явному запросу пользователя."
+                    },
+                    s6: {
+                        title: "6. Хранение и безопасность",
+                        p1: "Постоянные данные бота хранятся в зашифрованном виде.",
+                        p2: "В зависимости от способа размещения данные могут храниться на компьютере оператора, на частном сервере или на хостинге, где работает бот."
+                    },
+                    s7: {
+                        title: "7. Временные бэкапы",
+                        p1: "Anti-raid защита может создавать временные зашифрованные бэкапы с ограниченными метаданными сервера и последними сообщениями исключительно для восстановления."
+                    },
+                    s8: {
+                        title: "8. Права пользователей и удаление",
+                        p1: "Пользователи могут запросить удаление своих связанных с ботом данных через такие инструменты, как /deletedata."
+                    },
+                    s9: {
+                        title: "9. Cmail / пользовательские сообщения",
+                        p1: "Бот может предоставлять опциональную систему сообщений между пользователями (cmail).",
+                        li1: "Пользователь должен явно включить возможность получать cmail.",
+                        li2: "Пользователь может отключить cmail в любой момент.",
+                        li3: "Функция не предназначена для нежелательной рекламы или спама."
+                    },
+                    s10: {
+                        title: "10. Конфиденциальность детей",
+                        p1: "Бот не предназначен для детей младше 13 лет. Использование бота должно соответствовать минимальному возрасту Discord и применимому законодательству."
+                    },
+                    s11: {
+                        title: "11. Изменения этой политики",
+                        p1: "Мы можем время от времени обновлять эту Политику конфиденциальности. Продолжение использования бота после изменений означает принятие обновлённой версии."
+                    },
+                    s12: {
+                        title: "12. Контакты"
+                    }
+                },
+                footer: {
+                    rights: "Carapuz201G — Все права защищены.",
+                    operated: "Проект ведёт carapuz201"
+                }
+            },
+            "de": {
+                page: {
+                    title: "Datenschutzerklärung",
+                    subtitle: "Wie Carapuz201G mit Daten umgeht"
+                },
+                sections: {
+                    s1: {
+                        title: "1. Einleitung",
+                        p1: "Diese Datenschutzerklärung erklärt, wie Carapuz201G Daten sammelt, speichert, verwendet und löscht, wenn Nutzer mit dem Bot über Discord interagieren.",
+                        p2: "Durch die Nutzung des Bots bestätigst du diese Datenschutzerklärung. Wenn du nicht einverstanden bist, nutze den Bot nicht."
+                    },
+                    s2: {
+                        title: "2. Welche Daten wir erfassen",
+                        p1: "Der Bot kann nur die Daten erfassen, die vernünftigerweise für seine Funktionalität notwendig sind, einschließlich:",
+                        li1: "Discord-Benutzer-IDs für Moderation, Wirtschaftssysteme, Erinnerungen, Verifizierung und Bot-Systeme.",
+                        li2: "Discord-Gilden-IDs und Konfigurationsdaten für serverbezogene Bot-Einstellungen.",
+                        li3: "Wirtschaftsbezogene Werte wie Guthaben, Arbeiter, Utility-Level, Quests und Investitionen.",
+                        li4: "Moderationsdaten wie Warnungsanzahl und zugehörige Servereinstellungen.",
+                        li5: "Temporäre Verifizierungsdaten für Roblox-/Steam-Verifizierungsabläufe.",
+                        li6: "Temporäre verschlüsselte Anti-Raid-Backups mit begrenzten Server-Metadaten und letzten Nachrichten.",
+                        li7: "Opt-in-Einstellungen für cmail.",
+                        highlight: "Der Bot ist nicht dafür ausgelegt, Passwörter, Discord-Tokens oder Anmeldedaten abzufragen oder zu speichern."
+                    },
+                    s3: {
+                        title: "3. Wie wir Daten verwenden",
+                        li1: "Zur Bereitstellung von Moderations-, Wirtschafts-, Verifizierungs-, Profil-, Erinnerungs-, Giveaway-, Utility- und Supportfunktionen.",
+                        li2: "Zur Speicherung serverbezogener Einstellungen, die von Administratoren gewählt wurden.",
+                        li3: "Zur Anti-Raid-Wiederherstellung über temporäre verschlüsselte Backups.",
+                        li4: "Zur Wartung, Absicherung und Verbesserung der vorgesehenen Bot-Funktionalität.",
+                        highlight: "Wir verkaufen, vermieten, vermitteln oder monetarisieren keine Discord-API-Daten."
+                    },
+                    s4: {
+                        title: "4. Ollama / Lokale KI",
+                        p1: "Einige Builds des Bots können optional ein lokal gehostetes Ollama-Modell für bestimmte Funktionen verwenden.",
+                        li1: "Wenn lokale KI verwendet wird, dient sie nur zur Ausführung angeforderter Bot-Funktionen.",
+                        li2: "Discord-Nachrichteninhalte werden nicht zum Trainieren, Feinabstimmen oder Verbessern des Modells verwendet.",
+                        li3: "Der Bot ist nicht dafür gedacht, KI-Trainingsdatensätze aus Discord-Inhalten zu erstellen.",
+                        highlight: "Lokale KI-Verarbeitung ist nur für Funktionsausführung gedacht, nicht für das Trainieren eines Modells auf Discord-Nutzerdaten."
+                    },
+                    s5: {
+                        title: "5. Datenweitergabe",
+                        p1: "Wir geben keine Daten an Werbenetzwerke, Datenbroker oder Monetarisierungsdienste weiter.",
+                        p2: "Daten können nur in begrenzten Fällen offengelegt werden, z. B. aufgrund gesetzlicher Anforderungen, für benötigte Funktionen oder auf ausdrücklichen Wunsch des Nutzers."
+                    },
+                    s6: {
+                        title: "6. Speicherung und Sicherheit",
+                        p1: "Persistente Bot-Daten werden verschlüsselt gespeichert.",
+                        p2: "Je nach Bereitstellung können Daten auf dem Computer des Betreibers, auf einem privaten Server oder auf einem Hosting-Dienst gespeichert werden, auf dem der Bot läuft."
+                    },
+                    s7: {
+                        title: "7. Temporäre Backups",
+                        p1: "Der Anti-Raid-Schutz kann temporäre verschlüsselte Backups mit begrenzten Server-Metadaten und letzten Nachrichten ausschließlich zur Wiederherstellung erstellen."
+                    },
+                    s8: {
+                        title: "8. Nutzerrechte und Löschung",
+                        p1: "Nutzer können die Löschung ihrer botbezogenen Daten über Werkzeuge wie /deletedata anfordern."
+                    },
+                    s9: {
+                        title: "9. Cmail / Benutzernachrichten",
+                        p1: "Der Bot kann ein optionales Nachrichtensystem zwischen Nutzern (cmail) bereitstellen.",
+                        li1: "Nutzer müssen dem Erhalt von cmail ausdrücklich zustimmen.",
+                        li2: "Nutzer können cmail jederzeit deaktivieren.",
+                        li3: "Die Funktion ist nicht für unerwünschte Werbung oder Spam gedacht."
+                    },
+                    s10: {
+                        title: "10. Datenschutz von Kindern",
+                        p1: "Der Bot ist nicht für Kinder unter 13 Jahren bestimmt. Die Nutzung des Bots muss den Altersanforderungen von Discord und dem geltenden Recht entsprechen."
+                    },
+                    s11: {
+                        title: "11. Änderungen dieser Richtlinie",
+                        p1: "Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Die weitere Nutzung des Bots nach Änderungen bedeutet die Annahme der aktualisierten Version."
+                    },
+                    s12: {
+                        title: "12. Kontakt"
+                    }
+                },
+                footer: {
+                    rights: "Carapuz201G — Alle Rechte vorbehalten.",
+                    operated: "Projekt betrieben von carapuz201"
+                }
+            }
+        };
+
+        function getNested(obj, path) {
+            return path.split(".").reduce((acc, part) => acc && acc[part], obj);
+        }
+
+        function initLanguageSelector() {
+            const selector = document.getElementById("languageSelect");
+            Object.entries(LANGUAGES).forEach(([code, name]) => {
+                const option = document.createElement("option");
+                option.value = code;
+                option.textContent = name;
+                selector.appendChild(option);
+            });
+        }
+
+        function applyLanguage(lang) {
+            const current = translations[lang] || translations["en-US"];
+            document.querySelectorAll("[data-i18n]").forEach((el) => {
+                const key = el.getAttribute("data-i18n");
+                const value = getNested(current, key);
+                if (value) el.textContent = value;
+            });
+            localStorage.setItem("carapuz_lang", lang);
+            document.getElementById("languageSelect").value = lang;
+        }
+
+        function applyTheme(theme) {
+            document.documentElement.setAttribute("data-theme", theme);
+            localStorage.setItem("carapuz_theme", theme);
+            document.getElementById("themeToggle").textContent = theme === "light" ? "🌞 Light" : "🌙 Dark";
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            initLanguageSelector();
+
+            const savedLang = localStorage.getItem("carapuz_lang") || "en-US";
+            applyLanguage(savedLang);
+
+            document.getElementById("languageSelect").addEventListener("change", (e) => {
+                applyLanguage(e.target.value);
+            });
+
+            const savedTheme = localStorage.getItem("carapuz_theme") || "dark";
+            applyTheme(savedTheme);
+
+            document.getElementById("themeToggle").addEventListener("click", () => {
+                const current = document.documentElement.getAttribute("data-theme") || "dark";
+                applyTheme(current === "dark" ? "light" : "dark");
+            });
+        });
+    </script>
 </body>
 </html>
