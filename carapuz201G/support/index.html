@@ -1,506 +1,281 @@
-<!-- support.html -->
 <!DOCTYPE html>
-<html lang="en-US" data-theme="dark">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carapuz201G — Support</title>
-    <style>
-        :root {
-            --bg: #0f172a;
-            --bg-soft: #172033;
-            --bg-card: #1e293b;
-            --text: #e5e7eb;
-            --text-soft: #94a3b8;
-            --primary: #60a5fa;
-            --primary-strong: #3b82f6;
-            --success: #22c55e;
-            --border: #334155;
-            --shadow: rgba(0, 0, 0, 0.25);
-        }
-
-        [data-theme="light"] {
-            --bg: #f8fafc;
-            --bg-soft: #ffffff;
-            --bg-card: #f1f5f9;
-            --text: #0f172a;
-            --text-soft: #475569;
-            --primary: #2563eb;
-            --primary-strong: #1d4ed8;
-            --success: #16a34a;
-            --border: #cbd5e1;
-            --shadow: rgba(0, 0, 0, 0.12);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: Inter, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-        }
-
-        a { color: var(--primary); text-decoration: none; }
-        a:hover { color: var(--primary-strong); }
-
-        .top-badge {
-            position: fixed;
-            top: 12px;
-            left: 12px;
-            z-index: 1100;
-            background: rgba(15, 23, 42, 0.92);
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            padding: 8px 14px;
-            box-shadow: 0 4px 18px var(--shadow);
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(15, 23, 42, 0.96);
-            border-bottom: 1px solid var(--border);
-            padding: 14px 0;
-            z-index: 1000;
-        }
-
-        .nav-inner {
-            width: min(1180px, calc(100% - 32px));
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            gap: 16px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .nav-left, .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            color: var(--text);
-            font-size: 14px;
-            font-weight: 600;
-            padding: 8px 14px;
-            border-radius: 999px;
-        }
-
-        .nav-links a:hover { background: var(--bg-card); }
-
-        .nav-btn {
-            display: inline-block;
-            padding: 8px 16px;
-            border-radius: 999px;
-            font-size: 14px;
-            font-weight: 700;
-        }
-
-        .nav-btn.primary {
-            background: #5865f2;
-            color: white;
-        }
-
-        .nav-btn.success {
-            background: rgba(34, 197, 94, 0.12);
-            border: 1px solid var(--success);
-            color: var(--success);
-        }
-
-        .select, .theme-toggle {
-            background: var(--bg-card);
-            color: var(--text);
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            padding: 8px 12px;
-            font-size: 13px;
-            outline: none;
-        }
-
-        .theme-toggle {
-            cursor: pointer;
-            font-weight: 700;
-        }
-
-        .container {
-            width: min(1080px, calc(100% - 32px));
-            margin: 0 auto;
-            padding: 110px 0 60px;
-        }
-
-        .page-header {
-            text-align: center;
-            margin: 6px 0 28px;
-        }
-
-        .page-header h1 {
-            font-size: 38px;
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-
-        .page-header p {
-            color: var(--text-soft);
-        }
-
-        .page-section {
-            background: var(--bg-soft);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 28px;
-            margin-bottom: 24px;
-            box-shadow: 0 8px 22px var(--shadow);
-        }
-
-        .page-section h2 {
-            color: var(--primary);
-            font-size: 26px;
-            margin-bottom: 14px;
-        }
-
-        .page-section p {
-            color: var(--text);
-            margin-bottom: 12px;
-            font-size: 15px;
-        }
-
-        .page-section ul {
-            margin: 12px 0 12px 22px;
-            color: var(--text);
-        }
-
-        .page-section li {
-            margin-bottom: 8px;
-        }
-
-        .highlight {
-            margin-top: 14px;
-            padding: 14px 18px;
-            border-radius: 14px;
-            background: rgba(96, 165, 250, 0.10);
-            border: 1px solid rgba(96, 165, 250, 0.28);
-            color: #dbeafe;
-            font-size: 14px;
-        }
-
-        footer {
-            text-align: center;
-            color: var(--text-soft);
-            font-size: 13px;
-            padding: 40px 20px 20px;
-            border-top: 1px solid var(--border);
-            margin-top: 48px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — Carapuz201G</title>
+<meta name="description" content="Get help with Carapuz201G Discord bot — support server, bug reports, data requests and contacts.">
+<style>
+:root{--tr:0.3s}
+[data-theme="dark"]{--bg:#0b0f1a;--bg2:#111827;--card:rgba(17,24,39,0.88);--hdr:rgba(11,15,26,0.93);--tx:#e2e8f0;--tx2:#94a3b8;--acc:#5865F2;--acc2:#38bdf8;--brd:rgba(88,101,242,0.18);--shd:rgba(0,0,0,0.4);--glw:rgba(88,101,242,0.3);--dd:#1e293b;--ddh:#334155;--g1:#0b0f1a;--g2:#15102e;--g3:#0d2847}
+[data-theme="light"]{--bg:#f0f4ff;--bg2:#e8efff;--card:rgba(255,255,255,0.9);--hdr:rgba(240,244,255,0.95);--tx:#1e293b;--tx2:#64748b;--acc:#5865F2;--acc2:#0284c7;--brd:rgba(88,101,242,0.15);--shd:rgba(0,0,0,0.1);--glw:rgba(88,101,242,0.2);--dd:#fff;--ddh:#f1f5f9;--g1:#e4eaff;--g2:#f0e6ff;--g3:#dff0ff}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;transition:background var(--tr),color var(--tr);min-height:100vh}
+a{color:inherit}
+.hdr{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--hdr);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--brd);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;transition:background var(--tr)}
+.hdr-l{display:flex;align-items:center;gap:.6rem}
+.hm-lnk{display:flex;align-items:center;text-decoration:none;color:var(--tx2);font-size:1.35rem;transition:color .3s}
+.hm-lnk:hover{color:var(--acc)}
+.hm-lnk .em{animation:fl 3s ease-in-out infinite}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.brand{font-size:1.15rem;font-weight:700;color:var(--tx);text-decoration:none;transition:color .3s}
+.brand:hover{color:var(--acc)}
+.nav{display:flex;align-items:center;gap:.15rem}
+.nav a{padding:.35rem .55rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.8rem;font-weight:500;transition:all .2s;white-space:nowrap}
+.nav a:hover{color:var(--tx);background:var(--brd)}
+.nav a.active{color:var(--acc);background:rgba(88,101,242,.12)}
+.hdr-r{display:flex;align-items:center;gap:.45rem}
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.4rem .8rem;border-radius:10px;font-size:.78rem;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid var(--brd);transition:all .3s;white-space:nowrap}
+.btn-a{background:var(--acc);color:#fff;border-color:var(--acc)}
+.btn-a:hover{background:#4752c4;box-shadow:0 4px 20px var(--glw);transform:translateY(-1px)}
+.btn-o{background:transparent;color:var(--tx)}
+.btn-o:hover{background:var(--brd);border-color:var(--acc)}
+.th-btn{background:var(--card);border:1px solid var(--brd);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--tx);transition:all .3s}
+.th-btn:hover{border-color:var(--acc);box-shadow:0 0 12px var(--glw);transform:rotate(20deg)}
+.ld{position:relative}
+.lb{background:var(--card);border:1px solid var(--brd);border-radius:10px;padding:.35rem .65rem;cursor:pointer;display:flex;align-items:center;gap:.35rem;font-size:.78rem;color:var(--tx);transition:all .3s}
+.lb:hover{border-color:var(--acc);box-shadow:0 0 10px var(--glw)}
+.lb .ar{font-size:.55rem;transition:transform .3s}
+.lb.open .ar{transform:rotate(180deg)}
+.lm{position:absolute;top:calc(100% + 6px);right:0;background:var(--dd);border:1px solid var(--brd);border-radius:12px;padding:.35rem 0;min-width:190px;max-height:350px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .3s;box-shadow:0 16px 40px var(--shd);z-index:1001}
+.lm.show{opacity:1;visibility:visible;transform:translateY(0)}
+.lm::-webkit-scrollbar{width:5px}
+.lm::-webkit-scrollbar-thumb{background:var(--brd);border-radius:3px}
+.lo{display:flex;align-items:center;gap:.55rem;padding:.45rem .85rem;cursor:pointer;font-size:.82rem;color:var(--tx);transition:background .2s}
+.lo:hover{background:var(--ddh)}
+.lo.act{color:var(--acc);font-weight:600}
+.lo .fl{font-size:1.05rem}
+.mb{display:none;background:var(--card);border:1px solid var(--brd);border-radius:8px;width:34px;height:34px;align-items:center;justify-content:center;cursor:pointer;color:var(--tx);font-size:1.15rem}
+.mov{display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}
+.mov.show{display:block}
+.mm{position:fixed;top:0;right:-300px;width:270px;height:100%;background:var(--bg2);z-index:999;padding:1.25rem;transition:right .3s;overflow-y:auto;border-left:1px solid var(--brd)}
+.mm.show{right:0}
+.mm .xb{background:none;border:none;color:var(--tx);font-size:1.4rem;cursor:pointer;float:right;padding:.25rem}
+.mn{display:flex;flex-direction:column;gap:.2rem;margin-top:2.5rem}
+.mn a{padding:.6rem .7rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.9rem;transition:all .2s}
+.mn a:hover,.mn a.active{color:var(--acc);background:rgba(88,101,242,.1)}
+.mab{display:flex;flex-direction:column;gap:.5rem;margin-top:1.25rem}
+.mab .btn{justify-content:center}
+.ph{padding:6rem 2rem 3rem;text-align:center;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);position:relative;overflow:hidden;transition:background var(--tr)}
+.ph::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(88,101,242,.12) 0%,transparent 60%);pointer-events:none}
+.phc{position:relative;z-index:2;max-width:680px;margin:0 auto}
+.phi{font-size:3.5rem;margin-bottom:.5rem;display:inline-block}
+.pht{font-size:2.2rem;font-weight:800;margin-bottom:.5rem;background:linear-gradient(135deg,var(--tx),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.phs{font-size:1.05rem;color:var(--tx2);line-height:1.6}
+.sec{padding:3rem 2rem;max-width:900px;margin:0 auto}
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-bottom:1.5rem}
+.sc{background:var(--card);backdrop-filter:blur(12px);border:1px solid var(--brd);border-radius:16px;padding:1.75rem;transition:all .35s;text-align:center}
+.sc:hover{transform:translateY(-5px);box-shadow:0 12px 40px var(--shd);border-color:var(--acc)}
+.sc-i{font-size:2.5rem;margin-bottom:.75rem;display:inline-block}
+.sc-t{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
+.sc-d{font-size:.88rem;color:var(--tx2);line-height:1.6;margin-bottom:.75rem}
+.sc .btn{margin-top:.25rem}
+.ib{background:var(--card);border:1px solid var(--brd);border-radius:16px;padding:1.75rem;margin-bottom:1.25rem;transition:all .3s}
+.ib:hover{border-color:var(--acc);box-shadow:0 8px 30px var(--shd)}
+.ib h3{font-size:1.05rem;font-weight:700;margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}
+.ib p,.ib ul{font-size:.88rem;color:var(--tx2);line-height:1.65}
+.ib ul{padding-left:1.2rem;margin-top:.4rem}
+.ib li{margin-bottom:.2rem}
+.ib code{background:var(--brd);padding:.15rem .4rem;border-radius:5px;font-size:.82rem;font-family:Consolas,monospace;color:var(--acc)}
+.ftr{text-align:center;padding:1.75rem;color:var(--tx2);font-size:.82rem;border-top:1px solid var(--brd);background:var(--hdr);backdrop-filter:blur(20px)}
+.ftr a{color:var(--acc);text-decoration:none}
+.ftr a:hover{text-decoration:underline}
+.ftl{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-bottom:.65rem}
+@media(max-width:1024px){.nav{display:none}.mb{display:flex}.hdr-r .btn{display:none}}
+@media(max-width:768px){.ph{padding:5rem 1.25rem 2.5rem}.pht{font-size:1.7rem}.sec{padding:2rem 1.25rem}.sg{grid-template-columns:1fr}.lb .ll{display:none}}
+@media(max-width:480px){.pht{font-size:1.5rem}.sc{padding:1.25rem}}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s}
+.rv.vis{opacity:1;transform:translateY(0)}
+.ld-w{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;transition:opacity .4s,visibility .4s}
+.ld-w.hid{opacity:0;visibility:hidden}
+.ld-e{font-size:2.8rem;animation:lba 1s ease-in-out infinite}
+@keyframes lba{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.1)}}
+.ld-b{width:100px;height:3px;background:var(--brd);border-radius:3px;overflow:hidden}
+.ld-f{height:100%;width:0%;background:var(--acc);border-radius:3px;animation:lfx 1.2s ease forwards}
+@keyframes lfx{to{width:100%}}
+</style>
 </head>
-<body>
-    <div class="top-badge">
-        <a href="https://carapuzland.github.io" target="_blank" rel="noopener noreferrer">🏝️ carapuzland.github.io</a>
-    </div>
+<body data-page="support">
+<div class="ld-w" id="ldr"><div class="ld-e">🤖</div><div style="color:var(--tx2);font-size:.85rem;letter-spacing:2px">CARAPUZ201G</div><div class="ld-b"><div class="ld-f"></div></div></div>
 
-    <nav>
-        <div class="nav-inner">
-            <div class="nav-left nav-links">
-                <a href="index.html">About</a>
-                <a href="features.html">Features</a>
-                <a href="commands.html">Commands</a>
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="terms-of-service.html">Terms of Service</a>
-                <a href="support.html">Support</a>
-                <a href="status.html">Status</a>
-            </div>
+<header class="hdr">
+<div class="hdr-l">
+<a href="https://carapuzland.github.io" class="hm-lnk" title="CarapuzLand"><span class="em">🏝️</span></a>
+<a href="../" class="brand">Carapuz201G</a>
+</div>
+<nav class="nav">
+<a href="../about/" data-i18n="nav_about">About</a>
+<a href="../features/" data-i18n="nav_features">Features</a>
+<a href="../commands/" data-i18n="nav_commands">Commands</a>
+<a href="../support/" class="active" data-i18n="nav_support">Support</a>
+<a href="../status/" data-i18n="nav_status">Status</a>
+<a href="../privacy-policy/" data-i18n="nav_privacy">Privacy</a>
+<a href="../terms-of-service/" data-i18n="nav_terms">Terms</a>
+</nav>
+<div class="hdr-r">
+<button class="th-btn" id="thBtn" title="Toggle theme">🌙</button>
+<div class="ld">
+<button class="lb" id="lBtn"><span class="fl" id="cF">🇺🇸</span><span class="ll" id="cL">English</span><span class="ar">▼</span></button>
+<div class="lm" id="lMn"></div>
+</div>
+<a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
+<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
+<button class="mb" id="mBtn">☰</button>
+</div>
+</header>
 
-            <div class="nav-right">
-                <select id="languageSelect" class="select"></select>
-                <button id="themeToggle" class="theme-toggle">🌙 Dark</button>
-                <a class="nav-btn success" href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">Support Server</a>
-                <a class="nav-btn primary" href="https://discord.com/oauth2/authorize?client_id=1372950477477777548&permissions=8&integration_type=0&scope=bot%20applications.commands" target="_blank" rel="noopener noreferrer">Add Bot</a>
-            </div>
-        </div>
-    </nav>
+<div class="mov" id="mOv"></div>
+<div class="mm" id="mMn">
+<button class="xb" id="cMn">✕</button>
+<div class="mn">
+<a href="../" data-i18n="nav_home">Home</a>
+<a href="../about/" data-i18n="nav_about">About</a>
+<a href="../features/" data-i18n="nav_features">Features</a>
+<a href="../commands/" data-i18n="nav_commands">Commands</a>
+<a href="../support/" class="active" data-i18n="nav_support">Support</a>
+<a href="../status/" data-i18n="nav_status">Status</a>
+<a href="../privacy-policy/" data-i18n="nav_privacy">Privacy Policy</a>
+<a href="../terms-of-service/" data-i18n="nav_terms">Terms of Service</a>
+</div>
+<div class="mab">
+<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
+<a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
+</div>
+</div>
 
-    <div class="container">
-        <div class="page-header">
-            <h1 data-i18n="page.title">Support</h1>
-            <p data-i18n="page.subtitle">How to get help and contact the project</p>
-        </div>
+<main>
+<section class="ph">
+<div class="phc">
+<div class="phi">💬</div>
+<h1 class="pht" data-i18n="pg_t">Support</h1>
+<p class="phs" data-i18n="pg_s">Need help? Here's how to get support for Carapuz201G.</p>
+</div>
+</section>
+<section class="sec" id="content"></section>
+</main>
 
-        <section class="page-section">
-            <h2 data-i18n="section.server.title">Official Support Server</h2>
-            <p data-i18n="section.server.p1">
-                The fastest way to get support is through the official Discord support server.
-            </p>
-            <p>
-                <a href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">discord.gg/pBh4rRK3TT</a>
-            </p>
-        </section>
+<footer class="ftr">
+<div class="ftl">
+<a href="../privacy-policy/" data-i18n="nav_privacy">Privacy Policy</a>
+<a href="../terms-of-service/" data-i18n="nav_terms">Terms of Service</a>
+<a href="../support/" data-i18n="nav_support">Support</a>
+</div>
+<p>© 2025 <a href="https://carapuzland.github.io">CarapuzLand</a> 🏝️ — Carapuz201G</p>
+</footer>
 
-        <section class="page-section">
-            <h2 data-i18n="section.bot.title">In-Bot Support</h2>
-            <p data-i18n="section.bot.p1">
-                You can use the /support command inside Discord to send a support request directly to the bot owner.
-            </p>
-        </section>
+<script>
+const enD={
+cards:[
+{icon:"💬",title:"Support Server",desc:"Join our Discord server for real-time help, announcements, and community.",btn:"Join Server",href:"https://discord.gg/YOUR_INVITE"},
+{icon:"➕",title:"Add the Bot",desc:"Add Carapuz201G to your Discord server with a single click.",btn:"Add Bot",href:"https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands"},
+{icon:"📋",title:"Documentation",desc:"Browse our commands and features pages for detailed information.",btn:"View Commands",href:"../commands/"}
+],
+blocks:[
+{icon:"🐛",title:"Bug Reports",body:"Found a bug? Report it in our support server in the <code>#bug-reports</code> channel. Please include:<ul><li>What you were trying to do</li><li>What happened instead</li><li>Your server ID (if relevant)</li><li>Screenshots if possible</li></ul>"},
+{icon:"🔒",title:"Privacy & Data Requests",body:"If you have questions about your data or want to request data deletion:<ul><li>Join the support server and open a ticket</li><li>Use the <code>/support</code> command in Discord</li><li>Read our <a href='../privacy-policy/' style='color:var(--acc)'>Privacy Policy</a> for details</li></ul>"},
+{icon:"⚡",title:"Quick Help via Bot",body:"You can get help directly in Discord:<ul><li><code>/help</code> — View all commands</li><li><code>/support</code> — Get support links and info</li><li><code>/ticket</code> — Open a support ticket on your server</li></ul>"},
+{icon:"📧",title:"Other Contact",body:"For business inquiries, partnerships, or other matters, reach out through our support server. We aim to respond within 24-48 hours."}
+]};
 
-        <section class="page-section">
-            <h2 data-i18n="section.bugs.title">Bug Reports</h2>
-            <p data-i18n="section.bugs.p1">
-                If you report a bug, it helps to include the command used, expected result, actual result, and any error text or screenshot.
-            </p>
-            <ul>
-                <li data-i18n="section.bugs.li1">What command you used</li>
-                <li data-i18n="section.bugs.li2">What you expected to happen</li>
-                <li data-i18n="section.bugs.li3">What actually happened</li>
-                <li data-i18n="section.bugs.li4">Any visible error message or screenshot</li>
-                <li data-i18n="section.bugs.li5">Whether the issue affects one or multiple servers</li>
-            </ul>
-        </section>
+const ruD={
+cards:[
+{icon:"💬",title:"Сервер поддержки",desc:"Присоединяйтесь к нашему Discord-серверу для помощи в реальном времени.",btn:"Присоединиться",href:"https://discord.gg/YOUR_INVITE"},
+{icon:"➕",title:"Добавить бота",desc:"Добавьте Carapuz201G на свой Discord-сервер одним кликом.",btn:"Добавить бота",href:"https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands"},
+{icon:"📋",title:"Документация",desc:"Просмотрите наши команды и функции для подробной информации.",btn:"Команды",href:"../commands/"}
+],
+blocks:[
+{icon:"🐛",title:"Баг-репорты",body:"Нашли баг? Сообщите о нём на сервере поддержки в канале <code>#bug-reports</code>. Укажите:<ul><li>Что вы пытались сделать</li><li>Что произошло вместо этого</li><li>ID вашего сервера (если нужно)</li><li>Скриншоты если возможно</li></ul>"},
+{icon:"🔒",title:"Конфиденциальность и запросы данных",body:"Вопросы о ваших данных или запрос на удаление:<ul><li>Присоединитесь к серверу поддержки и откройте тикет</li><li>Используйте команду <code>/support</code></li><li>Прочитайте <a href='../privacy-policy/' style='color:var(--acc)'>Политику конфиденциальности</a></li></ul>"},
+{icon:"⚡",title:"Быстрая помощь через бота",body:"Получите помощь прямо в Discord:<ul><li><code>/help</code> — Все команды</li><li><code>/support</code> — Ссылки поддержки</li><li><code>/ticket</code> — Открыть тикет</li></ul>"},
+{icon:"📧",title:"Другие контакты",body:"Для деловых запросов и партнёрства свяжитесь через сервер поддержки. Мы отвечаем в течение 24-48 часов."}
+]};
 
-        <section class="page-section">
-            <h2 data-i18n="section.data.title">Privacy and Data Requests</h2>
-            <p data-i18n="section.data.p1">
-                If you want to remove your data from the bot, use the /deletedata command where available.
-                You may also contact support for clarification about stored bot data.
-            </p>
-            <div class="highlight" data-i18n="section.data.highlight">
-                For privacy-related questions, always use the official support paths listed on this page.
-            </div>
-        </section>
+const ukD={
+cards:[
+{icon:"💬",title:"Сервер підтримки",desc:"Приєднуйтесь до нашого Discord-сервера для допомоги в реальному часі.",btn:"Приєднатися",href:"https://discord.gg/YOUR_INVITE"},
+{icon:"➕",title:"Додати бота",desc:"Додайте Carapuz201G на свій Discord-сервер одним кліком.",btn:"Додати бота",href:"https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands"},
+{icon:"📋",title:"Документація",desc:"Перегляньте наші команди та функції для детальної інформації.",btn:"Команди",href:"../commands/"}
+],
+blocks:[
+{icon:"🐛",title:"Баг-репорти",body:"Знайшли баг? Повідомте на сервері підтримки в каналі <code>#bug-reports</code>. Вкажіть:<ul><li>Що ви намагалися зробити</li><li>Що сталося натомість</li><li>ID вашого сервера (якщо потрібно)</li><li>Скріншоти якщо можливо</li></ul>"},
+{icon:"🔒",title:"Конфіденційність та запити даних",body:"Питання про ваші дані або запит на видалення:<ul><li>Приєднайтесь до сервера та відкрийте тікет</li><li>Використайте команду <code>/support</code></li><li>Прочитайте <a href='../privacy-policy/' style='color:var(--acc)'>Політику конфіденційності</a></li></ul>"},
+{icon:"⚡",title:"Швидка допомога через бота",body:"Отримайте допомогу в Discord:<ul><li><code>/help</code> — Всі команди</li><li><code>/support</code> — Посилання підтримки</li><li><code>/ticket</code> — Відкрити тікет</li></ul>"},
+{icon:"📧",title:"Інші контакти",body:"Для ділових запитів зв'яжіться через сервер підтримки. Ми відповідаємо протягом 24-48 годин."}
+]};
 
-        <section class="page-section">
-            <h2 data-i18n="section.contact.title">Contact</h2>
-            <ul>
-                <li><strong>Email:</strong> <a href="mailto:carapuz201@gmail.com">carapuz201@gmail.com</a></li>
-                <li><strong>Support server:</strong> <a href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">discord.gg/pBh4rRK3TT</a></li>
-                <li><strong>Website:</strong> <a href="https://carapuzland.github.io" target="_blank" rel="noopener noreferrer">carapuzland.github.io</a></li>
-            </ul>
-        </section>
+const T={
+"en-US":{name:"English (US)",flag:"🇺🇸",nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"Support",pg_s:"Need help? Here's how to get support for Carapuz201G.",data:enD},
+"en-GB":{name:"English (UK)",flag:"🇬🇧",nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"Support",pg_s:"Need help? Here's how to get support for Carapuz201G.",data:enD},
+"ru":{name:"Русский",flag:"🇷🇺",nav_home:"Главная",nav_about:"О боте",nav_features:"Функции",nav_commands:"Команды",nav_support:"Поддержка",nav_status:"Статус",nav_privacy:"Конфиденциальность",nav_terms:"Условия",btn_add:"➕ Добавить бота",btn_support:"💬 Поддержка",pg_t:"Поддержка",pg_s:"Нужна помощь? Вот как получить поддержку для Carapuz201G.",data:ruD},
+"uk":{name:"Українська",flag:"🇺🇦",nav_home:"Головна",nav_about:"Про бота",nav_features:"Функції",nav_commands:"Команди",nav_support:"Підтримка",nav_status:"Статус",nav_privacy:"Конфіденційність",nav_terms:"Умови",btn_add:"➕ Додати бота",btn_support:"💬 Підтримка",pg_t:"Підтримка",pg_s:"Потрібна допомога? Ось як отримати підтримку для Carapuz201G.",data:ukD}
+};
 
-        <footer>
-            <p data-i18n="footer.rights">Carapuz201G — All rights reserved.</p>
-            <p data-i18n="footer.operated">Operated by carapuz201</p>
-        </footer>
-    </div>
+let lang=localStorage.getItem('c2g-lang')||'en-US';
+let theme=localStorage.getItem('c2g-theme')||'dark';
 
-    <script>
-        const LANGUAGES = {
-            "en-US": "English (US)",
-            "en-GB": "English (UK)",
-            "ru": "Русский",
-            "uk": "Українська"
-        };
+document.addEventListener('DOMContentLoaded',()=>{
+setTheme(theme);buildLang();setLang(lang);setupEv();setupRv();
+setTimeout(()=>document.getElementById('ldr').classList.add('hid'),1100);
+});
 
-        const translations = {
-            "en-US": {
-                page: {
-                    title: "Support",
-                    subtitle: "How to get help and contact the project"
-                },
-                section: {
-                    server: {
-                        title: "Official Support Server",
-                        p1: "The fastest way to get support is through the official Discord support server."
-                    },
-                    bot: {
-                        title: "In-Bot Support",
-                        p1: "You can use the /support command inside Discord to send a support request directly to the bot owner."
-                    },
-                    bugs: {
-                        title: "Bug Reports",
-                        p1: "If you report a bug, it helps to include the command used, expected result, actual result, and any error text or screenshot.",
-                        li1: "What command you used",
-                        li2: "What you expected to happen",
-                        li3: "What actually happened",
-                        li4: "Any visible error message or screenshot",
-                        li5: "Whether the issue affects one or multiple servers"
-                    },
-                    data: {
-                        title: "Privacy and Data Requests",
-                        p1: "If you want to remove your data from the bot, use the /deletedata command where available. You may also contact support for clarification about stored bot data.",
-                        highlight: "For privacy-related questions, always use the official support paths listed on this page."
-                    },
-                    contact: {
-                        title: "Contact"
-                    }
-                },
-                footer: {
-                    rights: "Carapuz201G — All rights reserved.",
-                    operated: "Operated by carapuz201"
-                }
-            },
-            "en-GB": {
-                page: {
-                    title: "Support",
-                    subtitle: "How to get help and contact the project"
-                },
-                section: {
-                    server: {
-                        title: "Official Support Server",
-                        p1: "The fastest way to get support is through the official Discord support server."
-                    },
-                    bot: {
-                        title: "In-Bot Support",
-                        p1: "You can use the /support command inside Discord to send a support request directly to the bot owner."
-                    },
-                    bugs: {
-                        title: "Bug Reports",
-                        p1: "If you report a bug, it helps to include the command used, expected result, actual result, and any error text or screenshot.",
-                        li1: "What command you used",
-                        li2: "What you expected to happen",
-                        li3: "What actually happened",
-                        li4: "Any visible error message or screenshot",
-                        li5: "Whether the issue affects one or multiple servers"
-                    },
-                    data: {
-                        title: "Privacy and Data Requests",
-                        p1: "If you want to remove your data from the bot, use the /deletedata command where available. You may also contact support for clarification about stored bot data.",
-                        highlight: "For privacy-related questions, always use the official support paths listed on this page."
-                    },
-                    contact: {
-                        title: "Contact"
-                    }
-                },
-                footer: {
-                    rights: "Carapuz201G — All rights reserved.",
-                    operated: "Operated by carapuz201"
-                }
-            },
-            "ru": {
-                page: {
-                    title: "Поддержка",
-                    subtitle: "Как получить помощь и связаться с проектом"
-                },
-                section: {
-                    server: {
-                        title: "Официальный сервер поддержки",
-                        p1: "Самый быстрый способ получить помощь — воспользоваться официальным Discord-сервером поддержки."
-                    },
-                    bot: {
-                        title: "Поддержка через бота",
-                        p1: "Вы можете использовать команду /support в Discord, чтобы отправить запрос напрямую владельцу бота."
-                    },
-                    bugs: {
-                        title: "Сообщения об ошибках",
-                        p1: "Если вы сообщаете об ошибке, желательно указать использованную команду, ожидаемый результат, фактический результат и текст ошибки или скриншот.",
-                        li1: "Какую команду вы использовали",
-                        li2: "Что вы ожидали увидеть",
-                        li3: "Что произошло на самом деле",
-                        li4: "Текст ошибки или скриншот",
-                        li5: "Возникает ли проблема на одном сервере или на нескольких"
-                    },
-                    data: {
-                        title: "Конфиденциальность и запросы по данным",
-                        p1: "Если вы хотите удалить свои данные из бота, используйте команду /deletedata, если она доступна. Вы также можете обратиться в поддержку за разъяснением по хранимым данным.",
-                        highlight: "По вопросам конфиденциальности используйте только официальные способы связи, указанные на этой странице."
-                    },
-                    contact: {
-                        title: "Контакты"
-                    }
-                },
-                footer: {
-                    rights: "Carapuz201G — Все права защищены.",
-                    operated: "Проект ведёт carapuz201"
-                }
-            },
-            "uk": {
-                page: {
-                    title: "Підтримка",
-                    subtitle: "Як отримати допомогу та зв’язатися з проєктом"
-                },
-                section: {
-                    server: {
-                        title: "Офіційний сервер підтримки",
-                        p1: "Найшвидший спосіб отримати допомогу — скористатися офіційним Discord-сервером підтримки."
-                    },
-                    bot: {
-                        title: "Підтримка через бота",
-                        p1: "Ви можете використати команду /support у Discord, щоб надіслати запит напряму власнику бота."
-                    },
-                    bugs: {
-                        title: "Повідомлення про помилки",
-                        p1: "Якщо ви повідомляєте про помилку, бажано вказати використану команду, очікуваний результат, фактичний результат і текст помилки або скріншот.",
-                        li1: "Яку команду ви використали",
-                        li2: "Що ви очікували побачити",
-                        li3: "Що сталося насправді",
-                        li4: "Текст помилки або скріншот",
-                        li5: "Чи виникає проблема на одному сервері чи на кількох"
-                    },
-                    data: {
-                        title: "Конфіденційність і запити щодо даних",
-                        p1: "Якщо ви хочете видалити свої дані з бота, використайте команду /deletedata, якщо вона доступна. Ви також можете звернутися в підтримку за уточненням щодо збережених даних.",
-                        highlight: "З питань конфіденційності використовуйте лише офіційні способи зв’язку, вказані на цій сторінці."
-                    },
-                    contact: {
-                        title: "Контакти"
-                    }
-                },
-                footer: {
-                    rights: "Carapuz201G — Усі права захищені.",
-                    operated: "Проєкт веде carapuz201"
-                }
-            }
-        };
+function setTheme(t){theme=t;document.documentElement.setAttribute('data-theme',t);localStorage.setItem('c2g-theme',t);document.getElementById('thBtn').textContent=t==='dark'?'☀️':'🌙'}
+function togTheme(){setTheme(theme==='dark'?'light':'dark')}
 
-        function getNested(obj, path) {
-            return path.split(".").reduce((acc, part) => acc && acc[part], obj);
-        }
+function buildLang(){
+const m=document.getElementById('lMn');m.innerHTML='';
+Object.keys(T).sort((a,b)=>T[a].name.localeCompare(T[b].name)).forEach(c=>{
+const d=document.createElement('div');d.className='lo'+(c===lang?' act':'');
+d.innerHTML=`<span class="fl">${T[c].flag}</span><span>${T[c].name}</span>`;
+d.onclick=()=>{setLang(c);closeLM()};m.appendChild(d);
+});
+}
 
-        function initLanguageSelector() {
-            const selector = document.getElementById("languageSelect");
-            Object.entries(LANGUAGES).forEach(([code, name]) => {
-                const option = document.createElement("option");
-                option.value = code;
-                option.textContent = name;
-                selector.appendChild(option);
-            });
-        }
+function setLang(c){
+if(!T[c])c='en-US';lang=c;localStorage.setItem('c2g-lang',c);
+const t=T[c];
+document.getElementById('cF').textContent=t.flag;
+document.getElementById('cL').textContent=t.name;
+document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k]});
+const sec=document.getElementById('content');sec.innerHTML='';
+// Cards grid
+let chtml='<div class="sg">';
+t.data.cards.forEach((card,i)=>{
+chtml+=`<div class="sc rv" style="transition-delay:${i*.08}s"><div class="sc-i">${card.icon}</div><div class="sc-t">${card.title}</div><div class="sc-d">${card.desc}</div><a href="${card.href}" class="btn btn-a" target="${card.href.startsWith('http')?'_blank':'_self'}">${card.btn}</a></div>`;
+});
+chtml+='</div>';
+// Info blocks
+t.data.blocks.forEach((b,i)=>{
+chtml+=`<div class="ib rv" style="transition-delay:${(i+3)*.08}s"><h3>${b.icon} ${b.title}</h3><p>${b.body}</p></div>`;
+});
+sec.innerHTML=chtml;
+document.querySelectorAll('.lo').forEach(o=>o.classList.remove('act'));
+const keys=Object.keys(T).sort((a,b)=>T[a].name.localeCompare(T[b].name));
+const idx=keys.indexOf(c);const opts=document.querySelectorAll('.lo');
+if(opts[idx])opts[idx].classList.add('act');
+document.documentElement.lang=c;
+setTimeout(setupRv,50);
+}
 
-        function applyLanguage(lang) {
-            const current = translations[lang] || translations["en-US"];
-            document.querySelectorAll("[data-i18n]").forEach((el) => {
-                const key = el.getAttribute("data-i18n");
-                const value = getNested(current, key);
-                if (value) el.textContent = value;
-            });
-            localStorage.setItem("carapuz_lang", lang);
-            document.getElementById("languageSelect").value = lang;
-        }
+function togLM(){const m=document.getElementById('lMn'),b=document.getElementById('lBtn');if(m.classList.contains('show'))closeLM();else{m.classList.add('show');b.classList.add('open')}}
+function closeLM(){document.getElementById('lMn').classList.remove('show');document.getElementById('lBtn').classList.remove('open')}
+function openMM(){document.getElementById('mMn').classList.add('show');document.getElementById('mOv').classList.add('show');document.body.style.overflow='hidden'}
+function closeMM(){document.getElementById('mMn').classList.remove('show');document.getElementById('mOv').classList.remove('show');document.body.style.overflow=''}
 
-        function applyTheme(theme) {
-            document.documentElement.setAttribute("data-theme", theme);
-            localStorage.setItem("carapuz_theme", theme);
-            document.getElementById("themeToggle").textContent = theme === "light" ? "🌞 Light" : "🌙 Dark";
-        }
+function setupRv(){
+const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+}
 
-        document.addEventListener("DOMContentLoaded", () => {
-            initLanguageSelector();
-
-            const savedLang = localStorage.getItem("carapuz_lang") || "en-US";
-            applyLanguage(savedLang);
-
-            document.getElementById("languageSelect").addEventListener("change", (e) => {
-                applyLanguage(e.target.value);
-            });
-
-            const savedTheme = localStorage.getItem("carapuz_theme") || "dark";
-            applyTheme(savedTheme);
-
-            document.getElementById("themeToggle").addEventListener("click", () => {
-                const current = document.documentElement.getAttribute("data-theme") || "dark";
-                applyTheme(current === "dark" ? "light" : "dark");
-            });
-        });
-    </script>
+function setupEv(){
+document.getElementById('thBtn').onclick=togTheme;
+document.getElementById('lBtn').onclick=e=>{e.stopPropagation();togLM()};
+document.addEventListener('click',e=>{if(!e.target.closest('.ld'))closeLM()});
+document.getElementById('mBtn').onclick=openMM;
+document.getElementById('cMn').onclick=closeMM;
+document.getElementById('mOv').onclick=closeMM;
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLM();closeMM()}});
+}
+</script>
 </body>
 </html>

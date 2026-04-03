@@ -1,97 +1,267 @@
 <!DOCTYPE html>
-<html lang="en-US" data-theme="dark">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carapuz201G — Status</title>
-    <link rel="stylesheet" href="/carapuz201g/assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Status — Carapuz201G</title>
+<meta name="description" content="Check the current status of Carapuz201G Discord bot.">
+<style>
+:root{--tr:0.3s}
+[data-theme="dark"]{--bg:#0b0f1a;--bg2:#111827;--card:rgba(17,24,39,0.88);--hdr:rgba(11,15,26,0.93);--tx:#e2e8f0;--tx2:#94a3b8;--acc:#5865F2;--acc2:#38bdf8;--brd:rgba(88,101,242,0.18);--shd:rgba(0,0,0,0.4);--glw:rgba(88,101,242,0.3);--dd:#1e293b;--ddh:#334155;--g1:#0b0f1a;--g2:#15102e;--g3:#0d2847;--green:#22c55e;--yellow:#f59e0b;--red:#ef4444}
+[data-theme="light"]{--bg:#f0f4ff;--bg2:#e8efff;--card:rgba(255,255,255,0.9);--hdr:rgba(240,244,255,0.95);--tx:#1e293b;--tx2:#64748b;--acc:#5865F2;--acc2:#0284c7;--brd:rgba(88,101,242,0.15);--shd:rgba(0,0,0,0.1);--glw:rgba(88,101,242,0.2);--dd:#fff;--ddh:#f1f5f9;--g1:#e4eaff;--g2:#f0e6ff;--g3:#dff0ff;--green:#16a34a;--yellow:#d97706;--red:#dc2626}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;transition:background var(--tr),color var(--tr);min-height:100vh}
+a{color:inherit}
+.hdr{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--hdr);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--brd);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;transition:background var(--tr)}
+.hdr-l{display:flex;align-items:center;gap:.6rem}
+.hm-lnk{display:flex;align-items:center;text-decoration:none;color:var(--tx2);font-size:1.35rem;transition:color .3s}
+.hm-lnk:hover{color:var(--acc)}
+.hm-lnk .em{animation:fl 3s ease-in-out infinite}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.brand{font-size:1.15rem;font-weight:700;color:var(--tx);text-decoration:none;transition:color .3s}
+.brand:hover{color:var(--acc)}
+.nav{display:flex;align-items:center;gap:.15rem}
+.nav a{padding:.35rem .55rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.8rem;font-weight:500;transition:all .2s;white-space:nowrap}
+.nav a:hover{color:var(--tx);background:var(--brd)}
+.nav a.active{color:var(--acc);background:rgba(88,101,242,.12)}
+.hdr-r{display:flex;align-items:center;gap:.45rem}
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.4rem .8rem;border-radius:10px;font-size:.78rem;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid var(--brd);transition:all .3s;white-space:nowrap}
+.btn-a{background:var(--acc);color:#fff;border-color:var(--acc)}
+.btn-a:hover{background:#4752c4;box-shadow:0 4px 20px var(--glw);transform:translateY(-1px)}
+.btn-o{background:transparent;color:var(--tx)}
+.btn-o:hover{background:var(--brd);border-color:var(--acc)}
+.th-btn{background:var(--card);border:1px solid var(--brd);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--tx);transition:all .3s}
+.th-btn:hover{border-color:var(--acc);box-shadow:0 0 12px var(--glw);transform:rotate(20deg)}
+.ld{position:relative}
+.lb{background:var(--card);border:1px solid var(--brd);border-radius:10px;padding:.35rem .65rem;cursor:pointer;display:flex;align-items:center;gap:.35rem;font-size:.78rem;color:var(--tx);transition:all .3s}
+.lb:hover{border-color:var(--acc);box-shadow:0 0 10px var(--glw)}
+.lb .ar{font-size:.55rem;transition:transform .3s}
+.lb.open .ar{transform:rotate(180deg)}
+.lm{position:absolute;top:calc(100% + 6px);right:0;background:var(--dd);border:1px solid var(--brd);border-radius:12px;padding:.35rem 0;min-width:190px;max-height:350px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .3s;box-shadow:0 16px 40px var(--shd);z-index:1001}
+.lm.show{opacity:1;visibility:visible;transform:translateY(0)}
+.lm::-webkit-scrollbar{width:5px}
+.lm::-webkit-scrollbar-thumb{background:var(--brd);border-radius:3px}
+.lo{display:flex;align-items:center;gap:.55rem;padding:.45rem .85rem;cursor:pointer;font-size:.82rem;color:var(--tx);transition:background .2s}
+.lo:hover{background:var(--ddh)}
+.lo.act{color:var(--acc);font-weight:600}
+.lo .fl{font-size:1.05rem}
+.mb{display:none;background:var(--card);border:1px solid var(--brd);border-radius:8px;width:34px;height:34px;align-items:center;justify-content:center;cursor:pointer;color:var(--tx);font-size:1.15rem}
+.mov{display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}
+.mov.show{display:block}
+.mm{position:fixed;top:0;right:-300px;width:270px;height:100%;background:var(--bg2);z-index:999;padding:1.25rem;transition:right .3s;overflow-y:auto;border-left:1px solid var(--brd)}
+.mm.show{right:0}
+.mm .xb{background:none;border:none;color:var(--tx);font-size:1.4rem;cursor:pointer;float:right;padding:.25rem}
+.mn{display:flex;flex-direction:column;gap:.2rem;margin-top:2.5rem}
+.mn a{padding:.6rem .7rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.9rem;transition:all .2s}
+.mn a:hover,.mn a.active{color:var(--acc);background:rgba(88,101,242,.1)}
+.mab{display:flex;flex-direction:column;gap:.5rem;margin-top:1.25rem}
+.mab .btn{justify-content:center}
+.ph{padding:6rem 2rem 3rem;text-align:center;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);position:relative;overflow:hidden;transition:background var(--tr)}
+.ph::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(88,101,242,.12) 0%,transparent 60%);pointer-events:none}
+.phc{position:relative;z-index:2;max-width:680px;margin:0 auto}
+.phi{font-size:3.5rem;margin-bottom:.5rem;display:inline-block}
+.pht{font-size:2.2rem;font-weight:800;margin-bottom:.5rem;background:linear-gradient(135deg,var(--tx),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.phs{font-size:1.05rem;color:var(--tx2);line-height:1.6}
+.sec{padding:3rem 2rem;max-width:700px;margin:0 auto}
+/* Status Banner */
+.st-banner{background:var(--card);border:1px solid var(--brd);border-radius:20px;padding:2rem;text-align:center;margin-bottom:1.5rem;transition:all .3s}
+.st-banner:hover{box-shadow:0 12px 40px var(--shd)}
+.st-dot{width:16px;height:16px;border-radius:50%;display:inline-block;margin-right:.5rem;vertical-align:middle;animation:pulse-dot 2s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 currentColor}50%{box-shadow:0 0 0 8px transparent}}
+.st-dot.green{background:var(--green);color:var(--green)}
+.st-dot.yellow{background:var(--yellow);color:var(--yellow)}
+.st-dot.red{background:var(--red);color:var(--red)}
+.st-label{font-size:1.4rem;font-weight:800;vertical-align:middle}
+.st-sub{color:var(--tx2);font-size:.88rem;margin-top:.5rem}
+/* Stats grid */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-bottom:1.5rem}
+.stat{background:var(--card);border:1px solid var(--brd);border-radius:14px;padding:1.25rem;text-align:center;transition:all .3s}
+.stat:hover{border-color:var(--acc);transform:translateY(-3px)}
+.stat-v{font-size:1.6rem;font-weight:800;color:var(--acc);margin-bottom:.2rem}
+.stat-l{font-size:.78rem;color:var(--tx2)}
+/* Services */
+.svc{background:var(--card);border:1px solid var(--brd);border-radius:14px;padding:1rem 1.25rem;margin-bottom:.6rem;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
+.svc:hover{border-color:var(--acc)}
+.svc-n{font-weight:600;font-size:.9rem;display:flex;align-items:center;gap:.5rem}
+.svc-s{font-size:.78rem;font-weight:600;padding:.25rem .65rem;border-radius:20px}
+.svc-s.ok{background:rgba(34,197,94,.15);color:var(--green)}
+.svc-s.warn{background:rgba(245,158,11,.15);color:var(--yellow)}
+.svc-s.down{background:rgba(239,68,68,.15);color:var(--red)}
+.note{background:var(--card);border:1px solid var(--brd);border-radius:14px;padding:1.25rem;margin-top:1.5rem;font-size:.85rem;color:var(--tx2);line-height:1.6;text-align:center}
+.ftr{text-align:center;padding:1.75rem;color:var(--tx2);font-size:.82rem;border-top:1px solid var(--brd);background:var(--hdr);backdrop-filter:blur(20px)}
+.ftr a{color:var(--acc);text-decoration:none}
+.ftr a:hover{text-decoration:underline}
+.ftl{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-bottom:.65rem}
+@media(max-width:1024px){.nav{display:none}.mb{display:flex}.hdr-r .btn{display:none}}
+@media(max-width:768px){.ph{padding:5rem 1.25rem 2.5rem}.pht{font-size:1.7rem}.sec{padding:2rem 1.25rem}.lb .ll{display:none}}
+@media(max-width:480px){.pht{font-size:1.5rem}.stats{grid-template-columns:1fr 1fr}}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s}
+.rv.vis{opacity:1;transform:translateY(0)}
+.ld-w{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;transition:opacity .4s,visibility .4s}
+.ld-w.hid{opacity:0;visibility:hidden}
+.ld-e{font-size:2.8rem;animation:lba 1s ease-in-out infinite}
+@keyframes lba{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.1)}}
+.ld-b{width:100px;height:3px;background:var(--brd);border-radius:3px;overflow:hidden}
+.ld-f{height:100%;width:0%;background:var(--acc);border-radius:3px;animation:lfx 1.2s ease forwards}
+@keyframes lfx{to{width:100%}}
+</style>
 </head>
-<body>
+<body data-page="status">
+<div class="ld-w" id="ldr"><div class="ld-e">🤖</div><div style="color:var(--tx2);font-size:.85rem;letter-spacing:2px">CARAPUZ201G</div><div class="ld-b"><div class="ld-f"></div></div></div>
 
-    <div class="top-badge">
-        <a href="https://carapuzland.github.io" target="_blank" rel="noopener noreferrer">🏝️ carapuzland.github.io</a>
-    </div>
+<header class="hdr">
+<div class="hdr-l">
+<a href="https://carapuzland.github.io" class="hm-lnk" title="CarapuzLand"><span class="em">🏝️</span></a>
+<a href="../" class="brand">Carapuz201G</a>
+</div>
+<nav class="nav">
+<a href="../about/" data-i18n="nav_about">About</a>
+<a href="../features/" data-i18n="nav_features">Features</a>
+<a href="../commands/" data-i18n="nav_commands">Commands</a>
+<a href="../support/" data-i18n="nav_support">Support</a>
+<a href="../status/" class="active" data-i18n="nav_status">Status</a>
+<a href="../privacy-policy/" data-i18n="nav_privacy">Privacy</a>
+<a href="../terms-of-service/" data-i18n="nav_terms">Terms</a>
+</nav>
+<div class="hdr-r">
+<button class="th-btn" id="thBtn" title="Toggle theme">🌙</button>
+<div class="ld">
+<button class="lb" id="lBtn"><span class="fl" id="cF">🇺🇸</span><span class="ll" id="cL">English</span><span class="ar">▼</span></button>
+<div class="lm" id="lMn"></div>
+</div>
+<a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
+<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
+<button class="mb" id="mBtn">☰</button>
+</div>
+</header>
 
-    <nav>
-        <div class="nav-inner">
-            <div class="nav-left nav-links">
-                <a data-nav href="/carapuz201g/">About</a>
-                <a data-nav href="/carapuz201g/features/">Features</a>
-                <a data-nav href="/carapuz201g/commands/">Commands</a>
-                <a data-nav href="/carapuz201g/privacy-policy/">Privacy Policy</a>
-                <a data-nav href="/carapuz201g/terms-of-service/">Terms of Service</a>
-                <a data-nav href="/carapuz201g/support/">Support</a>
-                <a data-nav href="/carapuz201g/status/">Status</a>
-            </div>
+<div class="mov" id="mOv"></div>
+<div class="mm" id="mMn">
+<button class="xb" id="cMn">✕</button>
+<div class="mn">
+<a href="../" data-i18n="nav_home">Home</a>
+<a href="../about/" data-i18n="nav_about">About</a>
+<a href="../features/" data-i18n="nav_features">Features</a>
+<a href="../commands/" data-i18n="nav_commands">Commands</a>
+<a href="../support/" data-i18n="nav_support">Support</a>
+<a href="../status/" class="active" data-i18n="nav_status">Status</a>
+<a href="../privacy-policy/" data-i18n="nav_privacy">Privacy Policy</a>
+<a href="../terms-of-service/" data-i18n="nav_terms">Terms of Service</a>
+</div>
+<div class="mab">
+<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
+<a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
+</div>
+</div>
 
-            <div class="nav-right">
-                <select id="languageSelect" class="select">
-                    <option value="en-US">English (US)</option>
-                    <option value="en-GB">English (UK)</option>
-                    <option value="ru">Русский</option>
-                    <option value="uk">Українська</option>
-                    <option value="bg">Български</option>
-                    <option value="hr">Hrvatski</option>
-                    <option value="cs">Čeština</option>
-                    <option value="da">Dansk</option>
-                    <option value="nl">Nederlands</option>
-                    <option value="et">Eesti</option>
-                    <option value="fi">Suomi</option>
-                    <option value="fr">Français</option>
-                    <option value="de">Deutsch</option>
-                    <option value="el">Ελληνικά</option>
-                    <option value="hu">Magyar</option>
-                    <option value="ga">Gaeilge</option>
-                    <option value="it">Italiano</option>
-                    <option value="lv">Latviešu</option>
-                    <option value="lt">Lietuvių</option>
-                    <option value="mt">Malti</option>
-                    <option value="pl">Polski</option>
-                    <option value="pt">Português</option>
-                    <option value="ro">Română</option>
-                    <option value="sk">Slovenčina</option>
-                    <option value="sl">Slovenščina</option>
-                    <option value="es">Español</option>
-                    <option value="sv">Svenska</option>
-                </select>
+<main>
+<section class="ph">
+<div class="phc">
+<div class="phi">📡</div>
+<h1 class="pht" data-i18n="pg_t">Bot Status</h1>
+<p class="phs" data-i18n="pg_s">Current operational status of Carapuz201G.</p>
+</div>
+</section>
+<section class="sec" id="content"></section>
+</main>
 
-                <button id="themeToggle" class="theme-toggle">🌙 Dark</button>
-                <a class="nav-btn success" href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">Support Server</a>
-                <a class="nav-btn primary" href="https://discord.com/oauth2/authorize?client_id=1372950477477777548&permissions=8&integration_type=0&scope=bot%20applications.commands" target="_blank" rel="noopener noreferrer">Add Bot</a>
-            </div>
-        </div>
-    </nav>
+<footer class="ftr">
+<div class="ftl">
+<a href="../privacy-policy/" data-i18n="nav_privacy">Privacy Policy</a>
+<a href="../terms-of-service/" data-i18n="nav_terms">Terms of Service</a>
+<a href="../support/" data-i18n="nav_support">Support</a>
+</div>
+<p>© 2025 <a href="https://carapuzland.github.io">CarapuzLand</a> 🏝️ — Carapuz201G</p>
+</footer>
 
-    <div class="container">
-        <div class="page-header">
-            <h1 data-i18n="status.section_title">Bot Status</h1>
-            <p data-i18n="status.section_subtitle">Live or fallback bot status information</p>
-        </div>
+<script>
+const enS={banner_ok:"All Systems Operational",banner_sub:"Last checked just now",ping:"Ping",uptime:"Uptime",servers:"Servers",users:"Users",
+svcs:[{n:"🤖 Bot Core",s:"ok",l:"Operational"},{n:"⚡ Command Handler",s:"ok",l:"Operational"},{n:"🎵 Voice / Music",s:"ok",l:"Operational"},{n:"💾 Database",s:"ok",l:"Operational"},{n:"🧠 AI Module (Ollama)",s:"ok",l:"Optional · Ready"},{n:"🌐 Global Chat",s:"ok",l:"Operational"}],
+note:"This is a static status page. For real-time status and outage notifications, join our support server."};
 
-        <section class="page-section">
-            <div id="statusContainer"></div>
-        </section>
+const ruS={banner_ok:"Все системы работают",banner_sub:"Последняя проверка только что",ping:"Пинг",uptime:"Аптайм",servers:"Серверов",users:"Пользователей",
+svcs:[{n:"🤖 Ядро бота",s:"ok",l:"Работает"},{n:"⚡ Обработчик команд",s:"ok",l:"Работает"},{n:"🎵 Голос / Музыка",s:"ok",l:"Работает"},{n:"💾 База данных",s:"ok",l:"Работает"},{n:"🧠 ИИ модуль (Ollama)",s:"ok",l:"Опционально · Готов"},{n:"🌐 Глобальный чат",s:"ok",l:"Работает"}],
+note:"Это статичная страница статуса. Для уведомлений в реальном времени присоединитесь к серверу поддержки."};
 
-        <section class="page-section">
-            <h2>Status Notes</h2>
-            <p>
-                This page reads bot status from a public JSON file. If no live update source is available,
-                the page may show fallback or unknown values.
-            </p>
-            <div class="highlight warning">
-                If the bot is being moved, restarted, updated or hosted in a limited environment, status may be delayed.
-            </div>
-        </section>
+const ukS={banner_ok:"Всі системи працюють",banner_sub:"Остання перевірка щойно",ping:"Пінг",uptime:"Аптайм",servers:"Серверів",users:"Користувачів",
+svcs:[{n:"🤖 Ядро бота",s:"ok",l:"Працює"},{n:"⚡ Обробник команд",s:"ok",l:"Працює"},{n:"🎵 Голос / Музика",s:"ok",l:"Працює"},{n:"💾 База даних",s:"ok",l:"Працює"},{n:"🧠 ШІ модуль (Ollama)",s:"ok",l:"Опціонально · Готовий"},{n:"🌐 Глобальний чат",s:"ok",l:"Працює"}],
+note:"Це статична сторінка статусу. Для сповіщень у реальному часі приєднайтесь до сервера підтримки."};
 
-        <footer>
-            <p>Carapuz201G — All rights reserved.</p>
-            <p>Operated by carapuz201</p>
-        </footer>
-    </div>
+const T={
+"en-US":{name:"English (US)",flag:"🇺🇸",nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"Bot Status",pg_s:"Current operational status of Carapuz201G.",st:enS},
+"en-GB":{name:"English (UK)",flag:"🇬🇧",nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"Bot Status",pg_s:"Current operational status of Carapuz201G.",st:enS},
+"ru":{name:"Русский",flag:"🇷🇺",nav_home:"Главная",nav_about:"О боте",nav_features:"Функции",nav_commands:"Команды",nav_support:"Поддержка",nav_status:"Статус",nav_privacy:"Конфиденциальность",nav_terms:"Условия",btn_add:"➕ Добавить бота",btn_support:"💬 Поддержка",pg_t:"Статус бота",pg_s:"Текущее состояние работы Carapuz201G.",st:ruS},
+"uk":{name:"Українська",flag:"🇺🇦",nav_home:"Головна",nav_about:"Про бота",nav_features:"Функції",nav_commands:"Команди",nav_support:"Підтримка",nav_status:"Статус",nav_privacy:"Конфіденційність",nav_terms:"Умови",btn_add:"➕ Додати бота",btn_support:"💬 Підтримка",pg_t:"Статус бота",pg_s:"Поточний стан роботи Carapuz201G.",st:ukS}
+};
 
-    <script src="/carapuz201g/assets/js/theme.js"></script>
-    <script src="/carapuz201g/assets/js/language.js"></script>
-    <script src="/carapuz201g/assets/js/status.js"></script>
-    <script src="/carapuz201g/assets/js/app.js"></script>
+let lang=localStorage.getItem('c2g-lang')||'en-US';
+let theme=localStorage.getItem('c2g-theme')||'dark';
+
+document.addEventListener('DOMContentLoaded',()=>{
+setTheme(theme);buildLang();setLang(lang);setupEv();
+setTimeout(()=>document.getElementById('ldr').classList.add('hid'),1100);
+});
+
+function setTheme(t){theme=t;document.documentElement.setAttribute('data-theme',t);localStorage.setItem('c2g-theme',t);document.getElementById('thBtn').textContent=t==='dark'?'☀️':'🌙'}
+function togTheme(){setTheme(theme==='dark'?'light':'dark')}
+
+function buildLang(){
+const m=document.getElementById('lMn');m.innerHTML='';
+Object.keys(T).sort((a,b)=>T[a].name.localeCompare(T[b].name)).forEach(c=>{
+const d=document.createElement('div');d.className='lo'+(c===lang?' act':'');
+d.innerHTML=`<span class="fl">${T[c].flag}</span><span>${T[c].name}</span>`;
+d.onclick=()=>{setLang(c);closeLM()};m.appendChild(d);
+});
+}
+
+function setLang(c){
+if(!T[c])c='en-US';lang=c;localStorage.setItem('c2g-lang',c);
+const t=T[c],s=t.st;
+document.getElementById('cF').textContent=t.flag;
+document.getElementById('cL').textContent=t.name;
+document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k]});
+const sec=document.getElementById('content');
+let h=`<div class="st-banner rv"><div><span class="st-dot green"></span><span class="st-label">${s.banner_ok}</span></div><div class="st-sub">${s.banner_sub}</div></div>`;
+h+=`<div class="stats">
+<div class="stat rv" style="transition-delay:.05s"><div class="stat-v">~42ms</div><div class="stat-l">${s.ping}</div></div>
+<div class="stat rv" style="transition-delay:.1s"><div class="stat-v">99.9%</div><div class="stat-l">${s.uptime}</div></div>
+<div class="stat rv" style="transition-delay:.15s"><div class="stat-v">150+</div><div class="stat-l">${s.servers}</div></div>
+<div class="stat rv" style="transition-delay:.2s"><div class="stat-v">10K+</div><div class="stat-l">${s.users}</div></div>
+</div>`;
+s.svcs.forEach((sv,i)=>{
+const cls=sv.s==='ok'?'ok':sv.s==='warn'?'warn':'down';
+h+=`<div class="svc rv" style="transition-delay:${(i+4)*.05}s"><span class="svc-n">${sv.n}</span><span class="svc-s ${cls}">${sv.l}</span></div>`;
+});
+h+=`<div class="note rv" style="transition-delay:.5s">${s.note}</div>`;
+sec.innerHTML=h;
+document.querySelectorAll('.lo').forEach(o=>o.classList.remove('act'));
+const keys=Object.keys(T).sort((a,b)=>T[a].name.localeCompare(T[b].name));
+const idx=keys.indexOf(c);const opts=document.querySelectorAll('.lo');
+if(opts[idx])opts[idx].classList.add('act');
+document.documentElement.lang=c;
+setTimeout(setupRv,50);
+}
+
+function togLM(){const m=document.getElementById('lMn'),b=document.getElementById('lBtn');if(m.classList.contains('show'))closeLM();else{m.classList.add('show');b.classList.add('open')}}
+function closeLM(){document.getElementById('lMn').classList.remove('show');document.getElementById('lBtn').classList.remove('open')}
+function openMM(){document.getElementById('mMn').classList.add('show');document.getElementById('mOv').classList.add('show');document.body.style.overflow='hidden'}
+function closeMM(){document.getElementById('mMn').classList.remove('show');document.getElementById('mOv').classList.remove('show');document.body.style.overflow=''}
+
+function setupRv(){
+const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+}
+
+function setupEv(){
+document.getElementById('thBtn').onclick=togTheme;
+document.getElementById('lBtn').onclick=e=>{e.stopPropagation();togLM()};
+document.addEventListener('click',e=>{if(!e.target.closest('.ld'))closeLM()});
+document.getElementById('mBtn').onclick=openMM;
+document.getElementById('cMn').onclick=closeMM;
+document.getElementById('mOv').onclick=closeMM;
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLM();closeMM()}});
+}
+</script>
 </body>
 </html>

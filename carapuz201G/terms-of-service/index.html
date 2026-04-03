@@ -1,203 +1,273 @@
-<!-- ======================================== -->
-<!-- /carapuz201g/terms-of-service/index.html -->
-<!-- ======================================== -->
 <!DOCTYPE html>
-<html lang="en-US" data-theme="dark">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carapuz201G — Terms of Service</title>
-    <link rel="stylesheet" href="/carapuz201g/assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Carapuz201G</title>
+<meta name="description" content="Terms of Service for Carapuz201G Discord bot. Read the rules and conditions for using the bot.">
+<style>
+:root{--tr:0.3s}
+[data-theme="dark"]{--bg:#0b0f1a;--bg2:#111827;--card:rgba(17,24,39,0.88);--hdr:rgba(11,15,26,0.93);--tx:#e2e8f0;--tx2:#94a3b8;--acc:#5865F2;--acc2:#38bdf8;--brd:rgba(88,101,242,0.18);--shd:rgba(0,0,0,0.4);--glw:rgba(88,101,242,0.3);--dd:#1e293b;--ddh:#334155;--g1:#0b0f1a;--g2:#15102e;--g3:#0d2847}
+[data-theme="light"]{--bg:#f0f4ff;--bg2:#e8efff;--card:rgba(255,255,255,0.9);--hdr:rgba(240,244,255,0.95);--tx:#1e293b;--tx2:#64748b;--acc:#5865F2;--acc2:#0284c7;--brd:rgba(88,101,242,0.15);--shd:rgba(0,0,0,0.1);--glw:rgba(88,101,242,0.2);--dd:#fff;--ddh:#f1f5f9;--g1:#e4eaff;--g2:#f0e6ff;--g3:#dff0ff}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;transition:background var(--tr),color var(--tr);min-height:100vh}
+a{color:inherit}
+.hdr{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--hdr);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--brd);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;transition:background var(--tr)}
+.hdr-l{display:flex;align-items:center;gap:.6rem}
+.hm-lnk{display:flex;align-items:center;text-decoration:none;color:var(--tx2);font-size:1.35rem;transition:color .3s}
+.hm-lnk:hover{color:var(--acc)}
+.hm-lnk .em{animation:fl 3s ease-in-out infinite}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.brand{font-size:1.15rem;font-weight:700;color:var(--tx);text-decoration:none;transition:color .3s}
+.brand:hover{color:var(--acc)}
+.nav{display:flex;align-items:center;gap:.15rem}
+.nav a{padding:.35rem .55rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.8rem;font-weight:500;transition:all .2s;white-space:nowrap}
+.nav a:hover{color:var(--tx);background:var(--brd)}
+.nav a.active{color:var(--acc);background:rgba(88,101,242,.12)}
+.hdr-r{display:flex;align-items:center;gap:.45rem}
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.4rem .8rem;border-radius:10px;font-size:.78rem;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid var(--brd);transition:all .3s;white-space:nowrap}
+.btn-a{background:var(--acc);color:#fff;border-color:var(--acc)}
+.btn-a:hover{background:#4752c4;box-shadow:0 4px 20px var(--glw);transform:translateY(-1px)}
+.btn-o{background:transparent;color:var(--tx)}
+.btn-o:hover{background:var(--brd);border-color:var(--acc)}
+.th-btn{background:var(--card);border:1px solid var(--brd);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--tx);transition:all .3s}
+.th-btn:hover{border-color:var(--acc);box-shadow:0 0 12px var(--glw);transform:rotate(20deg)}
+.ld{position:relative}
+.lb{background:var(--card);border:1px solid var(--brd);border-radius:10px;padding:.35rem .65rem;cursor:pointer;display:flex;align-items:center;gap:.35rem;font-size:.78rem;color:var(--tx);transition:all .3s}
+.lb:hover{border-color:var(--acc);box-shadow:0 0 10px var(--glw)}
+.lb .ar{font-size:.55rem;transition:transform .3s}
+.lb.open .ar{transform:rotate(180deg)}
+.lm{position:absolute;top:calc(100% + 6px);right:0;background:var(--dd);border:1px solid var(--brd);border-radius:12px;padding:.35rem 0;min-width:190px;max-height:350px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .3s;box-shadow:0 16px 40px var(--shd);z-index:1001}
+.lm.show{opacity:1;visibility:visible;transform:translateY(0)}
+.lm::-webkit-scrollbar{width:5px}
+.lm::-webkit-scrollbar-thumb{background:var(--brd);border-radius:3px}
+.lo{display:flex;align-items:center;gap:.55rem;padding:.45rem .85rem;cursor:pointer;font-size:.82rem;color:var(--tx);transition:background .2s}
+.lo:hover{background:var(--ddh)}
+.lo.act{color:var(--acc);font-weight:600}
+.lo .fl{font-size:1.05rem}
+.mb{display:none;background:var(--card);border:1px solid var(--brd);border-radius:8px;width:34px;height:34px;align-items:center;justify-content:center;cursor:pointer;color:var(--tx);font-size:1.15rem}
+.mov{display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}
+.mov.show{display:block}
+.mm{position:fixed;top:0;right:-300px;width:270px;height:100%;background:var(--bg2);z-index:999;padding:1.25rem;transition:right .3s;overflow-y:auto;border-left:1px solid var(--brd)}
+.mm.show{right:0}
+.mm .xb{background:none;border:none;color:var(--tx);font-size:1.4rem;cursor:pointer;float:right;padding:.25rem}
+.mn{display:flex;flex-direction:column;gap:.2rem;margin-top:2.5rem}
+.mn a{padding:.6rem .7rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.9rem;transition:all .2s}
+.mn a:hover,.mn a.active{color:var(--acc);background:rgba(88,101,242,.1)}
+.mab{display:flex;flex-direction:column;gap:.5rem;margin-top:1.25rem}
+.mab .btn{justify-content:center}
+.ph{padding:6rem 2rem 3rem;text-align:center;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);position:relative;overflow:hidden;transition:background var(--tr)}
+.ph::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(88,101,242,.12) 0%,transparent 60%);pointer-events:none}
+.phc{position:relative;z-index:2;max-width:680px;margin:0 auto}
+.phi{font-size:3.5rem;margin-bottom:.5rem;display:inline-block}
+.pht{font-size:2.2rem;font-weight:800;margin-bottom:.5rem;background:linear-gradient(135deg,var(--tx),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.phs{font-size:1.05rem;color:var(--tx2);line-height:1.6}
+.sec{padding:3rem 2rem;max-width:800px;margin:0 auto}
+.lb2{background:var(--card);border:1px solid var(--brd);border-radius:16px;padding:1.75rem;margin-bottom:1.25rem;transition:all .3s}
+.lb2:hover{border-color:var(--acc);box-shadow:0 8px 30px var(--shd)}
+.lb2 h2{font-size:1.05rem;font-weight:700;margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}
+.lb2 p,.lb2 ul{font-size:.88rem;color:var(--tx2);line-height:1.7}
+.lb2 ul{padding-left:1.2rem;margin-top:.4rem}
+.lb2 li{margin-bottom:.25rem}
+.lb2 strong{color:var(--tx)}
+.upd{text-align:center;color:var(--tx2);font-size:.82rem;margin-bottom:1.5rem;font-style:italic}
+.ftr{text-align:center;padding:1.75rem;color:var(--tx2);font-size:.82rem;border-top:1px solid var(--brd);background:var(--hdr);backdrop-filter:blur(20px)}
+.ftr a{color:var(--acc);text-decoration:none}
+.ftr a:hover{text-decoration:underline}
+.ftl{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-bottom:.65rem}
+@media(max-width:1024px){.nav{display:none}.mb{display:flex}.hdr-r .btn{display:none}}
+@media(max-width:768px){.ph{padding:5rem 1.25rem 2.5rem}.pht{font-size:1.7rem}.sec{padding:2rem 1.25rem}.lb .ll{display:none}}
+@media(max-width:480px){.pht{font-size:1.5rem}.lb2{padding:1.25rem}}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s}
+.rv.vis{opacity:1;transform:translateY(0)}
+.ld-w{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;transition:opacity .4s,visibility .4s}
+.ld-w.hid{opacity:0;visibility:hidden}
+.ld-e{font-size:2.8rem;animation:lba 1s ease-in-out infinite}
+@keyframes lba{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.1)}}
+.ld-b{width:100px;height:3px;background:var(--brd);border-radius:3px;overflow:hidden}
+.ld-f{height:100%;width:0%;background:var(--acc);border-radius:3px;animation:lfx 1.2s ease forwards}
+@keyframes lfx{to{width:100%}}
+</style>
 </head>
-<body>
+<body data-page="terms">
+<div class="ld-w" id="ldr"><div class="ld-e">📜</div><div style="color:var(--tx2);font-size:.85rem;letter-spacing:2px">TERMS OF SERVICE</div><div class="ld-b"><div class="ld-f"></div></div></div>
 
-    <div class="top-badge">
-        <a href="https://carapuzland.github.io" target="_blank" rel="noopener noreferrer">🏝️ carapuzland.github.io</a>
-    </div>
+<header class="hdr">
+<div class="hdr-l">
+<a href="https://carapuzland.github.io" class="hm-lnk" title="CarapuzLand"><span class="em">🏝️</span></a>
+<a href="../" class="brand">Carapuz201G</a>
+</div>
+<nav class="nav">
+<a href="../about/" data-i18n="nav_about">About</a>
+<a href="../features/" data-i18n="nav_features">Features</a>
+<a href="../commands/" data-i18n="nav_commands">Commands</a>
+<a href="../support/" data-i18n="nav_support">Support</a>
+<a href="../status/" data-i18n="nav_status">Status</a>
+<a href="../privacy-policy/" data-i18n="nav_privacy">Privacy</a>
+<a href="../terms-of-service/" class="active" data-i18n="nav_terms">Terms</a>
+</nav>
+<div class="hdr-r">
+<button class="th-btn" id="thBtn" title="Toggle theme">🌙</button>
+<div class="ld">
+<button class="lb" id="lBtn"><span class="fl" id="cF">🇬🇧</span><span class="ll" id="cL">English</span><span class="ar">▼</span></button>
+<div class="lm" id="lMn"></div>
+</div>
+<a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
+<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
+<button class="mb" id="mBtn">☰</button>
+</div>
+</header>
 
-    <nav>
-        <div class="nav-inner">
-            <div class="nav-left nav-links">
-                <a data-nav href="/carapuz201g/">About</a>
-                <a data-nav href="/carapuz201g/features/">Features</a>
-                <a data-nav href="/carapuz201g/commands/">Commands</a>
-                <a data-nav href="/carapuz201g/privacy-policy/">Privacy Policy</a>
-                <a data-nav href="/carapuz201g/terms-of-service/">Terms of Service</a>
-                <a data-nav href="/carapuz201g/support/">Support</a>
-                <a data-nav href="/carapuz201g/status/">Status</a>
-            </div>
+<div class="mov" id="mOv"></div>
+<div class="mm" id="mMn">
+<button class="xb" id="cMn">✕</button>
+<div class="mn">
+<a href="../" data-i18n="nav_home">Home</a>
+<a href="../about/" data-i18n="nav_about">About</a>
+<a href="../features/" data-i18n="nav_features">Features</a>
+<a href="../commands/" data-i18n="nav_commands">Commands</a>
+<a href="../support/" data-i18n="nav_support">Support</a>
+<a href="../status/" data-i18n="nav_status">Status</a>
+<a href="../privacy-policy/" data-i18n="nav_privacy">Privacy Policy</a>
+<a href="../terms-of-service/" class="active" data-i18n="nav_terms">Terms of Service</a>
+</div>
+<div class="mab">
+<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
+<a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
+</div>
+</div>
 
-            <div class="nav-right">
-                <select id="languageSelect" class="select">
-                    <option value="en-US">English (US)</option>
-                    <option value="en-GB">English (UK)</option>
-                    <option value="ru">Русский</option>
-                    <option value="uk">Українська</option>
-                    <option value="bg">Български</option>
-                    <option value="hr">Hrvatski</option>
-                    <option value="cs">Čeština</option>
-                    <option value="da">Dansk</option>
-                    <option value="nl">Nederlands</option>
-                    <option value="et">Eesti</option>
-                    <option value="fi">Suomi</option>
-                    <option value="fr">Français</option>
-                    <option value="de">Deutsch</option>
-                    <option value="el">Ελληνικά</option>
-                    <option value="hu">Magyar</option>
-                    <option value="ga">Gaeilge</option>
-                    <option value="it">Italiano</option>
-                    <option value="lv">Latviešu</option>
-                    <option value="lt">Lietuvių</option>
-                    <option value="mt">Malti</option>
-                    <option value="pl">Polski</option>
-                    <option value="pt">Português</option>
-                    <option value="ro">Română</option>
-                    <option value="sk">Slovenčina</option>
-                    <option value="sl">Slovenščina</option>
-                    <option value="es">Español</option>
-                    <option value="sv">Svenska</option>
-                </select>
+<main>
+<section class="ph">
+<div class="phc">
+<div class="phi">📜</div>
+<h1 class="pht" data-i18n="pg_t">Terms of Service</h1>
+<p class="phs" data-i18n="pg_s">Rules and conditions for using Carapuz201G.</p>
+</div>
+</section>
+<section class="sec" id="content"></section>
+</main>
 
-                <button id="themeToggle" class="theme-toggle">🌙 Dark</button>
-                <a class="nav-btn success" href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">Support Server</a>
-                <a class="nav-btn primary" href="https://discord.com/oauth2/authorize?client_id=1372950477477777548&permissions=8&integration_type=0&scope=bot%20applications.commands" target="_blank" rel="noopener noreferrer">Add Bot</a>
-            </div>
-        </div>
-    </nav>
+<footer class="ftr">
+<div class="ftl">
+<a href="../privacy-policy/" data-i18n="nav_privacy">Privacy Policy</a>
+<a href="../terms-of-service/" data-i18n="nav_terms">Terms of Service</a>
+<a href="../support/" data-i18n="nav_support">Support</a>
+</div>
+<p>© 2025 <a href="https://carapuzland.github.io">CarapuzLand</a> 🏝️ — Carapuz201G</p>
+</footer>
 
-    <div class="container">
-        <div class="page-header">
-            <h1>Terms of Service</h1>
-            <p>Rules for using Carapuz201G</p>
-        </div>
+<script>
+const enT={updated:"Last updated: January 2025",sections:[
+{t:"1. Acceptance of Terms",b:"By adding Carapuz201G (\"the Bot\") to your Discord server or by using the Bot in any server, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the Bot."},
+{t:"2. Description of Service",b:"Carapuz201G is a Discord bot that provides various features including but not limited to:<ul><li>Server moderation (warnings, mutes, kicks, bans)</li><li>Economy and kingdoms system</li><li>Ticket support system</li><li>Verification and CAPTCHA</li><li>Reaction roles and custom commands</li><li>Global chat and reminders</li><li>Giveaways and polls</li><li>Voice, music, and radio</li><li>Optional local AI through Ollama</li></ul>"},
+{t:"3. User Eligibility",b:"You must be at least 13 years old to use the Bot, in accordance with Discord's Terms of Service. By using the Bot, you confirm that you meet this age requirement."},
+{t:"4. Acceptable Use",b:"You agree to use the Bot only for lawful purposes. You must NOT:<ul><li>Use the Bot to violate Discord's Terms of Service or Community Guidelines</li><li>Attempt to exploit, abuse, or find vulnerabilities in the Bot</li><li>Use the Bot to harass, threaten, or harm other users</li><li>Spam commands or attempt to overload the Bot</li><li>Use the Bot for illegal activities in any jurisdiction</li><li>Attempt to reverse-engineer, decompile, or modify the Bot</li><li>Resell or redistribute the Bot's services without permission</li></ul>"},
+{t:"5. Bot Availability",b:"<ul><li>The Bot is provided \"as is\" without warranties of any kind</li><li>We do not guarantee 100% uptime or availability</li><li>We reserve the right to modify, suspend, or discontinue the Bot at any time</li><li>Features may be added, changed, or removed without prior notice</li><li>Scheduled maintenance may result in temporary downtime</li></ul>"},
+{t:"6. Data & Privacy",b:"Your use of the Bot is also governed by our <a href='../privacy-policy/' style='color:var(--acc)'>Privacy Policy</a>. Key points:<ul><li>We collect minimal data necessary for bot functionality</li><li>Data is not sold or shared with third parties</li><li>You may request deletion of your data at any time</li><li>AI features (if enabled) run locally and do not send data to external services</li></ul>"},
+{t:"7. Server Operator Responsibilities",b:"If you add the Bot to your server, you are responsible for:<ul><li>Ensuring the Bot is used in compliance with Discord's policies</li><li>Configuring the Bot appropriately for your server</li><li>Informing your server members about the Bot's data practices</li><li>Managing permissions and access to Bot features</li></ul>"},
+{t:"8. Intellectual Property",b:"All rights to the Bot, including its code, design, name, and branding, are owned by the developer(s). You may not:<ul><li>Claim ownership of the Bot</li><li>Copy or redistribute the Bot's code without permission</li><li>Use the Bot's branding for unauthorized purposes</li></ul>"},
+{t:"9. Limitation of Liability",b:"To the maximum extent permitted by law:<ul><li>The Bot is provided \"as is\" without any warranties</li><li>We are not liable for any damages arising from your use of the Bot</li><li>We are not responsible for data loss, server issues, or actions taken by the Bot due to misconfiguration</li><li>We are not liable for any content created, shared, or transmitted through the Bot by users</li></ul>"},
+{t:"10. Termination",b:"<ul><li>We may terminate or restrict your access to the Bot at any time, for any reason, without notice</li><li>You may stop using the Bot at any time by removing it from your server</li><li>Upon termination, your right to use the Bot ceases immediately</li></ul>"},
+{t:"11. Changes to Terms",b:"We may update these Terms of Service at any time. Changes will be posted on this page with an updated date. Continued use of the Bot after changes constitutes acceptance of the updated terms."},
+{t:"12. Governing Law",b:"These terms shall be governed by and construed in accordance with applicable laws. Any disputes shall be resolved through the support channels provided."},
+{t:"13. Contact",b:"If you have questions about these Terms of Service:<ul><li>Join our support server</li><li>Use the <code>/support</code> command in Discord</li></ul>"}
+]};
 
-        <section class="page-section">
-            <h2>1. Acceptance</h2>
-            <p>
-                By inviting, enabling, or using Carapuz201G, you agree to these Terms of Service.
-                If you do not agree, do not use the Bot.
-            </p>
-        </section>
+const ruT={updated:"Последнее обновление: январь 2025",sections:[
+{t:"1. Принятие условий",b:"Добавляя Carapuz201G (\"Бот\") на свой Discord-сервер или используя Бота на любом сервере, вы соглашаетесь с настоящими Условиями использования. Если вы не согласны с этими условиями, пожалуйста, не используйте Бота."},
+{t:"2. Описание сервиса",b:"Carapuz201G — это Discord-бот, предоставляющий различные функции, включая, но не ограничиваясь:<ul><li>Модерация сервера (предупреждения, муты, кики, баны)</li><li>Экономика и система королевств</li><li>Система тикетов поддержки</li><li>Верификация и CAPTCHA</li><li>Роли по реакциям и кастомные команды</li><li>Глобальный чат и напоминания</li><li>Розыгрыши и голосования</li><li>Голос, музыка и радио</li><li>Опциональный локальный ИИ через Ollama</li></ul>"},
+{t:"3. Право использования",b:"Вам должно быть не менее 13 лет для использования Бота в соответствии с Условиями использования Discord. Используя Бота, вы подтверждаете, что соответствуете этому возрастному требованию."},
+{t:"4. Допустимое использование",b:"Вы обязуетесь использовать Бота только в законных целях. Вы НЕ должны:<ul><li>Использовать Бота для нарушения Условий Discord</li><li>Пытаться эксплуатировать или искать уязвимости в Боте</li><li>Использовать Бота для преследования или вреда другим пользователям</li><li>Спамить команды или перегружать Бота</li><li>Использовать Бота для незаконной деятельности</li><li>Пытаться реверс-инженерить или модифицировать Бота</li><li>Перепродавать услуги Бота без разрешения</li></ul>"},
+{t:"5. Доступность Бота",b:"<ul><li>Бот предоставляется «как есть» без каких-либо гарантий</li><li>Мы не гарантируем 100% времени работы</li><li>Мы оставляем за собой право изменять, приостанавливать или прекращать работу Бота</li><li>Функции могут быть добавлены, изменены или удалены без уведомления</li><li>Плановое обслуживание может вызвать временные перебои</li></ul>"},
+{t:"6. Данные и конфиденциальность",b:"Использование Бота также регулируется нашей <a href='../privacy-policy/' style='color:var(--acc)'>Политикой конфиденциальности</a>. Ключевые моменты:<ul><li>Мы собираем минимум данных для функциональности</li><li>Данные не продаются третьим лицам</li><li>Вы можете запросить удаление данных</li><li>ИИ-функции работают локально</li></ul>"},
+{t:"7. Ответственность оператора сервера",b:"Если вы добавляете Бота на свой сервер, вы несёте ответственность за:<ul><li>Соответствие использования политикам Discord</li><li>Правильную настройку Бота</li><li>Информирование участников о практиках данных</li><li>Управление разрешениями и доступом</li></ul>"},
+{t:"8. Интеллектуальная собственность",b:"Все права на Бота принадлежат разработчику(ам). Вы не имеете права:<ul><li>Заявлять о владении Ботом</li><li>Копировать или распространять код без разрешения</li><li>Использовать бренд Бота в несанкционированных целях</li></ul>"},
+{t:"9. Ограничение ответственности",b:"В максимальной степени, разрешённой законом:<ul><li>Бот предоставляется «как есть» без гарантий</li><li>Мы не несём ответственности за убытки от использования</li><li>Мы не отвечаем за потерю данных или проблемы из-за неправильной настройки</li><li>Мы не несём ответственности за контент, созданный пользователями через Бота</li></ul>"},
+{t:"10. Прекращение",b:"<ul><li>Мы можем прекратить ваш доступ к Боту в любое время без уведомления</li><li>Вы можете прекратить использование, удалив Бота с сервера</li><li>При прекращении ваше право на использование прекращается немедленно</li></ul>"},
+{t:"11. Изменения условий",b:"Мы можем обновлять настоящие Условия в любое время. Изменения публикуются на этой странице. Продолжение использования означает принятие обновлённых условий."},
+{t:"12. Применимое право",b:"Настоящие условия регулируются применимым законодательством. Споры разрешаются через предоставленные каналы поддержки."},
+{t:"13. Контакты",b:"Если у вас есть вопросы:<ul><li>Присоединитесь к серверу поддержки</li><li>Используйте команду <code>/support</code> в Discord</li></ul>"}
+]};
 
-        <section class="page-section">
-            <h2>2. Service Description</h2>
-            <p>
-                Carapuz201G is a multi-purpose Discord bot that may provide moderation, economy, utility,
-                support, verification, profile, voice and optional locally-hosted AI features depending on the current public build.
-            </p>
-        </section>
+const deT={updated:"Letzte Aktualisierung: Januar 2025",sections:[
+{t:"1. Annahme der Bedingungen",b:"Indem Sie Carapuz201G (\"den Bot\") zu Ihrem Discord-Server hinzufügen oder den Bot auf einem beliebigen Server nutzen, stimmen Sie diesen Nutzungsbedingungen zu. Wenn Sie diesen Bedingungen nicht zustimmen, nutzen Sie den Bot bitte nicht."},
+{t:"2. Beschreibung des Dienstes",b:"Carapuz201G ist ein Discord-Bot, der verschiedene Funktionen bietet, darunter:<ul><li>Server-Moderation (Verwarnungen, Stummschaltungen, Kicks, Sperren)</li><li>Wirtschafts- und Königreichssystem</li><li>Ticket-Supportsystem</li><li>Verifizierung und CAPTCHA</li><li>Reaktionsrollen und benutzerdefinierte Befehle</li><li>Globaler Chat und Erinnerungen</li><li>Gewinnspiele und Umfragen</li><li>Sprache, Musik und Radio</li><li>Optionale lokale KI über Ollama</li></ul>"},
+{t:"3. Nutzungsberechtigung",b:"Sie müssen mindestens 13 Jahre alt sein, um den Bot zu nutzen, gemäß den Discord-Nutzungsbedingungen. Durch die Nutzung des Bots bestätigen Sie, dass Sie diese Altersanforderung erfüllen."},
+{t:"4. Zulässige Nutzung",b:"Sie verpflichten sich, den Bot nur für rechtmäßige Zwecke zu nutzen. Sie dürfen NICHT:<ul><li>Den Bot nutzen, um gegen Discords Nutzungsbedingungen zu verstoßen</li><li>Versuchen, den Bot auszunutzen oder Schwachstellen zu finden</li><li>Den Bot nutzen, um andere Benutzer zu belästigen oder zu schädigen</li><li>Befehle zu spammen oder den Bot zu überlasten</li><li>Den Bot für illegale Aktivitäten nutzen</li><li>Versuchen, den Bot zu reverse-engineeren oder zu modifizieren</li><li>Die Dienste des Bots ohne Erlaubnis weiterverkaufen</li></ul>"},
+{t:"5. Verfügbarkeit des Bots",b:"<ul><li>Der Bot wird \"wie besehen\" ohne jegliche Garantien bereitgestellt</li><li>Wir garantieren keine 100%ige Verfügbarkeit</li><li>Wir behalten uns das Recht vor, den Bot jederzeit zu ändern oder einzustellen</li><li>Funktionen können ohne Vorankündigung hinzugefügt, geändert oder entfernt werden</li><li>Geplante Wartung kann zu vorübergehenden Ausfällen führen</li></ul>"},
+{t:"6. Daten & Datenschutz",b:"Ihre Nutzung des Bots unterliegt auch unserer <a href='../privacy-policy/' style='color:var(--acc)'>Datenschutzrichtlinie</a>. Wichtige Punkte:<ul><li>Wir erfassen nur minimale für die Funktionalität notwendige Daten</li><li>Daten werden nicht an Dritte verkauft</li><li>Sie können jederzeit die Löschung Ihrer Daten anfordern</li><li>KI-Funktionen laufen lokal</li></ul>"},
+{t:"7. Verantwortung des Serverbetreibers",b:"Wenn Sie den Bot zu Ihrem Server hinzufügen, sind Sie verantwortlich für:<ul><li>Die Einhaltung der Discord-Richtlinien</li><li>Die ordnungsgemäße Konfiguration des Bots</li><li>Die Information Ihrer Servermitglieder über Datenpraktiken</li><li>Die Verwaltung von Berechtigungen und Zugriff</li></ul>"},
+{t:"8. Geistiges Eigentum",b:"Alle Rechte am Bot gehören dem/den Entwickler(n). Sie dürfen nicht:<ul><li>Eigentum am Bot beanspruchen</li><li>Den Code ohne Erlaubnis kopieren oder verteilen</li><li>Das Branding des Bots für nicht autorisierte Zwecke verwenden</li></ul>"},
+{t:"9. Haftungsbeschränkung",b:"Im maximal gesetzlich zulässigen Umfang:<ul><li>Der Bot wird \"wie besehen\" ohne Garantien bereitgestellt</li><li>Wir haften nicht für Schäden aus der Nutzung des Bots</li><li>Wir sind nicht verantwortlich für Datenverlust oder Probleme durch Fehlkonfiguration</li><li>Wir haften nicht für von Benutzern über den Bot erstellte Inhalte</li></ul>"},
+{t:"10. Kündigung",b:"<ul><li>Wir können Ihren Zugang zum Bot jederzeit ohne Vorankündigung beenden</li><li>Sie können die Nutzung jederzeit beenden, indem Sie den Bot entfernen</li><li>Bei Kündigung erlischt Ihr Nutzungsrecht sofort</li></ul>"},
+{t:"11. Änderungen der Bedingungen",b:"Wir können diese Nutzungsbedingungen jederzeit aktualisieren. Änderungen werden auf dieser Seite veröffentlicht. Die weitere Nutzung bedeutet die Annahme der aktualisierten Bedingungen."},
+{t:"12. Anwendbares Recht",b:"Diese Bedingungen unterliegen dem anwendbaren Recht. Streitigkeiten werden über die bereitgestellten Support-Kanäle gelöst."},
+{t:"13. Kontakt",b:"Bei Fragen zu diesen Nutzungsbedingungen:<ul><li>Treten Sie unserem Support-Server bei</li><li>Verwenden Sie den Befehl <code>/support</code> in Discord</li></ul>"}
+]};
 
-        <section class="page-section">
-            <h2>3. Eligibility</h2>
-            <p>
-                You must be old enough to use Discord under Discord’s Terms of Service and any applicable local laws.
-            </p>
-        </section>
+const T={
+"en":{name:"English",flag:"🇬🇧",nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"Terms of Service",pg_s:"Rules and conditions for using Carapuz201G.",tos:enT},
+"ru":{name:"Русский",flag:"🇷🇺",nav_home:"Главная",nav_about:"О боте",nav_features:"Функции",nav_commands:"Команды",nav_support:"Поддержка",nav_status:"Статус",nav_privacy:"Конфиденциальность",nav_terms:"Условия использования",btn_add:"➕ Добавить",btn_support:"💬 Поддержка",pg_t:"Условия использования",pg_s:"Правила и условия использования Carapuz201G.",tos:ruT},
+"de":{name:"Deutsch",flag:"🇩🇪",nav_home:"Startseite",nav_about:"Über",nav_features:"Funktionen",nav_commands:"Befehle",nav_support:"Support",nav_status:"Status",nav_privacy:"Datenschutz",nav_terms:"Nutzungsbedingungen",btn_add:"➕ Hinzufügen",btn_support:"💬 Support",pg_t:"Nutzungsbedingungen",pg_s:"Regeln und Bedingungen für die Nutzung von Carapuz201G.",tos:deT}
+};
 
-        <section class="page-section">
-            <h2>4. Acceptable Use</h2>
-            <p>You agree not to:</p>
-            <ul>
-                <li>use the Bot to violate Discord’s Terms, Community Guidelines, Developer Terms or Developer Policy,</li>
-                <li>use the Bot for spam, harassment, scams, abuse or illegal activity,</li>
-                <li>exploit bugs, unfair automation or loopholes in economy or moderation systems,</li>
-                <li>attempt to reverse-engineer, overload or interfere with the Bot’s intended operation,</li>
-                <li>use the Bot to impersonate Discord, staff, or unrelated third parties.</li>
-            </ul>
-        </section>
+let lang=localStorage.getItem('c2g-lang-legal')||'en';
+let theme=localStorage.getItem('c2g-theme')||'dark';
 
-        <section class="page-section">
-            <h2>5. Local AI / Ollama</h2>
-            <p>
-                Some builds of the Bot may use a locally-hosted Ollama model to perform feature-specific tasks.
-            </p>
-            <ul>
-                <li>Such AI use is intended only for requested bot functionality.</li>
-                <li>Discord content is not intended to be used for model training or fine-tuning.</li>
-                <li>The Bot is not intended to turn Discord messages into AI training datasets.</li>
-            </ul>
-        </section>
+document.addEventListener('DOMContentLoaded',()=>{
+if(!T[lang])lang='en';
+setTheme(theme);buildLang();setLang(lang);setupEv();
+setTimeout(()=>document.getElementById('ldr').classList.add('hid'),1100);
+});
 
-        <section class="page-section">
-            <h2>6. Cmail and User Contact</h2>
-            <p>
-                The Bot may provide an optional user messaging feature ("cmail").
-            </p>
-            <ul>
-                <li>Users must explicitly opt in before receiving cmail.</li>
-                <li>You may not use cmail for spam, ads, harassment, scams or abusive messaging.</li>
-                <li>We may restrict or disable abusive use of this feature.</li>
-            </ul>
-        </section>
+function setTheme(t){theme=t;document.documentElement.setAttribute('data-theme',t);localStorage.setItem('c2g-theme',t);document.getElementById('thBtn').textContent=t==='dark'?'☀️':'🌙'}
+function togTheme(){setTheme(theme==='dark'?'light':'dark')}
 
-        <section class="page-section">
-            <h2>7. Availability</h2>
-            <p>
-                The Bot is provided on an <strong>“as is”</strong> and <strong>“as available”</strong> basis.
-            </p>
-            <ul>
-                <li>We do not guarantee uninterrupted service.</li>
-                <li>Features may be changed, limited, removed or temporarily unavailable.</li>
-                <li>Voice and heavy media features may depend on the host and may not always work.</li>
-            </ul>
-        </section>
+function buildLang(){
+const m=document.getElementById('lMn');m.innerHTML='';
+Object.keys(T).sort((a,b)=>T[a].name.localeCompare(T[b].name)).forEach(c=>{
+const d=document.createElement('div');d.className='lo'+(c===lang?' act':'');
+d.innerHTML=`<span class="fl">${T[c].flag}</span><span>${T[c].name}</span>`;
+d.onclick=()=>{setLang(c);closeLM()};m.appendChild(d);
+});
+}
 
-        <section class="page-section">
-            <h2>8. Virtual Economy Disclaimer</h2>
-            <p>
-                Any balances, items, quests, workers, investments, kingdoms or other economy values inside the Bot are purely virtual.
-                They have no real-world cash value.
-            </p>
-        </section>
+function setLang(c){
+if(!T[c])c='en';lang=c;localStorage.setItem('c2g-lang-legal',c);
+const t=T[c],tos=t.tos;
+document.getElementById('cF').textContent=t.flag;
+document.getElementById('cL').textContent=t.name;
+document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k]});
+const sec=document.getElementById('content');
+let h=`<div class="upd">${tos.updated}</div>`;
+tos.sections.forEach((s,i)=>{
+h+=`<div class="lb2 rv" style="transition-delay:${i*.05}s"><h2>${s.t}</h2><p>${s.b}</p></div>`;
+});
+sec.innerHTML=h;
+document.querySelectorAll('.lo').forEach(o=>o.classList.remove('act'));
+const keys=Object.keys(T).sort((a,b)=>T[a].name.localeCompare(T[b].name));
+const idx=keys.indexOf(c);const opts=document.querySelectorAll('.lo');
+if(opts[idx])opts[idx].classList.add('act');
+document.documentElement.lang=c;
+setTimeout(setupRv,50);
+}
 
-        <section class="page-section">
-            <h2>9. Enforcement</h2>
-            <p>
-                We may restrict or block use of the Bot if necessary, including for abuse, feature exploitation,
-                policy violations, or behavior that creates risk for the Bot, its users, or infrastructure.
-            </p>
-        </section>
-
-        <section class="page-section">
-            <h2>10. Third-Party and Hosting Dependencies</h2>
-            <p>
-                Some commands may rely on third-party services or the current hosting environment.
-                We are not responsible for outages, changes, restrictions or policy decisions of external providers.
-            </p>
-        </section>
-
-        <section class="page-section">
-            <h2>11. Limitation of Liability</h2>
-            <p>
-                To the maximum extent permitted by law, the Bot is provided without warranties of any kind.
-                We are not liable for indirect, incidental, consequential, or special damages arising from the use or inability to use the Bot.
-            </p>
-        </section>
-
-        <section class="page-section">
-            <h2>12. Changes to These Terms</h2>
-            <p>
-                We may update these Terms at any time. Continued use of the Bot after changes means you accept the updated version.
-            </p>
-        </section>
-
-        <section class="page-section">
-            <h2>13. Contact</h2>
-            <ul>
-                <li>Email: <a href="mailto:carapuz201@gmail.com">carapuz201@gmail.com</a></li>
-                <li>Support server: <a href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">discord.gg/pBh4rRK3TT</a></li>
-                <li>Website: <a href="https://carapuzland.github.io" target="_blank" rel="noopener noreferrer">carapuzland.github.io</a></li>
-            </ul>
-        </section>
-
-        <footer>
-            <p>Carapuz201G — All rights reserved.</p>
-            <p>Operated by carapuz201</p>
-        </footer>
-    </div>
-
-    <script src="/carapuz201g/assets/js/theme.js"></script>
-    <script src="/carapuz201g/assets/js/language.js"></script>
-    <script src="/carapuz201g/assets/js/app.js"></script>
+function togLM(){const m=document.getElementById('lMn'),b=document.getElementById('lBtn');if(m.classList.contains('show'))closeLM();else{m.classList.add('show');b.classList.add('open')}}
+function closeLM(){document.getElementById('lMn').classList.remove('show');document.getElementById('lBtn').classList.remove('open')}
+function openMM(){document.getElementById('mMn').classList.add('show');document.getElementById('mOv').classList.add('show');document.body.style.overflow='hidden'}
+function closeMM(){document.getElementById('mMn').classList.remove('show');document.getElementById('mOv').classList.remove('show');document.body.style.overflow=''}
+function setupRv(){const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1});document.querySelectorAll('.rv').forEach(el=>obs.observe(el))}
+function setupEv(){
+document.getElementById('thBtn').onclick=togTheme;
+document.getElementById('lBtn').onclick=e=>{e.stopPropagation();togLM()};
+document.addEventListener('click',e=>{if(!e.target.closest('.ld'))closeLM()});
+document.getElementById('mBtn').onclick=openMM;
+document.getElementById('cMn').onclick=closeMM;
+document.getElementById('mOv').onclick=closeMM;
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLM();closeMM()}});
+}
+</script>
 </body>
 </html>

@@ -1,628 +1,338 @@
-<!-- terms-of-service.html -->
 <!DOCTYPE html>
-<html lang="en-US" data-theme="dark">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carapuz201G — Terms of Service</title>
-    <style>
-        :root {
-            --bg: #0f172a;
-            --bg-soft: #172033;
-            --bg-card: #1e293b;
-            --text: #e5e7eb;
-            --text-soft: #94a3b8;
-            --primary: #60a5fa;
-            --primary-strong: #3b82f6;
-            --success: #22c55e;
-            --border: #334155;
-            --shadow: rgba(0, 0, 0, 0.25);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carapuz201G — Discord Bot</title>
+<meta name="description" content="Carapuz201G — a powerful Discord bot with moderation, economy, kingdoms, voice, and optional local AI.">
+<style>
+:root{--tr:0.3s}
+[data-theme="dark"]{--bg:#0b0f1a;--bg2:#111827;--card:rgba(17,24,39,0.88);--hdr:rgba(11,15,26,0.93);--tx:#e2e8f0;--tx2:#94a3b8;--acc:#5865F2;--acc2:#38bdf8;--brd:rgba(88,101,242,0.18);--shd:rgba(0,0,0,0.4);--glw:rgba(88,101,242,0.3);--dd:#1e293b;--ddh:#334155;--ok:#22c55e;--g1:#0b0f1a;--g2:#15102e;--g3:#0d2847}
+[data-theme="light"]{--bg:#f0f4ff;--bg2:#e8efff;--card:rgba(255,255,255,0.9);--hdr:rgba(240,244,255,0.95);--tx:#1e293b;--tx2:#64748b;--acc:#5865F2;--acc2:#0284c7;--brd:rgba(88,101,242,0.15);--shd:rgba(0,0,0,0.1);--glw:rgba(88,101,242,0.2);--dd:#fff;--ddh:#f1f5f9;--ok:#16a34a;--g1:#e4eaff;--g2:#f0e6ff;--g3:#dff0ff}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;transition:background var(--tr),color var(--tr);min-height:100vh}
+a{color:inherit}
 
-        [data-theme="light"] {
-            --bg: #f8fafc;
-            --bg-soft: #ffffff;
-            --bg-card: #f1f5f9;
-            --text: #0f172a;
-            --text-soft: #475569;
-            --primary: #2563eb;
-            --primary-strong: #1d4ed8;
-            --success: #16a34a;
-            --border: #cbd5e1;
-            --shadow: rgba(0, 0, 0, 0.12);
-        }
+/* ===== HEADER ===== */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--hdr);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--brd);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;transition:background var(--tr)}
+.hdr-l{display:flex;align-items:center;gap:.6rem}
+.hm-lnk{display:flex;align-items:center;text-decoration:none;color:var(--tx2);font-size:1.35rem;transition:color .3s}
+.hm-lnk:hover{color:var(--acc)}
+.hm-lnk .em{animation:fl 3s ease-in-out infinite}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.brand{font-size:1.15rem;font-weight:700;color:var(--tx);text-decoration:none;transition:color .3s}
+.brand:hover{color:var(--acc)}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: Inter, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-        }
+/* NAV */
+.nav{display:flex;align-items:center;gap:.15rem}
+.nav a{padding:.35rem .55rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.8rem;font-weight:500;transition:all .2s;white-space:nowrap}
+.nav a:hover{color:var(--tx);background:var(--brd)}
+.nav a.active{color:var(--acc);background:rgba(88,101,242,.12)}
 
-        a { color: var(--primary); text-decoration: none; }
-        a:hover { color: var(--primary-strong); }
+/* HEADER RIGHT */
+.hdr-r{display:flex;align-items:center;gap:.45rem}
 
-        .top-badge {
-            position: fixed;
-            top: 12px;
-            left: 12px;
-            z-index: 1100;
-            background: rgba(15, 23, 42, 0.92);
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            padding: 8px 14px;
-            box-shadow: 0 4px 18px var(--shadow);
-        }
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.4rem .8rem;border-radius:10px;font-size:.78rem;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid var(--brd);transition:all .3s;white-space:nowrap}
+.btn-a{background:var(--acc);color:#fff;border-color:var(--acc)}
+.btn-a:hover{background:#4752c4;box-shadow:0 4px 20px var(--glw);transform:translateY(-1px)}
+.btn-o{background:transparent;color:var(--tx)}
+.btn-o:hover{background:var(--brd);border-color:var(--acc)}
 
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(15, 23, 42, 0.96);
-            border-bottom: 1px solid var(--border);
-            padding: 14px 0;
-            z-index: 1000;
-        }
+/* THEME */
+.th-btn{background:var(--card);border:1px solid var(--brd);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--tx);transition:all .3s}
+.th-btn:hover{border-color:var(--acc);box-shadow:0 0 12px var(--glw);transform:rotate(20deg)}
 
-        .nav-inner {
-            width: min(1180px, calc(100% - 32px));
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            gap: 16px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+/* LANG */
+.ld{position:relative}
+.lb{background:var(--card);border:1px solid var(--brd);border-radius:10px;padding:.35rem .65rem;cursor:pointer;display:flex;align-items:center;gap:.35rem;font-size:.78rem;color:var(--tx);transition:all .3s}
+.lb:hover{border-color:var(--acc);box-shadow:0 0 10px var(--glw)}
+.lb .ar{font-size:.55rem;transition:transform .3s}
+.lb.open .ar{transform:rotate(180deg)}
+.lm{position:absolute;top:calc(100% + 6px);right:0;background:var(--dd);border:1px solid var(--brd);border-radius:12px;padding:.35rem 0;min-width:190px;max-height:350px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .3s;box-shadow:0 16px 40px var(--shd);z-index:1001}
+.lm.show{opacity:1;visibility:visible;transform:translateY(0)}
+.lm::-webkit-scrollbar{width:5px}
+.lm::-webkit-scrollbar-thumb{background:var(--brd);border-radius:3px}
+.lo{display:flex;align-items:center;gap:.55rem;padding:.45rem .85rem;cursor:pointer;font-size:.82rem;color:var(--tx);transition:background .2s}
+.lo:hover{background:var(--ddh)}
+.lo.act{color:var(--acc);font-weight:600}
+.lo .fl{font-size:1.05rem}
 
-        .nav-left, .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
+/* MOBILE */
+.mb{display:none;background:var(--card);border:1px solid var(--brd);border-radius:8px;width:34px;height:34px;align-items:center;justify-content:center;cursor:pointer;color:var(--tx);font-size:1.15rem}
+.mov{display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}
+.mov.show{display:block}
+.mm{position:fixed;top:0;right:-300px;width:270px;height:100%;background:var(--bg2);z-index:999;padding:1.25rem;transition:right .3s;overflow-y:auto;border-left:1px solid var(--brd)}
+.mm.show{right:0}
+.mm .cb{background:none;border:none;color:var(--tx);font-size:1.4rem;cursor:pointer;float:right;padding:.25rem}
+.mn{display:flex;flex-direction:column;gap:.2rem;margin-top:2.5rem}
+.mn a{padding:.6rem .7rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.9rem;transition:all .2s}
+.mn a:hover,.mn a.active{color:var(--acc);background:rgba(88,101,242,.1)}
+.ma{display:flex;flex-direction:column;gap:.5rem;margin-top:1.25rem}
+.ma .btn{justify-content:center}
 
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
+/* ===== HERO ===== */
+.hero{padding:7rem 2rem 4rem;text-align:center;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);position:relative;overflow:hidden;transition:background var(--tr)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(88,101,242,.15) 0%,transparent 60%);pointer-events:none}
+.hc{position:relative;z-index:2;max-width:680px;margin:0 auto}
+.he{font-size:4.5rem;margin-bottom:.75rem;display:inline-block;animation:hf 4s ease-in-out infinite}
+@keyframes hf{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-14px) rotate(2deg)}}
+.ht{font-size:2.8rem;font-weight:800;margin-bottom:.7rem;background:linear-gradient(135deg,var(--tx),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hs{font-size:1.1rem;color:var(--tx2);line-height:1.65;margin-bottom:1.75rem}
+.hb{display:flex;justify-content:center;gap:.7rem;flex-wrap:wrap}
+.hb .btn{padding:.55rem 1.4rem;font-size:.9rem;border-radius:12px}
 
-        .nav-links a {
-            color: var(--text);
-            font-size: 14px;
-            font-weight: 600;
-            padding: 8px 14px;
-            border-radius: 999px;
-        }
+/* ===== SECTIONS ===== */
+.sec{padding:3.5rem 2rem;max-width:1200px;margin:0 auto}
+.st{text-align:center;font-size:1.6rem;font-weight:700;margin-bottom:.4rem}
+.ss{text-align:center;color:var(--tx2);margin-bottom:2.25rem;font-size:.95rem}
 
-        .nav-links a:hover { background: var(--bg-card); }
+/* FEATURE CARDS */
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.15rem}
+.fc{background:var(--card);backdrop-filter:blur(12px);border:1px solid var(--brd);border-radius:16px;padding:1.5rem;transition:all .35s;cursor:default;position:relative;overflow:hidden}
+.fc::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),var(--acc2));opacity:0;transition:opacity .3s}
+.fc:hover{transform:translateY(-5px);box-shadow:0 14px 44px var(--shd);border-color:var(--acc)}
+.fc:hover::after{opacity:1}
+.fi{font-size:1.85rem;margin-bottom:.6rem;display:inline-block}
+.ft{font-size:1.02rem;font-weight:700;margin-bottom:.35rem}
+.fd{font-size:.84rem;color:var(--tx2);line-height:1.55}
 
-        .nav-btn {
-            display: inline-block;
-            padding: 8px 16px;
-            border-radius: 999px;
-            font-size: 14px;
-            font-weight: 700;
-        }
+/* STATUS */
+.stw{background:var(--card);backdrop-filter:blur(12px);border:1px solid var(--brd);border-radius:16px;padding:1.75rem;max-width:560px;margin:0 auto;text-align:center}
+.si{display:inline-flex;align-items:center;gap:.45rem;font-size:1.05rem;font-weight:600;margin-bottom:1rem}
+.sd{width:11px;height:11px;border-radius:50%;background:var(--ok);animation:pd 2s infinite}
+@keyframes pd{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.4)}50%{box-shadow:0 0 0 8px rgba(34,197,94,0)}}
+.sds{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
+.sdi{text-align:center}
+.sv{font-size:1.2rem;font-weight:700;color:var(--acc)}
+.sl{font-size:.75rem;color:var(--tx2);margin-top:.15rem}
 
-        .nav-btn.primary {
-            background: #5865f2;
-            color: white;
-        }
+/* QUICK NAV */
+.qg{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.85rem}
+.ql{display:flex;align-items:center;gap:.5rem;padding:.85rem 1rem;border-radius:12px;background:var(--card);border:1px solid var(--brd);text-decoration:none;color:var(--tx);font-weight:500;font-size:.87rem;transition:all .3s}
+.ql:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 8px 24px var(--shd)}
+.qi{font-size:1.2rem}
 
-        .nav-btn.success {
-            background: rgba(34, 197, 94, 0.12);
-            border: 1px solid var(--success);
-            color: var(--success);
-        }
+/* FOOTER */
+.ftr{text-align:center;padding:1.75rem;color:var(--tx2);font-size:.82rem;border-top:1px solid var(--brd);background:var(--hdr);backdrop-filter:blur(20px)}
+.ftr a{color:var(--acc);text-decoration:none}
+.ftr a:hover{text-decoration:underline}
+.fl{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-bottom:.65rem}
 
-        .select, .theme-toggle {
-            background: var(--bg-card);
-            color: var(--text);
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            padding: 8px 12px;
-            font-size: 13px;
-            outline: none;
-        }
+/* RESPONSIVE */
+@media(max-width:1024px){.nav{display:none}.mb{display:flex}.hdr-r .btn{display:none}}
+@media(max-width:768px){.hero{padding:5.5rem 1.25rem 3rem}.ht{font-size:2rem}.he{font-size:3.2rem}.sec{padding:2.5rem 1.25rem}.lb .ll{display:none}}
+@media(max-width:480px){.ht{font-size:1.7rem}.hs{font-size:.95rem}.hb .btn{width:100%;justify-content:center}.fg{grid-template-columns:1fr}}
 
-        .theme-toggle {
-            cursor: pointer;
-            font-weight: 700;
-        }
-
-        .container {
-            width: min(1080px, calc(100% - 32px));
-            margin: 0 auto;
-            padding: 110px 0 60px;
-        }
-
-        .page-header {
-            text-align: center;
-            margin: 6px 0 28px;
-        }
-
-        .page-header h1 {
-            font-size: 38px;
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-
-        .page-header p {
-            color: var(--text-soft);
-        }
-
-        .page-section {
-            background: var(--bg-soft);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 28px;
-            margin-bottom: 24px;
-            box-shadow: 0 8px 22px var(--shadow);
-        }
-
-        .page-section h2 {
-            color: var(--primary);
-            font-size: 26px;
-            margin-bottom: 14px;
-        }
-
-        .page-section p {
-            color: var(--text);
-            margin-bottom: 12px;
-            font-size: 15px;
-        }
-
-        .page-section ul {
-            margin: 12px 0 12px 22px;
-            color: var(--text);
-        }
-
-        .page-section li {
-            margin-bottom: 8px;
-        }
-
-        .highlight {
-            margin-top: 14px;
-            padding: 14px 18px;
-            border-radius: 14px;
-            background: rgba(96, 165, 250, 0.10);
-            border: 1px solid rgba(96, 165, 250, 0.28);
-            color: #dbeafe;
-            font-size: 14px;
-        }
-
-        footer {
-            text-align: center;
-            color: var(--text-soft);
-            font-size: 13px;
-            padding: 40px 20px 20px;
-            border-top: 1px solid var(--border);
-            margin-top: 48px;
-        }
-    </style>
+/* ANIMATIONS */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s}
+.rv.vis{opacity:1;transform:translateY(0)}
+.ld-w{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;transition:opacity .4s,visibility .4s}
+.ld-w.hid{opacity:0;visibility:hidden}
+.ld-e{font-size:2.8rem;animation:lb 1s ease-in-out infinite}
+@keyframes lb{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.1)}}
+.ld-b{width:100px;height:3px;background:var(--brd);border-radius:3px;overflow:hidden}
+.ld-f{height:100%;width:0%;background:var(--acc);border-radius:3px;animation:lf 1.2s ease forwards}
+@keyframes lf{to{width:100%}}
+</style>
 </head>
-<body>
-    <div class="top-badge">
-        <a href="https://carapuzland.github.io" target="_blank" rel="noopener noreferrer">🏝️ carapuzland.github.io</a>
-    </div>
+<body data-page="home">
+<div class="ld-w" id="ldr"><div class="ld-e">🤖</div><div style="color:var(--tx2);font-size:.85rem;letter-spacing:2px">CARAPUZ201G</div><div class="ld-b"><div class="ld-f"></div></div></div>
 
-    <nav>
-        <div class="nav-inner">
-            <div class="nav-left nav-links">
-                <a href="index.html">About</a>
-                <a href="features.html">Features</a>
-                <a href="commands.html">Commands</a>
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="terms-of-service.html">Terms of Service</a>
-                <a href="support.html">Support</a>
-                <a href="status.html">Status</a>
-            </div>
+<header class="hdr">
+<div class="hdr-l">
+<a href="https://carapuzland.github.io" class="hm-lnk" title="CarapuzLand"><span class="em">🏝️</span></a>
+<a href="./" class="brand">Carapuz201G</a>
+</div>
+<nav class="nav" id="dnav">
+<a href="./about/" data-i18n="nav_about">About</a>
+<a href="./features/" data-i18n="nav_features">Features</a>
+<a href="./commands/" data-i18n="nav_commands">Commands</a>
+<a href="./support/" data-i18n="nav_support">Support</a>
+<a href="./status/" data-i18n="nav_status">Status</a>
+<a href="./privacy-policy/" data-i18n="nav_privacy">Privacy</a>
+<a href="./terms-of-service/" data-i18n="nav_terms">Terms</a>
+</nav>
+<div class="hdr-r">
+<button class="th-btn" id="thBtn" title="Toggle theme">🌙</button>
+<div class="ld">
+<button class="lb" id="lBtn"><span class="fl" id="cF">🇺🇸</span><span class="ll" id="cL">English</span><span class="ar">▼</span></button>
+<div class="lm" id="lMn"></div>
+</div>
+<a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" data-i18n="btn_support" target="_blank">💬 Support</a>
+<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" data-i18n="btn_add" target="_blank">➕ Add Bot</a>
+<button class="mb" id="mBtn">☰</button>
+</div>
+</header>
 
-            <div class="nav-right">
-                <select id="languageSelect" class="select"></select>
-                <button id="themeToggle" class="theme-toggle">🌙 Dark</button>
-                <a class="nav-btn success" href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">Support Server</a>
-                <a class="nav-btn primary" href="https://discord.com/oauth2/authorize?client_id=1372950477477777548&permissions=8&integration_type=0&scope=bot%20applications.commands" target="_blank" rel="noopener noreferrer">Add Bot</a>
-            </div>
-        </div>
-    </nav>
+<div class="mov" id="mOv"></div>
+<div class="mm" id="mMn">
+<button class="cb" id="cMn">✕</button>
+<div class="mn">
+<a href="./" class="active" data-i18n="nav_home">Home</a>
+<a href="./about/" data-i18n="nav_about">About</a>
+<a href="./features/" data-i18n="nav_features">Features</a>
+<a href="./commands/" data-i18n="nav_commands">Commands</a>
+<a href="./support/" data-i18n="nav_support">Support</a>
+<a href="./status/" data-i18n="nav_status">Status</a>
+<a href="./privacy-policy/" data-i18n="nav_privacy">Privacy Policy</a>
+<a href="./terms-of-service/" data-i18n="nav_terms">Terms of Service</a>
+</div>
+<div class="ma">
+<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
+<a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
+</div>
+</div>
 
-    <div class="container">
-        <div class="page-header">
-            <h1 data-i18n="page.title">Terms of Service</h1>
-            <p data-i18n="page.subtitle">Rules for using Carapuz201G</p>
-        </div>
+<main>
+<section class="hero">
+<div class="hc">
+<div class="he">🤖</div>
+<h1 class="ht" data-i18n="hero_t">Carapuz201G</h1>
+<p class="hs" data-i18n="hero_s">A powerful, feature-rich Discord bot with moderation, economy, kingdoms, voice, and optional local AI — all in one.</p>
+<div class="hb">
+<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="hero_add">➕ Add to Discord</a>
+<a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="hero_sup">💬 Support Server</a>
+</div>
+</div>
+</section>
 
-        <section class="page-section">
-            <h2 data-i18n="sections.s1.title">1. Acceptance</h2>
-            <p data-i18n="sections.s1.p1">By inviting, enabling, or using Carapuz201G, you agree to these Terms of Service. If you do not agree, do not use the Bot.</p>
-        </section>
+<section class="sec">
+<h2 class="st rv" data-i18n="feat_t">⚡ Key Features</h2>
+<p class="ss rv" data-i18n="feat_s">Everything you need to manage and enhance your Discord server.</p>
+<div class="fg" id="fGrid"></div>
+</section>
 
-        <section class="page-section">
-            <h2 data-i18n="sections.s2.title">2. Service Description</h2>
-            <p data-i18n="sections.s2.p1">Carapuz201G is a multi-purpose Discord bot that may provide moderation, economy, utility, support, verification, profile, voice and optional locally-hosted AI features depending on the current public build.</p>
-        </section>
+<section class="sec">
+<h2 class="st rv" data-i18n="stat_t">📡 Bot Status</h2>
+<div class="stw rv">
+<div class="si"><span class="sd"></span><span data-i18n="stat_on">Online</span></div>
+<div class="sds">
+<div class="sdi"><div class="sv">99.9%</div><div class="sl" data-i18n="stat_up">Uptime</div></div>
+<div class="sdi"><div class="sv">42ms</div><div class="sl" data-i18n="stat_pi">Ping</div></div>
+<div class="sdi"><div class="sv">500+</div><div class="sl" data-i18n="stat_sr">Servers</div></div>
+</div>
+</div>
+</section>
 
-        <section class="page-section">
-            <h2 data-i18n="sections.s3.title">3. Eligibility</h2>
-            <p data-i18n="sections.s3.p1">You must be old enough to use Discord under Discord’s Terms of Service and any applicable local laws.</p>
-        </section>
+<section class="sec">
+<h2 class="st rv" data-i18n="qk_t">🧭 Quick Navigation</h2>
+<div class="qg" id="qGrid"></div>
+</section>
+</main>
 
-        <section class="page-section">
-            <h2 data-i18n="sections.s4.title">4. Acceptable Use</h2>
-            <p data-i18n="sections.s4.p1">You agree not to:</p>
-            <ul>
-                <li data-i18n="sections.s4.li1">use the Bot to violate Discord’s Terms, Community Guidelines, Developer Terms or Developer Policy,</li>
-                <li data-i18n="sections.s4.li2">use the Bot for spam, harassment, scams, abuse or illegal activity,</li>
-                <li data-i18n="sections.s4.li3">exploit bugs, unfair automation or loopholes in economy or moderation systems,</li>
-                <li data-i18n="sections.s4.li4">attempt to reverse-engineer, overload or interfere with the Bot’s intended operation,</li>
-                <li data-i18n="sections.s4.li5">use the Bot to impersonate Discord, staff or unrelated third parties.</li>
-            </ul>
-        </section>
+<footer class="ftr">
+<div class="fl">
+<a href="./privacy-policy/" data-i18n="nav_privacy">Privacy Policy</a>
+<a href="./terms-of-service/" data-i18n="nav_terms">Terms of Service</a>
+<a href="./support/" data-i18n="nav_support">Support</a>
+</div>
+<p>© 2025 <a href="https://carapuzland.github.io">CarapuzLand</a> 🏝️ — Carapuz201G</p>
+</footer>
 
-        <section class="page-section">
-            <h2 data-i18n="sections.s5.title">5. Local AI / Ollama</h2>
-            <p data-i18n="sections.s5.p1">Some builds of the Bot may use a locally-hosted Ollama model to perform feature-specific tasks.</p>
-            <ul>
-                <li data-i18n="sections.s5.li1">Such AI use is intended only for requested bot functionality.</li>
-                <li data-i18n="sections.s5.li2">Discord content is not intended to be used for model training or fine-tuning.</li>
-                <li data-i18n="sections.s5.li3">The Bot is not intended to turn Discord messages into AI training datasets.</li>
-            </ul>
-        </section>
+<script>
+const en={nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",hero_t:"Carapuz201G",hero_s:"A powerful, feature-rich Discord bot with moderation, economy, kingdoms, voice, and optional local AI — all in one.",hero_add:"➕ Add to Discord",hero_sup:"💬 Support Server",feat_t:"⚡ Key Features",feat_s:"Everything you need to manage and enhance your Discord server.",f_mod_t:"Moderation",f_mod_d:"Warns, mutes, kicks, bans, and anti-raid protection to keep your server safe.",f_eco_t:"Economy",f_eco_d:"Virtual currency, shops, and trading to engage your community.",f_kin_t:"Kingdoms",f_kin_d:"Create and manage kingdoms, compete with other groups on your server.",f_tic_t:"Tickets",f_tic_d:"A full support ticket system with logs, categories, and staff tools.",f_ver_t:"Verification",f_ver_d:"Captcha-based verification to protect your server from bots and raids.",f_utl_t:"Utility",f_utl_d:"Reaction roles, custom commands, reminders, giveaways, global chat and more.",f_voi_t:"Voice & Music",f_voi_d:"Play music, radio, and manage voice channels with ease.",f_ai_t:"Local AI",f_ai_d:"Optional local AI via Ollama. No data sent externally, no training on your messages.",stat_t:"📡 Bot Status",stat_on:"Online",stat_up:"Uptime",stat_pi:"Ping",stat_sr:"Servers",qk_t:"🧭 Quick Navigation",qk_about:"About the Bot",qk_features:"All Features",qk_commands:"Commands List",qk_support:"Get Support",qk_status:"Bot Status",qk_privacy:"Privacy Policy",qk_terms:"Terms of Service"};
 
-        <section class="page-section">
-            <h2 data-i18n="sections.s6.title">6. Cmail and User Contact</h2>
-            <p data-i18n="sections.s6.p1">The Bot may provide an optional user messaging feature (cmail).</p>
-            <ul>
-                <li data-i18n="sections.s6.li1">Users must explicitly opt in before receiving cmail.</li>
-                <li data-i18n="sections.s6.li2">You may not use cmail for spam, ads, harassment, scams or abusive messaging.</li>
-                <li data-i18n="sections.s6.li3">We may restrict or disable abusive use of this feature.</li>
-            </ul>
-        </section>
+const T={
+"en-US":{name:"English (US)",flag:"🇺🇸",...en},
+"en-GB":{name:"English (UK)",flag:"🇬🇧",...en,hero_s:"A powerful, feature-rich Discord bot with moderation, economy, kingdoms, voice, and optional local AI — all in one."},
+"ru":{name:"Русский",flag:"🇷🇺",nav_home:"Главная",nav_about:"О боте",nav_features:"Функции",nav_commands:"Команды",nav_support:"Поддержка",nav_status:"Статус",nav_privacy:"Конфиденциальность",nav_terms:"Условия",btn_add:"➕ Добавить бота",btn_support:"💬 Поддержка",hero_t:"Carapuz201G",hero_s:"Мощный многофункциональный Discord-бот с модерацией, экономикой, королевствами, голосом и опциональным локальным ИИ — всё в одном.",hero_add:"➕ Добавить в Discord",hero_sup:"💬 Сервер поддержки",feat_t:"⚡ Основные функции",feat_s:"Всё, что нужно для управления и улучшения вашего Discord-сервера.",f_mod_t:"Модерация",f_mod_d:"Предупреждения, муты, кики, баны и антирейд для безопасности сервера.",f_eco_t:"Экономика",f_eco_d:"Виртуальная валюта, магазины и торговля для вашего сообщества.",f_kin_t:"Королевства",f_kin_d:"Создавайте и управляйте королевствами, соревнуйтесь с другими группами.",f_tic_t:"Тикеты",f_tic_d:"Полноценная система тикетов с логами, категориями и инструментами для модераторов.",f_ver_t:"Верификация",f_ver_d:"Капча-верификация для защиты сервера от ботов и рейдов.",f_utl_t:"Утилиты",f_utl_d:"Роли по реакциям, пользовательские команды, напоминания, розыгрыши, глобальный чат и другое.",f_voi_t:"Голос и Музыка",f_voi_d:"Воспроизведение музыки, радио и управление голосовыми каналами.",f_ai_t:"Локальный ИИ",f_ai_d:"Опциональный локальный ИИ через Ollama. Данные не отправляются наружу, модель не обучается на ваших сообщениях.",stat_t:"📡 Статус бота",stat_on:"Онлайн",stat_up:"Аптайм",stat_pi:"Пинг",stat_sr:"Серверов",qk_t:"🧭 Быстрая навигация",qk_about:"О боте",qk_features:"Все функции",qk_commands:"Список команд",qk_support:"Поддержка",qk_status:"Статус бота",qk_privacy:"Конфиденциальность",qk_terms:"Условия использования"},
+"uk":{name:"Українська",flag:"🇺🇦",nav_home:"Головна",nav_about:"Про бота",nav_features:"Функції",nav_commands:"Команди",nav_support:"Підтримка",nav_status:"Статус",nav_privacy:"Конфіденційність",nav_terms:"Умови",btn_add:"➕ Додати бота",btn_support:"💬 Підтримка",hero_t:"Carapuz201G",hero_s:"Потужний багатофункціональний Discord-бот з модерацією, економікою, королівствами, голосом та опціональним локальним ШІ — все в одному.",hero_add:"➕ Додати в Discord",hero_sup:"💬 Сервер підтримки",feat_t:"⚡ Основні функції",feat_s:"Все, що потрібно для керування та покращення вашого Discord-сервера.",f_mod_t:"Модерація",f_mod_d:"Попередження, м'юти, кіки, бани та антирейд для безпеки сервера.",f_eco_t:"Економіка",f_eco_d:"Віртуальна валюта, магазини та торгівля для вашої спільноти.",f_kin_t:"Королівства",f_kin_d:"Створюйте та керуйте королівствами, змагайтеся з іншими групами.",f_tic_t:"Тікети",f_tic_d:"Повноцінна система тікетів з логами, категоріями та інструментами для модераторів.",f_ver_t:"Верифікація",f_ver_d:"Капча-верифікація для захисту сервера від ботів та рейдів.",f_utl_t:"Утиліти",f_utl_d:"Ролі за реакціями, користувацькі команди, нагадування, розіграші, глобальний чат та інше.",f_voi_t:"Голос і Музика",f_voi_d:"Відтворення музики, радіо та керування голосовими каналами.",f_ai_t:"Локальний ШІ",f_ai_d:"Опціональний локальний ШІ через Ollama. Дані не надсилаються назовні, модель не навчається на ваших повідомленнях.",stat_t:"📡 Статус бота",stat_on:"Онлайн",stat_up:"Аптайм",stat_pi:"Пінг",stat_sr:"Серверів",qk_t:"🧭 Швидка навігація",qk_about:"Про бота",qk_features:"Усі функції",qk_commands:"Список команд",qk_support:"Підтримка",qk_status:"Статус бота",qk_privacy:"Конфіденційність",qk_terms:"Умови використання"}
+};
 
-        <section class="page-section">
-            <h2 data-i18n="sections.s7.title">7. Availability</h2>
-            <p data-i18n="sections.s7.p1">The Bot is provided on an “as is” and “as available” basis.</p>
-            <ul>
-                <li data-i18n="sections.s7.li1">We do not guarantee uninterrupted service.</li>
-                <li data-i18n="sections.s7.li2">Features may be changed, limited, removed or temporarily unavailable.</li>
-                <li data-i18n="sections.s7.li3">Voice and media features may depend on the host and may not always work.</li>
-            </ul>
-        </section>
+const FEATS=[
+{id:"mod",icon:"🛡️"},{id:"eco",icon:"💰"},{id:"kin",icon:"🏰"},{id:"tic",icon:"🎫"},
+{id:"ver",icon:"✅"},{id:"utl",icon:"🔧"},{id:"voi",icon:"🎵"},{id:"ai",icon:"🧠"}
+];
+const QLS=[
+{id:"about",icon:"ℹ️",hr:"./about/"},{id:"features",icon:"⚡",hr:"./features/"},{id:"commands",icon:"📋",hr:"./commands/"},
+{id:"support",icon:"💬",hr:"./support/"},{id:"status",icon:"📡",hr:"./status/"},{id:"privacy",icon:"🔒",hr:"./privacy-policy/"},{id:"terms",icon:"📜",hr:"./terms-of-service/"}
+];
 
-        <section class="page-section">
-            <h2 data-i18n="sections.s8.title">8. Virtual Economy Disclaimer</h2>
-            <p data-i18n="sections.s8.p1">Any balances, items, quests, workers, investments, kingdoms or other economy values inside the Bot are purely virtual and have no real-world monetary value.</p>
-        </section>
+let lang=localStorage.getItem('c2g-lang')||'en-US';
+let theme=localStorage.getItem('c2g-theme')||'dark';
 
-        <section class="page-section">
-            <h2 data-i18n="sections.s9.title">9. Enforcement</h2>
-            <p data-i18n="sections.s9.p1">We may restrict or block use of the Bot if necessary, including for abuse, feature exploitation, policy violations, or behavior that creates risk for the Bot, its users, or infrastructure.</p>
-        </section>
+document.addEventListener('DOMContentLoaded',()=>{
+setTheme(theme);buildLang();buildFeats();buildQL();setLang(lang);
+setupEv();setupRv();
+setTimeout(()=>document.getElementById('ldr').classList.add('hid'),1300);
+});
 
-        <section class="page-section">
-            <h2 data-i18n="sections.s10.title">10. Third-Party and Hosting Dependencies</h2>
-            <p data-i18n="sections.s10.p1">Some commands may rely on third-party services or the current hosting environment. We are not responsible for outages, changes, restrictions or policy decisions of external providers.</p>
-        </section>
+function setTheme(t){theme=t;document.documentElement.setAttribute('data-theme',t);localStorage.setItem('c2g-theme',t);document.getElementById('thBtn').textContent=t==='dark'?'☀️':'🌙'}
+function togTheme(){setTheme(theme==='dark'?'light':'dark')}
 
-        <section class="page-section">
-            <h2 data-i18n="sections.s11.title">11. Limitation of Liability</h2>
-            <p data-i18n="sections.s11.p1">To the maximum extent permitted by law, the Bot is provided without warranties of any kind. We are not liable for indirect, incidental, consequential, or special damages arising from the use or inability to use the Bot.</p>
-        </section>
+function buildLang(){
+const m=document.getElementById('lMn');m.innerHTML='';
+Object.keys(T).sort((a,b)=>T[a].name.localeCompare(T[b].name)).forEach(c=>{
+const d=document.createElement('div');d.className='lo'+(c===lang?' act':'');
+d.innerHTML=`<span class="fl">${T[c].flag}</span><span>${T[c].name}</span>`;
+d.onclick=()=>{setLang(c);closeLM()};m.appendChild(d);
+});
+}
 
-        <section class="page-section">
-            <h2 data-i18n="sections.s12.title">12. Changes to These Terms</h2>
-            <p data-i18n="sections.s12.p1">We may update these Terms at any time. Continued use of the Bot after changes means you accept the updated Terms.</p>
-        </section>
+function setLang(c){
+if(!T[c])c='en-US';lang=c;localStorage.setItem('c2g-lang',c);
+const t=T[c];
+document.getElementById('cF').textContent=t.flag;
+document.getElementById('cL').textContent=t.name;
+document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k]});
+document.querySelectorAll('.fc').forEach(card=>{
+const id=card.dataset.fid;
+if(t['f_'+id+'_t'])card.querySelector('.ft').textContent=t['f_'+id+'_t'];
+if(t['f_'+id+'_d'])card.querySelector('.fd').textContent=t['f_'+id+'_d'];
+});
+document.querySelectorAll('.ql').forEach(lnk=>{
+const id=lnk.dataset.qid;if(t['qk_'+id])lnk.querySelector('.qt').textContent=t['qk_'+id];
+});
+document.querySelectorAll('.lo').forEach(o=>o.classList.remove('act'));
+const keys=Object.keys(T).sort((a,b)=>T[a].name.localeCompare(T[b].name));
+const idx=keys.indexOf(c);
+const opts=document.querySelectorAll('.lo');
+if(opts[idx])opts[idx].classList.add('act');
+document.documentElement.lang=c;
+}
 
-        <section class="page-section">
-            <h2 data-i18n="sections.s13.title">13. Contact</h2>
-            <ul>
-                <li><strong>Email:</strong> <a href="mailto:carapuz201@gmail.com">carapuz201@gmail.com</a></li>
-                <li><strong>Support server:</strong> <a href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">discord.gg/pBh4rRK3TT</a></li>
-                <li><strong>Website:</strong> <a href="https://carapuzland.github.io" target="_blank" rel="noopener noreferrer">carapuzland.github.io</a></li>
-            </ul>
-        </section>
+function togLM(){const m=document.getElementById('lMn'),b=document.getElementById('lBtn');if(m.classList.contains('show')){closeLM()}else{m.classList.add('show');b.classList.add('open')}}
+function closeLM(){document.getElementById('lMn').classList.remove('show');document.getElementById('lBtn').classList.remove('open')}
 
-        <footer>
-            <p data-i18n="footer.rights">Carapuz201G — All rights reserved.</p>
-            <p data-i18n="footer.operated">Operated by carapuz201</p>
-        </footer>
-    </div>
+function buildFeats(){
+const g=document.getElementById('fGrid');g.innerHTML='';
+FEATS.forEach((f,i)=>{
+const d=document.createElement('div');d.className='fc rv';d.dataset.fid=f.id;
+d.style.transitionDelay=i*.07+'s';
+d.innerHTML=`<div class="fi">${f.icon}</div><div class="ft">...</div><div class="fd">...</div>`;
+g.appendChild(d);
+});
+}
 
-    <script>
-        const LANGUAGES = {
-            "en-US": "English",
-            "ru": "Русский",
-            "de": "Deutsch"
-        };
+function buildQL(){
+const g=document.getElementById('qGrid');g.innerHTML='';
+QLS.forEach((q,i)=>{
+const a=document.createElement('a');a.className='ql rv';a.href=q.hr;a.dataset.qid=q.id;
+a.style.transitionDelay=i*.06+'s';
+a.innerHTML=`<span class="qi">${q.icon}</span><span class="qt">...</span>`;
+g.appendChild(a);
+});
+}
 
-        const translations = {
-            "en-US": {
-                page: {
-                    title: "Terms of Service",
-                    subtitle: "Rules for using Carapuz201G"
-                },
-                sections: {
-                    s1: {
-                        title: "1. Acceptance",
-                        p1: "By inviting, enabling, or using Carapuz201G, you agree to these Terms of Service. If you do not agree, do not use the Bot."
-                    },
-                    s2: {
-                        title: "2. Service Description",
-                        p1: "Carapuz201G is a multi-purpose Discord bot that may provide moderation, economy, utility, support, verification, profile, voice and optional locally-hosted AI features depending on the current public build."
-                    },
-                    s3: {
-                        title: "3. Eligibility",
-                        p1: "You must be old enough to use Discord under Discord’s Terms of Service and any applicable local laws."
-                    },
-                    s4: {
-                        title: "4. Acceptable Use",
-                        p1: "You agree not to:",
-                        li1: "use the Bot to violate Discord’s Terms, Community Guidelines, Developer Terms or Developer Policy,",
-                        li2: "use the Bot for spam, harassment, scams, abuse or illegal activity,",
-                        li3: "exploit bugs, unfair automation or loopholes in economy or moderation systems,",
-                        li4: "attempt to reverse-engineer, overload or interfere with the Bot’s intended operation,",
-                        li5: "use the Bot to impersonate Discord, staff or unrelated third parties."
-                    },
-                    s5: {
-                        title: "5. Local AI / Ollama",
-                        p1: "Some builds of the Bot may use a locally-hosted Ollama model to perform feature-specific tasks.",
-                        li1: "Such AI use is intended only for requested bot functionality.",
-                        li2: "Discord content is not intended to be used for model training or fine-tuning.",
-                        li3: "The Bot is not intended to turn Discord messages into AI training datasets."
-                    },
-                    s6: {
-                        title: "6. Cmail and User Contact",
-                        p1: "The Bot may provide an optional user messaging feature (cmail).",
-                        li1: "Users must explicitly opt in before receiving cmail.",
-                        li2: "You may not use cmail for spam, ads, harassment, scams or abusive messaging.",
-                        li3: "We may restrict or disable abusive use of this feature."
-                    },
-                    s7: {
-                        title: "7. Availability",
-                        p1: "The Bot is provided on an “as is” and “as available” basis.",
-                        li1: "We do not guarantee uninterrupted service.",
-                        li2: "Features may be changed, limited, removed or temporarily unavailable.",
-                        li3: "Voice and media features may depend on the host and may not always work."
-                    },
-                    s8: {
-                        title: "8. Virtual Economy Disclaimer",
-                        p1: "Any balances, items, quests, workers, investments, kingdoms or other economy values inside the Bot are purely virtual and have no real-world monetary value."
-                    },
-                    s9: {
-                        title: "9. Enforcement",
-                        p1: "We may restrict or block use of the Bot if necessary, including for abuse, feature exploitation, policy violations, or behavior that creates risk for the Bot, its users, or infrastructure."
-                    },
-                    s10: {
-                        title: "10. Third-Party and Hosting Dependencies",
-                        p1: "Some commands may rely on third-party services or the current hosting environment. We are not responsible for outages, changes, restrictions or policy decisions of external providers."
-                    },
-                    s11: {
-                        title: "11. Limitation of Liability",
-                        p1: "To the maximum extent permitted by law, the Bot is provided without warranties of any kind. We are not liable for indirect, incidental, consequential, or special damages arising from the use or inability to use the Bot."
-                    },
-                    s12: {
-                        title: "12. Changes to These Terms",
-                        p1: "We may update these Terms at any time. Continued use of the Bot after changes means you accept the updated Terms."
-                    },
-                    s13: {
-                        title: "13. Contact"
-                    }
-                },
-                footer: {
-                    rights: "Carapuz201G — All rights reserved.",
-                    operated: "Operated by carapuz201"
-                }
-            },
-            "ru": {
-                page: {
-                    title: "Условия использования",
-                    subtitle: "Правила использования Carapuz201G"
-                },
-                sections: {
-                    s1: {
-                        title: "1. Принятие условий",
-                        p1: "Приглашая, включая или используя Carapuz201G, вы соглашаетесь с этими Условиями использования. Если вы не согласны, не используйте бота."
-                    },
-                    s2: {
-                        title: "2. Описание сервиса",
-                        p1: "Carapuz201G — это многофункциональный Discord-бот, который может предоставлять модерацию, экономику, утилиты, поддержку, верификацию, профили, голосовые и опциональные локальные AI-функции в зависимости от текущей публичной сборки."
-                    },
-                    s3: {
-                        title: "3. Допустимость использования",
-                        p1: "Вы должны быть достаточно взрослыми для использования Discord в соответствии с условиями Discord и применимым законодательством."
-                    },
-                    s4: {
-                        title: "4. Допустимое использование",
-                        p1: "Вы соглашаетесь не:",
-                        li1: "использовать бота для нарушения условий Discord, правил сообщества, Developer Terms или Developer Policy,",
-                        li2: "использовать бота для спама, домогательств, мошенничества, злоупотреблений или незаконной деятельности,",
-                        li3: "эксплуатировать баги, нечестную автоматизацию или лазейки в экономике или модерации,",
-                        li4: "пытаться реверс-инженерить, перегружать или мешать нормальной работе бота,",
-                        li5: "использовать бота для выдачи себя за Discord, сотрудников или третьих лиц."
-                    },
-                    s5: {
-                        title: "5. Локальный AI / Ollama",
-                        p1: "Некоторые сборки бота могут использовать локально размещённую модель Ollama для выполнения отдельных функций.",
-                        li1: "Такое использование AI предназначено только для выполнения запрошенной функциональности бота.",
-                        li2: "Контент Discord не предназначен для обучения или дообучения модели.",
-                        li3: "Бот не предназначен для превращения сообщений Discord в AI-датасеты."
-                    },
-                    s6: {
-                        title: "6. Cmail и контакт с пользователями",
-                        p1: "Бот может предоставлять опциональную функцию пользовательских сообщений (cmail).",
-                        li1: "Пользователь должен явно включить возможность получать cmail.",
-                        li2: "Нельзя использовать cmail для спама, рекламы, домогательств, мошенничества или злоупотреблений.",
-                        li3: "Мы можем ограничить или отключить злоупотребление этой функцией."
-                    },
-                    s7: {
-                        title: "7. Доступность",
-                        p1: "Бот предоставляется по принципу «как есть» и «как доступно».",
-                        li1: "Мы не гарантируем бесперебойную работу.",
-                        li2: "Функции могут изменяться, ограничиваться, удаляться или быть временно недоступными.",
-                        li3: "Голосовые и медиа-функции могут зависеть от хоста и работать не всегда."
-                    },
-                    s8: {
-                        title: "8. Отказ от ответственности по виртуальной экономике",
-                        p1: "Любые балансы, предметы, квесты, рабочие, инвестиции, королевства и другие значения экономики внутри бота являются исключительно виртуальными и не имеют реальной денежной ценности."
-                    },
-                    s9: {
-                        title: "9. Принудительные меры",
-                        p1: "Мы можем ограничить или заблокировать использование бота при необходимости, включая злоупотребление, эксплуатацию функций, нарушения правил или поведение, создающее риск для бота, пользователей или инфраструктуры."
-                    },
-                    s10: {
-                        title: "10. Сторонние зависимости и хостинг",
-                        p1: "Некоторые команды могут зависеть от сторонних сервисов или текущей среды хостинга. Мы не несём ответственности за сбои, изменения, ограничения или решения внешних провайдеров."
-                    },
-                    s11: {
-                        title: "11. Ограничение ответственности",
-                        p1: "В максимально допустимой законом степени бот предоставляется без каких-либо гарантий. Мы не несём ответственности за косвенные, случайные, последующие или специальные убытки, возникающие из-за использования или невозможности использования бота."
-                    },
-                    s12: {
-                        title: "12. Изменение условий",
-                        p1: "Мы можем обновлять эти Условия в любое время. Продолжение использования бота после изменений означает принятие обновлённой версии."
-                    },
-                    s13: {
-                        title: "13. Контакты"
-                    }
-                },
-                footer: {
-                    rights: "Carapuz201G — Все права защищены.",
-                    operated: "Проект ведёт carapuz201"
-                }
-            },
-            "de": {
-                page: {
-                    title: "Nutzungsbedingungen",
-                    subtitle: "Regeln für die Nutzung von Carapuz201G"
-                },
-                sections: {
-                    s1: {
-                        title: "1. Annahme",
-                        p1: "Durch das Einladen, Aktivieren oder Nutzen von Carapuz201G stimmst du diesen Nutzungsbedingungen zu. Wenn du nicht zustimmst, nutze den Bot nicht."
-                    },
-                    s2: {
-                        title: "2. Beschreibung des Dienstes",
-                        p1: "Carapuz201G ist ein multifunktionaler Discord-Bot, der je nach öffentlichem Build Moderation, Wirtschaftssysteme, Hilfsfunktionen, Support, Verifizierung, Profile, Sprachfunktionen und optionale lokal gehostete KI-Funktionen bereitstellen kann."
-                    },
-                    s3: {
-                        title: "3. Berechtigung",
-                        p1: "Du musst alt genug sein, um Discord gemäß den Discord-Nutzungsbedingungen und geltendem Recht zu verwenden."
-                    },
-                    s4: {
-                        title: "4. Zulässige Nutzung",
-                        p1: "Du verpflichtest dich, den Bot nicht zu verwenden, um:",
-                        li1: "gegen Discord-Bedingungen, Community-Richtlinien, Developer Terms oder Developer Policy zu verstoßen,",
-                        li2: "Spam, Belästigung, Betrug, Missbrauch oder illegale Aktivitäten zu betreiben,",
-                        li3: "Fehler, unfaire Automatisierung oder Schlupflöcher in Wirtschafts- oder Moderationssystemen auszunutzen,",
-                        li4: "den Bot zurückzuentwickeln, zu überlasten oder seinen normalen Betrieb zu stören,",
-                        li5: "sich als Discord, Mitarbeitende oder Dritte auszugeben."
-                    },
-                    s5: {
-                        title: "5. Lokale KI / Ollama",
-                        p1: "Einige Builds des Bots können ein lokal gehostetes Ollama-Modell verwenden, um bestimmte Funktionen auszuführen.",
-                        li1: "Eine solche KI-Nutzung ist nur für angeforderte Bot-Funktionalität vorgesehen.",
-                        li2: "Discord-Inhalte sind nicht für Modelltraining oder Feinabstimmung vorgesehen.",
-                        li3: "Der Bot ist nicht dafür gedacht, Discord-Nachrichten in KI-Trainingsdatensätze umzuwandeln."
-                    },
-                    s6: {
-                        title: "6. Cmail und Nutzerkontakt",
-                        p1: "Der Bot kann eine optionale Nutzer-zu-Nutzer-Nachrichtenfunktion (cmail) bereitstellen.",
-                        li1: "Nutzer müssen ausdrücklich zustimmen, bevor sie cmail erhalten.",
-                        li2: "Du darfst cmail nicht für Spam, Werbung, Belästigung, Betrug oder missbräuchliche Nachrichten verwenden.",
-                        li3: "Wir können missbräuchliche Nutzung dieser Funktion einschränken oder deaktivieren."
-                    },
-                    s7: {
-                        title: "7. Verfügbarkeit",
-                        p1: "Der Bot wird auf einer „wie besehen“ und „wie verfügbar“-Basis bereitgestellt.",
-                        li1: "Wir garantieren keinen unterbrechungsfreien Dienst.",
-                        li2: "Funktionen können geändert, eingeschränkt, entfernt oder vorübergehend nicht verfügbar sein.",
-                        li3: "Sprach- und Medienfunktionen können vom Host abhängen und funktionieren nicht immer."
-                    },
-                    s8: {
-                        title: "8. Hinweis zur virtuellen Wirtschaft",
-                        p1: "Alle Guthaben, Gegenstände, Quests, Arbeiter, Investitionen, Königreiche und sonstigen Wirtschaftswerte innerhalb des Bots sind rein virtuell und haben keinen realen Geldwert."
-                    },
-                    s9: {
-                        title: "9. Durchsetzung",
-                        p1: "Wir können die Nutzung des Bots einschränken oder blockieren, wenn dies erforderlich ist, insbesondere bei Missbrauch, Funktionsausnutzung, Richtlinienverstößen oder Verhalten, das ein Risiko für den Bot, seine Nutzer oder die Infrastruktur darstellt."
-                    },
-                    s10: {
-                        title: "10. Drittanbieter- und Hosting-Abhängigkeiten",
-                        p1: "Einige Befehle können von Drittanbieterdiensten oder der aktuellen Hosting-Umgebung abhängen. Wir sind nicht verantwortlich für Ausfälle, Änderungen, Einschränkungen oder Entscheidungen externer Anbieter."
-                    },
-                    s11: {
-                        title: "11. Haftungsbeschränkung",
-                        p1: "Soweit gesetzlich zulässig, wird der Bot ohne jegliche Garantien bereitgestellt. Wir haften nicht für indirekte, zufällige, Folge- oder besondere Schäden, die aus der Nutzung oder der Unmöglichkeit der Nutzung des Bots entstehen."
-                    },
-                    s12: {
-                        title: "12. Änderungen dieser Bedingungen",
-                        p1: "Wir können diese Bedingungen jederzeit aktualisieren. Die weitere Nutzung des Bots nach Änderungen bedeutet die Annahme der aktualisierten Version."
-                    },
-                    s13: {
-                        title: "13. Kontakt"
-                    }
-                },
-                footer: {
-                    rights: "Carapuz201G — Alle Rechte vorbehalten.",
-                    operated: "Projekt betrieben von carapuz201"
-                }
-            }
-        };
+function setupRv(){
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+}
 
-        function getNested(obj, path) {
-            return path.split(".").reduce((acc, part) => acc && acc[part], obj);
-        }
+function openMM(){document.getElementById('mMn').classList.add('show');document.getElementById('mOv').classList.add('show');document.body.style.overflow='hidden'}
+function closeMM(){document.getElementById('mMn').classList.remove('show');document.getElementById('mOv').classList.remove('show');document.body.style.overflow=''}
 
-        function initLanguageSelector() {
-            const selector = document.getElementById("languageSelect");
-            Object.entries(LANGUAGES).forEach(([code, name]) => {
-                const option = document.createElement("option");
-                option.value = code;
-                option.textContent = name;
-                selector.appendChild(option);
-            });
-        }
-
-        function applyLanguage(lang) {
-            const current = translations[lang] || translations["en-US"];
-            document.querySelectorAll("[data-i18n]").forEach((el) => {
-                const key = el.getAttribute("data-i18n");
-                const value = getNested(current, key);
-                if (value) el.textContent = value;
-            });
-            localStorage.setItem("carapuz_lang", lang);
-            document.getElementById("languageSelect").value = lang;
-        }
-
-        function applyTheme(theme) {
-            document.documentElement.setAttribute("data-theme", theme);
-            localStorage.setItem("carapuz_theme", theme);
-            document.getElementById("themeToggle").textContent = theme === "light" ? "🌞 Light" : "🌙 Dark";
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            initLanguageSelector();
-
-            const savedLang = localStorage.getItem("carapuz_lang") || "en-US";
-            applyLanguage(savedLang);
-
-            document.getElementById("languageSelect").addEventListener("change", (e) => {
-                applyLanguage(e.target.value);
-            });
-
-            const savedTheme = localStorage.getItem("carapuz_theme") || "dark";
-            applyTheme(savedTheme);
-
-            document.getElementById("themeToggle").addEventListener("click", () => {
-                const current = document.documentElement.getAttribute("data-theme") || "dark";
-                applyTheme(current === "dark" ? "light" : "dark");
-            });
-        });
-    </script>
+function setupEv(){
+document.getElementById('thBtn').onclick=togTheme;
+document.getElementById('lBtn').onclick=e=>{e.stopPropagation();togLM()};
+document.addEventListener('click',e=>{if(!e.target.closest('.ld'))closeLM()});
+document.getElementById('mBtn').onclick=openMM;
+document.getElementById('cMn').onclick=closeMM;
+document.getElementById('mOv').onclick=closeMM;
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLM();closeMM()}});
+}
+</script>
 </body>
 </html>

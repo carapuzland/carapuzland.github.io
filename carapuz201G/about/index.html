@@ -1,561 +1,260 @@
-<!-- about.html -->
 <!DOCTYPE html>
-<html lang="en-US" data-theme="dark">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carapuz201G — About</title>
-    <style>
-        :root {
-            --bg: #0f172a;
-            --bg-soft: #172033;
-            --bg-card: #1e293b;
-            --text: #e5e7eb;
-            --text-soft: #94a3b8;
-            --primary: #60a5fa;
-            --primary-strong: #3b82f6;
-            --success: #22c55e;
-            --border: #334155;
-            --shadow: rgba(0, 0, 0, 0.25);
-        }
-
-        [data-theme="light"] {
-            --bg: #f8fafc;
-            --bg-soft: #ffffff;
-            --bg-card: #f1f5f9;
-            --text: #0f172a;
-            --text-soft: #475569;
-            --primary: #2563eb;
-            --primary-strong: #1d4ed8;
-            --success: #16a34a;
-            --border: #cbd5e1;
-            --shadow: rgba(0, 0, 0, 0.12);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: Inter, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-        }
-
-        a { color: var(--primary); text-decoration: none; }
-        a:hover { color: var(--primary-strong); }
-
-        .top-badge {
-            position: fixed;
-            top: 12px;
-            left: 12px;
-            z-index: 1100;
-            background: rgba(15, 23, 42, 0.92);
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            padding: 8px 14px;
-            box-shadow: 0 4px 18px var(--shadow);
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(15, 23, 42, 0.96);
-            border-bottom: 1px solid var(--border);
-            padding: 14px 0;
-            z-index: 1000;
-        }
-
-        .nav-inner {
-            width: min(1180px, calc(100% - 32px));
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            gap: 16px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .nav-left, .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            color: var(--text);
-            font-size: 14px;
-            font-weight: 600;
-            padding: 8px 14px;
-            border-radius: 999px;
-        }
-
-        .nav-links a:hover { background: var(--bg-card); }
-
-        .nav-btn {
-            display: inline-block;
-            padding: 8px 16px;
-            border-radius: 999px;
-            font-size: 14px;
-            font-weight: 700;
-        }
-
-        .nav-btn.primary {
-            background: #5865f2;
-            color: white;
-        }
-
-        .nav-btn.success {
-            background: rgba(34, 197, 94, 0.12);
-            border: 1px solid var(--success);
-            color: var(--success);
-        }
-
-        .select, .theme-toggle {
-            background: var(--bg-card);
-            color: var(--text);
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            padding: 8px 12px;
-            font-size: 13px;
-            outline: none;
-        }
-
-        .theme-toggle {
-            cursor: pointer;
-            font-weight: 700;
-        }
-
-        .container {
-            width: min(1080px, calc(100% - 32px));
-            margin: 0 auto;
-            padding: 110px 0 60px;
-        }
-
-        .page-header {
-            text-align: center;
-            margin: 6px 0 28px;
-        }
-
-        .page-header h1 {
-            font-size: 38px;
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-
-        .page-header p {
-            color: var(--text-soft);
-        }
-
-        .page-section {
-            background: var(--bg-soft);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 28px;
-            margin-bottom: 24px;
-            box-shadow: 0 8px 22px var(--shadow);
-        }
-
-        .page-section h2 {
-            color: var(--primary);
-            font-size: 26px;
-            margin-bottom: 14px;
-        }
-
-        .page-section p {
-            color: var(--text);
-            margin-bottom: 12px;
-            font-size: 15px;
-        }
-
-        .page-section ul {
-            margin: 12px 0 12px 22px;
-            color: var(--text);
-        }
-
-        .page-section li {
-            margin-bottom: 8px;
-        }
-
-        .highlight {
-            margin-top: 14px;
-            padding: 14px 18px;
-            border-radius: 14px;
-            background: rgba(96, 165, 250, 0.10);
-            border: 1px solid rgba(96, 165, 250, 0.28);
-            color: #dbeafe;
-            font-size: 14px;
-        }
-
-        .highlight.green {
-            background: rgba(34, 197, 94, 0.10);
-            border: 1px solid rgba(34, 197, 94, 0.28);
-            color: #bbf7d0;
-        }
-
-        footer {
-            text-align: center;
-            color: var(--text-soft);
-            font-size: 13px;
-            padding: 40px 20px 20px;
-            border-top: 1px solid var(--border);
-            margin-top: 48px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Carapuz201G</title>
+<meta name="description" content="Learn about Carapuz201G Discord bot — architecture, philosophy, data handling, and optional local AI.">
+<style>
+:root{--tr:0.3s}
+[data-theme="dark"]{--bg:#0b0f1a;--bg2:#111827;--card:rgba(17,24,39,0.88);--hdr:rgba(11,15,26,0.93);--tx:#e2e8f0;--tx2:#94a3b8;--acc:#5865F2;--acc2:#38bdf8;--brd:rgba(88,101,242,0.18);--shd:rgba(0,0,0,0.4);--glw:rgba(88,101,242,0.3);--dd:#1e293b;--ddh:#334155;--g1:#0b0f1a;--g2:#15102e;--g3:#0d2847}
+[data-theme="light"]{--bg:#f0f4ff;--bg2:#e8efff;--card:rgba(255,255,255,0.9);--hdr:rgba(240,244,255,0.95);--tx:#1e293b;--tx2:#64748b;--acc:#5865F2;--acc2:#0284c7;--brd:rgba(88,101,242,0.15);--shd:rgba(0,0,0,0.1);--glw:rgba(88,101,242,0.2);--dd:#fff;--ddh:#f1f5f9;--g1:#e4eaff;--g2:#f0e6ff;--g3:#dff0ff}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;transition:background var(--tr),color var(--tr);min-height:100vh}
+a{color:inherit}
+.hdr{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--hdr);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--brd);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;transition:background var(--tr)}
+.hdr-l{display:flex;align-items:center;gap:.6rem}
+.hm-lnk{display:flex;align-items:center;text-decoration:none;color:var(--tx2);font-size:1.35rem;transition:color .3s}
+.hm-lnk:hover{color:var(--acc)}
+.hm-lnk .em{animation:fl 3s ease-in-out infinite}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.brand{font-size:1.15rem;font-weight:700;color:var(--tx);text-decoration:none;transition:color .3s}
+.brand:hover{color:var(--acc)}
+.nav{display:flex;align-items:center;gap:.15rem}
+.nav a{padding:.35rem .55rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.8rem;font-weight:500;transition:all .2s;white-space:nowrap}
+.nav a:hover{color:var(--tx);background:var(--brd)}
+.nav a.active{color:var(--acc);background:rgba(88,101,242,.12)}
+.hdr-r{display:flex;align-items:center;gap:.45rem}
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.4rem .8rem;border-radius:10px;font-size:.78rem;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid var(--brd);transition:all .3s;white-space:nowrap}
+.btn-a{background:var(--acc);color:#fff;border-color:var(--acc)}
+.btn-a:hover{background:#4752c4;box-shadow:0 4px 20px var(--glw);transform:translateY(-1px)}
+.btn-o{background:transparent;color:var(--tx)}
+.btn-o:hover{background:var(--brd);border-color:var(--acc)}
+.th-btn{background:var(--card);border:1px solid var(--brd);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--tx);transition:all .3s}
+.th-btn:hover{border-color:var(--acc);box-shadow:0 0 12px var(--glw);transform:rotate(20deg)}
+.ld{position:relative}
+.lb{background:var(--card);border:1px solid var(--brd);border-radius:10px;padding:.35rem .65rem;cursor:pointer;display:flex;align-items:center;gap:.35rem;font-size:.78rem;color:var(--tx);transition:all .3s}
+.lb:hover{border-color:var(--acc);box-shadow:0 0 10px var(--glw)}
+.lb .ar{font-size:.55rem;transition:transform .3s}
+.lb.open .ar{transform:rotate(180deg)}
+.lm{position:absolute;top:calc(100% + 6px);right:0;background:var(--dd);border:1px solid var(--brd);border-radius:12px;padding:.35rem 0;min-width:190px;max-height:350px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .3s;box-shadow:0 16px 40px var(--shd);z-index:1001}
+.lm.show{opacity:1;visibility:visible;transform:translateY(0)}
+.lm::-webkit-scrollbar{width:5px}
+.lm::-webkit-scrollbar-thumb{background:var(--brd);border-radius:3px}
+.lo{display:flex;align-items:center;gap:.55rem;padding:.45rem .85rem;cursor:pointer;font-size:.82rem;color:var(--tx);transition:background .2s}
+.lo:hover{background:var(--ddh)}
+.lo.act{color:var(--acc);font-weight:600}
+.lo .fl{font-size:1.05rem}
+.mb{display:none;background:var(--card);border:1px solid var(--brd);border-radius:8px;width:34px;height:34px;align-items:center;justify-content:center;cursor:pointer;color:var(--tx);font-size:1.15rem}
+.mov{display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}
+.mov.show{display:block}
+.mm{position:fixed;top:0;right:-300px;width:270px;height:100%;background:var(--bg2);z-index:999;padding:1.25rem;transition:right .3s;overflow-y:auto;border-left:1px solid var(--brd)}
+.mm.show{right:0}
+.mm .cb{background:none;border:none;color:var(--tx);font-size:1.4rem;cursor:pointer;float:right;padding:.25rem}
+.mn{display:flex;flex-direction:column;gap:.2rem;margin-top:2.5rem}
+.mn a{padding:.6rem .7rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.9rem;transition:all .2s}
+.mn a:hover,.mn a.active{color:var(--acc);background:rgba(88,101,242,.1)}
+.ma{display:flex;flex-direction:column;gap:.5rem;margin-top:1.25rem}
+.ma .btn{justify-content:center}
+/* PAGE HERO */
+.ph{padding:6rem 2rem 3rem;text-align:center;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);position:relative;overflow:hidden;transition:background var(--tr)}
+.ph::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(88,101,242,.12) 0%,transparent 60%);pointer-events:none}
+.phc{position:relative;z-index:2;max-width:680px;margin:0 auto}
+.phi{font-size:3.5rem;margin-bottom:.5rem;display:inline-block}
+.pht{font-size:2.2rem;font-weight:800;margin-bottom:.5rem;background:linear-gradient(135deg,var(--tx),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.phs{font-size:1.05rem;color:var(--tx2);line-height:1.6}
+/* CONTENT */
+.sec{padding:3rem 2rem;max-width:900px;margin:0 auto}
+.cb2{background:var(--card);backdrop-filter:blur(12px);border:1px solid var(--brd);border-radius:16px;padding:1.75rem;margin-bottom:1.25rem;transition:all .3s}
+.cb2:hover{border-color:var(--acc);box-shadow:0 8px 30px var(--shd)}
+.cb2 h3{font-size:1.1rem;font-weight:700;margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}
+.cb2 p{font-size:.9rem;color:var(--tx2);line-height:1.65}
+.cb2 ul{margin-top:.5rem;padding-left:1.2rem;font-size:.88rem;color:var(--tx2);line-height:1.7}
+.hl{background:rgba(88,101,242,.1);color:var(--acc);padding:.15rem .45rem;border-radius:6px;font-size:.82rem;font-weight:600}
+/* FOOTER */
+.ftr{text-align:center;padding:1.75rem;color:var(--tx2);font-size:.82rem;border-top:1px solid var(--brd);background:var(--hdr);backdrop-filter:blur(20px)}
+.ftr a{color:var(--acc);text-decoration:none}
+.ftr a:hover{text-decoration:underline}
+.ftl{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-bottom:.65rem}
+/* RESPONSIVE */
+@media(max-width:1024px){.nav{display:none}.mb{display:flex}.hdr-r .btn{display:none}}
+@media(max-width:768px){.ph{padding:5rem 1.25rem 2.5rem}.pht{font-size:1.7rem}.sec{padding:2rem 1.25rem}.lb .ll{display:none}}
+@media(max-width:480px){.pht{font-size:1.5rem}.cb2{padding:1.25rem}}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s}
+.rv.vis{opacity:1;transform:translateY(0)}
+.ld-w{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;transition:opacity .4s,visibility .4s}
+.ld-w.hid{opacity:0;visibility:hidden}
+.ld-e{font-size:2.8rem;animation:lba 1s ease-in-out infinite}
+@keyframes lba{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.1)}}
+.ld-b{width:100px;height:3px;background:var(--brd);border-radius:3px;overflow:hidden}
+.ld-f{height:100%;width:0%;background:var(--acc);border-radius:3px;animation:lfx 1.2s ease forwards}
+@keyframes lfx{to{width:100%}}
+</style>
 </head>
-<body>
-    <div class="top-badge">
-        <a href="https://carapuzland.github.io" target="_blank" rel="noopener noreferrer">🏝️ carapuzland.github.io</a>
-    </div>
+<body data-page="about">
+<div class="ld-w" id="ldr"><div class="ld-e">🤖</div><div style="color:var(--tx2);font-size:.85rem;letter-spacing:2px">CARAPUZ201G</div><div class="ld-b"><div class="ld-f"></div></div></div>
 
-    <nav>
-        <div class="nav-inner">
-            <div class="nav-left nav-links">
-                <a href="index.html">About</a>
-                <a href="features.html">Features</a>
-                <a href="commands.html">Commands</a>
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="terms-of-service.html">Terms of Service</a>
-                <a href="support.html">Support</a>
-                <a href="status.html">Status</a>
-            </div>
+<header class="hdr">
+<div class="hdr-l">
+<a href="https://carapuzland.github.io" class="hm-lnk" title="CarapuzLand"><span class="em">🏝️</span></a>
+<a href="../" class="brand">Carapuz201G</a>
+</div>
+<nav class="nav">
+<a href="../about/" class="active" data-i18n="nav_about">About</a>
+<a href="../features/" data-i18n="nav_features">Features</a>
+<a href="../commands/" data-i18n="nav_commands">Commands</a>
+<a href="../support/" data-i18n="nav_support">Support</a>
+<a href="../status/" data-i18n="nav_status">Status</a>
+<a href="../privacy-policy/" data-i18n="nav_privacy">Privacy</a>
+<a href="../terms-of-service/" data-i18n="nav_terms">Terms</a>
+</nav>
+<div class="hdr-r">
+<button class="th-btn" id="thBtn" title="Toggle theme">🌙</button>
+<div class="ld">
+<button class="lb" id="lBtn"><span class="fl" id="cF">🇺🇸</span><span class="ll" id="cL">English</span><span class="ar">▼</span></button>
+<div class="lm" id="lMn"></div>
+</div>
+<a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
+<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
+<button class="mb" id="mBtn">☰</button>
+</div>
+</header>
 
-            <div class="nav-right">
-                <select id="languageSelect" class="select"></select>
-                <button id="themeToggle" class="theme-toggle">🌙 Dark</button>
-                <a class="nav-btn success" href="https://discord.gg/pBh4rRK3TT" target="_blank" rel="noopener noreferrer">Support Server</a>
-                <a class="nav-btn primary" href="https://discord.com/oauth2/authorize?client_id=1372950477477777548&permissions=8&integration_type=0&scope=bot%20applications.commands" target="_blank" rel="noopener noreferrer">Add Bot</a>
-            </div>
-        </div>
-    </nav>
+<div class="mov" id="mOv"></div>
+<div class="mm" id="mMn">
+<button class="cb" id="cMn">✕</button>
+<div class="mn">
+<a href="../" data-i18n="nav_home">Home</a>
+<a href="../about/" class="active" data-i18n="nav_about">About</a>
+<a href="../features/" data-i18n="nav_features">Features</a>
+<a href="../commands/" data-i18n="nav_commands">Commands</a>
+<a href="../support/" data-i18n="nav_support">Support</a>
+<a href="../status/" data-i18n="nav_status">Status</a>
+<a href="../privacy-policy/" data-i18n="nav_privacy">Privacy Policy</a>
+<a href="../terms-of-service/" data-i18n="nav_terms">Terms of Service</a>
+</div>
+<div class="ma">
+<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
+<a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
+</div>
+</div>
 
-    <div class="container">
-        <div class="page-header">
-            <h1 data-i18n="page.title">About Carapuz201G</h1>
-            <p data-i18n="page.subtitle">Project overview, architecture, storage and feature philosophy</p>
-        </div>
+<main>
+<section class="ph">
+<div class="phc">
+<div class="phi">ℹ️</div>
+<h1 class="pht" data-i18n="pg_t">About Carapuz201G</h1>
+<p class="phs" data-i18n="pg_s">Learn what makes this bot tick — its philosophy, architecture, and approach to your data.</p>
+</div>
+</section>
 
-        <section class="page-section">
-            <h2 data-i18n="section.what.title">What is Carapuz201G?</h2>
-            <p data-i18n="section.what.p1">
-                Carapuz201G is a large multi-purpose Discord bot focused on combining server administration,
-                moderation, utility tools, economy systems, verification, profile tools, reminders, giveaways,
-                voice features and optional local AI features into a single bot.
-            </p>
-            <p data-i18n="section.what.p2">
-                The bot is developed and maintained as an independent project by a single developer.
-                It is intended for practical use in Discord communities rather than as a simple demonstration bot.
-            </p>
-        </section>
+<section class="sec" id="content"></section>
+</main>
 
-        <section class="page-section">
-            <h2 data-i18n="section.how.title">How the Bot Works</h2>
-            <p data-i18n="section.how.p1">
-                The bot runs as a long-living Discord application process and reacts to slash commands,
-                text prefix commands, message events, voice state changes and scheduled loops.
-            </p>
-            <ul>
-                <li data-i18n="section.how.li1">Slash commands</li>
-                <li data-i18n="section.how.li2">Prefix commands</li>
-                <li data-i18n="section.how.li3">Message events</li>
-                <li data-i18n="section.how.li4">Voice state updates</li>
-                <li data-i18n="section.how.li5">Background loops for backups, reminders, giveaways and temporary roles</li>
-            </ul>
-        </section>
+<footer class="ftr">
+<div class="ftl">
+<a href="../privacy-policy/" data-i18n="nav_privacy">Privacy Policy</a>
+<a href="../terms-of-service/" data-i18n="nav_terms">Terms of Service</a>
+<a href="../support/" data-i18n="nav_support">Support</a>
+</div>
+<p>© 2025 <a href="https://carapuzland.github.io">CarapuzLand</a> 🏝️ — Carapuz201G</p>
+</footer>
 
-        <section class="page-section">
-            <h2 data-i18n="section.arch.title">Architecture</h2>
-            <p data-i18n="section.arch.p1">
-                The current public build is a large monolithic Python bot based on discord.py.
-                It uses encrypted local configuration storage, language files, optional local AI,
-                voice support, buttons, modals, select menus and scheduled background tasks.
-            </p>
-            <div class="highlight" data-i18n="section.arch.highlight">
-                The bot is intentionally designed as one integrated all-in-one system instead of being split into many separate bots.
-            </div>
-        </section>
+<script>
+const en={nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"About Carapuz201G",pg_s:"Learn what makes this bot tick — its philosophy, architecture, and approach to your data.",
+blocks:[
+{icon:"🤖",title:"What is Carapuz201G?",body:"Carapuz201G is a large, feature-rich Discord bot written in Python. It provides a comprehensive suite of tools for server management, including moderation, economy, kingdoms, ticketing, verification, voice/music, and much more. It is designed to be a single all-in-one solution so you don't need multiple bots."},
+{icon:"⚙️",title:"How It Works",body:"The bot runs as a self-hosted Python application using the discord.py library. It connects to Discord via the Gateway API and responds to slash commands and events. Configuration is stored in encrypted files for security. The bot supports cogs/modules that can be enabled or disabled per server."},
+{icon:"🏗️",title:"Architecture",body:"<ul><li>Written in <span class='hl'>Python</span> with discord.py</li><li>Modular cog-based architecture</li><li>Encrypted configuration storage</li><li>Supports SQLite / JSON data backends</li><li>Optional integration with <span class='hl'>Ollama</span> for local AI</li><li>Can be deployed on any machine — your PC, a VPS, or a dedicated server</li></ul>"},
+{icon:"💾",title:"Data Storage",body:"Data may be stored on the operator's computer, on a server, or in the hosting environment. The bot stores only the data necessary for its functions: server settings, user warns/economy balances, ticket logs, etc. No data is sold or shared with third parties."},
+{icon:"🧠",title:"Optional Local AI",body:"Carapuz201G supports optional local AI through <span class='hl'>Ollama</span>. This means:<ul><li>The AI model runs locally on the operator's machine</li><li>No Discord messages are sent to external AI services</li><li>The AI is <b>not</b> trained on user messages</li><li>AI is used solely to enhance bot functionality (e.g. smart responses)</li></ul>"},
+{icon:"💡",title:"Philosophy",body:"The goal is to provide a powerful, privacy-respecting bot that server owners can trust. All features are designed to be transparent, configurable, and secure. The bot is free to use, open for feedback, and constantly improving."}
+]};
 
-        <section class="page-section">
-            <h2 data-i18n="section.storage.title">Data Storage</h2>
-            <p data-i18n="section.storage.p1">
-                Depending on the deployment environment, bot data may be stored on the operator’s computer,
-                on a private server, or on a hosting environment used to operate the bot.
-            </p>
-            <p data-i18n="section.storage.p2">
-                Persistent data is encrypted at rest. Temporary files may also be created for media,
-                backup, or runtime processing.
-            </p>
-        </section>
+const T={
+"en-US":{name:"English (US)",flag:"🇺🇸",...en},
+"en-GB":{name:"English (UK)",flag:"🇬🇧",...en},
+"ru":{name:"Русский",flag:"🇷🇺",nav_home:"Главная",nav_about:"О боте",nav_features:"Функции",nav_commands:"Команды",nav_support:"Поддержка",nav_status:"Статус",nav_privacy:"Конфиденциальность",nav_terms:"Условия",btn_add:"➕ Добавить бота",btn_support:"💬 Поддержка",pg_t:"О боте Carapuz201G",pg_s:"Узнайте, что делает этого бота особенным — философия, архитектура и подход к вашим данным.",
+blocks:[
+{icon:"🤖",title:"Что такое Carapuz201G?",body:"Carapuz201G — это большой многофункциональный Discord-бот, написанный на Python. Он предоставляет полный набор инструментов для управления сервером: модерация, экономика, королевства, тикеты, верификация, голос/музыка и многое другое. Разработан как единое решение «всё-в-одном», чтобы вам не нужно было несколько ботов."},
+{icon:"⚙️",title:"Как он работает",body:"Бот запускается как self-hosted Python-приложение с использованием библиотеки discord.py. Он подключается к Discord через Gateway API и обрабатывает слэш-команды и события. Конфигурация хранится в зашифрованных файлах. Бот поддерживает модульную систему (cogs), которую можно включать/отключать для каждого сервера."},
+{icon:"🏗️",title:"Архитектура",body:"<ul><li>Написан на <span class='hl'>Python</span> с discord.py</li><li>Модульная архитектура на основе cogs</li><li>Зашифрованное хранение конфигурации</li><li>Поддержка SQLite / JSON</li><li>Опциональная интеграция с <span class='hl'>Ollama</span> для локального ИИ</li><li>Развёртывание на любой машине — ваш ПК, VPS или выделенный сервер</li></ul>"},
+{icon:"💾",title:"Хранение данных",body:"Данные могут храниться на компьютере оператора, на сервере или в среде хостинга. Бот хранит только данные, необходимые для его функций: настройки серверов, предупреждения/балансы экономики, логи тикетов и т.д. Данные не продаются и не передаются третьим лицам."},
+{icon:"🧠",title:"Опциональный локальный ИИ",body:"Carapuz201G поддерживает опциональный локальный ИИ через <span class='hl'>Ollama</span>. Это значит:<ul><li>Модель ИИ работает локально на машине оператора</li><li>Сообщения Discord не отправляются во внешние ИИ-сервисы</li><li>ИИ <b>не</b> обучается на сообщениях пользователей</li><li>ИИ используется только для расширения функций бота</li></ul>"},
+{icon:"💡",title:"Философия",body:"Цель — предоставить мощного, уважающего конфиденциальность бота, которому владельцы серверов могут доверять. Все функции прозрачны, настраиваемы и безопасны. Бот бесплатен, открыт для обратной связи и постоянно улучшается."}
+]},
+"uk":{name:"Українська",flag:"🇺🇦",nav_home:"Головна",nav_about:"Про бота",nav_features:"Функції",nav_commands:"Команди",nav_support:"Підтримка",nav_status:"Статус",nav_privacy:"Конфіденційність",nav_terms:"Умови",btn_add:"➕ Додати бота",btn_support:"💬 Підтримка",pg_t:"Про бота Carapuz201G",pg_s:"Дізнайтеся, що робить цього бота особливим — філософія, архітектура та підхід до ваших даних.",
+blocks:[
+{icon:"🤖",title:"Що таке Carapuz201G?",body:"Carapuz201G — це великий багатофункціональний Discord-бот, написаний на Python. Він надає повний набір інструментів для управління сервером: модерація, економіка, королівства, тікети, верифікація, голос/музика та багато іншого. Розроблений як єдине рішення «все-в-одному»."},
+{icon:"⚙️",title:"Як він працює",body:"Бот запускається як self-hosted Python-додаток з використанням бібліотеки discord.py. Він підключається до Discord через Gateway API та обробляє слеш-команди та події. Конфігурація зберігається в зашифрованих файлах. Бот підтримує модульну систему (cogs)."},
+{icon:"🏗️",title:"Архітектура",body:"<ul><li>Написаний на <span class='hl'>Python</span> з discord.py</li><li>Модульна архітектура на основі cogs</li><li>Зашифроване зберігання конфігурації</li><li>Підтримка SQLite / JSON</li><li>Опціональна інтеграція з <span class='hl'>Ollama</span></li><li>Розгортання на будь-якій машині</li></ul>"},
+{icon:"💾",title:"Зберігання даних",body:"Дані можуть зберігатися на комп'ютері оператора, на сервері або у середовищі хостингу. Бот зберігає лише дані, необхідні для його функцій. Дані не продаються і не передаються третім особам."},
+{icon:"🧠",title:"Опціональний локальний ШІ",body:"Carapuz201G підтримує опціональний локальний ШІ через <span class='hl'>Ollama</span>:<ul><li>Модель ШІ працює локально</li><li>Повідомлення Discord не надсилаються зовнішнім сервісам</li><li>ШІ <b>не</b> навчається на повідомленнях користувачів</li><li>ШІ використовується лише для розширення функцій бота</li></ul>"},
+{icon:"💡",title:"Філософія",body:"Мета — надати потужного, приватного бота, якому можна довіряти. Усі функції прозорі, налаштовувані та безпечні."}
+]}
+};
 
-        <section class="page-section">
-            <h2 data-i18n="section.ai.title">Optional Local AI</h2>
-            <p data-i18n="section.ai.p1">
-                Some builds of Carapuz201G may support local AI processing through Ollama.
-            </p>
-            <ul>
-                <li data-i18n="section.ai.li1">AI usage is intended only for feature execution.</li>
-                <li data-i18n="section.ai.li2">Discord user messages are not used to train or fine-tune models.</li>
-                <li data-i18n="section.ai.li3">Any local context history, if enabled, is intended only for short functional context.</li>
-                <li data-i18n="section.ai.li4">The project is designed to avoid training models on Discord content.</li>
-            </ul>
-            <div class="highlight green" data-i18n="section.ai.highlight">
-                The intended AI model strategy is local-only processing whenever AI is enabled.
-            </div>
-        </section>
+let lang=localStorage.getItem('c2g-lang')||'en-US';
+let theme=localStorage.getItem('c2g-theme')||'dark';
 
-        <footer>
-            <p data-i18n="footer.rights">Carapuz201G — All rights reserved.</p>
-            <p data-i18n="footer.operated">Operated by carapuz201</p>
-        </footer>
-    </div>
+document.addEventListener('DOMContentLoaded',()=>{
+setTheme(theme);buildLang();setLang(lang);setupEv();setupRv();
+setTimeout(()=>document.getElementById('ldr').classList.add('hid'),1100);
+});
 
-    <script>
-        const LANGUAGES = {
-            "en-US": "English (US)",
-            "en-GB": "English (UK)",
-            "ru": "Русский",
-            "uk": "Українська"
-        };
+function setTheme(t){theme=t;document.documentElement.setAttribute('data-theme',t);localStorage.setItem('c2g-theme',t);document.getElementById('thBtn').textContent=t==='dark'?'☀️':'🌙'}
+function togTheme(){setTheme(theme==='dark'?'light':'dark')}
 
-        const translations = {
-            "en-US": {
-                page: {
-                    title: "About Carapuz201G",
-                    subtitle: "Project overview, architecture, storage and feature philosophy"
-                },
-                section: {
-                    what: {
-                        title: "What is Carapuz201G?",
-                        p1: "Carapuz201G is a large multi-purpose Discord bot focused on combining server administration, moderation, utility tools, economy systems, verification, profile tools, reminders, giveaways, voice features and optional local AI features into a single bot.",
-                        p2: "The bot is developed and maintained as an independent project by a single developer. It is intended for practical use in Discord communities rather than as a simple demonstration bot."
-                    },
-                    how: {
-                        title: "How the Bot Works",
-                        p1: "The bot runs as a long-living Discord application process and reacts to slash commands, text prefix commands, message events, voice state changes and scheduled loops.",
-                        li1: "Slash commands",
-                        li2: "Prefix commands",
-                        li3: "Message events",
-                        li4: "Voice state updates",
-                        li5: "Background loops for backups, reminders, giveaways and temporary roles"
-                    },
-                    arch: {
-                        title: "Architecture",
-                        p1: "The current public build is a large monolithic Python bot based on discord.py. It uses encrypted local configuration storage, language files, optional local AI, voice support, buttons, modals, select menus and scheduled background tasks.",
-                        highlight: "The bot is intentionally designed as one integrated all-in-one system instead of being split into many separate bots."
-                    },
-                    storage: {
-                        title: "Data Storage",
-                        p1: "Depending on the deployment environment, bot data may be stored on the operator’s computer, on a private server, or on a hosting environment used to operate the bot.",
-                        p2: "Persistent data is encrypted at rest. Temporary files may also be created for media, backup, or runtime processing."
-                    },
-                    ai: {
-                        title: "Optional Local AI",
-                        p1: "Some builds of Carapuz201G may support local AI processing through Ollama.",
-                        li1: "AI usage is intended only for feature execution.",
-                        li2: "Discord user messages are not used to train or fine-tune models.",
-                        li3: "Any local context history, if enabled, is intended only for short functional context.",
-                        li4: "The project is designed to avoid training models on Discord content.",
-                        highlight: "The intended AI model strategy is local-only processing whenever AI is enabled."
-                    }
-                },
-                footer: {
-                    rights: "Carapuz201G — All rights reserved.",
-                    operated: "Operated by carapuz201"
-                }
-            },
-            "en-GB": {
-                page: {
-                    title: "About Carapuz201G",
-                    subtitle: "Project overview, architecture, storage and feature philosophy"
-                },
-                section: {
-                    what: {
-                        title: "What is Carapuz201G?",
-                        p1: "Carapuz201G is a large multi-purpose Discord bot focused on combining server administration, moderation, utility tools, economy systems, verification, profile tools, reminders, giveaways, voice features and optional local AI features into a single bot.",
-                        p2: "The bot is developed and maintained as an independent project by a single developer. It is intended for practical use in Discord communities rather than as a simple demonstration bot."
-                    },
-                    how: {
-                        title: "How the Bot Works",
-                        p1: "The bot runs as a long-living Discord application process and reacts to slash commands, text prefix commands, message events, voice state changes and scheduled loops.",
-                        li1: "Slash commands",
-                        li2: "Prefix commands",
-                        li3: "Message events",
-                        li4: "Voice state updates",
-                        li5: "Background loops for backups, reminders, giveaways and temporary roles"
-                    },
-                    arch: {
-                        title: "Architecture",
-                        p1: "The current public build is a large monolithic Python bot based on discord.py. It uses encrypted local configuration storage, language files, optional local AI, voice support, buttons, modals, select menus and scheduled background tasks.",
-                        highlight: "The bot is intentionally designed as one integrated all-in-one system instead of being split into many separate bots."
-                    },
-                    storage: {
-                        title: "Data Storage",
-                        p1: "Depending on the deployment environment, bot data may be stored on the operator’s computer, on a private server, or on a hosting environment used to operate the bot.",
-                        p2: "Persistent data is encrypted at rest. Temporary files may also be created for media, backup, or runtime processing."
-                    },
-                    ai: {
-                        title: "Optional Local AI",
-                        p1: "Some builds of Carapuz201G may support local AI processing through Ollama.",
-                        li1: "AI usage is intended only for feature execution.",
-                        li2: "Discord user messages are not used to train or fine-tune models.",
-                        li3: "Any local context history, if enabled, is intended only for short functional context.",
-                        li4: "The project is designed to avoid training models on Discord content.",
-                        highlight: "The intended AI model strategy is local-only processing whenever AI is enabled."
-                    }
-                },
-                footer: {
-                    rights: "Carapuz201G — All rights reserved.",
-                    operated: "Operated by carapuz201"
-                }
-            },
-            "ru": {
-                page: {
-                    title: "О Carapuz201G",
-                    subtitle: "Обзор проекта, архитектуры, хранения данных и философии функций"
-                },
-                section: {
-                    what: {
-                        title: "Что такое Carapuz201G?",
-                        p1: "Carapuz201G — это большой многофункциональный Discord-бот, который объединяет администрирование сервера, модерацию, утилиты, экономику, верификацию, профили, напоминания, розыгрыши, голосовые функции и дополнительные локальные AI-возможности в одном боте.",
-                        p2: "Бот разрабатывается и поддерживается как независимый проект одним разработчиком. Он предназначен для практического использования на Discord-серверах, а не как простой демонстрационный бот."
-                    },
-                    how: {
-                        title: "Как работает бот",
-                        p1: "Бот работает как долгоживущий процесс Discord-приложения и реагирует на slash-команды, prefix-команды, события сообщений, изменения голосового состояния и фоновые циклы.",
-                        li1: "Slash-команды",
-                        li2: "Текстовые prefix-команды",
-                        li3: "События сообщений",
-                        li4: "Изменения voice state",
-                        li5: "Фоновые циклы для бэкапов, напоминаний, розыгрышей и временных ролей"
-                    },
-                    arch: {
-                        title: "Архитектура",
-                        p1: "Текущая публичная сборка — это большой монолитный Python-бот на discord.py. Он использует зашифрованное локальное хранилище конфигурации, языковые файлы, опциональный локальный AI, поддержку голоса, кнопки, модалки, select-меню и фоновые задачи.",
-                        highlight: "Бот специально спроектирован как единая all-in-one система, а не как набор отдельных маленьких ботов."
-                    },
-                    storage: {
-                        title: "Хранение данных",
-                        p1: "В зависимости от среды запуска данные бота могут храниться на компьютере оператора, на частном сервере или на хостинге, который используется для работы бота.",
-                        p2: "Постоянные данные шифруются при хранении. Временные файлы могут создаваться для медиа, бэкапов или служебной обработки."
-                    },
-                    ai: {
-                        title: "Опциональный локальный AI",
-                        p1: "Некоторые сборки Carapuz201G могут поддерживать локальную AI-обработку через Ollama.",
-                        li1: "AI используется только для выполнения функций бота.",
-                        li2: "Сообщения пользователей Discord не используются для обучения или дообучения моделей.",
-                        li3: "Если локальная история контекста включена, она предназначена только для краткосрочного функционального контекста.",
-                        li4: "Проект изначально строится так, чтобы не обучать модели на контенте Discord.",
-                        highlight: "Предпочтительная стратегия проекта — локальная обработка AI, когда AI включён."
-                    }
-                },
-                footer: {
-                    rights: "Carapuz201G — Все права защищены.",
-                    operated: "Проект ведёт carapuz201"
-                }
-            },
-            "uk": {
-                page: {
-                    title: "Про Carapuz201G",
-                    subtitle: "Огляд проєкту, архітектури, зберігання даних та філософії функцій"
-                },
-                section: {
-                    what: {
-                        title: "Що таке Carapuz201G?",
-                        p1: "Carapuz201G — це великий багатофункціональний Discord-бот, який об'єднує адміністрування сервера, модерацію, утиліти, економіку, верифікацію, профілі, нагадування, розіграші, голосові функції та додаткові локальні AI-можливості в одному боті.",
-                        p2: "Бот розробляється і підтримується як незалежний проєкт одним розробником. Він призначений для практичного використання на Discord-серверах, а не як простий демонстраційний бот."
-                    },
-                    how: {
-                        title: "Як працює бот",
-                        p1: "Бот працює як довгоживучий процес Discord-додатку та реагує на slash-команди, prefix-команди, події повідомлень, зміни голосового стану та фонові цикли.",
-                        li1: "Slash-команди",
-                        li2: "Текстові prefix-команди",
-                        li3: "Події повідомлень",
-                        li4: "Зміни voice state",
-                        li5: "Фонові цикли для бекапів, нагадувань, розіграшів і тимчасових ролей"
-                    },
-                    arch: {
-                        title: "Архітектура",
-                        p1: "Поточна публічна збірка — це великий монолітний Python-бот на discord.py. Він використовує зашифроване локальне сховище конфігурації, мовні файли, опціональний локальний AI, підтримку голосу, кнопки, модалки, select-меню та фонові задачі.",
-                        highlight: "Бот спеціально спроєктований як єдина all-in-one система, а не як набір окремих маленьких ботів."
-                    },
-                    storage: {
-                        title: "Зберігання даних",
-                        p1: "Залежно від середовища запуску дані бота можуть зберігатися на комп’ютері оператора, на приватному сервері або на хостингу, який використовується для роботи бота.",
-                        p2: "Постійні дані шифруються під час зберігання. Тимчасові файли можуть створюватися для медіа, резервних копій або службової обробки."
-                    },
-                    ai: {
-                        title: "Опціональний локальний AI",
-                        p1: "Деякі збірки Carapuz201G можуть підтримувати локальну AI-обробку через Ollama.",
-                        li1: "AI використовується лише для виконання функцій бота.",
-                        li2: "Повідомлення користувачів Discord не використовуються для навчання або донавчання моделей.",
-                        li3: "Якщо локальна історія контексту ввімкнена, вона призначена лише для короткочасного функціонального контексту.",
-                        li4: "Проєкт спочатку будується так, щоб не навчати моделі на контенті Discord.",
-                        highlight: "Переважна стратегія проєкту — локальна AI-обробка, коли AI увімкнений."
-                    }
-                },
-                footer: {
-                    rights: "Carapuz201G — Усі права захищені.",
-                    operated: "Проєкт веде carapuz201"
-                }
-            }
-        };
+function buildLang(){
+const m=document.getElementById('lMn');m.innerHTML='';
+Object.keys(T).sort((a,b)=>T[a].name.localeCompare(T[b].name)).forEach(c=>{
+const d=document.createElement('div');d.className='lo'+(c===lang?' act':'');
+d.innerHTML=`<span class="fl">${T[c].flag}</span><span>${T[c].name}</span>`;
+d.onclick=()=>{setLang(c);closeLM()};m.appendChild(d);
+});
+}
 
-        function getNested(obj, path) {
-            return path.split(".").reduce((acc, part) => acc && acc[part], obj);
-        }
+function setLang(c){
+if(!T[c])c='en-US';lang=c;localStorage.setItem('c2g-lang',c);
+const t=T[c];
+document.getElementById('cF').textContent=t.flag;
+document.getElementById('cL').textContent=t.name;
+document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k]});
+// build blocks
+const sec=document.getElementById('content');sec.innerHTML='';
+if(t.blocks){t.blocks.forEach((b,i)=>{
+const d=document.createElement('div');d.className='cb2 rv';d.style.transitionDelay=i*.08+'s';
+d.innerHTML=`<h3>${b.icon} ${b.title}</h3><p>${b.body}</p>`;
+sec.appendChild(d);
+})}
+document.querySelectorAll('.lo').forEach(o=>o.classList.remove('act'));
+const keys=Object.keys(T).sort((a,b)=>T[a].name.localeCompare(T[b].name));
+const idx=keys.indexOf(c);const opts=document.querySelectorAll('.lo');
+if(opts[idx])opts[idx].classList.add('act');
+document.documentElement.lang=c;
+setTimeout(setupRv,50);
+}
 
-        function initLanguageSelector() {
-            const selector = document.getElementById("languageSelect");
-            Object.entries(LANGUAGES).forEach(([code, name]) => {
-                const option = document.createElement("option");
-                option.value = code;
-                option.textContent = name;
-                selector.appendChild(option);
-            });
-        }
+function togLM(){const m=document.getElementById('lMn'),b=document.getElementById('lBtn');if(m.classList.contains('show'))closeLM();else{m.classList.add('show');b.classList.add('open')}}
+function closeLM(){document.getElementById('lMn').classList.remove('show');document.getElementById('lBtn').classList.remove('open')}
+function openMM(){document.getElementById('mMn').classList.add('show');document.getElementById('mOv').classList.add('show');document.body.style.overflow='hidden'}
+function closeMM(){document.getElementById('mMn').classList.remove('show');document.getElementById('mOv').classList.remove('show');document.body.style.overflow=''}
 
-        function applyLanguage(lang) {
-            const current = translations[lang] || translations["en-US"];
-            document.querySelectorAll("[data-i18n]").forEach((el) => {
-                const key = el.getAttribute("data-i18n");
-                const value = getNested(current, key);
-                if (value) el.textContent = value;
-            });
-            localStorage.setItem("carapuz_lang", lang);
-            document.getElementById("languageSelect").value = lang;
-        }
+function setupRv(){
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+}
 
-        function applyTheme(theme) {
-            document.documentElement.setAttribute("data-theme", theme);
-            localStorage.setItem("carapuz_theme", theme);
-            document.getElementById("themeToggle").textContent = theme === "light" ? "🌞 Light" : "🌙 Dark";
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            initLanguageSelector();
-
-            const savedLang = localStorage.getItem("carapuz_lang") || "en-US";
-            applyLanguage(savedLang);
-
-            document.getElementById("languageSelect").addEventListener("change", (e) => {
-                applyLanguage(e.target.value);
-            });
-
-            const savedTheme = localStorage.getItem("carapuz_theme") || "dark";
-            applyTheme(savedTheme);
-
-            document.getElementById("themeToggle").addEventListener("click", () => {
-                const current = document.documentElement.getAttribute("data-theme") || "dark";
-                applyTheme(current === "dark" ? "light" : "dark");
-            });
-        });
-    </script>
+function setupEv(){
+document.getElementById('thBtn').onclick=togTheme;
+document.getElementById('lBtn').onclick=e=>{e.stopPropagation();togLM()};
+document.addEventListener('click',e=>{if(!e.target.closest('.ld'))closeLM()});
+document.getElementById('mBtn').onclick=openMM;
+document.getElementById('cMn').onclick=closeMM;
+document.getElementById('mOv').onclick=closeMM;
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLM();closeMM()}});
+}
+</script>
 </body>
 </html>
