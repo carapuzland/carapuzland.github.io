@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Commands — Carapuz201G</title>
-<meta name="description" content="Full list of Carapuz201G Discord bot commands — moderation, economy, voice, utility and more.">
+<meta name="description" content="Full list of Carapuz201G Discord bot commands — moderation, economy, voice, utility and more. Search and filter available.">
 <style>
 :root{--tr:0.3s}
 [data-theme="dark"]{--bg:#0b0f1a;--bg2:#111827;--card:rgba(17,24,39,0.88);--hdr:rgba(11,15,26,0.93);--tx:#e2e8f0;--tx2:#94a3b8;--acc:#5865F2;--acc2:#38bdf8;--brd:rgba(88,101,242,0.18);--shd:rgba(0,0,0,0.4);--glw:rgba(88,101,242,0.3);--dd:#1e293b;--ddh:#334155;--g1:#0b0f1a;--g2:#15102e;--g3:#0d2847;--inp-bg:#1e293b;--inp-brd:rgba(88,101,242,.25)}
@@ -12,100 +12,79 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;transition:background var(--tr),color var(--tr);min-height:100vh}
-a{color:inherit}
+a{color:inherit;text-decoration:none}
 .hdr{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--hdr);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--brd);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;transition:background var(--tr)}
 .hdr-l{display:flex;align-items:center;gap:.6rem}
-.hm-lnk{display:flex;align-items:center;text-decoration:none;color:var(--tx2);font-size:1.35rem;transition:color .3s}
-.hm-lnk:hover{color:var(--acc)}
+.hm-lnk{display:flex;align-items:center;text-decoration:none;color:var(--tx2);font-size:1.35rem;transition:color .3s}.hm-lnk:hover{color:var(--acc)}
 .hm-lnk .em{animation:fl 3s ease-in-out infinite}
 @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-.brand{font-size:1.15rem;font-weight:700;color:var(--tx);text-decoration:none;transition:color .3s}
-.brand:hover{color:var(--acc)}
+.brand{font-size:1.15rem;font-weight:700;color:var(--tx);text-decoration:none;transition:color .3s}.brand:hover{color:var(--acc)}
 .nav{display:flex;align-items:center;gap:.15rem}
 .nav a{padding:.35rem .55rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.8rem;font-weight:500;transition:all .2s;white-space:nowrap}
-.nav a:hover{color:var(--tx);background:var(--brd)}
-.nav a.active{color:var(--acc);background:rgba(88,101,242,.12)}
+.nav a:hover{color:var(--tx);background:var(--brd)}.nav a.act{color:var(--acc);background:rgba(88,101,242,.12)}
 .hdr-r{display:flex;align-items:center;gap:.45rem}
-.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.4rem .8rem;border-radius:10px;font-size:.78rem;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid var(--brd);transition:all .3s;white-space:nowrap}
-.btn-a{background:var(--acc);color:#fff;border-color:var(--acc)}
-.btn-a:hover{background:#4752c4;box-shadow:0 4px 20px var(--glw);transform:translateY(-1px)}
-.btn-o{background:transparent;color:var(--tx)}
-.btn-o:hover{background:var(--brd);border-color:var(--acc)}
-.th-btn{background:var(--card);border:1px solid var(--brd);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--tx);transition:all .3s}
-.th-btn:hover{border-color:var(--acc);box-shadow:0 0 12px var(--glw);transform:rotate(20deg)}
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.45rem .9rem;border-radius:10px;font-size:.8rem;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid var(--brd);transition:all .3s;white-space:nowrap}
+.btn-a{background:var(--acc);color:#fff;border-color:var(--acc)}.btn-a:hover{background:#4752c4;box-shadow:0 4px 20px var(--glw);transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--tx)}.btn-o:hover{background:var(--brd);border-color:var(--acc)}
+.th-btn{background:var(--card);border:1px solid var(--brd);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--tx);transition:all .3s}.th-btn:hover{border-color:var(--acc);box-shadow:0 0 12px var(--glw);transform:rotate(20deg)}
 .ld{position:relative}
-.lb{background:var(--card);border:1px solid var(--brd);border-radius:10px;padding:.35rem .65rem;cursor:pointer;display:flex;align-items:center;gap:.35rem;font-size:.78rem;color:var(--tx);transition:all .3s}
-.lb:hover{border-color:var(--acc);box-shadow:0 0 10px var(--glw)}
-.lb .ar{font-size:.55rem;transition:transform .3s}
-.lb.open .ar{transform:rotate(180deg)}
-.lm{position:absolute;top:calc(100% + 6px);right:0;background:var(--dd);border:1px solid var(--brd);border-radius:12px;padding:.35rem 0;min-width:190px;max-height:350px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .3s;box-shadow:0 16px 40px var(--shd);z-index:1001}
-.lm.show{opacity:1;visibility:visible;transform:translateY(0)}
-.lm::-webkit-scrollbar{width:5px}
-.lm::-webkit-scrollbar-thumb{background:var(--brd);border-radius:3px}
-.lo{display:flex;align-items:center;gap:.55rem;padding:.45rem .85rem;cursor:pointer;font-size:.82rem;color:var(--tx);transition:background .2s}
-.lo:hover{background:var(--ddh)}
-.lo.act{color:var(--acc);font-weight:600}
-.lo .fl{font-size:1.05rem}
+.lb{background:var(--card);border:1px solid var(--brd);border-radius:10px;padding:.35rem .65rem;cursor:pointer;display:flex;align-items:center;gap:.35rem;font-size:.78rem;color:var(--tx);transition:all .3s}.lb:hover{border-color:var(--acc);box-shadow:0 0 10px var(--glw)}
+.lb .ar{font-size:.55rem;transition:transform .3s}.lb.open .ar{transform:rotate(180deg)}
+.lm{position:absolute;top:calc(100% + 6px);right:0;background:var(--dd);border:1px solid var(--brd);border-radius:12px;padding:.35rem 0;min-width:200px;max-height:400px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .3s;box-shadow:0 16px 40px var(--shd);z-index:1001}.lm.show{opacity:1;visibility:visible;transform:translateY(0)}
+.lm::-webkit-scrollbar{width:5px}.lm::-webkit-scrollbar-thumb{background:var(--brd);border-radius:3px}
+.lo{display:flex;align-items:center;gap:.55rem;padding:.45rem .85rem;cursor:pointer;font-size:.82rem;color:var(--tx);transition:background .2s}.lo:hover{background:var(--ddh)}.lo.act{color:var(--acc);font-weight:600}.lo .fl{font-size:1.05rem}
 .mb{display:none;background:var(--card);border:1px solid var(--brd);border-radius:8px;width:34px;height:34px;align-items:center;justify-content:center;cursor:pointer;color:var(--tx);font-size:1.15rem}
-.mov{display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}
-.mov.show{display:block}
-.mm{position:fixed;top:0;right:-300px;width:270px;height:100%;background:var(--bg2);z-index:999;padding:1.25rem;transition:right .3s;overflow-y:auto;border-left:1px solid var(--brd)}
-.mm.show{right:0}
+.mov{display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}.mov.show{display:block}
+.mm{position:fixed;top:0;right:-300px;width:270px;height:100%;background:var(--bg2);z-index:999;padding:1.25rem;transition:right .3s;overflow-y:auto;border-left:1px solid var(--brd)}.mm.show{right:0}
 .mm .xb{background:none;border:none;color:var(--tx);font-size:1.4rem;cursor:pointer;float:right;padding:.25rem}
 .mn{display:flex;flex-direction:column;gap:.2rem;margin-top:2.5rem}
-.mn a{padding:.6rem .7rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.9rem;transition:all .2s}
-.mn a:hover,.mn a.active{color:var(--acc);background:rgba(88,101,242,.1)}
-.ma{display:flex;flex-direction:column;gap:.5rem;margin-top:1.25rem}
-.ma .btn{justify-content:center}
-.ph{padding:6rem 2rem 2rem;text-align:center;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);position:relative;overflow:hidden;transition:background var(--tr)}
+.mn a{padding:.6rem .7rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.9rem;transition:all .2s}.mn a:hover,.mn a.act{color:var(--acc);background:rgba(88,101,242,.1)}
+.mab{display:flex;flex-direction:column;gap:.5rem;margin-top:1.25rem}.mab .btn{justify-content:center}
+.ph{padding:6.5rem 2rem 2rem;text-align:center;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);position:relative;overflow:hidden;transition:background var(--tr)}
 .ph::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(88,101,242,.12) 0%,transparent 60%);pointer-events:none}
-.phc{position:relative;z-index:2;max-width:680px;margin:0 auto}
-.phi{font-size:3.5rem;margin-bottom:.5rem;display:inline-block}
-.pht{font-size:2.2rem;font-weight:800;margin-bottom:.5rem;background:linear-gradient(135deg,var(--tx),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.phs{font-size:1.05rem;color:var(--tx2);line-height:1.6}
+.phc{position:relative;z-index:2;max-width:700px;margin:0 auto}
+.phi{font-size:3.8rem;margin-bottom:.6rem;display:inline-block}
+.pht{font-size:2.4rem;font-weight:800;margin-bottom:.6rem;background:linear-gradient(135deg,var(--tx),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.phs{font-size:1.05rem;color:var(--tx2);line-height:1.7}
 /* SEARCH */
 .srch-w{max-width:560px;margin:1.5rem auto 0;position:relative;z-index:2}
-.srch{width:100%;padding:.7rem 1rem .7rem 2.6rem;border-radius:12px;border:1px solid var(--inp-brd);background:var(--inp-bg);color:var(--tx);font-size:.92rem;outline:none;transition:all .3s}
+.srch{width:100%;padding:.75rem 1rem .75rem 2.8rem;border-radius:12px;border:1px solid var(--inp-brd);background:var(--inp-bg);color:var(--tx);font-size:.92rem;outline:none;transition:all .3s}
 .srch:focus{border-color:var(--acc);box-shadow:0 0 16px var(--glw)}
-.srch-i{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);font-size:1rem;color:var(--tx2);pointer-events:none}
-.srch-c{display:none;align-items:center;font-size:.82rem;color:var(--tx2);margin-top:.5rem;max-width:560px;margin-left:auto;margin-right:auto;gap:.3rem}
+.srch-i{position:absolute;left:1rem;top:50%;transform:translateY(-50%);font-size:1rem;color:var(--tx2);pointer-events:none}
+.srch-c{display:none;align-items:center;justify-content:center;font-size:.85rem;color:var(--tx2);margin-top:.6rem;gap:.3rem}
 .srch-c.show{display:flex}
-/* CONTENT */
+/* FILTER TABS */
+.ftabs{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem;max-width:900px;margin:1.5rem auto 0;padding:0 1rem}
+.ftab{padding:.4rem .85rem;border-radius:20px;border:1px solid var(--brd);background:transparent;color:var(--tx2);font-size:.8rem;cursor:pointer;transition:all .25s;font-weight:500}
+.ftab:hover{border-color:var(--acc);color:var(--tx)}
+.ftab.act{background:var(--acc);color:#fff;border-color:var(--acc)}
+/* COMMANDS */
 .sec{padding:2rem 2rem 3rem;max-width:900px;margin:0 auto}
-.cat{margin-bottom:2rem}
-.cat-h{font-size:1.15rem;font-weight:700;margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem;color:var(--tx);padding-bottom:.4rem;border-bottom:1px solid var(--brd)}
+.cat{margin-bottom:1.75rem}
+.cat-h{font-size:1.1rem;font-weight:700;margin-bottom:.7rem;display:flex;align-items:center;gap:.5rem;color:var(--tx);padding-bottom:.4rem;border-bottom:1px solid var(--brd)}
 .cmd{background:var(--card);border:1px solid var(--brd);border-radius:12px;padding:.85rem 1.1rem;margin-bottom:.5rem;transition:all .3s;display:flex;align-items:flex-start;gap:.75rem}
 .cmd:hover{border-color:var(--acc);box-shadow:0 4px 16px var(--shd)}
-.cmd-n{font-weight:700;font-size:.88rem;color:var(--acc);white-space:nowrap;min-width:140px;font-family:'Consolas','Courier New',monospace}
+.cmd-n{font-weight:700;font-size:.88rem;color:var(--acc);white-space:nowrap;min-width:130px;font-family:Consolas,monospace}
 .cmd-d{font-size:.84rem;color:var(--tx2);line-height:1.5}
 .no-res{text-align:center;padding:2rem;color:var(--tx2);font-size:.95rem;display:none}
 .no-res.show{display:block}
 .ftr{text-align:center;padding:1.75rem;color:var(--tx2);font-size:.82rem;border-top:1px solid var(--brd);background:var(--hdr);backdrop-filter:blur(20px)}
-.ftr a{color:var(--acc);text-decoration:none}
-.ftr a:hover{text-decoration:underline}
+.ftr a{color:var(--acc);text-decoration:none}.ftr a:hover{text-decoration:underline}
 .ftl{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-bottom:.65rem}
 @media(max-width:1024px){.nav{display:none}.mb{display:flex}.hdr-r .btn{display:none}}
-@media(max-width:768px){.ph{padding:5rem 1.25rem 1.5rem}.pht{font-size:1.7rem}.sec{padding:1.5rem 1.25rem 2.5rem}.cmd{flex-direction:column;gap:.3rem}.cmd-n{min-width:auto}.lb .ll{display:none}}
-@media(max-width:480px){.pht{font-size:1.5rem}}
-.rv{opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s}
-.rv.vis{opacity:1;transform:translateY(0)}
-.ld-w{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;transition:opacity .4s,visibility .4s}
-.ld-w.hid{opacity:0;visibility:hidden}
+@media(max-width:768px){.ph{padding:5.5rem 1.25rem 1.5rem}.pht{font-size:1.8rem}.sec{padding:1.5rem 1.25rem 2.5rem}.cmd{flex-direction:column;gap:.3rem}.cmd-n{min-width:auto}.lb .ll{display:none}}
+@media(max-width:480px){.pht{font-size:1.5rem}.ftabs{gap:.3rem}}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s}.rv.vis{opacity:1;transform:translateY(0)}
+.ld-w{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;transition:opacity .4s,visibility .4s}.ld-w.hid{opacity:0;visibility:hidden}
 .ld-e{font-size:2.8rem;animation:lba 1s ease-in-out infinite}
 @keyframes lba{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.1)}}
 .ld-b{width:100px;height:3px;background:var(--brd);border-radius:3px;overflow:hidden}
 .ld-f{height:100%;width:0%;background:var(--acc);border-radius:3px;animation:lfx 1.2s ease forwards}
 @keyframes lfx{to{width:100%}}
-/* Filter tabs */
-.ftabs{display:flex;flex-wrap:wrap;gap:.4rem;max-width:900px;margin:0 auto;padding:0 2rem;margin-bottom:1rem}
-.ftab{padding:.35rem .75rem;border-radius:20px;border:1px solid var(--brd);background:transparent;color:var(--tx2);font-size:.78rem;cursor:pointer;transition:all .25s;font-weight:500}
-.ftab:hover{border-color:var(--acc);color:var(--tx)}
-.ftab.active{background:var(--acc);color:#fff;border-color:var(--acc)}
 </style>
 </head>
-<body data-page="commands">
-<div class="ld-w" id="ldr"><div class="ld-e">🤖</div><div style="color:var(--tx2);font-size:.85rem;letter-spacing:2px">CARAPUZ201G</div><div class="ld-b"><div class="ld-f"></div></div></div>
-
+<body>
+<div class="ld-w" id="ldr"><div class="ld-e"></div><div style="color:var(--tx2);font-size:.85rem;letter-spacing:2px">CARAPUZ201G</div><div class="ld-b"><div class="ld-f"></div></div></div>
 <header class="hdr">
 <div class="hdr-l">
 <a href="https://carapuzland.github.io" class="hm-lnk" title="CarapuzLand"><span class="em">🏝️</span></a>
@@ -114,7 +93,7 @@ a{color:inherit}
 <nav class="nav">
 <a href="../about/" data-i18n="nav_about">About</a>
 <a href="../features/" data-i18n="nav_features">Features</a>
-<a href="../commands/" class="active" data-i18n="nav_commands">Commands</a>
+<a href="../commands/" class="act" data-i18n="nav_commands">Commands</a>
 <a href="../support/" data-i18n="nav_support">Support</a>
 <a href="../status/" data-i18n="nav_status">Status</a>
 <a href="../privacy-policy/" data-i18n="nav_privacy">Privacy</a>
@@ -122,16 +101,12 @@ a{color:inherit}
 </nav>
 <div class="hdr-r">
 <button class="th-btn" id="thBtn" title="Toggle theme">🌙</button>
-<div class="ld">
-<button class="lb" id="lBtn"><span class="fl" id="cF">🇺🇸</span><span class="ll" id="cL">English</span><span class="ar">▼</span></button>
-<div class="lm" id="lMn"></div>
-</div>
+<div class="ld"><button class="lb" id="lBtn"><span class="fl" id="cF">🇺🇸</span><span class="ll" id="cL">English</span><span class="ar">▼</span></button><div class="lm" id="lMn"></div></div>
 <a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
 <a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
 <button class="mb" id="mBtn">☰</button>
 </div>
 </header>
-
 <div class="mov" id="mOv"></div>
 <div class="mm" id="mMn">
 <button class="xb" id="cMn">✕</button>
@@ -139,36 +114,29 @@ a{color:inherit}
 <a href="../" data-i18n="nav_home">Home</a>
 <a href="../about/" data-i18n="nav_about">About</a>
 <a href="../features/" data-i18n="nav_features">Features</a>
-<a href="../commands/" class="active" data-i18n="nav_commands">Commands</a>
+<a href="../commands/" class="act" data-i18n="nav_commands">Commands</a>
 <a href="../support/" data-i18n="nav_support">Support</a>
 <a href="../status/" data-i18n="nav_status">Status</a>
 <a href="../privacy-policy/" data-i18n="nav_privacy">Privacy Policy</a>
 <a href="../terms-of-service/" data-i18n="nav_terms">Terms of Service</a>
 </div>
-<div class="ma">
+<div class="mab">
 <a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
 <a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
 </div>
 </div>
-
 <main>
-<section class="ph">
-<div class="phc">
+<section class="ph"><div class="phc">
 <div class="phi">📋</div>
 <h1 class="pht" data-i18n="pg_t">Commands</h1>
-<p class="phs" data-i18n="pg_s">Browse all available commands by category. Use the search to find what you need.</p>
-<div class="srch-w">
-<span class="srch-i">🔍</span>
-<input type="text" class="srch" id="srchInp" data-i18n-ph="srch_ph" placeholder="Search commands...">
-</div>
+<p class="phs" data-i18n="pg_s">Browse all available commands by category. Use search to find what you need.</p>
+<div class="srch-w"><span class="srch-i">🔍</span><input type="text" class="srch" id="srch" data-i18n-ph="srch_ph" placeholder="Search commands..."></div>
 <div class="srch-c" id="srchC"><span id="srchN">0</span> <span data-i18n="srch_res">results found</span></div>
-</div>
-</section>
+</div></section>
 <div class="ftabs" id="fTabs"></div>
 <section class="sec" id="cmdSec"></section>
 <div class="no-res" id="noRes" data-i18n="no_res">No commands found matching your search.</div>
 </main>
-
 <footer class="ftr">
 <div class="ftl">
 <a href="../privacy-policy/" data-i18n="nav_privacy">Privacy Policy</a>
@@ -177,10 +145,14 @@ a{color:inherit}
 </div>
 <p>© 2025 <a href="https://carapuzland.github.io">CarapuzLand</a> 🏝️ — Carapuz201G</p>
 </footer>
-
 <script>
-const enCmds=[
-{cat:"🛡️ Moderation",id:"mod",cmds:[
+/* Command data structure */
+const CATS=["mod","eco","voice","util"];
+const CAT_ICONS={mod:"🛡️",eco:"💰",voice:"🎵",util:"🔧"};
+
+/* EN Commands */
+const enC={
+mod:{cat:"🛡️ Moderation",cmds:[
 {n:"/warn",d:"Warn a user for rule violations"},
 {n:"/mute",d:"Temporarily mute a user"},
 {n:"/unmute",d:"Remove mute from a user"},
@@ -195,7 +167,7 @@ const enCmds=[
 {n:"/clearwarns",d:"Clear all warnings for a user"},
 {n:"/antiraid",d:"Configure anti-raid protection settings"}
 ]},
-{cat:"💰 Economy",id:"eco",cmds:[
+eco:{cat:"💰 Economy",cmds:[
 {n:"/balance",d:"Check your current balance"},
 {n:"/daily",d:"Claim your daily reward"},
 {n:"/work",d:"Work to earn coins"},
@@ -211,7 +183,7 @@ const enCmds=[
 {n:"/kingdom join",d:"Join an existing kingdom"},
 {n:"/kingdom war",d:"Declare war on another kingdom"}
 ]},
-{cat:"🎵 Voice & Music",id:"voice",cmds:[
+voice:{cat:"🎵 Voice & Music",cmds:[
 {n:"/play",d:"Play a song or add to queue"},
 {n:"/skip",d:"Skip the current track"},
 {n:"/stop",d:"Stop playback and clear queue"},
@@ -223,7 +195,7 @@ const enCmds=[
 {n:"/radio",d:"Start a radio stream"},
 {n:"/loop",d:"Toggle loop mode for current track"}
 ]},
-{cat:"🔧 Utility & Info",id:"util",cmds:[
+util:{cat:"🔧 Utility & Info",cmds:[
 {n:"/help",d:"Show bot help and command list"},
 {n:"/ping",d:"Check bot latency"},
 {n:"/serverinfo",d:"Display server information"},
@@ -240,10 +212,11 @@ const enCmds=[
 {n:"/support",d:"Get support information and links"},
 {n:"/ai",d:"Use local AI assistant (if enabled)"}
 ]}
-];
+};
 
-const ruCmds=[
-{cat:"🛡️ Модерация",id:"mod",cmds:[
+/* RU Commands */
+const ruC={
+mod:{cat:"🛡️ Модерация",cmds:[
 {n:"/warn",d:"Выдать предупреждение пользователю"},
 {n:"/mute",d:"Временно замутить пользователя"},
 {n:"/unmute",d:"Снять мут с пользователя"},
@@ -258,7 +231,7 @@ const ruCmds=[
 {n:"/clearwarns",d:"Очистить предупреждения"},
 {n:"/antiraid",d:"Настроить защиту от рейдов"}
 ]},
-{cat:"💰 Экономика",id:"eco",cmds:[
+eco:{cat:"💰 Экономика",cmds:[
 {n:"/balance",d:"Проверить баланс"},
 {n:"/daily",d:"Получить ежедневную награду"},
 {n:"/work",d:"Работать для заработка монет"},
@@ -274,7 +247,7 @@ const ruCmds=[
 {n:"/kingdom join",d:"Вступить в королевство"},
 {n:"/kingdom war",d:"Объявить войну"}
 ]},
-{cat:"🎵 Голос и музыка",id:"voice",cmds:[
+voice:{cat:"🎵 Голос и музыка",cmds:[
 {n:"/play",d:"Воспроизвести трек или добавить в очередь"},
 {n:"/skip",d:"Пропустить текущий трек"},
 {n:"/stop",d:"Остановить воспроизведение"},
@@ -286,7 +259,7 @@ const ruCmds=[
 {n:"/radio",d:"Запустить радио"},
 {n:"/loop",d:"Включить/выключить повтор"}
 ]},
-{cat:"🔧 Утилиты и информация",id:"util",cmds:[
+util:{cat:"🔧 Утилиты и информация",cmds:[
 {n:"/help",d:"Показать справку"},
 {n:"/ping",d:"Проверить задержку бота"},
 {n:"/serverinfo",d:"Информация о сервере"},
@@ -303,78 +276,70 @@ const ruCmds=[
 {n:"/support",d:"Получить информацию о поддержке"},
 {n:"/ai",d:"Использовать ИИ-помощника (если включён)"}
 ]}
-];
-
-const ukCmds=[
-{cat:"🛡️ Модерація",id:"mod",cmds:[
-{n:"/warn",d:"Видати попередження користувачу"},
-{n:"/mute",d:"Тимчасово замутити користувача"},
-{n:"/unmute",d:"Зняти мут з користувача"},
-{n:"/kick",d:"Кікнути користувача"},
-{n:"/ban",d:"Забанити користувача"},
-{n:"/unban",d:"Розбанити користувача"},
-{n:"/purge",d:"Видалити кілька повідомлень"},
-{n:"/slowmode",d:"Встановити повільний режим"},
-{n:"/lock",d:"Заблокувати канал"},
-{n:"/unlock",d:"Розблокувати канал"},
-{n:"/warnings",d:"Переглянути попередження"},
-{n:"/clearwarns",d:"Очистити попередження"},
-{n:"/antiraid",d:"Налаштувати захист від рейдів"}
-]},
-{cat:"💰 Економіка",id:"eco",cmds:[
-{n:"/balance",d:"Перевірити баланс"},
-{n:"/daily",d:"Отримати щоденну нагороду"},
-{n:"/work",d:"Працювати для заробітку"},
-{n:"/shop",d:"Переглянути магазин"},
-{n:"/buy",d:"Купити предмет"},
-{n:"/inventory",d:"Переглянути інвентар"},
-{n:"/pay",d:"Переказати монети"},
-{n:"/leaderboard",d:"Рейтинг найбагатших"},
-{n:"/gamble",d:"Грати в азартні ігри"},
-{n:"/rob",d:"Спробувати пограбувати"},
-{n:"/kingdom create",d:"Створити королівство"},
-{n:"/kingdom info",d:"Інформація про королівство"},
-{n:"/kingdom join",d:"Приєднатися до королівства"},
-{n:"/kingdom war",d:"Оголосити війну"}
-]},
-{cat:"🎵 Голос і музика",id:"voice",cmds:[
-{n:"/play",d:"Відтворити трек"},
-{n:"/skip",d:"Пропустити поточний трек"},
-{n:"/stop",d:"Зупинити відтворення"},
-{n:"/queue",d:"Переглянути чергу"},
-{n:"/pause",d:"Поставити на паузу"},
-{n:"/resume",d:"Продовжити відтворення"},
-{n:"/volume",d:"Налаштувати гучність"},
-{n:"/nowplaying",d:"Поточний трек"},
-{n:"/radio",d:"Запустити радіо"},
-{n:"/loop",d:"Увімкнути/вимкнути повтор"}
-]},
-{cat:"🔧 Утиліти та інформація",id:"util",cmds:[
-{n:"/help",d:"Показати довідку"},
-{n:"/ping",d:"Перевірити затримку бота"},
-{n:"/serverinfo",d:"Інформація про сервер"},
-{n:"/userinfo",d:"Інформація про користувача"},
-{n:"/avatar",d:"Показати аватар"},
-{n:"/remind",d:"Встановити нагадування"},
-{n:"/giveaway",d:"Створити розіграш"},
-{n:"/poll",d:"Створити голосування"},
-{n:"/ticket",d:"Відкрити тікет"},
-{n:"/verify",d:"Пройти верифікацію"},
-{n:"/reactionrole",d:"Налаштувати ролі по реакціях"},
-{n:"/customcmd",d:"Створити кастомну команду"},
-{n:"/globalchat",d:"Увімкнути глобальний чат"},
-{n:"/support",d:"Отримати інформацію про підтримку"},
-{n:"/ai",d:"Використати ШІ-помічника (якщо увімкнено)"}
-]}
-];
-
-const T={
-"en-US":{name:"English (US)",flag:"🇺🇸",nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"Commands",pg_s:"Browse all available commands by category. Use the search to find what you need.",srch_ph:"Search commands...",srch_res:"results found",no_res:"No commands found matching your search.",all:"All",categories:enCmds},
-"en-GB":{name:"English (UK)",flag:"🇬🇧",nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"Commands",pg_s:"Browse all available commands by category. Use the search to find what you need.",srch_ph:"Search commands...",srch_res:"results found",no_res:"No commands found matching your search.",all:"All",categories:enCmds},
-"ru":{name:"Русский",flag:"🇷🇺",nav_home:"Главная",nav_about:"О боте",nav_features:"Функции",nav_commands:"Команды",nav_support:"Поддержка",nav_status:"Статус",nav_privacy:"Конфиденциальность",nav_terms:"Условия",btn_add:"➕ Добавить бота",btn_support:"💬 Поддержка",pg_t:"Команды",pg_s:"Просмотрите все доступные команды по категориям. Используйте поиск для быстрого нахождения.",srch_ph:"Поиск команд...",srch_res:"результатов найдено",no_res:"Команды не найдены.",all:"Все",categories:ruCmds},
-"uk":{name:"Українська",flag:"🇺🇦",nav_home:"Головна",nav_about:"Про бота",nav_features:"Функції",nav_commands:"Команди",nav_support:"Підтримка",nav_status:"Статус",nav_privacy:"Конфіденційність",nav_terms:"Умови",btn_add:"➕ Додати бота",btn_support:"💬 Підтримка",pg_t:"Команди",pg_s:"Перегляньте всі доступні команди за категоріями.",srch_ph:"Пошук команд...",srch_res:"результатів знайдено",no_res:"Команди не знайдені.",all:"Усі",categories:ukCmds}
 };
 
+/* UK Commands */
+const ukC={
+mod:{cat:"🛡️ Модерація",cmds:[
+{n:"/warn",d:"Видати попередження"},{n:"/mute",d:"Тимчасово замутити"},{n:"/unmute",d:"Зняти мут"},
+{n:"/kick",d:"Кікнути"},{n:"/ban",d:"Забанити"},{n:"/unban",d:"Розбанити"},
+{n:"/purge",d:"Видалити повідомлення"},{n:"/slowmode",d:"Повільний режим"},
+{n:"/lock",d:"Заблокувати канал"},{n:"/unlock",d:"Розблокувати"},
+{n:"/warnings",d:"Переглянути попередження"},{n:"/clearwarns",d:"Очистити"},{n:"/antiraid",d:"Захист від рейдів"}
+]},
+eco:{cat:"💰 Економіка",cmds:[
+{n:"/balance",d:"Перевірити баланс"},{n:"/daily",d:"Щоденна нагорода"},{n:"/work",d:"Працювати"},
+{n:"/shop",d:"Магазин"},{n:"/buy",d:"Купити"},{n:"/inventory",d:"Інвентар"},
+{n:"/pay",d:"Переказати"},{n:"/leaderboard",d:"Рейтинг"},{n:"/gamble",d:"Азартні ігри"},
+{n:"/rob",d:"Пограбувати"},{n:"/kingdom create",d:"Створити королівство"},
+{n:"/kingdom info",d:"Інфо про королівство"},{n:"/kingdom join",d:"Приєднатися"},{n:"/kingdom war",d:"Оголосити війну"}
+]},
+voice:{cat:"🎵 Голос і музика",cmds:[
+{n:"/play",d:"Відтворити трек"},{n:"/skip",d:"Пропустити"},{n:"/stop",d:"Зупинити"},
+{n:"/queue",d:"Черга"},{n:"/pause",d:"Пауза"},{n:"/resume",d:"Продовжити"},
+{n:"/volume",d:"Гучність"},{n:"/nowplaying",d:"Поточний трек"},{n:"/radio",d:"Радіо"},{n:"/loop",d:"Повтор"}
+]},
+util:{cat:"🔧 Утиліти та інформація",cmds:[
+{n:"/help",d:"Довідка"},{n:"/ping",d:"Затримка"},{n:"/serverinfo",d:"Інфо про сервер"},
+{n:"/userinfo",d:"Інфо про користувача"},{n:"/avatar",d:"Аватар"},{n:"/remind",d:"Нагадування"},
+{n:"/giveaway",d:"Розіграш"},{n:"/poll",d:"Голосування"},{n:"/ticket",d:"Тікет"},
+{n:"/verify",d:"Верифікація"},{n:"/reactionrole",d:"Ролі по реакціях"},
+{n:"/customcmd",d:"Кастомна команда"},{n:"/globalchat",d:"Глобальний чат"},
+{n:"/support",d:"Підтримка"},{n:"/ai",d:"ШІ-помічник"}
+]}
+};
+
+/* Compact EU generator */
+function mkC(m,e,v,u){return{mod:{cat:m[0],cmds:m[1]},eco:{cat:e[0],cmds:e[1]},voice:{cat:v[0],cmds:v[1]},util:{cat:u[0],cmds:u[1]}}}
+const euCmds={
+de:mkC(["🛡️ Moderation",[{n:"/warn",d:"Verwarnung"},{n:"/mute",d:"Stummschalten"},{n:"/unmute",d:"Entstummen"},{n:"/kick",d:"Kicken"},{n:"/ban",d:"Sperren"},{n:"/unban",d:"Entsperren"},{n:"/purge",d:"Nachrichten löschen"},{n:"/slowmode",d:"Slowmode"},{n:"/lock",d:"Kanal sperren"},{n:"/unlock",d:"Kanal entsperren"},{n:"/warnings",d:"Verwarnungen"},{n:"/clearwarns",d:"Verwarnungen löschen"},{n:"/antiraid",d:"Anti-Raid"}]],["💰 Wirtschaft",[{n:"/balance",d:"Guthaben"},{n:"/daily",d:"Tägliche Belohnung"},{n:"/work",d:"Arbeiten"},{n:"/shop",d:"Shop"},{n:"/buy",d:"Kaufen"},{n:"/inventory",d:"Inventar"},{n:"/pay",d:"Überweisen"},{n:"/leaderboard",d:"Rangliste"},{n:"/gamble",d:"Glücksspiel"},{n:"/rob",d:"Ausrauben"},{n:"/kingdom create",d:"Königreich erstellen"},{n:"/kingdom info",d:"Königreich Info"},{n:"/kingdom join",d:"Beitreten"},{n:"/kingdom war",d:"Krieg erklären"}]],["🎵 Sprache & Musik",[{n:"/play",d:"Abspielen"},{n:"/skip",d:"Überspringen"},{n:"/stop",d:"Stoppen"},{n:"/queue",d:"Warteschlange"},{n:"/pause",d:"Pause"},{n:"/resume",d:"Fortsetzen"},{n:"/volume",d:"Lautstärke"},{n:"/nowplaying",d:"Jetzt spielt"},{n:"/radio",d:"Radio"},{n:"/loop",d:"Wiederholung"}]],["🔧 Werkzeuge",[{n:"/help",d:"Hilfe"},{n:"/ping",d:"Latenz"},{n:"/serverinfo",d:"Serverinfo"},{n:"/userinfo",d:"Benutzerinfo"},{n:"/avatar",d:"Avatar"},{n:"/remind",d:"Erinnerung"},{n:"/giveaway",d:"Gewinnspiel"},{n:"/poll",d:"Umfrage"},{n:"/ticket",d:"Ticket"},{n:"/verify",d:"Verifizierung"},{n:"/reactionrole",d:"Reaktionsrollen"},{n:"/customcmd",d:"Eigener Befehl"},{n:"/globalchat",d:"Globaler Chat"},{n:"/support",d:"Support"},{n:"/ai",d:"Lokale KI"}]]),
+fr:mkC(["🛡️ Modération",[{n:"/warn",d:"Avertissement"},{n:"/mute",d:"Mute"},{n:"/unmute",d:"Unmute"},{n:"/kick",d:"Expulser"},{n:"/ban",d:"Bannir"},{n:"/unban",d:"Débannir"},{n:"/purge",d:"Purger"},{n:"/slowmode",d:"Slowmode"},{n:"/lock",d:"Verrouiller"},{n:"/unlock",d:"Déverrouiller"},{n:"/warnings",d:"Avertissements"},{n:"/clearwarns",d:"Effacer"},{n:"/antiraid",d:"Anti-raid"}]],["💰 Économie",[{n:"/balance",d:"Solde"},{n:"/daily",d:"Quotidien"},{n:"/work",d:"Travailler"},{n:"/shop",d:"Boutique"},{n:"/buy",d:"Acheter"},{n:"/inventory",d:"Inventaire"},{n:"/pay",d:"Payer"},{n:"/leaderboard",d:"Classement"},{n:"/gamble",d:"Jeu"},{n:"/rob",d:"Vol"},{n:"/kingdom create",d:"Créer royaume"},{n:"/kingdom info",d:"Info royaume"},{n:"/kingdom join",d:"Rejoindre"},{n:"/kingdom war",d:"Guerre"}]],["🎵 Voix & Musique",[{n:"/play",d:"Jouer"},{n:"/skip",d:"Passer"},{n:"/stop",d:"Arrêter"},{n:"/queue",d:"File"},{n:"/pause",d:"Pause"},{n:"/resume",d:"Reprendre"},{n:"/volume",d:"Volume"},{n:"/nowplaying",d:"En lecture"},{n:"/radio",d:"Radio"},{n:"/loop",d:"Boucle"}]],["🔧 Utilitaires",[{n:"/help",d:"Aide"},{n:"/ping",d:"Latence"},{n:"/serverinfo",d:"Info serveur"},{n:"/userinfo",d:"Info utilisateur"},{n:"/avatar",d:"Avatar"},{n:"/remind",d:"Rappel"},{n:"/giveaway",d:"Tirage"},{n:"/poll",d:"Sondage"},{n:"/ticket",d:"Ticket"},{n:"/verify",d:"Vérification"},{n:"/reactionrole",d:"Rôles réaction"},{n:"/customcmd",d:"Commande perso"},{n:"/globalchat",d:"Chat global"},{n:"/support",d:"Support"},{n:"/ai",d:"IA locale"}]]),
+es:mkC(["🛡️ Moderación",[{n:"/warn",d:"Advertencia"},{n:"/mute",d:"Silenciar"},{n:"/unmute",d:"Desilenciar"},{n:"/kick",d:"Expulsar"},{n:"/ban",d:"Banear"},{n:"/unban",d:"Desbanear"},{n:"/purge",d:"Purgar"},{n:"/slowmode",d:"Modo lento"},{n:"/lock",d:"Bloquear"},{n:"/unlock",d:"Desbloquear"},{n:"/warnings",d:"Advertencias"},{n:"/clearwarns",d:"Limpiar"},{n:"/antiraid",d:"Anti-raid"}]],["💰 Economía",[{n:"/balance",d:"Saldo"},{n:"/daily",d:"Diario"},{n:"/work",d:"Trabajar"},{n:"/shop",d:"Tienda"},{n:"/buy",d:"Comprar"},{n:"/inventory",d:"Inventario"},{n:"/pay",d:"Pagar"},{n:"/leaderboard",d:"Ranking"},{n:"/gamble",d:"Apuesta"},{n:"/rob",d:"Robar"},{n:"/kingdom create",d:"Crear reino"},{n:"/kingdom info",d:"Info reino"},{n:"/kingdom join",d:"Unirse"},{n:"/kingdom war",d:"Guerra"}]],["🎵 Voz y Música",[{n:"/play",d:"Reproducir"},{n:"/skip",d:"Saltar"},{n:"/stop",d:"Parar"},{n:"/queue",d:"Cola"},{n:"/pause",d:"Pausa"},{n:"/resume",d:"Reanudar"},{n:"/volume",d:"Volumen"},{n:"/nowplaying",d:"Reproduciendo"},{n:"/radio",d:"Radio"},{n:"/loop",d:"Bucle"}]],["🔧 Utilidades",[{n:"/help",d:"Ayuda"},{n:"/ping",d:"Latencia"},{n:"/serverinfo",d:"Info servidor"},{n:"/userinfo",d:"Info usuario"},{n:"/avatar",d:"Avatar"},{n:"/remind",d:"Recordatorio"},{n:"/giveaway",d:"Sorteo"},{n:"/poll",d:"Encuesta"},{n:"/ticket",d:"Ticket"},{n:"/verify",d:"Verificación"},{n:"/reactionrole",d:"Roles reacción"},{n:"/customcmd",d:"Comando perso"},{n:"/globalchat",d:"Chat global"},{n:"/support",d:"Soporte"},{n:"/ai",d:"IA local"}]])
+};
+// Fill remaining EU with ES fallback + localized titles
+const euTitles={it:["🛡️ Moderazione","💰 Economia"," Voce e Musica"," Utilità"],pt:["️ Moderação"," Economia","🎵 Voz e Música","🔧 Utilidades"],nl:["🛡️ Moderatie","💰 Economie","🎵 Spraak & Muziek","🔧 Hulpmiddelen"],pl:["🛡️ Moderacja","💰 Ekonomia","🎵 Głos i Muzyka","🔧 Narzędzia"],sv:["🛡️ Moderering","💰 Ekonomi"," Röst & Musik"," Verktyg"],da:["🛡️ Moderation","💰 Økonomi","🎵 Stemme & Musik","🔧 Værktøjer"],fi:["🛡️ Moderointi","💰 Talous","🎵 Ääni & Musiikki","🔧 Työkalut"],el:["🛡️ Εποπτεία","💰 Οικονομία","🎵 Φωνή & Μουσική","🔧 Εργαλεία"],cs:["🛡️ Moderace","💰 Ekonomika","🎵 Hlas & Hudba","🔧 Nástroje"],sk:["🛡️ Moderácia","💰 Ekonomika","🎵 Hlas & Hudba","🔧 Nástroje"],hu:["🛡️ Moderálás","💰 Gazdaság","🎵 Hang & Zene","🔧 Eszközök"],ro:["🛡️ Moderare","💰 Economie","🎵 Voce & Muzică","🔧 Utilități"],bg:["🛡️ Модерация","💰 Икономика","🎵 Глас и Музика","🔧 Инструменти"],hr:["🛡️ Moderacija","💰 Ekonomija","🎵 Glas i Glazba","🔧 Alati"],sl:["🛡️ Moderacija","💰 Ekonomija","🎵 Glas in Glasba","🔧 Orodja"],et:["🛡️ Modereerimine","💰 Majandus","🎵 Hääl ja Muusika","🔧 Tööriistad"],lv:["🛡️ Moderēšana","💰 Ekonomika","🎵 Balss un Mūzika","🔧 Rīki"],lt:["🛡️ Moderavimas","💰 Ekonomika","🎵 Balsas ir Muzika","🔧 Įrankiai"],ga:["🛡️ Modhnóireacht","💰 Eacnamaíocht","🎵 Guth & Ceol","🔧 Uirlisí"],mt:["🛡️ Moderazzjoni","💰 Ekonomija","🎵 Vuċi u Mużika","🔧 Għodod"]};
+Object.keys(euTitles).forEach(l=>{
+if(!euCmds[l]){const t=euTitles[l];euCmds[l]=mkC([t[0],euCmds.es.mod.cmds],[t[1],euCmds.es.eco.cmds],[t[2],euCmds.es.voice.cmds],[t[3],euCmds.es.util.cmds])}
+});
+
+/* Nav & UI strings */
+const nav={
+"en-US":{nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"Commands",pg_s:"Browse all available commands by category. Use search to find what you need.",srch_ph:"Search commands...",srch_res:"results found",no_res:"No commands found matching your search.",all:"All",cats:enC},
+"en-GB":{nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"Commands",pg_s:"Browse all available commands by category. Use search to find what you need.",srch_ph:"Search commands...",srch_res:"results found",no_res:"No commands found matching your search.",all:"All",cats:enC},
+"ru":{nav_home:"Главная",nav_about:"О боте",nav_features:"Функции",nav_commands:"Команды",nav_support:"Поддержка",nav_status:"Статус",nav_privacy:"Конфиденциальность",nav_terms:"Условия",btn_add:"➕ Добавить",btn_support:"💬 Поддержка",pg_t:"Команды",pg_s:"Просмотрите все доступные команды по категориям. Используйте поиск.",srch_ph:"Поиск команд...",srch_res:"результатов найдено",no_res:"Команды не найдены.",all:"Все",cats:ruC},
+"uk":{nav_home:"Головна",nav_about:"Про бота",nav_features:"Функції",nav_commands:"Команди",nav_support:"Підтримка",nav_status:"Статус",nav_privacy:"Конфіденційність",nav_terms:"Умови",btn_add:"➕ Додати",btn_support:"💬 Підтримка",pg_t:"Команди",pg_s:"Перегляньте всі доступні команди за категоріями.",srch_ph:"Пошук команд...",srch_res:"результатів знайдено",no_res:"Команди не знайдені.",all:"Усі",cats:ukC},
+"de":{nav_home:"Startseite",nav_about:"Über",nav_features:"Funktionen",nav_commands:"Befehle",nav_support:"Support",nav_status:"Status",nav_privacy:"Datenschutz",nav_terms:"Nutzungsbedingungen",btn_add:"➕ Hinzufügen",btn_support:"💬 Support",pg_t:"Befehle",pg_s:"Alle verfügbaren Befehle nach Kategorie. Suche verwenden.",srch_ph:"Befehle suchen...",srch_res:"Ergebnisse",no_res:"Keine Befehle gefunden.",all:"Alle",cats:euCmds.de},
+"fr":{nav_home:"Accueil",nav_about:"À propos",nav_features:"Fonctionnalités",nav_commands:"Commandes",nav_support:"Support",nav_status:"Statut",nav_privacy:"Confidentialité",nav_terms:"Conditions",btn_add:"➕ Ajouter",btn_support:"💬 Support",pg_t:"Commandes",pg_s:"Parcourez toutes les commandes par catégorie.",srch_ph:"Rechercher...",srch_res:"résultats",no_res:"Aucune commande trouvée.",all:"Tous",cats:euCmds.fr},
+"es":{nav_home:"Inicio",nav_about:"Acerca de",nav_features:"Características",nav_commands:"Comandos",nav_support:"Soporte",nav_status:"Estado",nav_privacy:"Privacidad",nav_terms:"Términos",btn_add:"➕ Añadir",btn_support:"💬 Soporte",pg_t:"Comandos",pg_s:"Explora todos los comandos por categoría.",srch_ph:"Buscar comandos...",srch_res:"resultados",no_res:"No se encontraron comandos.",all:"Todos",cats:euCmds.es}
+};
+// Fill remaining EU
+const euNav={it:["Home","Info","Funzionalità","Comandi","Supporto","Stato","Privacy","Termini","➕ Aggiungi"," Supporto","Comandi","Esplora i comandi per categoria.","Cerca...","risultati","Nessun comando trovato.","Tutti"],pt:["Início","Sobre","Recursos","Comandos","Suporte","Estado","Privacidade","Termos","➕ Adicionar","💬 Suporte","Comandos","Explore os comandos.","Pesquisar...","resultados","Nenhum comando encontrado.","Todos"],nl:["Home","Over","Functies","Commando's","Ondersteuning","Status","Privacy","Voorwaarden","➕ Toevoegen","💬 Support","Commando's","Bekijk commando's.","Zoeken...","resultaten","Geen commando's gevonden.","Alle"],pl:["Strona główna","O bocie","Funkcje","Komendy","Wsparcie","Status","Prywatność","Regulamin","➕ Dodaj","💬 Wsparcie","Komendy","Przeglądaj komendy.","Szukaj...","wyników","Nie znaleziono.","Wszystkie"],sv:["Hem","Om","Funktioner","Kommandon","Support","Status","Integritet","Villkor","➕ Lägg till","💬 Support","Kommandon","Utforska kommandon.","Sök...","resultat","Inga kommandon.","Alla"],da:["Hjem","Om","Funktioner","Kommandoer","Support","Status","Privatliv","Vilkår","➕ Tilføj","💬 Support","Kommandoer","Udforsk kommandoer.","Søg...","resultater","Ingen kommandoer.","Alle"],fi:["Koti","Tietoa","Ominaisuudet","Komennot","Tuki","Tila","Tietosuoja","Ehdot","➕ Lisää","💬 Tuki","Komennot","Selaa komentoja.","Etsi...","tulosta","Ei komentoja.","Kaikki"],el:["Αρχική","Σχετικά","Λειτουργίες","Εντολές","Υποστήριξη","Κατάσταση","Απόρρητο","Όροι","➕ Προσθήκη","💬 Υποστήριξη","Εντολές","Περιήγηση εντολών.","Αναζήτηση...","αποτελέσματα","Δεν βρέθηκαν.","Όλες"],cs:["Domů","O botu","Funkce","Příkazy","Podpora","Stav","Soukromí","Podmínky","➕ Přidat","💬 Podpora","Příkazy","Prohlížet příkazy.","Hledat...","výsledků","Žádné příkazy.","Vše"],sk:["Domov","O bote","Funkcie","Príkazy","Podpora","Stav","Súkromie","Podmienky","➕ Pridať","💬 Podpora","Príkazy","Prehliadať príkazy.","Hľadať...","výsledkov","Žiadne príkazy.","Všetky"],hu:["Kezdőlap","Rólunk","Funkciók","Parancsok","Támogatás","Állapot","Adatvédelem","Feltételek","➕ Hozzáadás","💬 Támogatás","Parancsok","Böngészés.","Keresés...","eredmény","Nincs találat.","Összes"],ro:["Acasă","Despre","Funcții","Comenzi","Suport","Stare","Confidențialitate","Termeni","➕ Adaugă","💬 Suport","Comenzi","Răsfoiește.","Caută...","rezultate","Niciun rezultat.","Toate"],bg:["Начало","За бота","Функции","Команди","Поддръжка","Състояние","Поверителност","Условия","➕ Добави","💬 Поддръжка","Команди","Преглед.","Търсене...","резултата","Няма резултати.","Всички"],hr:["Početna","O botu","Značajke","Naredbe","Podrška","Status","Privatnost","Uvjeti","➕ Dodaj","💬 Podrška","Naredbe","Pregledaj.","Traži...","rezultata","Nema rezultata.","Sve"],sl:["Domov","O botu","Funkcije","Ukazi","Podpora","Stanje","Zasebnost","Pogoji","➕ Dodaj","💬 Podpora","Ukazi","Prebrskaj.","Išči...","rezultatov","Ni rezultatov.","Vse"],et:["Avaleht","Teave","Funktsioonid","Käsud","Tugi","Olek","Privaatsus","Tingimused","➕ Lisa","💬 Tugi","Käsud","Sirvi.","Otsi...","tulemust","Tulemusi pole.","Kõik"],lv:["Sākums","Par","Funkcijas","Komandas","Atbalsts","Statuss","Privātums","Noteikumi","➕ Pievienot","💬 Atbalsts","Komandas","Pārlūkot.","Meklēt...","rezultāti","Nav rezultātu.","Visas"],lt:["Pradžia","Apie","Funkcijos","Komandos","Palaikymas","Būsena","Privatumas","Sąlygos","➕ Pridėti","💬 Palaikymas","Komandos","Naršyti.","Ieškoti...","rezultatų","Nėra rezultatų.","Visos"],ga:["Baile","Eolas","Gnéithe","Orduithe","Tacaíocht","Stádas","Príobháideachas","Téarmaí","➕ Cuir leis","💬 Tacaíocht","Orduithe","Brabhsáil.","Cuardaigh...","torthaí","Gan toradh.","Uile"],mt:["Paġna Ewlenija","Dwar","Karatteristiċi","Kmandi","Appoġġ","Status","Privatezza","Termini","➕ Żid","💬 Appoġġ","Kmandi","Ara.","Fittex...","riżultati","L-ebda riżultat.","Kollha"]};
+const euFlags={de:"🇩",fr:"🇫",es:"🇪🇸",it:"🇮🇹",pt:"🇵",nl:"🇱",pl:"🇱",sv:"🇸🇪",da:"🇩🇰",fi:"🇫",el:"🇬",cs:"🇨🇿",sk:"🇸",hu:"🇭",ro:"🇷🇴",bg:"🇧🇬",hr:"🇭🇷",sl:"🇸",et:"🇪",lv:"🇻",lt:"🇱🇹",ga:"🇮🇪",mt:"🇲"};
+const euNames={de:"Deutsch",fr:"Français",es:"Español",it:"Italiano",pt:"Português",nl:"Nederlands",pl:"Polski",sv:"Svenska",da:"Dansk",fi:"Suomi",el:"Ελληνικά",cs:"Čeština",sk:"Slovenčina",hu:"Magyar",ro:"Română",bg:"Български",hr:"Hrvatski",sl:"Slovenščina",et:"Eesti",lv:"Latviešu",lt:"Lietuvių",ga:"Gaeilge",mt:"Malti"};
+Object.keys(euNav).forEach(l=>{const n=euNav[l];nav[l]={nav_home:n[0],nav_about:n[1],nav_features:n[2],nav_commands:n[3],nav_support:n[4],nav_status:n[5],nav_privacy:n[6],nav_terms:n[7],btn_add:n[8],btn_support:n[9],pg_t:n[10],pg_s:n[11],srch_ph:n[12],srch_res:n[13],no_res:n[14],all:n[15],cats:euCmds[l]||euCmds.es}});
+Object.keys(nav).forEach(l=>{if(!nav[l].name)nav[l]={name:euNames[l]||"English",flag:euFlags[l]||"🇺🇸",...nav[l]}});
+
+const T=nav;
 let lang=localStorage.getItem('c2g-lang')||'en-US';
 let theme=localStorage.getItem('c2g-theme')||'dark';
 let activeCat='all';
@@ -397,8 +362,7 @@ d.onclick=()=>{setLang(c);closeLM()};m.appendChild(d);
 }
 
 function setLang(c){
-if(!T[c])c='en-US';lang=c;localStorage.setItem('c2g-lang',c);
-const t=T[c];
+if(!T[c])c='en-US';lang=c;localStorage.setItem('c2g-lang',c);const t=T[c];
 document.getElementById('cF').textContent=t.flag;
 document.getElementById('cL').textContent=t.name;
 document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k]});
@@ -410,16 +374,16 @@ const keys=Object.keys(T).sort((a,b)=>T[a].name.localeCompare(T[b].name));
 const idx=keys.indexOf(c);const opts=document.querySelectorAll('.lo');
 if(opts[idx])opts[idx].classList.add('act');
 document.documentElement.lang=c;
-document.getElementById('srchInp').value='';
+document.getElementById('srch').value='';
 doSearch();
 }
 
 function buildTabs(t){
 const w=document.getElementById('fTabs');w.innerHTML='';
-const allBtn=document.createElement('button');allBtn.className='ftab active';allBtn.textContent=t.all||'All';allBtn.onclick=()=>{activeCat='all';updTabs();doSearch()};w.appendChild(allBtn);
-t.categories.forEach(cat=>{
-const b=document.createElement('button');b.className='ftab';b.textContent=cat.cat;b.setAttribute('data-cat',cat.id);
-b.onclick=()=>{activeCat=cat.id;updTabs();doSearch()};w.appendChild(b);
+const allBtn=document.createElement('button');allBtn.className='ftab act';allBtn.textContent=t.all||'All';allBtn.onclick=()=>{activeCat='all';updTabs();doSearch()};w.appendChild(allBtn);
+CATS.forEach(id=>{
+const b=document.createElement('button');b.className='ftab';b.textContent=t.cats[id].cat;b.setAttribute('data-cat',id);
+b.onclick=()=>{activeCat=id;updTabs();doSearch()};w.appendChild(b);
 });
 }
 
@@ -432,9 +396,9 @@ else t.classList.toggle('active',t.getAttribute('data-cat')===activeCat);
 
 function buildCmds(t){
 const sec=document.getElementById('cmdSec');sec.innerHTML='';
-t.categories.forEach(cat=>{
-const d=document.createElement('div');d.className='cat';d.setAttribute('data-cat-id',cat.id);
-let h='<div class="cat-h">'+cat.cat+'</div>';
+CATS.forEach(id=>{
+const cat=t.cats[id];const d=document.createElement('div');d.className='cat';d.setAttribute('data-cat-id',id);
+let h=`<div class="cat-h">${cat.cat}</div>`;
 cat.cmds.forEach(c=>{
 h+=`<div class="cmd" data-search="${c.n.toLowerCase()} ${c.d.toLowerCase()}"><span class="cmd-n">${c.n}</span><span class="cmd-d">${c.d}</span></div>`;
 });
@@ -443,7 +407,7 @@ d.innerHTML=h;sec.appendChild(d);
 }
 
 function doSearch(){
-const q=document.getElementById('srchInp').value.toLowerCase().trim();
+const q=document.getElementById('srch').value.toLowerCase().trim();
 let total=0;let anyVisible=false;
 document.querySelectorAll('.cat').forEach(cat=>{
 const catId=cat.getAttribute('data-cat-id');
@@ -482,7 +446,7 @@ document.getElementById('mBtn').onclick=openMM;
 document.getElementById('cMn').onclick=closeMM;
 document.getElementById('mOv').onclick=closeMM;
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLM();closeMM()}});
-document.getElementById('srchInp').addEventListener('input',doSearch);
+document.getElementById('srch').addEventListener('input',doSearch);
 }
 </script>
 </body>

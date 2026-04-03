@@ -3,18 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carapuz201G — Discord Bot</title>
-<meta name="description" content="Carapuz201G — a powerful Discord bot with moderation, economy, kingdoms, voice, and optional local AI.">
+<title>Carapuz201G — All-in-One Discord Bot</title>
+<meta name="description" content="Carapuz201G is a powerful all-in-one Discord bot with moderation, economy, kingdoms, tickets, verification, voice, music, radio, and optional local AI through Ollama.">
 <style>
 :root{--tr:0.3s}
-[data-theme="dark"]{--bg:#0b0f1a;--bg2:#111827;--card:rgba(17,24,39,0.88);--hdr:rgba(11,15,26,0.93);--tx:#e2e8f0;--tx2:#94a3b8;--acc:#5865F2;--acc2:#38bdf8;--brd:rgba(88,101,242,0.18);--shd:rgba(0,0,0,0.4);--glw:rgba(88,101,242,0.3);--dd:#1e293b;--ddh:#334155;--ok:#22c55e;--g1:#0b0f1a;--g2:#15102e;--g3:#0d2847}
-[data-theme="light"]{--bg:#f0f4ff;--bg2:#e8efff;--card:rgba(255,255,255,0.9);--hdr:rgba(240,244,255,0.95);--tx:#1e293b;--tx2:#64748b;--acc:#5865F2;--acc2:#0284c7;--brd:rgba(88,101,242,0.15);--shd:rgba(0,0,0,0.1);--glw:rgba(88,101,242,0.2);--dd:#fff;--ddh:#f1f5f9;--ok:#16a34a;--g1:#e4eaff;--g2:#f0e6ff;--g3:#dff0ff}
+[data-theme="dark"]{--bg:#0b0f1a;--bg2:#111827;--card:rgba(17,24,39,0.88);--hdr:rgba(11,15,26,0.93);--tx:#e2e8f0;--tx2:#94a3b8;--acc:#5865F2;--acc2:#38bdf8;--brd:rgba(88,101,242,0.18);--shd:rgba(0,0,0,0.4);--glw:rgba(88,101,242,0.3);--dd:#1e293b;--ddh:#334155;--g1:#0b0f1a;--g2:#15102e;--g3:#0d2847;--green:#22c55e;--red:#ef4444;--yellow:#f59e0b}
+[data-theme="light"]{--bg:#f0f4ff;--bg2:#e8efff;--card:rgba(255,255,255,0.9);--hdr:rgba(240,244,255,0.95);--tx:#1e293b;--tx2:#64748b;--acc:#5865F2;--acc2:#0284c7;--brd:rgba(88,101,242,0.15);--shd:rgba(0,0,0,0.1);--glw:rgba(88,101,242,0.2);--dd:#fff;--ddh:#f1f5f9;--g1:#e4eaff;--g2:#f0e6ff;--g3:#dff0ff;--green:#16a34a;--red:#dc2626;--yellow:#d97706}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;transition:background var(--tr),color var(--tr);min-height:100vh}
-a{color:inherit}
-
-/* ===== HEADER ===== */
+a{color:inherit;text-decoration:none}
 .hdr{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--hdr);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--brd);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;transition:background var(--tr)}
 .hdr-l{display:flex;align-items:center;gap:.6rem}
 .hm-lnk{display:flex;align-items:center;text-decoration:none;color:var(--tx2);font-size:1.35rem;transition:color .3s}
@@ -23,34 +21,25 @@ a{color:inherit}
 @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
 .brand{font-size:1.15rem;font-weight:700;color:var(--tx);text-decoration:none;transition:color .3s}
 .brand:hover{color:var(--acc)}
-
-/* NAV */
 .nav{display:flex;align-items:center;gap:.15rem}
 .nav a{padding:.35rem .55rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.8rem;font-weight:500;transition:all .2s;white-space:nowrap}
 .nav a:hover{color:var(--tx);background:var(--brd)}
-.nav a.active{color:var(--acc);background:rgba(88,101,242,.12)}
-
-/* HEADER RIGHT */
+.nav a.act{color:var(--acc);background:rgba(88,101,242,.12)}
 .hdr-r{display:flex;align-items:center;gap:.45rem}
-
-/* BUTTONS */
-.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.4rem .8rem;border-radius:10px;font-size:.78rem;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid var(--brd);transition:all .3s;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.45rem .9rem;border-radius:10px;font-size:.8rem;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid var(--brd);transition:all .3s;white-space:nowrap}
 .btn-a{background:var(--acc);color:#fff;border-color:var(--acc)}
-.btn-a:hover{background:#4752c4;box-shadow:0 4px 20px var(--glw);transform:translateY(-1px)}
+.btn-a:hover{background:#4752c4;box-shadow:0 4px 20px var(--glw);transform:translateY(-2px)}
 .btn-o{background:transparent;color:var(--tx)}
 .btn-o:hover{background:var(--brd);border-color:var(--acc)}
-
-/* THEME */
+.btn-lg{padding:.65rem 1.5rem;font-size:.92rem;border-radius:12px}
 .th-btn{background:var(--card);border:1px solid var(--brd);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--tx);transition:all .3s}
 .th-btn:hover{border-color:var(--acc);box-shadow:0 0 12px var(--glw);transform:rotate(20deg)}
-
-/* LANG */
 .ld{position:relative}
 .lb{background:var(--card);border:1px solid var(--brd);border-radius:10px;padding:.35rem .65rem;cursor:pointer;display:flex;align-items:center;gap:.35rem;font-size:.78rem;color:var(--tx);transition:all .3s}
 .lb:hover{border-color:var(--acc);box-shadow:0 0 10px var(--glw)}
 .lb .ar{font-size:.55rem;transition:transform .3s}
 .lb.open .ar{transform:rotate(180deg)}
-.lm{position:absolute;top:calc(100% + 6px);right:0;background:var(--dd);border:1px solid var(--brd);border-radius:12px;padding:.35rem 0;min-width:190px;max-height:350px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .3s;box-shadow:0 16px 40px var(--shd);z-index:1001}
+.lm{position:absolute;top:calc(100% + 6px);right:0;background:var(--dd);border:1px solid var(--brd);border-radius:12px;padding:.35rem 0;min-width:200px;max-height:400px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .3s;box-shadow:0 16px 40px var(--shd);z-index:1001}
 .lm.show{opacity:1;visibility:visible;transform:translateY(0)}
 .lm::-webkit-scrollbar{width:5px}
 .lm::-webkit-scrollbar-thumb{background:var(--brd);border-radius:3px}
@@ -58,94 +47,89 @@ a{color:inherit}
 .lo:hover{background:var(--ddh)}
 .lo.act{color:var(--acc);font-weight:600}
 .lo .fl{font-size:1.05rem}
-
-/* MOBILE */
 .mb{display:none;background:var(--card);border:1px solid var(--brd);border-radius:8px;width:34px;height:34px;align-items:center;justify-content:center;cursor:pointer;color:var(--tx);font-size:1.15rem}
-.mov{display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}
-.mov.show{display:block}
-.mm{position:fixed;top:0;right:-300px;width:270px;height:100%;background:var(--bg2);z-index:999;padding:1.25rem;transition:right .3s;overflow-y:auto;border-left:1px solid var(--brd)}
-.mm.show{right:0}
-.mm .cb{background:none;border:none;color:var(--tx);font-size:1.4rem;cursor:pointer;float:right;padding:.25rem}
+.mov{display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}.mov.show{display:block}
+.mm{position:fixed;top:0;right:-300px;width:270px;height:100%;background:var(--bg2);z-index:999;padding:1.25rem;transition:right .3s;overflow-y:auto;border-left:1px solid var(--brd)}.mm.show{right:0}
+.mm .xb{background:none;border:none;color:var(--tx);font-size:1.4rem;cursor:pointer;float:right;padding:.25rem}
 .mn{display:flex;flex-direction:column;gap:.2rem;margin-top:2.5rem}
 .mn a{padding:.6rem .7rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.9rem;transition:all .2s}
-.mn a:hover,.mn a.active{color:var(--acc);background:rgba(88,101,242,.1)}
-.ma{display:flex;flex-direction:column;gap:.5rem;margin-top:1.25rem}
-.ma .btn{justify-content:center}
-
-/* ===== HERO ===== */
-.hero{padding:7rem 2rem 4rem;text-align:center;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);position:relative;overflow:hidden;transition:background var(--tr)}
+.mn a:hover,.mn a.act{color:var(--acc);background:rgba(88,101,242,.1)}
+.mab{display:flex;flex-direction:column;gap:.5rem;margin-top:1.25rem}
+.mab .btn{justify-content:center}
+/* HERO */
+.hero{padding:7rem 2rem 4rem;text-align:center;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);position:relative;overflow:hidden;transition:background var(--tr);min-height:75vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(88,101,242,.15) 0%,transparent 60%);pointer-events:none}
-.hc{position:relative;z-index:2;max-width:680px;margin:0 auto}
-.he{font-size:4.5rem;margin-bottom:.75rem;display:inline-block;animation:hf 4s ease-in-out infinite}
-@keyframes hf{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-14px) rotate(2deg)}}
-.ht{font-size:2.8rem;font-weight:800;margin-bottom:.7rem;background:linear-gradient(135deg,var(--tx),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hs{font-size:1.1rem;color:var(--tx2);line-height:1.65;margin-bottom:1.75rem}
-.hb{display:flex;justify-content:center;gap:.7rem;flex-wrap:wrap}
-.hb .btn{padding:.55rem 1.4rem;font-size:.9rem;border-radius:12px}
-
-/* ===== SECTIONS ===== */
-.sec{padding:3.5rem 2rem;max-width:1200px;margin:0 auto}
-.st{text-align:center;font-size:1.6rem;font-weight:700;margin-bottom:.4rem}
-.ss{text-align:center;color:var(--tx2);margin-bottom:2.25rem;font-size:.95rem}
-
-/* FEATURE CARDS */
-.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.15rem}
-.fc{background:var(--card);backdrop-filter:blur(12px);border:1px solid var(--brd);border-radius:16px;padding:1.5rem;transition:all .35s;cursor:default;position:relative;overflow:hidden}
-.fc::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),var(--acc2));opacity:0;transition:opacity .3s}
-.fc:hover{transform:translateY(-5px);box-shadow:0 14px 44px var(--shd);border-color:var(--acc)}
-.fc:hover::after{opacity:1}
-.fi{font-size:1.85rem;margin-bottom:.6rem;display:inline-block}
-.ft{font-size:1.02rem;font-weight:700;margin-bottom:.35rem}
-.fd{font-size:.84rem;color:var(--tx2);line-height:1.55}
-
-/* STATUS */
-.stw{background:var(--card);backdrop-filter:blur(12px);border:1px solid var(--brd);border-radius:16px;padding:1.75rem;max-width:560px;margin:0 auto;text-align:center}
-.si{display:inline-flex;align-items:center;gap:.45rem;font-size:1.05rem;font-weight:600;margin-bottom:1rem}
-.sd{width:11px;height:11px;border-radius:50%;background:var(--ok);animation:pd 2s infinite}
-@keyframes pd{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.4)}50%{box-shadow:0 0 0 8px rgba(34,197,94,0)}}
-.sds{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap}
-.sdi{text-align:center}
-.sv{font-size:1.2rem;font-weight:700;color:var(--acc)}
-.sl{font-size:.75rem;color:var(--tx2);margin-top:.15rem}
-
+.hero-c{position:relative;z-index:2;max-width:750px}
+.hero-i{font-size:5rem;margin-bottom:1rem;display:inline-block;animation:hb 4s ease-in-out infinite;filter:drop-shadow(0 8px 24px var(--shd))}
+@keyframes hb{0%,100%{transform:translateY(0) rotate(-2deg)}25%{transform:translateY(-14px) rotate(1deg)}50%{transform:translateY(-4px) rotate(-1deg)}75%{transform:translateY(-18px) rotate(2deg)}}
+.hero-t{font-size:3rem;font-weight:800;margin-bottom:.7rem;background:linear-gradient(135deg,var(--tx),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-s{font-size:1.1rem;color:var(--tx2);line-height:1.7;margin-bottom:2rem;max-width:620px;margin-left:auto;margin-right:auto}
+.hero-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem}
+.hero-stats{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+.hs{text-align:center}
+.hs-v{font-size:1.4rem;font-weight:800;color:var(--acc)}
+.hs-l{font-size:.75rem;color:var(--tx2)}
+/* SECTIONS */
+.sec{padding:3.5rem 2rem;max-width:1100px;margin:0 auto}
+.sec-t{text-align:center;font-size:1.7rem;font-weight:800;margin-bottom:.5rem}
+.sec-s{text-align:center;font-size:.95rem;color:var(--tx2);margin-bottom:2.5rem;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.6}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem}
+.fc{background:var(--card);backdrop-filter:blur(12px);border:1px solid var(--brd);border-radius:16px;padding:1.75rem;transition:all .35s;position:relative;overflow:hidden}
+.fc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--fc-acc,var(--acc)),transparent);opacity:0;transition:opacity .3s}
+.fc:hover{transform:translateY(-5px);box-shadow:0 12px 40px var(--shd);border-color:var(--acc)}
+.fc:hover::before{opacity:1}
+.fc-i{font-size:2.2rem;margin-bottom:.5rem;display:inline-block}
+.fc-t{font-size:1.05rem;font-weight:700;margin-bottom:.4rem}
+.fc-d{font-size:.86rem;color:var(--tx2);line-height:1.65}
+.fc-tag{display:inline-flex;align-items:center;gap:.25rem;background:var(--brd);padding:.18rem .55rem;border-radius:14px;font-size:.72rem;color:var(--acc);margin-top:.6rem}
+/* STATUS BANNER */
+.stb{background:var(--card);border:1px solid var(--brd);border-radius:16px;padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem;transition:all .3s}
+.stb:hover{border-color:var(--acc);box-shadow:0 8px 30px var(--shd)}
+.stb-l{display:flex;align-items:center;gap:.75rem}
+.stb-dot{width:12px;height:12px;border-radius:50%;background:var(--green);animation:pulse 2s ease-in-out infinite;box-shadow:0 0 8px var(--green)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.stb-txt{font-weight:700;font-size:1rem}
+.stb-sub{color:var(--tx2);font-size:.82rem}
+.stb-r{display:flex;gap:2rem}
+.stb-stat{text-align:center}
+.stb-v{font-weight:800;font-size:1.15rem;color:var(--acc)}
+.stb-lbl{font-size:.72rem;color:var(--tx2)}
 /* QUICK NAV */
-.qg{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.85rem}
-.ql{display:flex;align-items:center;gap:.5rem;padding:.85rem 1rem;border-radius:12px;background:var(--card);border:1px solid var(--brd);text-decoration:none;color:var(--tx);font-weight:500;font-size:.87rem;transition:all .3s}
-.ql:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 8px 24px var(--shd)}
-.qi{font-size:1.2rem}
-
+.qn{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem}
+.qn a{background:var(--card);border:1px solid var(--brd);border-radius:12px;padding:1.1rem;display:flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--tx);font-weight:600;font-size:.88rem;transition:all .3s}
+.qn a:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 8px 20px var(--shd)}
+.qn-i{font-size:1.3rem}
+/* CTA SECTION */
+.cta{background:linear-gradient(135deg,rgba(88,101,242,.1),rgba(56,189,248,.08));border:1px solid var(--brd);border-radius:20px;padding:3rem 2rem;text-align:center;margin:1rem auto;max-width:800px}
+.cta-t{font-size:1.5rem;font-weight:800;margin-bottom:.5rem}
+.cta-s{color:var(--tx2);font-size:.92rem;margin-bottom:1.5rem;line-height:1.6}
+.cta-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
 /* FOOTER */
 .ftr{text-align:center;padding:1.75rem;color:var(--tx2);font-size:.82rem;border-top:1px solid var(--brd);background:var(--hdr);backdrop-filter:blur(20px)}
 .ftr a{color:var(--acc);text-decoration:none}
 .ftr a:hover{text-decoration:underline}
-.fl{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-bottom:.65rem}
-
+.ftl{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-bottom:.65rem}
 /* RESPONSIVE */
 @media(max-width:1024px){.nav{display:none}.mb{display:flex}.hdr-r .btn{display:none}}
-@media(max-width:768px){.hero{padding:5.5rem 1.25rem 3rem}.ht{font-size:2rem}.he{font-size:3.2rem}.sec{padding:2.5rem 1.25rem}.lb .ll{display:none}}
-@media(max-width:480px){.ht{font-size:1.7rem}.hs{font-size:.95rem}.hb .btn{width:100%;justify-content:center}.fg{grid-template-columns:1fr}}
-
-/* ANIMATIONS */
-.rv{opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s}
-.rv.vis{opacity:1;transform:translateY(0)}
-.ld-w{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;transition:opacity .4s,visibility .4s}
-.ld-w.hid{opacity:0;visibility:hidden}
-.ld-e{font-size:2.8rem;animation:lb 1s ease-in-out infinite}
-@keyframes lb{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.1)}}
+@media(max-width:768px){.hero{padding:5.5rem 1.25rem 2.5rem;min-height:auto}.hero-t{font-size:2rem}.hero-s{font-size:.95rem}.sec{padding:2.5rem 1.25rem}.fg{grid-template-columns:1fr}.lb .ll{display:none}.stb{flex-direction:column;text-align:center}.stb-r{justify-content:center}.hero-stats{gap:1.25rem}}
+@media(max-width:480px){.hero-t{font-size:1.6rem}.hero-i{font-size:3.5rem}.fc{padding:1.25rem}.qn{grid-template-columns:1fr}.cta{padding:2rem 1.25rem}}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s}.rv.vis{opacity:1;transform:translateY(0)}
+.ld-w{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;transition:opacity .4s,visibility .4s}.ld-w.hid{opacity:0;visibility:hidden}
+.ld-e{font-size:2.8rem;animation:lba 1s ease-in-out infinite}
+@keyframes lba{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.1)}}
 .ld-b{width:100px;height:3px;background:var(--brd);border-radius:3px;overflow:hidden}
-.ld-f{height:100%;width:0%;background:var(--acc);border-radius:3px;animation:lf 1.2s ease forwards}
-@keyframes lf{to{width:100%}}
+.ld-f{height:100%;width:0%;background:var(--acc);border-radius:3px;animation:lfx 1.2s ease forwards}
+@keyframes lfx{to{width:100%}}
 </style>
 </head>
-<body data-page="home">
+<body>
 <div class="ld-w" id="ldr"><div class="ld-e">🤖</div><div style="color:var(--tx2);font-size:.85rem;letter-spacing:2px">CARAPUZ201G</div><div class="ld-b"><div class="ld-f"></div></div></div>
-
 <header class="hdr">
 <div class="hdr-l">
 <a href="https://carapuzland.github.io" class="hm-lnk" title="CarapuzLand"><span class="em">🏝️</span></a>
 <a href="./" class="brand">Carapuz201G</a>
 </div>
-<nav class="nav" id="dnav">
+<nav class="nav">
 <a href="./about/" data-i18n="nav_about">About</a>
 <a href="./features/" data-i18n="nav_features">Features</a>
 <a href="./commands/" data-i18n="nav_commands">Commands</a>
@@ -156,21 +140,17 @@ a{color:inherit}
 </nav>
 <div class="hdr-r">
 <button class="th-btn" id="thBtn" title="Toggle theme">🌙</button>
-<div class="ld">
-<button class="lb" id="lBtn"><span class="fl" id="cF">🇺🇸</span><span class="ll" id="cL">English</span><span class="ar">▼</span></button>
-<div class="lm" id="lMn"></div>
-</div>
-<a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" data-i18n="btn_support" target="_blank">💬 Support</a>
-<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" data-i18n="btn_add" target="_blank">➕ Add Bot</a>
+<div class="ld"><button class="lb" id="lBtn"><span class="fl" id="cF">🇺🇸</span><span class="ll" id="cL">English</span><span class="ar">▼</span></button><div class="lm" id="lMn"></div></div>
+<a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
+<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
 <button class="mb" id="mBtn">☰</button>
 </div>
 </header>
-
 <div class="mov" id="mOv"></div>
 <div class="mm" id="mMn">
-<button class="cb" id="cMn">✕</button>
+<button class="xb" id="cMn">✕</button>
 <div class="mn">
-<a href="./" class="active" data-i18n="nav_home">Home</a>
+<a href="./" class="act" data-i18n="nav_home">Home</a>
 <a href="./about/" data-i18n="nav_about">About</a>
 <a href="./features/" data-i18n="nav_features">Features</a>
 <a href="./commands/" data-i18n="nav_commands">Commands</a>
@@ -179,84 +159,324 @@ a{color:inherit}
 <a href="./privacy-policy/" data-i18n="nav_privacy">Privacy Policy</a>
 <a href="./terms-of-service/" data-i18n="nav_terms">Terms of Service</a>
 </div>
-<div class="ma">
+<div class="mab">
 <a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
 <a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
 </div>
 </div>
-
 <main>
 <section class="hero">
-<div class="hc">
-<div class="he">🤖</div>
-<h1 class="ht" data-i18n="hero_t">Carapuz201G</h1>
-<p class="hs" data-i18n="hero_s">A powerful, feature-rich Discord bot with moderation, economy, kingdoms, voice, and optional local AI — all in one.</p>
-<div class="hb">
-<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="hero_add">➕ Add to Discord</a>
-<a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="hero_sup">💬 Support Server</a>
+<div class="hero-c">
+<div class="hero-i">🤖</div>
+<h1 class="hero-t" data-i18n="hero_t">Carapuz201G</h1>
+<p class="hero-s" data-i18n="hero_s">A powerful all-in-one Discord bot with moderation, economy, kingdoms, tickets, verification, voice, music, radio, giveaways, and optional local AI. Everything your server needs — in one bot.</p>
+<div class="hero-btns">
+<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a btn-lg" target="_blank" data-i18n="btn_add_lg">➕ Add to Discord</a>
+<a href="https://discord.gg/YOUR_INVITE" class="btn btn-o btn-lg" target="_blank" data-i18n="btn_support_lg">💬 Support Server</a>
+</div>
+<div class="hero-stats">
+<div class="hs"><div class="hs-v">150+</div><div class="hs-l" data-i18n="hs_srv">Servers</div></div>
+<div class="hs"><div class="hs-v">10K+</div><div class="hs-l" data-i18n="hs_usr">Users</div></div>
+<div class="hs"><div class="hs-v">50+</div><div class="hs-l" data-i18n="hs_cmd">Commands</div></div>
+<div class="hs"><div class="hs-v">99.9%</div><div class="hs-l" data-i18n="hs_up">Uptime</div></div>
 </div>
 </div>
 </section>
-
 <section class="sec">
-<h2 class="st rv" data-i18n="feat_t">⚡ Key Features</h2>
-<p class="ss rv" data-i18n="feat_s">Everything you need to manage and enhance your Discord server.</p>
+<div class="stb rv">
+<div class="stb-l"><div class="stb-dot"></div><div><div class="stb-txt" data-i18n="st_ok">All Systems Operational</div><div class="stb-sub" data-i18n="st_sub">Bot is online and running smoothly</div></div></div>
+<div class="stb-r">
+<div class="stb-stat"><div class="stb-v">~42ms</div><div class="stb-lbl" data-i18n="st_ping">Ping</div></div>
+<div class="stb-stat"><div class="stb-v">99.9%</div><div class="stb-lbl" data-i18n="st_up">Uptime</div></div>
+<div class="stb-stat"><div class="stb-v">150+</div><div class="stb-lbl" data-i18n="st_srv">Servers</div></div>
+</div>
+</div>
+<h2 class="sec-t rv" data-i18n="feat_t">Why Choose Carapuz201G?</h2>
+<p class="sec-s rv" data-i18n="feat_s">One bot to replace them all. Powerful, configurable, and privacy-respecting.</p>
 <div class="fg" id="fGrid"></div>
 </section>
-
 <section class="sec">
-<h2 class="st rv" data-i18n="stat_t">📡 Bot Status</h2>
-<div class="stw rv">
-<div class="si"><span class="sd"></span><span data-i18n="stat_on">Online</span></div>
-<div class="sds">
-<div class="sdi"><div class="sv">99.9%</div><div class="sl" data-i18n="stat_up">Uptime</div></div>
-<div class="sdi"><div class="sv">42ms</div><div class="sl" data-i18n="stat_pi">Ping</div></div>
-<div class="sdi"><div class="sv">500+</div><div class="sl" data-i18n="stat_sr">Servers</div></div>
-</div>
-</div>
+<h2 class="sec-t rv" data-i18n="qn_t">Quick Navigation</h2>
+<p class="sec-s rv" data-i18n="qn_s">Jump to any section of our site to learn more.</p>
+<div class="qn" id="qNav"></div>
 </section>
-
 <section class="sec">
-<h2 class="st rv" data-i18n="qk_t">🧭 Quick Navigation</h2>
-<div class="qg" id="qGrid"></div>
+<div class="cta rv">
+<h2 class="cta-t" data-i18n="cta_t">Ready to get started?</h2>
+<p class="cta-s" data-i18n="cta_s">Add Carapuz201G to your server today and unlock all features instantly. It's free, powerful, and easy to set up.</p>
+<div class="cta-btns">
+<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a btn-lg" target="_blank" data-i18n="btn_add_lg">➕ Add to Discord</a>
+<a href="./features/" class="btn btn-o btn-lg" data-i18n="btn_learn">📖 Learn More</a>
+</div>
+</div>
 </section>
 </main>
-
 <footer class="ftr">
-<div class="fl">
+<div class="ftl">
 <a href="./privacy-policy/" data-i18n="nav_privacy">Privacy Policy</a>
 <a href="./terms-of-service/" data-i18n="nav_terms">Terms of Service</a>
 <a href="./support/" data-i18n="nav_support">Support</a>
 </div>
 <p>© 2025 <a href="https://carapuzland.github.io">CarapuzLand</a> 🏝️ — Carapuz201G</p>
 </footer>
-
 <script>
-const en={nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",hero_t:"Carapuz201G",hero_s:"A powerful, feature-rich Discord bot with moderation, economy, kingdoms, voice, and optional local AI — all in one.",hero_add:"➕ Add to Discord",hero_sup:"💬 Support Server",feat_t:"⚡ Key Features",feat_s:"Everything you need to manage and enhance your Discord server.",f_mod_t:"Moderation",f_mod_d:"Warns, mutes, kicks, bans, and anti-raid protection to keep your server safe.",f_eco_t:"Economy",f_eco_d:"Virtual currency, shops, and trading to engage your community.",f_kin_t:"Kingdoms",f_kin_d:"Create and manage kingdoms, compete with other groups on your server.",f_tic_t:"Tickets",f_tic_d:"A full support ticket system with logs, categories, and staff tools.",f_ver_t:"Verification",f_ver_d:"Captcha-based verification to protect your server from bots and raids.",f_utl_t:"Utility",f_utl_d:"Reaction roles, custom commands, reminders, giveaways, global chat and more.",f_voi_t:"Voice & Music",f_voi_d:"Play music, radio, and manage voice channels with ease.",f_ai_t:"Local AI",f_ai_d:"Optional local AI via Ollama. No data sent externally, no training on your messages.",stat_t:"📡 Bot Status",stat_on:"Online",stat_up:"Uptime",stat_pi:"Ping",stat_sr:"Servers",qk_t:"🧭 Quick Navigation",qk_about:"About the Bot",qk_features:"All Features",qk_commands:"Commands List",qk_support:"Get Support",qk_status:"Bot Status",qk_privacy:"Privacy Policy",qk_terms:"Terms of Service"};
+/* ============================================================
+   FEATURES DATA (shared across all languages by icon/accent)
+   ============================================================ */
+const FEATS=[
+{icon:"🛡️",acc:"#ef4444",k:"mod"},
+{icon:"💰",acc:"#f59e0b",k:"eco"},
+{icon:"🏰",acc:"#8b5cf6",k:"king"},
+{icon:"🎫",acc:"#06b6d4",k:"tick"},
+{icon:"✅",acc:"#22c55e",k:"verify"},
+{icon:"🔧",acc:"#64748b",k:"util"},
+{icon:"🎵",acc:"#ec4899",k:"voice"},
+{icon:"🧠",acc:"#a855f7",k:"ai"}
+];
 
-const T={
-"en-US":{name:"English (US)",flag:"🇺🇸",...en},
-"en-GB":{name:"English (UK)",flag:"🇬🇧",...en,hero_s:"A powerful, feature-rich Discord bot with moderation, economy, kingdoms, voice, and optional local AI — all in one."},
-"ru":{name:"Русский",flag:"🇷🇺",nav_home:"Главная",nav_about:"О боте",nav_features:"Функции",nav_commands:"Команды",nav_support:"Поддержка",nav_status:"Статус",nav_privacy:"Конфиденциальность",nav_terms:"Условия",btn_add:"➕ Добавить бота",btn_support:"💬 Поддержка",hero_t:"Carapuz201G",hero_s:"Мощный многофункциональный Discord-бот с модерацией, экономикой, королевствами, голосом и опциональным локальным ИИ — всё в одном.",hero_add:"➕ Добавить в Discord",hero_sup:"💬 Сервер поддержки",feat_t:"⚡ Основные функции",feat_s:"Всё, что нужно для управления и улучшения вашего Discord-сервера.",f_mod_t:"Модерация",f_mod_d:"Предупреждения, муты, кики, баны и антирейд для безопасности сервера.",f_eco_t:"Экономика",f_eco_d:"Виртуальная валюта, магазины и торговля для вашего сообщества.",f_kin_t:"Королевства",f_kin_d:"Создавайте и управляйте королевствами, соревнуйтесь с другими группами.",f_tic_t:"Тикеты",f_tic_d:"Полноценная система тикетов с логами, категориями и инструментами для модераторов.",f_ver_t:"Верификация",f_ver_d:"Капча-верификация для защиты сервера от ботов и рейдов.",f_utl_t:"Утилиты",f_utl_d:"Роли по реакциям, пользовательские команды, напоминания, розыгрыши, глобальный чат и другое.",f_voi_t:"Голос и Музыка",f_voi_d:"Воспроизведение музыки, радио и управление голосовыми каналами.",f_ai_t:"Локальный ИИ",f_ai_d:"Опциональный локальный ИИ через Ollama. Данные не отправляются наружу, модель не обучается на ваших сообщениях.",stat_t:"📡 Статус бота",stat_on:"Онлайн",stat_up:"Аптайм",stat_pi:"Пинг",stat_sr:"Серверов",qk_t:"🧭 Быстрая навигация",qk_about:"О боте",qk_features:"Все функции",qk_commands:"Список команд",qk_support:"Поддержка",qk_status:"Статус бота",qk_privacy:"Конфиденциальность",qk_terms:"Условия использования"},
-"uk":{name:"Українська",flag:"🇺🇦",nav_home:"Головна",nav_about:"Про бота",nav_features:"Функції",nav_commands:"Команди",nav_support:"Підтримка",nav_status:"Статус",nav_privacy:"Конфіденційність",nav_terms:"Умови",btn_add:"➕ Додати бота",btn_support:"💬 Підтримка",hero_t:"Carapuz201G",hero_s:"Потужний багатофункціональний Discord-бот з модерацією, економікою, королівствами, голосом та опціональним локальним ШІ — все в одному.",hero_add:"➕ Додати в Discord",hero_sup:"💬 Сервер підтримки",feat_t:"⚡ Основні функції",feat_s:"Все, що потрібно для керування та покращення вашого Discord-сервера.",f_mod_t:"Модерація",f_mod_d:"Попередження, м'юти, кіки, бани та антирейд для безпеки сервера.",f_eco_t:"Економіка",f_eco_d:"Віртуальна валюта, магазини та торгівля для вашої спільноти.",f_kin_t:"Королівства",f_kin_d:"Створюйте та керуйте королівствами, змагайтеся з іншими групами.",f_tic_t:"Тікети",f_tic_d:"Повноцінна система тікетів з логами, категоріями та інструментами для модераторів.",f_ver_t:"Верифікація",f_ver_d:"Капча-верифікація для захисту сервера від ботів та рейдів.",f_utl_t:"Утиліти",f_utl_d:"Ролі за реакціями, користувацькі команди, нагадування, розіграші, глобальний чат та інше.",f_voi_t:"Голос і Музика",f_voi_d:"Відтворення музики, радіо та керування голосовими каналами.",f_ai_t:"Локальний ШІ",f_ai_d:"Опціональний локальний ШІ через Ollama. Дані не надсилаються назовні, модель не навчається на ваших повідомленнях.",stat_t:"📡 Статус бота",stat_on:"Онлайн",stat_up:"Аптайм",stat_pi:"Пінг",stat_sr:"Серверів",qk_t:"🧭 Швидка навігація",qk_about:"Про бота",qk_features:"Усі функції",qk_commands:"Список команд",qk_support:"Підтримка",qk_status:"Статус бота",qk_privacy:"Конфіденційність",qk_terms:"Умови використання"}
+const QNAV=[
+{icon:"ℹ️",k:"qn_about",href:"./about/"},
+{icon:"⚡",k:"qn_feat",href:"./features/"},
+{icon:"📋",k:"qn_cmd",href:"./commands/"},
+{icon:"💬",k:"qn_sup",href:"./support/"},
+{icon:"📡",k:"qn_stat",href:"./status/"},
+{icon:"🔒",k:"qn_priv",href:"./privacy-policy/"},
+{icon:"📜",k:"qn_tos",href:"./terms-of-service/"}
+];
+
+/* ============================================================
+   TRANSLATION HELPER — base EN object
+   ============================================================ */
+const en={
+nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",
+nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",
+btn_add:"➕ Add Bot",btn_support:"💬 Support",btn_add_lg:"➕ Add to Discord",
+btn_support_lg:"💬 Support Server",btn_learn:"📖 Learn More",
+hero_t:"Carapuz201G",
+hero_s:"A powerful all-in-one Discord bot with moderation, economy, kingdoms, tickets, verification, voice, music, radio, giveaways, and optional local AI. Everything your server needs — in one bot.",
+hs_srv:"Servers",hs_usr:"Users",hs_cmd:"Commands",hs_up:"Uptime",
+st_ok:"All Systems Operational",st_sub:"Bot is online and running smoothly",
+st_ping:"Ping",st_up:"Uptime",st_srv:"Servers",
+feat_t:"Why Choose Carapuz201G?",
+feat_s:"One bot to replace them all. Powerful, configurable, and privacy-respecting.",
+mod_t:"Moderation",mod_d:"Full suite of moderation tools: warnings, mutes, kicks, bans, anti-raid protection, auto-moderation filters, mod logs, and encrypted configuration. Keep your server safe and organized.",
+eco_t:"Economy & Games",eco_d:"Virtual currency system with daily rewards, work commands, shop, inventory, leaderboards, gambling mini-games, and a unique robbery system. Engaging and fun for all members.",
+king_t:"Kingdoms",king_d:"Create and manage kingdoms with territory control, wars, alliances, resource management, and kingdom leaderboards. A unique RPG experience built right into Discord.",
+tick_t:"Tickets",tick_d:"Professional support ticket system with custom categories, transcript logging, staff assignment, auto-close reminders, and detailed analytics. Handle support efficiently.",
+verify_t:"Verification",verify_d:"CAPTCHA verification, reaction-based roles, custom verification flows, auto-role assignment, and anti-bot protection. Secure your server from raids and spam.",
+util_t:"Utility & Tools",util_d:"Custom commands, reminders, giveaways, polls, global chat, reaction roles, server info, user info, and much more. All the tools a server admin needs.",
+voice_t:"Voice & Music",voice_d:"Music playback from multiple sources, radio streams, queue management, volume control, loop modes, and now-playing display. High quality audio for your voice channels.",
+ai_t:"Local AI (Ollama)",ai_d:"Optional AI integration through Ollama. Runs entirely locally — no data sent to external services. Not trained on user messages. Private, secure, and powerful.",
+qn_t:"Quick Navigation",qn_s:"Jump to any section of our site to learn more.",
+qn_about:"About the Bot",qn_feat:"All Features",qn_cmd:"Command List",
+qn_sup:"Get Support",qn_stat:"Bot Status",qn_priv:"Privacy Policy",qn_tos:"Terms of Service",
+cta_t:"Ready to get started?",
+cta_s:"Add Carapuz201G to your server today and unlock all features instantly. It's free, powerful, and easy to set up."
 };
 
-const FEATS=[
-{id:"mod",icon:"🛡️"},{id:"eco",icon:"💰"},{id:"kin",icon:"🏰"},{id:"tic",icon:"🎫"},
-{id:"ver",icon:"✅"},{id:"utl",icon:"🔧"},{id:"voi",icon:"🎵"},{id:"ai",icon:"🧠"}
-];
-const QLS=[
-{id:"about",icon:"ℹ️",hr:"./about/"},{id:"features",icon:"⚡",hr:"./features/"},{id:"commands",icon:"📋",hr:"./commands/"},
-{id:"support",icon:"💬",hr:"./support/"},{id:"status",icon:"📡",hr:"./status/"},{id:"privacy",icon:"🔒",hr:"./privacy-policy/"},{id:"terms",icon:"📜",hr:"./terms-of-service/"}
-];
+/* ============================================================
+   ALL 27 LANGUAGES
+   ============================================================ */
+const T={
+"en-US":{name:"English (US)",flag:"🇺🇸",...en},
+"en-GB":{name:"English (UK)",flag:"🇬🇧",...en},
+"ru":{name:"Русский",flag:"🇷🇺",
+nav_home:"Главная",nav_about:"О боте",nav_features:"Функции",nav_commands:"Команды",
+nav_support:"Поддержка",nav_status:"Статус",nav_privacy:"Конфиденциальность",nav_terms:"Условия",
+btn_add:"➕ Добавить",btn_support:"💬 Поддержка",btn_add_lg:"➕ Добавить в Discord",
+btn_support_lg:"💬 Сервер поддержки",btn_learn:"📖 Подробнее",
+hero_t:"Carapuz201G",
+hero_s:"Мощный универсальный Discord-бот с модерацией, экономикой, королевствами, тикетами, верификацией, голосом, музыкой, радио, розыгрышами и опциональным локальным ИИ. Всё что нужно вашему серверу — в одном боте.",
+hs_srv:"Серверов",hs_usr:"Пользователей",hs_cmd:"Команд",hs_up:"Аптайм",
+st_ok:"Все системы работают",st_sub:"Бот онлайн и работает стабильно",
+st_ping:"Пинг",st_up:"Аптайм",st_srv:"Серверов",
+feat_t:"Почему Carapuz201G?",
+feat_s:"Один бот вместо всех. Мощный, настраиваемый и уважающий конфиденциальность.",
+mod_t:"Модерация",mod_d:"Полный набор инструментов модерации: предупреждения, муты, кики, баны, защита от рейдов, автомодерация, логи модерации и зашифрованная конфигурация. Держите сервер в безопасности.",
+eco_t:"Экономика и игры",eco_d:"Виртуальная валюта с ежедневными наградами, работой, магазином, инвентарём, рейтингами, азартными мини-играми и системой ограблений. Увлекательно и весело для всех.",
+king_t:"Королевства",king_d:"Создавайте и управляйте королевствами с контролем территорий, войнами, альянсами, управлением ресурсами и рейтингами. Уникальный RPG-опыт прямо в Discord.",
+tick_t:"Тикеты",tick_d:"Профессиональная система тикетов с настраиваемыми категориями, логированием транскриптов, назначением персонала и автозакрытием. Эффективная поддержка.",
+verify_t:"Верификация",verify_d:"CAPTCHA-верификация, роли по реакциям, настраиваемые потоки верификации, авто-выдача ролей и защита от ботов. Защитите сервер от рейдов и спама.",
+util_t:"Утилиты",util_d:"Кастомные команды, напоминания, розыгрыши, голосования, глобальный чат, роли по реакциям, информация о сервере и пользователях. Все инструменты для админа.",
+voice_t:"Голос и музыка",voice_d:"Воспроизведение музыки из множества источников, радиопотоки, управление очередью, контроль громкости, режимы повтора. Качественный звук для голосовых каналов.",
+ai_t:"Локальный ИИ (Ollama)",ai_d:"Опциональная интеграция ИИ через Ollama. Работает полностью локально — данные не отправляются во внешние сервисы. Не обучается на сообщениях пользователей. Приватный и безопасный.",
+qn_t:"Быстрая навигация",qn_s:"Перейдите в любой раздел сайта для подробностей.",
+qn_about:"О боте",qn_feat:"Все функции",qn_cmd:"Список команд",
+qn_sup:"Получить поддержку",qn_stat:"Статус бота",qn_priv:"Конфиденциальность",qn_tos:"Условия использования",
+cta_t:"Готовы начать?",
+cta_s:"Добавьте Carapuz201G на свой сервер сегодня и разблокируйте все функции. Бесплатно, мощно и просто в настройке."
+},
+"uk":{name:"Українська",flag:"🇺🇦",
+nav_home:"Головна",nav_about:"Про бота",nav_features:"Функції",nav_commands:"Команди",
+nav_support:"Підтримка",nav_status:"Статус",nav_privacy:"Конфіденційність",nav_terms:"Умови",
+btn_add:"➕ Додати",btn_support:"💬 Підтримка",btn_add_lg:"➕ Додати в Discord",
+btn_support_lg:"💬 Сервер підтримки",btn_learn:"📖 Детальніше",
+hero_t:"Carapuz201G",
+hero_s:"Потужний універсальний Discord-бот з модерацією, економікою, королівствами, тікетами, верифікацією, голосом, музикою, радіо, розіграшами та опціональним локальним ШІ. Все що потрібно вашому серверу — в одному боті.",
+hs_srv:"Серверів",hs_usr:"Користувачів",hs_cmd:"Команд",hs_up:"Аптайм",
+st_ok:"Всі системи працюють",st_sub:"Бот онлайн і працює стабільно",
+st_ping:"Пінг",st_up:"Аптайм",st_srv:"Серверів",
+feat_t:"Чому Carapuz201G?",
+feat_s:"Один бот замість усіх. Потужний, налаштовуваний і приватний.",
+mod_t:"Модерація",mod_d:"Повний набір інструментів модерації: попередження, мути, кіки, бани, захист від рейдів, автомодерація, логи модерації та зашифрована конфігурація.",
+eco_t:"Економіка та ігри",eco_d:"Віртуальна валюта з щоденними нагородами, роботою, магазином, інвентарем, рейтингами та міні-іграми. Захоплююче для всіх учасників.",
+king_t:"Королівства",king_d:"Створюйте та керуйте королівствами з контролем територій, війнами, альянсами та рейтингами. Унікальний RPG-досвід в Discord.",
+tick_t:"Тікети",tick_d:"Професійна система тікетів з налаштовуваними категоріями, логуванням та автозакриттям. Ефективна підтримка.",
+verify_t:"Верифікація",verify_d:"CAPTCHA-верифікація, ролі по реакціях, захист від ботів. Захистіть сервер від рейдів та спаму.",
+util_t:"Утиліти",util_d:"Кастомні команди, нагадування, розіграші, голосування, глобальний чат та багато іншого. Всі інструменти для адміна.",
+voice_t:"Голос і музика",voice_d:"Відтворення музики, радіопотоки, управління чергою, контроль гучності та режими повтору. Якісний звук.",
+ai_t:"Локальний ШІ (Ollama)",ai_d:"Опціональна інтеграція ШІ через Ollama. Працює локально. Не навчається на повідомленнях. Приватний та безпечний.",
+qn_t:"Швидка навігація",qn_s:"Перейдіть до будь-якого розділу сайту.",
+qn_about:"Про бота",qn_feat:"Усі функції",qn_cmd:"Список команд",
+qn_sup:"Отримати підтримку",qn_stat:"Статус бота",qn_priv:"Конфіденційність",qn_tos:"Умови використання",
+cta_t:"Готові почати?",
+cta_s:"Додайте Carapuz201G на свій сервер сьогодні. Безкоштовно, потужно та просто."
+},
+"de":{name:"Deutsch",flag:"🇩🇪",
+nav_home:"Startseite",nav_about:"Über",nav_features:"Funktionen",nav_commands:"Befehle",
+nav_support:"Support",nav_status:"Status",nav_privacy:"Datenschutz",nav_terms:"Nutzungsbedingungen",
+btn_add:"➕ Hinzufügen",btn_support:"💬 Support",btn_add_lg:"➕ Zu Discord hinzufügen",
+btn_support_lg:"💬 Support-Server",btn_learn:"📖 Mehr erfahren",
+hero_t:"Carapuz201G",
+hero_s:"Ein leistungsstarker All-in-One Discord-Bot mit Moderation, Wirtschaft, Königreichen, Tickets, Verifizierung, Sprache, Musik, Radio, Gewinnspielen und optionaler lokaler KI. Alles was Ihr Server braucht.",
+hs_srv:"Server",hs_usr:"Benutzer",hs_cmd:"Befehle",hs_up:"Verfügbarkeit",
+st_ok:"Alle Systeme betriebsbereit",st_sub:"Bot ist online und läuft stabil",
+st_ping:"Ping",st_up:"Verfügbarkeit",st_srv:"Server",
+feat_t:"Warum Carapuz201G?",feat_s:"Ein Bot für alles. Leistungsstark, konfigurierbar und datenschutzfreundlich.",
+mod_t:"Moderation",mod_d:"Vollständige Moderationstools: Verwarnungen, Stummschaltungen, Kicks, Sperren, Anti-Raid-Schutz, Auto-Moderation und verschlüsselte Konfiguration.",
+eco_t:"Wirtschaft & Spiele",eco_d:"Virtuelles Währungssystem mit täglichen Belohnungen, Arbeit, Shop, Inventar, Ranglisten und Minispielen.",
+king_t:"Königreiche",king_d:"Erstellen und verwalten Sie Königreiche mit Gebietskontrolle, Kriegen, Allianzen und Ranglisten. Ein einzigartiges RPG-Erlebnis in Discord.",
+tick_t:"Tickets",tick_d:"Professionelles Ticket-System mit benutzerdefinierten Kategorien, Transkript-Protokollierung und automatischer Schließung.",
+verify_t:"Verifizierung",verify_d:"CAPTCHA-Verifizierung, Reaktionsrollen, Anti-Bot-Schutz. Schützen Sie Ihren Server vor Raids und Spam.",
+util_t:"Werkzeuge",util_d:"Benutzerdefinierte Befehle, Erinnerungen, Gewinnspiele, Umfragen, globaler Chat und vieles mehr.",
+voice_t:"Sprache & Musik",voice_d:"Musikwiedergabe, Radio-Streams, Warteschlangenverwaltung, Lautstärkeregelung und Wiederholungsmodi.",
+ai_t:"Lokale KI (Ollama)",ai_d:"Optionale KI über Ollama. Läuft vollständig lokal. Lernt nicht aus Benutzernachrichten. Privat und sicher.",
+qn_t:"Schnellnavigation",qn_s:"Springen Sie zu einem beliebigen Abschnitt unserer Website.",
+qn_about:"Über den Bot",qn_feat:"Alle Funktionen",qn_cmd:"Befehlsliste",
+qn_sup:"Support erhalten",qn_stat:"Bot-Status",qn_priv:"Datenschutz",qn_tos:"Nutzungsbedingungen",
+cta_t:"Bereit loszulegen?",cta_s:"Fügen Sie Carapuz201G noch heute hinzu. Kostenlos, leistungsstark und einfach einzurichten."
+},
+"fr":{name:"Français",flag:"🇫🇷",
+nav_home:"Accueil",nav_about:"À propos",nav_features:"Fonctionnalités",nav_commands:"Commandes",
+nav_support:"Support",nav_status:"Statut",nav_privacy:"Confidentialité",nav_terms:"Conditions",
+btn_add:"➕ Ajouter",btn_support:"💬 Support",btn_add_lg:"➕ Ajouter à Discord",
+btn_support_lg:"💬 Serveur de support",btn_learn:"📖 En savoir plus",
+hero_t:"Carapuz201G",
+hero_s:"Un bot Discord tout-en-un puissant avec modération, économie, royaumes, tickets, vérification, voix, musique, radio, tirages au sort et IA locale optionnelle. Tout ce dont votre serveur a besoin.",
+hs_srv:"Serveurs",hs_usr:"Utilisateurs",hs_cmd:"Commandes",hs_up:"Disponibilité",
+st_ok:"Tous les systèmes opérationnels",st_sub:"Le bot est en ligne et fonctionne parfaitement",
+st_ping:"Ping",st_up:"Disponibilité",st_srv:"Serveurs",
+feat_t:"Pourquoi Carapuz201G ?",feat_s:"Un seul bot pour tout remplacer. Puissant, configurable et respectueux de la vie privée.",
+mod_t:"Modération",mod_d:"Suite complète d'outils de modération : avertissements, mutes, kicks, bans, protection anti-raid, auto-modération et configuration chiffrée.",
+eco_t:"Économie & Jeux",eco_d:"Système de monnaie virtuelle avec récompenses quotidiennes, travail, boutique, inventaire, classements et mini-jeux.",
+king_t:"Royaumes",king_d:"Créez et gérez des royaumes avec contrôle territorial, guerres, alliances et classements. Une expérience RPG unique dans Discord.",
+tick_t:"Tickets",tick_d:"Système de tickets professionnel avec catégories personnalisées, journalisation des transcriptions et fermeture automatique.",
+verify_t:"Vérification",verify_d:"Vérification CAPTCHA, rôles par réaction, protection anti-bot. Protégez votre serveur contre les raids et le spam.",
+util_t:"Utilitaires",util_d:"Commandes personnalisées, rappels, tirages au sort, sondages, chat global et bien plus encore.",
+voice_t:"Voix & Musique",voice_d:"Lecture musicale, flux radio, gestion de file d'attente, contrôle du volume et modes de répétition.",
+ai_t:"IA Locale (Ollama)",ai_d:"Intégration IA optionnelle via Ollama. Fonctionne entièrement en local. N'apprend pas des messages. Privé et sécurisé.",
+qn_t:"Navigation rapide",qn_s:"Accédez à n'importe quelle section de notre site.",
+qn_about:"À propos du bot",qn_feat:"Toutes les fonctionnalités",qn_cmd:"Liste des commandes",
+qn_sup:"Obtenir du support",qn_stat:"Statut du bot",qn_priv:"Confidentialité",qn_tos:"Conditions d'utilisation",
+cta_t:"Prêt à commencer ?",cta_s:"Ajoutez Carapuz201G aujourd'hui. Gratuit, puissant et facile à configurer."
+},
+"es":{name:"Español",flag:"🇪🇸",
+nav_home:"Inicio",nav_about:"Acerca de",nav_features:"Características",nav_commands:"Comandos",
+nav_support:"Soporte",nav_status:"Estado",nav_privacy:"Privacidad",nav_terms:"Términos",
+btn_add:"➕ Añadir",btn_support:"💬 Soporte",btn_add_lg:"➕ Añadir a Discord",
+btn_support_lg:"💬 Servidor de soporte",btn_learn:"📖 Más información",
+hero_t:"Carapuz201G",
+hero_s:"Un potente bot de Discord todo en uno con moderación, economía, reinos, tickets, verificación, voz, música, radio, sorteos e IA local opcional. Todo lo que tu servidor necesita.",
+hs_srv:"Servidores",hs_usr:"Usuarios",hs_cmd:"Comandos",hs_up:"Disponibilidad",
+st_ok:"Todos los sistemas operativos",st_sub:"El bot está en línea y funcionando correctamente",
+st_ping:"Ping",st_up:"Disponibilidad",st_srv:"Servidores",
+feat_t:"¿Por qué Carapuz201G?",feat_s:"Un bot para reemplazarlos a todos. Potente, configurable y respetuoso con la privacidad.",
+mod_t:"Moderación",mod_d:"Herramientas completas de moderación: advertencias, silencios, expulsiones, baneos, protección anti-raid y configuración cifrada.",
+eco_t:"Economía y Juegos",eco_d:"Sistema de moneda virtual con recompensas diarias, trabajo, tienda, inventario, tablas de clasificación y minijuegos.",
+king_t:"Reinos",king_d:"Crea y gestiona reinos con control territorial, guerras, alianzas y clasificaciones. Una experiencia RPG única en Discord.",
+tick_t:"Tickets",tick_d:"Sistema de tickets profesional con categorías personalizadas, registro de transcripciones y cierre automático.",
+verify_t:"Verificación",verify_d:"Verificación CAPTCHA, roles por reacción, protección anti-bot. Protege tu servidor contra raids y spam.",
+util_t:"Utilidades",util_d:"Comandos personalizados, recordatorios, sorteos, encuestas, chat global y mucho más.",
+voice_t:"Voz y Música",voice_d:"Reproducción de música, transmisiones de radio, gestión de cola, control de volumen y modos de repetición.",
+ai_t:"IA Local (Ollama)",ai_d:"Integración de IA opcional a través de Ollama. Funciona localmente. No aprende de los mensajes. Privado y seguro.",
+qn_t:"Navegación rápida",qn_s:"Salta a cualquier sección de nuestro sitio.",
+qn_about:"Sobre el bot",qn_feat:"Todas las funciones",qn_cmd:"Lista de comandos",
+qn_sup:"Obtener soporte",qn_stat:"Estado del bot",qn_priv:"Privacidad",qn_tos:"Términos de servicio",
+cta_t:"¿Listo para empezar?",cta_s:"Añade Carapuz201G hoy. Gratis, potente y fácil de configurar."
+},
+"it":{name:"Italiano",flag:"🇮🇹",
+nav_home:"Home",nav_about:"Info",nav_features:"Funzionalità",nav_commands:"Comandi",
+nav_support:"Supporto",nav_status:"Stato",nav_privacy:"Privacy",nav_terms:"Termini",
+btn_add:"➕ Aggiungi",btn_support:"💬 Supporto",btn_add_lg:"➕ Aggiungi a Discord",
+btn_support_lg:"💬 Server di supporto",btn_learn:"📖 Scopri di più",
+hero_t:"Carapuz201G",
+hero_s:"Un potente bot Discord all-in-one con moderazione, economia, regni, ticket, verifica, voce, musica, radio, giveaway e IA locale opzionale. Tutto ciò di cui il tuo server ha bisogno.",
+hs_srv:"Server",hs_usr:"Utenti",hs_cmd:"Comandi",hs_up:"Uptime",
+st_ok:"Tutti i sistemi operativi",st_sub:"Il bot è online e funziona perfettamente",st_ping:"Ping",st_up:"Uptime",st_srv:"Server",
+feat_t:"Perché Carapuz201G?",feat_s:"Un bot per sostituirli tutti. Potente, configurabile e rispettoso della privacy.",
+mod_t:"Moderazione",mod_d:"Suite completa di strumenti di moderazione: avvisi, mute, kick, ban, protezione anti-raid e configurazione crittografata.",
+eco_t:"Economia e Giochi",eco_d:"Sistema di valuta virtuale con ricompense giornaliere, lavoro, negozio, inventario, classifiche e minigiochi.",
+king_t:"Regni",king_d:"Crea e gestisci regni con controllo del territorio, guerre, alleanze e classifiche.",
+tick_t:"Ticket",tick_d:"Sistema di ticket professionale con categorie personalizzate, registrazione e chiusura automatica.",
+verify_t:"Verifica",verify_d:"Verifica CAPTCHA, ruoli per reazione, protezione anti-bot. Proteggi il tuo server.",
+util_t:"Utilità",util_d:"Comandi personalizzati, promemoria, giveaway, sondaggi, chat globale e molto altro.",
+voice_t:"Voce e Musica",voice_d:"Riproduzione musicale, streaming radio, gestione coda, controllo volume e modalità loop.",
+ai_t:"IA Locale (Ollama)",ai_d:"Integrazione IA opzionale tramite Ollama. Funziona localmente. Non impara dai messaggi. Privato e sicuro.",
+qn_t:"Navigazione rapida",qn_s:"Vai a qualsiasi sezione del nostro sito.",
+qn_about:"Informazioni sul bot",qn_feat:"Tutte le funzionalità",qn_cmd:"Lista comandi",
+qn_sup:"Ottieni supporto",qn_stat:"Stato del bot",qn_priv:"Privacy",qn_tos:"Termini di servizio",
+cta_t:"Pronto per iniziare?",cta_s:"Aggiungi Carapuz201G oggi. Gratuito, potente e facile da configurare."
+},
+"pt":{name:"Português",flag:"🇵🇹",
+nav_home:"Início",nav_about:"Sobre",nav_features:"Recursos",nav_commands:"Comandos",
+nav_support:"Suporte",nav_status:"Estado",nav_privacy:"Privacidade",nav_terms:"Termos",
+btn_add:"➕ Adicionar",btn_support:"💬 Suporte",btn_add_lg:"➕ Adicionar ao Discord",
+btn_support_lg:"💬 Servidor de suporte",btn_learn:"📖 Saiba mais",
+hero_t:"Carapuz201G",hero_s:"Um poderoso bot Discord tudo-em-um com moderação, economia, reinos, tickets, verificação, voz, música, rádio, sorteios e IA local opcional.",
+hs_srv:"Servidores",hs_usr:"Utilizadores",hs_cmd:"Comandos",hs_up:"Disponibilidade",
+st_ok:"Todos os sistemas operacionais",st_sub:"O bot está online e a funcionar corretamente",st_ping:"Ping",st_up:"Disponibilidade",st_srv:"Servidores",
+feat_t:"Porquê Carapuz201G?",feat_s:"Um bot para substituir todos. Poderoso, configurável e respeitador da privacidade.",
+mod_t:"Moderação",mod_d:"Ferramentas completas de moderação: avisos, silenciamentos, expulsões, banimentos, proteção anti-raid e configuração encriptada.",
+eco_t:"Economia e Jogos",eco_d:"Sistema de moeda virtual com recompensas diárias, trabalho, loja, inventário, classificações e minijogos.",
+king_t:"Reinos",king_d:"Crie e gerencie reinos com controlo territorial, guerras, alianças e classificações.",
+tick_t:"Tickets",tick_d:"Sistema de tickets profissional com categorias personalizadas, registo e encerramento automático.",
+verify_t:"Verificação",verify_d:"Verificação CAPTCHA, funções por reação, proteção anti-bot.",
+util_t:"Utilidades",util_d:"Comandos personalizados, lembretes, sorteios, sondagens, chat global e muito mais.",
+voice_t:"Voz e Música",voice_d:"Reprodução de música, streams de rádio, gestão de fila, controlo de volume e modos de repetição.",
+ai_t:"IA Local (Ollama)",ai_d:"Integração de IA opcional via Ollama. Funciona localmente. Não aprende com mensagens. Privado e seguro.",
+qn_t:"Navegação rápida",qn_s:"Vá para qualquer secção do nosso site.",
+qn_about:"Sobre o bot",qn_feat:"Todos os recursos",qn_cmd:"Lista de comandos",qn_sup:"Obter suporte",qn_stat:"Estado do bot",qn_priv:"Privacidade",qn_tos:"Termos de serviço",
+cta_t:"Pronto para começar?",cta_s:"Adicione o Carapuz201G hoje. Gratuito, poderoso e fácil de configurar."
+},
+"nl":{name:"Nederlands",flag:"🇳🇱",nav_home:"Home",nav_about:"Over",nav_features:"Functies",nav_commands:"Commando's",nav_support:"Ondersteuning",nav_status:"Status",nav_privacy:"Privacy",nav_terms:"Voorwaarden",btn_add:"➕ Toevoegen",btn_support:"💬 Support",btn_add_lg:"➕ Toevoegen aan Discord",btn_support_lg:"💬 Support server",btn_learn:"📖 Meer info",hero_t:"Carapuz201G",hero_s:"Een krachtige alles-in-één Discord-bot met moderatie, economie, koninkrijken, tickets, verificatie, spraak, muziek, radio, giveaways en optionele lokale AI.",hs_srv:"Servers",hs_usr:"Gebruikers",hs_cmd:"Commando's",hs_up:"Uptime",st_ok:"Alle systemen operationeel",st_sub:"Bot is online en draait soepel",st_ping:"Ping",st_up:"Uptime",st_srv:"Servers",feat_t:"Waarom Carapuz201G?",feat_s:"Eén bot om ze allemaal te vervangen.",mod_t:"Moderatie",mod_d:"Volledige moderatietools: waarschuwingen, mutes, kicks, bans, anti-raid en versleutelde configuratie.",eco_t:"Economie & Spellen",eco_d:"Virtueel valutasysteem met dagelijkse beloningen, werk, winkel, inventaris en minispellen.",king_t:"Koninkrijken",king_d:"Maak en beheer koninkrijken met gebiedscontrole, oorlogen en allianties.",tick_t:"Tickets",tick_d:"Professioneel ticketsysteem met aangepaste categorieën en automatische sluiting.",verify_t:"Verificatie",verify_d:"CAPTCHA-verificatie, reactierollen en anti-bot bescherming.",util_t:"Hulpmiddelen",util_d:"Aangepaste commando's, herinneringen, giveaways, polls en globale chat.",voice_t:"Spraak & Muziek",voice_d:"Muziekweergave, radiostreams, wachtrijbeheer en volumecontrole.",ai_t:"Lokale AI (Ollama)",ai_d:"Optionele AI via Ollama. Draait lokaal. Leert niet van berichten. Privé en veilig.",qn_t:"Snelnavigatie",qn_s:"Ga naar elk onderdeel van onze site.",qn_about:"Over de bot",qn_feat:"Alle functies",qn_cmd:"Commandolijst",qn_sup:"Ondersteuning",qn_stat:"Bot status",qn_priv:"Privacy",qn_tos:"Voorwaarden",cta_t:"Klaar om te beginnen?",cta_s:"Voeg Carapuz201G vandaag toe. Gratis, krachtig en makkelijk."},
+"pl":{name:"Polski",flag:"🇵🇱",nav_home:"Strona główna",nav_about:"O bocie",nav_features:"Funkcje",nav_commands:"Komendy",nav_support:"Wsparcie",nav_status:"Status",nav_privacy:"Prywatność",nav_terms:"Regulamin",btn_add:"➕ Dodaj",btn_support:"💬 Wsparcie",btn_add_lg:"➕ Dodaj do Discorda",btn_support_lg:"💬 Serwer wsparcia",btn_learn:"📖 Więcej",hero_t:"Carapuz201G",hero_s:"Potężny bot Discord all-in-one z moderacją, ekonomią, królestwami, ticketami, weryfikacją, głosem, muzyką, radiem, loteriami i opcjonalnym lokalnym AI.",hs_srv:"Serwerów",hs_usr:"Użytkowników",hs_cmd:"Komend",hs_up:"Uptime",st_ok:"Wszystkie systemy sprawne",st_sub:"Bot jest online i działa stabilnie",st_ping:"Ping",st_up:"Uptime",st_srv:"Serwerów",feat_t:"Dlaczego Carapuz201G?",feat_s:"Jeden bot zamiast wszystkich. Potężny, konfigurowalny i prywatny.",mod_t:"Moderacja",mod_d:"Pełen zestaw narzędzi moderacji: ostrzeżenia, wyciszenia, wyrzucenia, bany, ochrona przed raidami i szyfrowana konfiguracja.",eco_t:"Ekonomia i Gry",eco_d:"Wirtualna waluta z dziennymi nagrodami, pracą, sklepem, inwentarzem, rankingami i minigrami.",king_t:"Królestwa",king_d:"Twórz i zarządzaj królestwami z kontrolą terytoriów, wojnami, sojuszami i rankingami.",tick_t:"Tickety",tick_d:"Profesjonalny system ticketów z kategoriami, logowaniem i automatycznym zamykaniem.",verify_t:"Weryfikacja",verify_d:"Weryfikacja CAPTCHA, role reakcyjne, ochrona przed botami.",util_t:"Narzędzia",util_d:"Własne komendy, przypomnienia, loterie, ankiety, globalny czat i więcej.",voice_t:"Głos i Muzyka",voice_d:"Odtwarzanie muzyki, radio, kolejka, głośność i tryby powtarzania.",ai_t:"Lokalne AI (Ollama)",ai_d:"Opcjonalne AI przez Ollama. Działa lokalnie. Nie uczy się z wiadomości. Prywatne i bezpieczne.",qn_t:"Szybka nawigacja",qn_s:"Przejdź do dowolnej sekcji.",qn_about:"O bocie",qn_feat:"Wszystkie funkcje",qn_cmd:"Lista komend",qn_sup:"Wsparcie",qn_stat:"Status bota",qn_priv:"Prywatność",qn_tos:"Regulamin",cta_t:"Gotowy zacząć?",cta_s:"Dodaj Carapuz201G już dziś. Za darmo, potężny i łatwy w konfiguracji."},
+"sv":{name:"Svenska",flag:"🇸🇪",nav_home:"Hem",nav_about:"Om",nav_features:"Funktioner",nav_commands:"Kommandon",nav_support:"Support",nav_status:"Status",nav_privacy:"Integritet",nav_terms:"Villkor",btn_add:"➕ Lägg till",btn_support:"💬 Support",btn_add_lg:"➕ Lägg till i Discord",btn_support_lg:"💬 Supportserver",btn_learn:"📖 Läs mer",hero_t:"Carapuz201G",hero_s:"En kraftfull allt-i-ett Discord-bot med moderering, ekonomi, kungariken, biljetter, verifiering, röst, musik, radio, utlottningar och valfri lokal AI.",hs_srv:"Servrar",hs_usr:"Användare",hs_cmd:"Kommandon",hs_up:"Drifttid",st_ok:"Alla system fungerar",st_sub:"Boten är online och fungerar smidigt",st_ping:"Ping",st_up:"Drifttid",st_srv:"Servrar",feat_t:"Varför Carapuz201G?",feat_s:"En bot som ersätter alla. Kraftfull, konfigurerbar och integritetsvänlig.",mod_t:"Moderering",mod_d:"Fullständiga modereringsverktyg: varningar, tystningar, sparkar, banningar, anti-raid och krypterad konfiguration.",eco_t:"Ekonomi & Spel",eco_d:"Virtuellt valutasystem med dagliga belöningar, arbete, butik, inventarie och minispel.",king_t:"Kungariken",king_d:"Skapa och hantera kungariken med territoriekontroll, krig, allianser och rankningar.",tick_t:"Biljetter",tick_d:"Professionellt biljettsystem med anpassade kategorier och automatisk stängning.",verify_t:"Verifiering",verify_d:"CAPTCHA-verifiering, reaktionsroller och anti-bot-skydd.",util_t:"Verktyg",util_d:"Anpassade kommandon, påminnelser, utlottningar, omröstningar och global chatt.",voice_t:"Röst & Musik",voice_d:"Musikuppspelning, radioströmmar, köhantering och volymkontroll.",ai_t:"Lokal AI (Ollama)",ai_d:"Valfri AI via Ollama. Körs lokalt. Lär sig inte av meddelanden. Privat och säker.",qn_t:"Snabbnavigering",qn_s:"Hoppa till valfri sektion.",qn_about:"Om boten",qn_feat:"Alla funktioner",qn_cmd:"Kommandolista",qn_sup:"Få support",qn_stat:"Botstatus",qn_priv:"Integritet",qn_tos:"Villkor",cta_t:"Redo att börja?",cta_s:"Lägg till Carapuz201G idag. Gratis, kraftfull och enkel."},
+"da":{name:"Dansk",flag:"🇩🇰",nav_home:"Hjem",nav_about:"Om",nav_features:"Funktioner",nav_commands:"Kommandoer",nav_support:"Support",nav_status:"Status",nav_privacy:"Privatliv",nav_terms:"Vilkår",btn_add:"➕ Tilføj",btn_support:"💬 Support",btn_add_lg:"➕ Tilføj til Discord",btn_support_lg:"💬 Supportserver",btn_learn:"📖 Læs mere",hero_t:"Carapuz201G",hero_s:"En kraftfuld alt-i-én Discord-bot med moderation, økonomi, kongeriger, tickets, verifikation, stemme, musik, radio, giveaways og valgfri lokal AI.",hs_srv:"Servere",hs_usr:"Brugere",hs_cmd:"Kommandoer",hs_up:"Oppetid",st_ok:"Alle systemer kører",st_sub:"Botten er online og kører stabilt",st_ping:"Ping",st_up:"Oppetid",st_srv:"Servere",feat_t:"Hvorfor Carapuz201G?",feat_s:"Én bot til at erstatte dem alle.",mod_t:"Moderation",mod_d:"Komplette moderationsværktøjer: advarsler, mutes, kicks, bans, anti-raid og krypteret konfiguration.",eco_t:"Økonomi & Spil",eco_d:"Virtuelt valutasystem med daglige belønninger, arbejde, butik og minispil.",king_t:"Kongeriger",king_d:"Opret og administrer kongeriger med territoriekontrol, krige og alliancer.",tick_t:"Tickets",tick_d:"Professionelt ticketsystem med brugerdefinerede kategorier og automatisk lukning.",verify_t:"Verifikation",verify_d:"CAPTCHA-verifikation, reaktionsroller og anti-bot beskyttelse.",util_t:"Værktøjer",util_d:"Brugerdefinerede kommandoer, påmindelser, giveaways, afstemninger og global chat.",voice_t:"Stemme & Musik",voice_d:"Musikafspilning, radiostreams, køhåndtering og lydstyrke.",ai_t:"Lokal AI (Ollama)",ai_d:"Valgfri AI via Ollama. Kører lokalt. Privat og sikker.",qn_t:"Hurtig navigation",qn_s:"Gå til enhver sektion.",qn_about:"Om botten",qn_feat:"Alle funktioner",qn_cmd:"Kommandoliste",qn_sup:"Få support",qn_stat:"Bot status",qn_priv:"Privatliv",qn_tos:"Vilkår",cta_t:"Klar til at starte?",cta_s:"Tilføj Carapuz201G i dag. Gratis og kraftfuld."},
+"fi":{name:"Suomi",flag:"🇫🇮",nav_home:"Koti",nav_about:"Tietoa",nav_features:"Ominaisuudet",nav_commands:"Komennot",nav_support:"Tuki",nav_status:"Tila",nav_privacy:"Tietosuoja",nav_terms:"Ehdot",btn_add:"➕ Lisää",btn_support:"💬 Tuki",btn_add_lg:"➕ Lisää Discordiin",btn_support_lg:"💬 Tukipalvelin",btn_learn:"📖 Lue lisää",hero_t:"Carapuz201G",hero_s:"Tehokas all-in-one Discord-botti moderointiin, talouteen, kuningaskuntiin, tiketteihin, varmennukseen, ääneen, musiikkiin, radioon ja valinnaiseen paikalliseen AI:hin.",hs_srv:"Palvelimia",hs_usr:"Käyttäjiä",hs_cmd:"Komentoja",hs_up:"Käytettävyys",st_ok:"Kaikki järjestelmät toiminnassa",st_sub:"Botti on verkossa ja toimii vakaasti",st_ping:"Ping",st_up:"Käytettävyys",st_srv:"Palvelimia",feat_t:"Miksi Carapuz201G?",feat_s:"Yksi botti korvaamaan kaikki.",mod_t:"Moderointi",mod_d:"Täydelliset moderointityökalut: varoitukset, mykistykset, potkut, estot ja salattu konfiguraatio.",eco_t:"Talous & Pelit",eco_d:"Virtuaalivaluuttajärjestelmä päivittäisillä palkkioilla, kaupalla ja minipeleillä.",king_t:"Kuningaskunnat",king_d:"Luo ja hallinnoi kuningaskuntia sotineen ja liittoutumineen.",tick_t:"Tiketit",tick_d:"Ammattimainen tikettijärjestelmä mukautetuilla kategorioilla.",verify_t:"Varmennus",verify_d:"CAPTCHA-varmennus, reaktioroolit ja bottien esto.",util_t:"Työkalut",util_d:"Mukautetut komennot, muistutukset, arvonnat, äänestykset ja globaali chat.",voice_t:"Ääni & Musiikki",voice_d:"Musiikin toisto, radiovirrat, jonon hallinta ja äänenvoimakkuus.",ai_t:"Paikallinen AI (Ollama)",ai_d:"Valinnainen AI Ollaman kautta. Toimii paikallisesti. Yksityinen ja turvallinen.",qn_t:"Pikanavigaatio",qn_s:"Siirry mihin tahansa osioon.",qn_about:"Tietoa botista",qn_feat:"Kaikki ominaisuudet",qn_cmd:"Komentolista",qn_sup:"Saa tukea",qn_stat:"Botin tila",qn_priv:"Tietosuoja",qn_tos:"Ehdot",cta_t:"Valmis aloittamaan?",cta_s:"Lisää Carapuz201G tänään. Ilmainen, tehokas ja helppo."},
+"el":{name:"Ελληνικά",flag:"🇬🇷",nav_home:"Αρχική",nav_about:"Σχετικά",nav_features:"Λειτουργίες",nav_commands:"Εντολές",nav_support:"Υποστήριξη",nav_status:"Κατάσταση",nav_privacy:"Απόρρητο",nav_terms:"Όροι",btn_add:"➕ Προσθήκη",btn_support:"💬 Υποστήριξη",btn_add_lg:"➕ Προσθήκη στο Discord",btn_support_lg:"💬 Διακομιστής υποστήριξης",btn_learn:"📖 Μάθετε περισσότερα",hero_t:"Carapuz201G",hero_s:"Ένα ισχυρό bot Discord all-in-one με εποπτεία, οικονομία, βασίλεια, εισιτήρια, επαλήθευση, φωνή, μουσική, ραδιόφωνο και τοπική AI.",hs_srv:"Διακομιστές",hs_usr:"Χρήστες",hs_cmd:"Εντολές",hs_up:"Διαθεσιμότητα",st_ok:"Όλα τα συστήματα λειτουργούν",st_sub:"Το bot είναι online",st_ping:"Ping",st_up:"Διαθεσιμότητα",st_srv:"Διακομιστές",feat_t:"Γιατί Carapuz201G;",feat_s:"Ένα bot για να τα αντικαταστήσει όλα.",mod_t:"Εποπτεία",mod_d:"Πλήρη εργαλεία εποπτείας: προειδοποιήσεις, σίγαση, αποβολή, αποκλεισμός και κρυπτογραφημένη διαμόρφωση.",eco_t:"Οικονομία",eco_d:"Σύστημα εικονικού νομίσματος με ημερήσιες ανταμοιβές και μίνι παιχνίδια.",king_t:"Βασίλεια",king_d:"Δημιουργήστε βασίλεια με πολέμους και συμμαχίες.",tick_t:"Εισιτήρια",tick_d:"Επαγγελματικό σύστημα εισιτηρίων.",verify_t:"Επαλήθευση",verify_d:"CAPTCHA, ρόλοι αντίδρασης και προστασία bot.",util_t:"Εργαλεία",util_d:"Προσαρμοσμένες εντολές, υπενθυμίσεις, κληρώσεις και παγκόσμια συνομιλία.",voice_t:"Φωνή & Μουσική",voice_d:"Αναπαραγωγή μουσικής, ραδιόφωνο και έλεγχος ένταση.",ai_t:"Τοπική AI (Ollama)",ai_d:"Προαιρετική AI μέσω Ollama. Τρέχει τοπικά. Ιδιωτικό και ασφαλές.",qn_t:"Γρήγορη πλοήγηση",qn_s:"Μεταβείτε σε οποιαδήποτε ενότητα.",qn_about:"Σχετικά",qn_feat:"Λειτουργίες",qn_cmd:"Εντολές",qn_sup:"Υποστήριξη",qn_stat:"Κατάσταση",qn_priv:"Απόρρητο",qn_tos:"Όροι",cta_t:"Έτοιμοι;",cta_s:"Προσθέστε το Carapuz201G σήμερα. Δωρεάν και ισχυρό."},
+"cs":{name:"Čeština",flag:"🇨🇿",nav_home:"Domů",nav_about:"O botu",nav_features:"Funkce",nav_commands:"Příkazy",nav_support:"Podpora",nav_status:"Stav",nav_privacy:"Soukromí",nav_terms:"Podmínky",btn_add:"➕ Přidat",btn_support:"💬 Podpora",btn_add_lg:"➕ Přidat do Discordu",btn_support_lg:"💬 Server podpory",btn_learn:"📖 Více",hero_t:"Carapuz201G",hero_s:"Výkonný all-in-one Discord bot s moderací, ekonomikou, královstvími, tickety, ověřením, hlasem, hudbou a volitelnou lokální AI.",hs_srv:"Serverů",hs_usr:"Uživatelů",hs_cmd:"Příkazů",hs_up:"Dostupnost",st_ok:"Všechny systémy fungují",st_sub:"Bot je online a funguje stabilně",st_ping:"Ping",st_up:"Dostupnost",st_srv:"Serverů",feat_t:"Proč Carapuz201G?",feat_s:"Jeden bot místo všech.",mod_t:"Moderace",mod_d:"Kompletní nástroje moderace: varování, ztlumení, vyhození, bany a šifrovaná konfigurace.",eco_t:"Ekonomika",eco_d:"Virtuální měna s denními odměnami, obchodem a minihry.",king_t:"Království",king_d:"Vytvářejte království s válkami a aliancemi.",tick_t:"Tickety",tick_d:"Profesionální ticket systém.",verify_t:"Ověření",verify_d:"CAPTCHA, reakční role a ochrana proti botům.",util_t:"Nástroje",util_d:"Vlastní příkazy, připomínky, soutěže a globální chat.",voice_t:"Hlas & Hudba",voice_d:"Přehrávání hudby, rádio, správa fronty a hlasitost.",ai_t:"Lokální AI (Ollama)",ai_d:"Volitelná AI přes Ollama. Běží lokálně. Soukromá a bezpečná.",qn_t:"Rychlá navigace",qn_s:"Přejděte na libovolnou sekci.",qn_about:"O botu",qn_feat:"Všechny funkce",qn_cmd:"Seznam příkazů",qn_sup:"Podpora",qn_stat:"Stav bota",qn_priv:"Soukromí",qn_tos:"Podmínky",cta_t:"Připraveni začít?",cta_s:"Přidejte Carapuz201G ještě dnes. Zdarma a výkonný."},
+"sk":{name:"Slovenčina",flag:"🇸🇰",nav_home:"Domov",nav_about:"O bote",nav_features:"Funkcie",nav_commands:"Príkazy",nav_support:"Podpora",nav_status:"Stav",nav_privacy:"Súkromie",nav_terms:"Podmienky",btn_add:"➕ Pridať",btn_support:"💬 Podpora",btn_add_lg:"➕ Pridať do Discordu",btn_support_lg:"💬 Server podpory",btn_learn:"📖 Viac",hero_t:"Carapuz201G",hero_s:"Výkonný all-in-one Discord bot s moderáciou, ekonomikou, kráľovstvami, ticketmi, overením, hlasom, hudbou a voliteľnou lokálnou AI.",hs_srv:"Serverov",hs_usr:"Používateľov",hs_cmd:"Príkazov",hs_up:"Dostupnosť",st_ok:"Všetky systémy fungujú",st_sub:"Bot je online",st_ping:"Ping",st_up:"Dostupnosť",st_srv:"Serverov",feat_t:"Prečo Carapuz201G?",feat_s:"Jeden bot namiesto všetkých.",mod_t:"Moderácia",mod_d:"Kompletné nástroje moderácie.",eco_t:"Ekonomika",eco_d:"Virtuálna mena s dennými odmenami a minihrami.",king_t:"Kráľovstvá",king_d:"Vytvárajte kráľovstvá s vojnami a alianciami.",tick_t:"Tickety",tick_d:"Profesionálny ticket systém.",verify_t:"Overenie",verify_d:"CAPTCHA a ochrana proti botom.",util_t:"Nástroje",util_d:"Vlastné príkazy, pripomienky a súťaže.",voice_t:"Hlas & Hudba",voice_d:"Prehrávanie hudby a rádia.",ai_t:"Lokálna AI (Ollama)",ai_d:"Voliteľná AI cez Ollama. Beží lokálne.",qn_t:"Rýchla navigácia",qn_s:"Prejdite na ľubovoľnú sekciu.",qn_about:"O bote",qn_feat:"Funkcie",qn_cmd:"Príkazy",qn_sup:"Podpora",qn_stat:"Stav",qn_priv:"Súkromie",qn_tos:"Podmienky",cta_t:"Pripravení?",cta_s:"Pridajte Carapuz201G ešte dnes."},
+"hu":{name:"Magyar",flag:"🇭🇺",nav_home:"Kezdőlap",nav_about:"Rólunk",nav_features:"Funkciók",nav_commands:"Parancsok",nav_support:"Támogatás",nav_status:"Állapot",nav_privacy:"Adatvédelem",nav_terms:"Feltételek",btn_add:"➕ Hozzáadás",btn_support:"💬 Támogatás",btn_add_lg:"➕ Hozzáadás a Discordhoz",btn_support_lg:"💬 Támogatási szerver",btn_learn:"📖 Tovább",hero_t:"Carapuz201G",hero_s:"Egy erőteljes all-in-one Discord bot moderálással, gazdasággal, királyságokkal, jegyekkel, ellenőrzéssel, hanggal, zenével és opcionális helyi AI-val.",hs_srv:"Szerver",hs_usr:"Felhasználó",hs_cmd:"Parancs",hs_up:"Üzemidő",st_ok:"Minden rendszer működik",st_sub:"A bot online és stabilan fut",st_ping:"Ping",st_up:"Üzemidő",st_srv:"Szerver",feat_t:"Miért Carapuz201G?",feat_s:"Egy bot az összes helyett.",mod_t:"Moderálás",mod_d:"Teljes moderálási eszközök.",eco_t:"Gazdaság",eco_d:"Virtuális pénznem napi jutalmakkal.",king_t:"Királyságok",king_d:"Hozzon létre királyságokat háborúkkal.",tick_t:"Jegyek",tick_d:"Professzionális jegyrendszer.",verify_t:"Ellenőrzés",verify_d:"CAPTCHA és bot védelem.",util_t:"Eszközök",util_d:"Egyéni parancsok, emlékeztetők és nyereményjátékok.",voice_t:"Hang & Zene",voice_d:"Zenelejátszás és rádió.",ai_t:"Helyi AI (Ollama)",ai_d:"Opcionális AI Ollamán keresztül. Helyben fut.",qn_t:"Gyors navigáció",qn_s:"Ugorjon bármely szekcióra.",qn_about:"A botról",qn_feat:"Funkciók",qn_cmd:"Parancsok",qn_sup:"Támogatás",qn_stat:"Állapot",qn_priv:"Adatvédelem",qn_tos:"Feltételek",cta_t:"Készen áll?",cta_s:"Adja hozzá a Carapuz201G-t még ma."},
+"ro":{name:"Română",flag:"🇷🇴",nav_home:"Acasă",nav_about:"Despre",nav_features:"Funcții",nav_commands:"Comenzi",nav_support:"Suport",nav_status:"Stare",nav_privacy:"Confidențialitate",nav_terms:"Termeni",btn_add:"➕ Adaugă",btn_support:"💬 Suport",btn_add_lg:"➕ Adaugă la Discord",btn_support_lg:"💬 Server suport",btn_learn:"📖 Află mai mult",hero_t:"Carapuz201G",hero_s:"Un bot Discord puternic all-in-one cu moderare, economie, regate, tichete, verificare, voce, muzică și AI local opțional.",hs_srv:"Servere",hs_usr:"Utilizatori",hs_cmd:"Comenzi",hs_up:"Disponibilitate",st_ok:"Toate sistemele funcționează",st_sub:"Botul este online",st_ping:"Ping",st_up:"Disponibilitate",st_srv:"Servere",feat_t:"De ce Carapuz201G?",feat_s:"Un bot care le înlocuiește pe toate.",mod_t:"Moderare",mod_d:"Instrumente complete de moderare.",eco_t:"Economie",eco_d:"Monedă virtuală cu recompense zilnice.",king_t:"Regate",king_d:"Creează regate cu războaie și alianțe.",tick_t:"Tichete",tick_d:"Sistem profesional de tichete.",verify_t:"Verificare",verify_d:"CAPTCHA și protecție anti-bot.",util_t:"Utilități",util_d:"Comenzi personalizate, mementouri și tombole.",voice_t:"Voce & Muzică",voice_d:"Redare muzică și radio.",ai_t:"AI Local (Ollama)",ai_d:"AI opțional prin Ollama. Rulează local.",qn_t:"Navigare rapidă",qn_s:"Mergeți la orice secțiune.",qn_about:"Despre bot",qn_feat:"Funcții",qn_cmd:"Comenzi",qn_sup:"Suport",qn_stat:"Stare",qn_priv:"Confidențialitate",qn_tos:"Termeni",cta_t:"Gata să începeți?",cta_s:"Adăugați Carapuz201G astăzi."},
+"bg":{name:"Български",flag:"🇧🇬",nav_home:"Начало",nav_about:"За бота",nav_features:"Функции",nav_commands:"Команди",nav_support:"Поддръжка",nav_status:"Състояние",nav_privacy:"Поверителност",nav_terms:"Условия",btn_add:"➕ Добави",btn_support:"💬 Поддръжка",btn_add_lg:"➕ Добави в Discord",btn_support_lg:"💬 Сървър за поддръжка",btn_learn:"📖 Научи повече",hero_t:"Carapuz201G",hero_s:"Мощен all-in-one Discord бот с модерация, икономика, кралства, тикети, верификация, глас, музика и опционален локален AI.",hs_srv:"Сървъри",hs_usr:"Потребители",hs_cmd:"Команди",hs_up:"Наличност",st_ok:"Всички системи работят",st_sub:"Ботът е онлайн",st_ping:"Пинг",st_up:"Наличност",st_srv:"Сървъри",feat_t:"Защо Carapuz201G?",feat_s:"Един бот вместо всички.",mod_t:"Модерация",mod_d:"Пълни инструменти за модерация.",eco_t:"Икономика",eco_d:"Виртуална валута с дневни награди.",king_t:"Кралства",king_d:"Създавайте кралства с войни и съюзи.",tick_t:"Тикети",tick_d:"Професионална система за тикети.",verify_t:"Верификация",verify_d:"CAPTCHA и защита от ботове.",util_t:"Инструменти",util_d:"Персонализирани команди, напомняния и томболи.",voice_t:"Глас & Музика",voice_d:"Възпроизвеждане на музика и радио.",ai_t:"Локален AI (Ollama)",ai_d:"Опционален AI чрез Ollama. Работи локално.",qn_t:"Бърза навигация",qn_s:"Преминете към всяка секция.",qn_about:"За бота",qn_feat:"Функции",qn_cmd:"Команди",qn_sup:"Поддръжка",qn_stat:"Състояние",qn_priv:"Поверителност",qn_tos:"Условия",cta_t:"Готови?",cta_s:"Добавете Carapuz201G днес."},
+"hr":{name:"Hrvatski",flag:"🇭🇷",nav_home:"Početna",nav_about:"O botu",nav_features:"Značajke",nav_commands:"Naredbe",nav_support:"Podrška",nav_status:"Status",nav_privacy:"Privatnost",nav_terms:"Uvjeti",btn_add:"➕ Dodaj",btn_support:"💬 Podrška",btn_add_lg:"➕ Dodaj u Discord",btn_support_lg:"💬 Server za podršku",btn_learn:"📖 Saznaj više",hero_t:"Carapuz201G",hero_s:"Snažan sve-u-jednom Discord bot s moderacijom, ekonomijom, kraljevstvima, tikovima, verifikacijom, glasom, glazbom i AI.",hs_srv:"Servera",hs_usr:"Korisnika",hs_cmd:"Naredbi",hs_up:"Dostupnost",st_ok:"Svi sustavi rade",st_sub:"Bot je online",st_ping:"Ping",st_up:"Dostupnost",st_srv:"Servera",feat_t:"Zašto Carapuz201G?",feat_s:"Jedan bot za sve.",mod_t:"Moderacija",mod_d:"Potpuni alati za moderaciju.",eco_t:"Ekonomija",eco_d:"Virtualna valuta s dnevnim nagradama.",king_t:"Kraljevstva",king_d:"Stvarajte kraljevstva s ratovima.",tick_t:"Tiketi",tick_d:"Profesionalni sustav tiketa.",verify_t:"Verifikacija",verify_d:"CAPTCHA i zaštita od botova.",util_t:"Alati",util_d:"Prilagođene naredbe, podsjetnici i nagradne igre.",voice_t:"Glas & Glazba",voice_d:"Reprodukcija glazbe i radija.",ai_t:"Lokalni AI (Ollama)",ai_d:"Opcionalni AI putem Ollamea. Radi lokalno.",qn_t:"Brza navigacija",qn_s:"Idite na bilo koji odjeljak.",qn_about:"O botu",qn_feat:"Značajke",qn_cmd:"Naredbe",qn_sup:"Podrška",qn_stat:"Status",qn_priv:"Privatnost",qn_tos:"Uvjeti",cta_t:"Spremni?",cta_s:"Dodajte Carapuz201G danas."},
+"sl":{name:"Slovenščina",flag:"🇸🇮",nav_home:"Domov",nav_about:"O botu",nav_features:"Funkcije",nav_commands:"Ukazi",nav_support:"Podpora",nav_status:"Stanje",nav_privacy:"Zasebnost",nav_terms:"Pogoji",btn_add:"➕ Dodaj",btn_support:"💬 Podpora",btn_add_lg:"➕ Dodaj v Discord",btn_support_lg:"💬 Strežnik za podporo",btn_learn:"📖 Več",hero_t:"Carapuz201G",hero_s:"Zmogljiv vse-v-enem Discord bot z moderacijo, ekonomijo, kraljestvi, vstopnicami, preverjanjem, glasom, glasbo in AI.",hs_srv:"Strežnikov",hs_usr:"Uporabnikov",hs_cmd:"Ukazov",hs_up:"Razpoložljivost",st_ok:"Vsi sistemi delujejo",st_sub:"Bot je na spletu",st_ping:"Ping",st_up:"Razpoložljivost",st_srv:"Strežnikov",feat_t:"Zakaj Carapuz201G?",feat_s:"En bot za vse.",mod_t:"Moderacija",mod_d:"Popolna orodja za moderacijo.",eco_t:"Ekonomija",eco_d:"Virtualna valuta z dnevnimi nagradami.",king_t:"Kraljestva",king_d:"Ustvarjajte kraljestva z vojnami.",tick_t:"Vstopnice",tick_d:"Profesionalni sistem vstopnic.",verify_t:"Preverjanje",verify_d:"CAPTCHA in zaščita pred boti.",util_t:"Orodja",util_d:"Prilagojeni ukazi, opomniki in nagradne igre.",voice_t:"Glas & Glasba",voice_d:"Predvajanje glasbe in radia.",ai_t:"Lokalni AI (Ollama)",ai_d:"Izbirni AI prek Ollame. Deluje lokalno.",qn_t:"Hitra navigacija",qn_s:"Pojdite na kateri koli razdelek.",qn_about:"O botu",qn_feat:"Funkcije",qn_cmd:"Ukazi",qn_sup:"Podpora",qn_stat:"Stanje",qn_priv:"Zasebnost",qn_tos:"Pogoji",cta_t:"Pripravljeni?",cta_s:"Dodajte Carapuz201G danes."},
+"et":{name:"Eesti",flag:"🇪🇪",nav_home:"Avaleht",nav_about:"Teave",nav_features:"Funktsioonid",nav_commands:"Käsud",nav_support:"Tugi",nav_status:"Olek",nav_privacy:"Privaatsus",nav_terms:"Tingimused",btn_add:"➕ Lisa",btn_support:"💬 Tugi",btn_add_lg:"➕ Lisa Discordi",btn_support_lg:"💬 Tugiserver",btn_learn:"📖 Loe lähemalt",hero_t:"Carapuz201G",hero_s:"Võimas kõik-ühes Discord bot modereerimise, majanduse, kuningriikide, piletite, kinnitamise, hääle, muusika ja valikulise kohaliku AI-ga.",hs_srv:"Serverit",hs_usr:"Kasutajat",hs_cmd:"Käsku",hs_up:"Tööaeg",st_ok:"Kõik süsteemid töötavad",st_sub:"Bot on võrgus",st_ping:"Ping",st_up:"Tööaeg",st_srv:"Serverit",feat_t:"Miks Carapuz201G?",feat_s:"Üks bot kõigi asemele.",mod_t:"Modereerimine",mod_d:"Täielikud modereerimistööriistad.",eco_t:"Majandus",eco_d:"Virtuaalne valuuta igapäevaste auhindadega.",king_t:"Kuningriigid",king_d:"Loo kuningriike sõdade ja liitudega.",tick_t:"Piletid",tick_d:"Professionaalne piletisüsteem.",verify_t:"Kinnitamine",verify_d:"CAPTCHA ja botide kaitse.",util_t:"Tööriistad",util_d:"Kohandatud käsud, meeldetuletused ja loosimised.",voice_t:"Hääl & Muusika",voice_d:"Muusika esitamine ja raadio.",ai_t:"Kohalik AI (Ollama)",ai_d:"Valikuline AI Ollama kaudu. Töötab kohapeal.",qn_t:"Kiirnavigaatio",qn_s:"Mine mis tahes jaotisesse.",qn_about:"Botist",qn_feat:"Funktsioonid",qn_cmd:"Käsud",qn_sup:"Tugi",qn_stat:"Olek",qn_priv:"Privaatsus",qn_tos:"Tingimused",cta_t:"Valmis?",cta_s:"Lisa Carapuz201G juba täna."},
+"lv":{name:"Latviešu",flag:"🇱🇻",nav_home:"Sākums",nav_about:"Par",nav_features:"Funkcijas",nav_commands:"Komandas",nav_support:"Atbalsts",nav_status:"Statuss",nav_privacy:"Privātums",nav_terms:"Noteikumi",btn_add:"➕ Pievienot",btn_support:"💬 Atbalsts",btn_add_lg:"➕ Pievienot Discord",btn_support_lg:"💬 Atbalsta serveris",btn_learn:"📖 Uzzināt vairāk",hero_t:"Carapuz201G",hero_s:"Jaudīgs viss-vienā Discord bots ar moderēšanu, ekonomiku, karaļvalstīm, biļetēm, verifikāciju, balsi, mūziku un AI.",hs_srv:"Serveri",hs_usr:"Lietotāji",hs_cmd:"Komandas",hs_up:"Darbspēja",st_ok:"Visas sistēmas darbojas",st_sub:"Bots ir tiešsaistē",st_ping:"Ping",st_up:"Darbspēja",st_srv:"Serveri",feat_t:"Kāpēc Carapuz201G?",feat_s:"Viens bots visu vietā.",mod_t:"Moderēšana",mod_d:"Pilni moderēšanas rīki.",eco_t:"Ekonomika",eco_d:"Virtuālā valūta ar ikdienas atlīdzībām.",king_t:"Karaļvalstis",king_d:"Veidojiet karaļvalstis ar kariem.",tick_t:"Biļetes",tick_d:"Profesionāla biļešu sistēma.",verify_t:"Verifikācija",verify_d:"CAPTCHA un botu aizsardzība.",util_t:"Rīki",util_d:"Pielāgotas komandas, atgādinājumi un izlozes.",voice_t:"Balss & Mūzika",voice_d:"Mūzikas atskaņošana un radio.",ai_t:"Lokālais AI (Ollama)",ai_d:"Izvēles AI caur Ollama. Darbojas lokāli.",qn_t:"Ātrā navigācija",qn_s:"Dodieties uz jebkuru sadaļu.",qn_about:"Par botu",qn_feat:"Funkcijas",qn_cmd:"Komandas",qn_sup:"Atbalsts",qn_stat:"Statuss",qn_priv:"Privātums",qn_tos:"Noteikumi",cta_t:"Gatavi?",cta_s:"Pievienojiet Carapuz201G šodien."},
+"lt":{name:"Lietuvių",flag:"🇱🇹",nav_home:"Pradžia",nav_about:"Apie",nav_features:"Funkcijos",nav_commands:"Komandos",nav_support:"Palaikymas",nav_status:"Būsena",nav_privacy:"Privatumas",nav_terms:"Sąlygos",btn_add:"➕ Pridėti",btn_support:"💬 Palaikymas",btn_add_lg:"➕ Pridėti prie Discord",btn_support_lg:"💬 Palaikymo serveris",btn_learn:"📖 Sužinoti daugiau",hero_t:"Carapuz201G",hero_s:"Galingas viskas-viename Discord botas su moderavimu, ekonomika, karalystėmis, bilietais, verifikavimu, balsu, muzika ir valiniu vietiniu AI.",hs_srv:"Serverių",hs_usr:"Vartotojų",hs_cmd:"Komandų",hs_up:"Veikimas",st_ok:"Visos sistemos veikia",st_sub:"Botas yra prisijungęs",st_ping:"Ping",st_up:"Veikimas",st_srv:"Serverių",feat_t:"Kodėl Carapuz201G?",feat_s:"Vienas botas vietoj visų.",mod_t:"Moderavimas",mod_d:"Pilni moderavimo įrankiai.",eco_t:"Ekonomika",eco_d:"Virtuali valiuta su kasdieniais apdovanojimais.",king_t:"Karalystės",king_d:"Kurkite karalystes su karais.",tick_t:"Bilietai",tick_d:"Profesionali bilietų sistema.",verify_t:"Verifikacija",verify_d:"CAPTCHA ir botų apsauga.",util_t:"Įrankiai",util_d:"Pasirinktinės komandos, priminimai ir loterijos.",voice_t:"Balsas & Muzika",voice_d:"Muzikos grojimas ir radijas.",ai_t:"Vietinis AI (Ollama)",ai_d:"Pasirinktinis AI per Ollama. Veikia vietiniai.",qn_t:"Greita navigacija",qn_s:"Eikite į bet kurią sekciją.",qn_about:"Apie botą",qn_feat:"Funkcijos",qn_cmd:"Komandos",qn_sup:"Palaikymas",qn_stat:"Būsena",qn_priv:"Privatumas",qn_tos:"Sąlygos",cta_t:"Pasiruošę?",cta_s:"Pridėkite Carapuz201G šiandien."},
+"ga":{name:"Gaeilge",flag:"🇮🇪",nav_home:"Baile",nav_about:"Eolas",nav_features:"Gnéithe",nav_commands:"Orduithe",nav_support:"Tacaíocht",nav_status:"Stádas",nav_privacy:"Príobháideachas",nav_terms:"Téarmaí",btn_add:"➕ Cuir leis",btn_support:"💬 Tacaíocht",btn_add_lg:"➕ Cuir le Discord",btn_support_lg:"💬 Freastalaí tacaíochta",btn_learn:"📖 Tuilleadh eolais",hero_t:"Carapuz201G",hero_s:"Bot Discord cumhachtach gach-rud-in-aon le modhnóireacht, eacnamaíocht, ríochtaí, ticéid, fíordheimhniú, guth, ceol agus AI áitiúil roghnach.",hs_srv:"Freastalaithe",hs_usr:"Úsáideoirí",hs_cmd:"Orduithe",hs_up:"Am ar líne",st_ok:"Gach córas ag obair",st_sub:"Tá an bot ar líne",st_ping:"Ping",st_up:"Am",st_srv:"Freastalaithe",feat_t:"Cén fáth Carapuz201G?",feat_s:"Bot amháin in ionad gach ceann.",mod_t:"Modhnóireacht",mod_d:"Uirlisí iomlána modhnóireachta.",eco_t:"Eacnamaíocht",eco_d:"Airgeadra fíorúil le duaiseanna laethúla.",king_t:"Ríochtaí",king_d:"Cruthaigh ríochtaí le cogaí.",tick_t:"Ticéid",tick_d:"Córas ticéad gairmiúil.",verify_t:"Fíordheimhniú",verify_d:"CAPTCHA agus cosaint bot.",util_t:"Uirlisí",util_d:"Orduithe saincheaptha agus meabhrúcháin.",voice_t:"Guth & Ceol",voice_d:"Seinm ceoil agus raidió.",ai_t:"AI Áitiúil (Ollama)",ai_d:"AI roghnach trí Ollama. Ritheann go háitiúil.",qn_t:"Nascleanúint tapa",qn_s:"Téigh chuig aon chuid.",qn_about:"Eolas",qn_feat:"Gnéithe",qn_cmd:"Orduithe",qn_sup:"Tacaíocht",qn_stat:"Stádas",qn_priv:"Príobháideachas",qn_tos:"Téarmaí",cta_t:"Réidh?",cta_s:"Cuir Carapuz201G leis inniu."},
+"mt":{name:"Malti",flag:"🇲🇹",nav_home:"Paġna Ewlenija",nav_about:"Dwar",nav_features:"Karatteristiċi",nav_commands:"Kmandi",nav_support:"Appoġġ",nav_status:"Status",nav_privacy:"Privatezza",nav_terms:"Termini",btn_add:"➕ Żid",btn_support:"💬 Appoġġ",btn_add_lg:"➕ Żid ma' Discord",btn_support_lg:"💬 Server ta' appoġġ",btn_learn:"📖 Iktar",hero_t:"Carapuz201G",hero_s:"Bot Discord qawwi all-in-one b'moderazzjoni, ekonomija, saltniet, biljetti, verifika, vuċi, mużika u AI lokali opzjonali.",hs_srv:"Servers",hs_usr:"Utenti",hs_cmd:"Kmandi",hs_up:"Uptime",st_ok:"Is-sistemi kollha jaħdmu",st_sub:"Il-bot huwa online",st_ping:"Ping",st_up:"Uptime",st_srv:"Servers",feat_t:"Għaliex Carapuz201G?",feat_s:"Bot wieħed minflok kollha.",mod_t:"Moderazzjoni",mod_d:"Għodod sħaħ ta' moderazzjoni.",eco_t:"Ekonomija",eco_d:"Munita virtwali b'premjijiet ta' kuljum.",king_t:"Saltniet",king_d:"Oħloq saltniet b'gwerer u alleanzi.",tick_t:"Biljetti",tick_d:"Sistema professjonali ta' biljetti.",verify_t:"Verifika",verify_d:"CAPTCHA u protezzjoni mill-bots.",util_t:"Għodod",util_d:"Kmandi personalizzati u lotteriji.",voice_t:"Vuċi & Mużika",voice_d:"Play-back tal-mużika u radju.",ai_t:"AI Lokali (Ollama)",ai_d:"AI opzjonali permezz ta' Ollama.",qn_t:"Navigazzjoni mgħaġġla",qn_s:"Mur għal kwalunkwe sezzjoni.",qn_about:"Dwar il-bot",qn_feat:"Karatteristiċi",qn_cmd:"Kmandi",qn_sup:"Appoġġ",qn_stat:"Status",qn_priv:"Privatezza",qn_tos:"Termini",cta_t:"Lest?",cta_s:"Żid Carapuz201G illum."}
+};
 
+/* ============================================================
+   APP LOGIC
+   ============================================================ */
 let lang=localStorage.getItem('c2g-lang')||'en-US';
 let theme=localStorage.getItem('c2g-theme')||'dark';
 
 document.addEventListener('DOMContentLoaded',()=>{
-setTheme(theme);buildLang();buildFeats();buildQL();setLang(lang);
-setupEv();setupRv();
-setTimeout(()=>document.getElementById('ldr').classList.add('hid'),1300);
+setTheme(theme);buildLang();setLang(lang);setupEv();setupRv();
+setTimeout(()=>document.getElementById('ldr').classList.add('hid'),1200);
 });
 
 function setTheme(t){theme=t;document.documentElement.setAttribute('data-theme',t);localStorage.setItem('c2g-theme',t);document.getElementById('thBtn').textContent=t==='dark'?'☀️':'🌙'}
@@ -272,57 +492,42 @@ d.onclick=()=>{setLang(c);closeLM()};m.appendChild(d);
 }
 
 function setLang(c){
-if(!T[c])c='en-US';lang=c;localStorage.setItem('c2g-lang',c);
-const t=T[c];
+if(!T[c])c='en-US';lang=c;localStorage.setItem('c2g-lang',c);const t=T[c];
 document.getElementById('cF').textContent=t.flag;
 document.getElementById('cL').textContent=t.name;
 document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k]});
-document.querySelectorAll('.fc').forEach(card=>{
-const id=card.dataset.fid;
-if(t['f_'+id+'_t'])card.querySelector('.ft').textContent=t['f_'+id+'_t'];
-if(t['f_'+id+'_d'])card.querySelector('.fd').textContent=t['f_'+id+'_d'];
-});
-document.querySelectorAll('.ql').forEach(lnk=>{
-const id=lnk.dataset.qid;if(t['qk_'+id])lnk.querySelector('.qt').textContent=t['qk_'+id];
-});
-document.querySelectorAll('.lo').forEach(o=>o.classList.remove('act'));
-const keys=Object.keys(T).sort((a,b)=>T[a].name.localeCompare(T[b].name));
-const idx=keys.indexOf(c);
-const opts=document.querySelectorAll('.lo');
-if(opts[idx])opts[idx].classList.add('act');
-document.documentElement.lang=c;
-}
-
-function togLM(){const m=document.getElementById('lMn'),b=document.getElementById('lBtn');if(m.classList.contains('show')){closeLM()}else{m.classList.add('show');b.classList.add('open')}}
-function closeLM(){document.getElementById('lMn').classList.remove('show');document.getElementById('lBtn').classList.remove('open')}
-
-function buildFeats(){
+// features
 const g=document.getElementById('fGrid');g.innerHTML='';
 FEATS.forEach((f,i)=>{
-const d=document.createElement('div');d.className='fc rv';d.dataset.fid=f.id;
-d.style.transitionDelay=i*.07+'s';
-d.innerHTML=`<div class="fi">${f.icon}</div><div class="ft">...</div><div class="fd">...</div>`;
+const d=document.createElement('div');d.className='fc rv';d.style.setProperty('--fc-acc',f.acc);d.style.transitionDelay=i*.06+'s';
+d.innerHTML=`<div class="fc-i">${f.icon}</div><div class="fc-t">${t[f.k+'_t']||f.k}</div><div class="fc-d">${t[f.k+'_d']||''}</div>`;
 g.appendChild(d);
 });
-}
-
-function buildQL(){
-const g=document.getElementById('qGrid');g.innerHTML='';
-QLS.forEach((q,i)=>{
-const a=document.createElement('a');a.className='ql rv';a.href=q.hr;a.dataset.qid=q.id;
-a.style.transitionDelay=i*.06+'s';
-a.innerHTML=`<span class="qi">${q.icon}</span><span class="qt">...</span>`;
-g.appendChild(a);
+// quick nav
+const q=document.getElementById('qNav');q.innerHTML='';
+QNAV.forEach((n,i)=>{
+const a=document.createElement('a');a.href=n.href;a.className='rv';a.style.transitionDelay=i*.06+'s';
+a.innerHTML=`<span class="qn-i">${n.icon}</span><span>${t[n.k]||n.k}</span>`;
+q.appendChild(a);
 });
+// lang menu active
+document.querySelectorAll('.lo').forEach(o=>o.classList.remove('act'));
+const keys=Object.keys(T).sort((a,b)=>T[a].name.localeCompare(T[b].name));
+const idx=keys.indexOf(c);const opts=document.querySelectorAll('.lo');
+if(opts[idx])opts[idx].classList.add('act');
+document.documentElement.lang=c;
+setTimeout(setupRv,50);
 }
 
-function setupRv(){
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1});
-document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
-}
-
+function togLM(){const m=document.getElementById('lMn'),b=document.getElementById('lBtn');if(m.classList.contains('show'))closeLM();else{m.classList.add('show');b.classList.add('open')}}
+function closeLM(){document.getElementById('lMn').classList.remove('show');document.getElementById('lBtn').classList.remove('open')}
 function openMM(){document.getElementById('mMn').classList.add('show');document.getElementById('mOv').classList.add('show');document.body.style.overflow='hidden'}
 function closeMM(){document.getElementById('mMn').classList.remove('show');document.getElementById('mOv').classList.remove('show');document.body.style.overflow=''}
+
+function setupRv(){
+const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+}
 
 function setupEv(){
 document.getElementById('thBtn').onclick=togTheme;

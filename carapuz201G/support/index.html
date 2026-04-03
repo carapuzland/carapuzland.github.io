@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Support — Carapuz201G</title>
-<meta name="description" content="Get help with Carapuz201G Discord bot — support server, bug reports, data requests and contacts.">
+<meta name="description" content="Get help with Carapuz201G Discord bot — support server, bug reports, privacy/data requests, and contact information.">
 <style>
 :root{--tr:0.3s}
 [data-theme="dark"]{--bg:#0b0f1a;--bg2:#111827;--card:rgba(17,24,39,0.88);--hdr:rgba(11,15,26,0.93);--tx:#e2e8f0;--tx2:#94a3b8;--acc:#5865F2;--acc2:#38bdf8;--brd:rgba(88,101,242,0.18);--shd:rgba(0,0,0,0.4);--glw:rgba(88,101,242,0.3);--dd:#1e293b;--ddh:#334155;--g1:#0b0f1a;--g2:#15102e;--g3:#0d2847}
@@ -12,83 +12,62 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;transition:background var(--tr),color var(--tr);min-height:100vh}
-a{color:inherit}
+a{color:inherit;text-decoration:none}
 .hdr{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--hdr);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--brd);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;transition:background var(--tr)}
 .hdr-l{display:flex;align-items:center;gap:.6rem}
-.hm-lnk{display:flex;align-items:center;text-decoration:none;color:var(--tx2);font-size:1.35rem;transition:color .3s}
-.hm-lnk:hover{color:var(--acc)}
+.hm-lnk{display:flex;align-items:center;text-decoration:none;color:var(--tx2);font-size:1.35rem;transition:color .3s}.hm-lnk:hover{color:var(--acc)}
 .hm-lnk .em{animation:fl 3s ease-in-out infinite}
 @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-.brand{font-size:1.15rem;font-weight:700;color:var(--tx);text-decoration:none;transition:color .3s}
-.brand:hover{color:var(--acc)}
+.brand{font-size:1.15rem;font-weight:700;color:var(--tx);text-decoration:none;transition:color .3s}.brand:hover{color:var(--acc)}
 .nav{display:flex;align-items:center;gap:.15rem}
 .nav a{padding:.35rem .55rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.8rem;font-weight:500;transition:all .2s;white-space:nowrap}
-.nav a:hover{color:var(--tx);background:var(--brd)}
-.nav a.active{color:var(--acc);background:rgba(88,101,242,.12)}
+.nav a:hover{color:var(--tx);background:var(--brd)}.nav a.act{color:var(--acc);background:rgba(88,101,242,.12)}
 .hdr-r{display:flex;align-items:center;gap:.45rem}
-.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.4rem .8rem;border-radius:10px;font-size:.78rem;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid var(--brd);transition:all .3s;white-space:nowrap}
-.btn-a{background:var(--acc);color:#fff;border-color:var(--acc)}
-.btn-a:hover{background:#4752c4;box-shadow:0 4px 20px var(--glw);transform:translateY(-1px)}
-.btn-o{background:transparent;color:var(--tx)}
-.btn-o:hover{background:var(--brd);border-color:var(--acc)}
-.th-btn{background:var(--card);border:1px solid var(--brd);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--tx);transition:all .3s}
-.th-btn:hover{border-color:var(--acc);box-shadow:0 0 12px var(--glw);transform:rotate(20deg)}
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.45rem .9rem;border-radius:10px;font-size:.8rem;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid var(--brd);transition:all .3s;white-space:nowrap}
+.btn-a{background:var(--acc);color:#fff;border-color:var(--acc)}.btn-a:hover{background:#4752c4;box-shadow:0 4px 20px var(--glw);transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--tx)}.btn-o:hover{background:var(--brd);border-color:var(--acc)}
+.th-btn{background:var(--card);border:1px solid var(--brd);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--tx);transition:all .3s}.th-btn:hover{border-color:var(--acc);box-shadow:0 0 12px var(--glw);transform:rotate(20deg)}
 .ld{position:relative}
-.lb{background:var(--card);border:1px solid var(--brd);border-radius:10px;padding:.35rem .65rem;cursor:pointer;display:flex;align-items:center;gap:.35rem;font-size:.78rem;color:var(--tx);transition:all .3s}
-.lb:hover{border-color:var(--acc);box-shadow:0 0 10px var(--glw)}
-.lb .ar{font-size:.55rem;transition:transform .3s}
-.lb.open .ar{transform:rotate(180deg)}
-.lm{position:absolute;top:calc(100% + 6px);right:0;background:var(--dd);border:1px solid var(--brd);border-radius:12px;padding:.35rem 0;min-width:190px;max-height:350px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .3s;box-shadow:0 16px 40px var(--shd);z-index:1001}
-.lm.show{opacity:1;visibility:visible;transform:translateY(0)}
-.lm::-webkit-scrollbar{width:5px}
-.lm::-webkit-scrollbar-thumb{background:var(--brd);border-radius:3px}
-.lo{display:flex;align-items:center;gap:.55rem;padding:.45rem .85rem;cursor:pointer;font-size:.82rem;color:var(--tx);transition:background .2s}
-.lo:hover{background:var(--ddh)}
-.lo.act{color:var(--acc);font-weight:600}
-.lo .fl{font-size:1.05rem}
+.lb{background:var(--card);border:1px solid var(--brd);border-radius:10px;padding:.35rem .65rem;cursor:pointer;display:flex;align-items:center;gap:.35rem;font-size:.78rem;color:var(--tx);transition:all .3s}.lb:hover{border-color:var(--acc);box-shadow:0 0 10px var(--glw)}
+.lb .ar{font-size:.55rem;transition:transform .3s}.lb.open .ar{transform:rotate(180deg)}
+.lm{position:absolute;top:calc(100% + 6px);right:0;background:var(--dd);border:1px solid var(--brd);border-radius:12px;padding:.35rem 0;min-width:200px;max-height:400px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .3s;box-shadow:0 16px 40px var(--shd);z-index:1001}.lm.show{opacity:1;visibility:visible;transform:translateY(0)}
+.lm::-webkit-scrollbar{width:5px}.lm::-webkit-scrollbar-thumb{background:var(--brd);border-radius:3px}
+.lo{display:flex;align-items:center;gap:.55rem;padding:.45rem .85rem;cursor:pointer;font-size:.82rem;color:var(--tx);transition:background .2s}.lo:hover{background:var(--ddh)}.lo.act{color:var(--acc);font-weight:600}.lo .fl{font-size:1.05rem}
 .mb{display:none;background:var(--card);border:1px solid var(--brd);border-radius:8px;width:34px;height:34px;align-items:center;justify-content:center;cursor:pointer;color:var(--tx);font-size:1.15rem}
-.mov{display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}
-.mov.show{display:block}
-.mm{position:fixed;top:0;right:-300px;width:270px;height:100%;background:var(--bg2);z-index:999;padding:1.25rem;transition:right .3s;overflow-y:auto;border-left:1px solid var(--brd)}
-.mm.show{right:0}
+.mov{display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}.mov.show{display:block}
+.mm{position:fixed;top:0;right:-300px;width:270px;height:100%;background:var(--bg2);z-index:999;padding:1.25rem;transition:right .3s;overflow-y:auto;border-left:1px solid var(--brd)}.mm.show{right:0}
 .mm .xb{background:none;border:none;color:var(--tx);font-size:1.4rem;cursor:pointer;float:right;padding:.25rem}
 .mn{display:flex;flex-direction:column;gap:.2rem;margin-top:2.5rem}
-.mn a{padding:.6rem .7rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.9rem;transition:all .2s}
-.mn a:hover,.mn a.active{color:var(--acc);background:rgba(88,101,242,.1)}
-.mab{display:flex;flex-direction:column;gap:.5rem;margin-top:1.25rem}
-.mab .btn{justify-content:center}
-.ph{padding:6rem 2rem 3rem;text-align:center;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);position:relative;overflow:hidden;transition:background var(--tr)}
+.mn a{padding:.6rem .7rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.9rem;transition:all .2s}.mn a:hover,.mn a.act{color:var(--acc);background:rgba(88,101,242,.1)}
+.mab{display:flex;flex-direction:column;gap:.5rem;margin-top:1.25rem}.mab .btn{justify-content:center}
+.ph{padding:6.5rem 2rem 3rem;text-align:center;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);position:relative;overflow:hidden;transition:background var(--tr)}
 .ph::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(88,101,242,.12) 0%,transparent 60%);pointer-events:none}
-.phc{position:relative;z-index:2;max-width:680px;margin:0 auto}
-.phi{font-size:3.5rem;margin-bottom:.5rem;display:inline-block}
-.pht{font-size:2.2rem;font-weight:800;margin-bottom:.5rem;background:linear-gradient(135deg,var(--tx),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.phs{font-size:1.05rem;color:var(--tx2);line-height:1.6}
-.sec{padding:3rem 2rem;max-width:900px;margin:0 auto}
-.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-bottom:1.5rem}
-.sc{background:var(--card);backdrop-filter:blur(12px);border:1px solid var(--brd);border-radius:16px;padding:1.75rem;transition:all .35s;text-align:center}
-.sc:hover{transform:translateY(-5px);box-shadow:0 12px 40px var(--shd);border-color:var(--acc)}
-.sc-i{font-size:2.5rem;margin-bottom:.75rem;display:inline-block}
-.sc-t{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
-.sc-d{font-size:.88rem;color:var(--tx2);line-height:1.6;margin-bottom:.75rem}
-.sc .btn{margin-top:.25rem}
+.phc{position:relative;z-index:2;max-width:700px;margin:0 auto}
+.phi{font-size:3.8rem;margin-bottom:.6rem;display:inline-block}
+.pht{font-size:2.4rem;font-weight:800;margin-bottom:.6rem;background:linear-gradient(135deg,var(--tx),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.phs{font-size:1.05rem;color:var(--tx2);line-height:1.7}
+.sec{padding:3rem 2rem;max-width:1000px;margin:0 auto}
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-bottom:1.5rem}
+.cc{background:var(--card);backdrop-filter:blur(12px);border:1px solid var(--brd);border-radius:16px;padding:1.75rem;transition:all .35s;text-align:center}
+.cc:hover{transform:translateY(-5px);box-shadow:0 12px 40px var(--shd);border-color:var(--acc)}
+.cci{font-size:2.5rem;margin-bottom:.75rem;display:inline-block}
+.cct{font-size:1.1rem;font-weight:700;margin-bottom:.45rem}
+.ccd{font-size:.88rem;color:var(--tx2);line-height:1.6;margin-bottom:.9rem}
 .ib{background:var(--card);border:1px solid var(--brd);border-radius:16px;padding:1.75rem;margin-bottom:1.25rem;transition:all .3s}
 .ib:hover{border-color:var(--acc);box-shadow:0 8px 30px var(--shd)}
 .ib h3{font-size:1.05rem;font-weight:700;margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}
-.ib p,.ib ul{font-size:.88rem;color:var(--tx2);line-height:1.65}
-.ib ul{padding-left:1.2rem;margin-top:.4rem}
+.ib p,.ib ul{font-size:.88rem;color:var(--tx2);line-height:1.7}
+.ib ul{padding-left:1.2rem;margin-top:.45rem}
 .ib li{margin-bottom:.2rem}
 .ib code{background:var(--brd);padding:.15rem .4rem;border-radius:5px;font-size:.82rem;font-family:Consolas,monospace;color:var(--acc)}
 .ftr{text-align:center;padding:1.75rem;color:var(--tx2);font-size:.82rem;border-top:1px solid var(--brd);background:var(--hdr);backdrop-filter:blur(20px)}
-.ftr a{color:var(--acc);text-decoration:none}
-.ftr a:hover{text-decoration:underline}
+.ftr a{color:var(--acc);text-decoration:none}.ftr a:hover{text-decoration:underline}
 .ftl{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-bottom:.65rem}
 @media(max-width:1024px){.nav{display:none}.mb{display:flex}.hdr-r .btn{display:none}}
-@media(max-width:768px){.ph{padding:5rem 1.25rem 2.5rem}.pht{font-size:1.7rem}.sec{padding:2rem 1.25rem}.sg{grid-template-columns:1fr}.lb .ll{display:none}}
-@media(max-width:480px){.pht{font-size:1.5rem}.sc{padding:1.25rem}}
-.rv{opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s}
-.rv.vis{opacity:1;transform:translateY(0)}
-.ld-w{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;transition:opacity .4s,visibility .4s}
-.ld-w.hid{opacity:0;visibility:hidden}
+@media(max-width:768px){.ph{padding:5.5rem 1.25rem 2.5rem}.pht{font-size:1.8rem}.sec{padding:2rem 1.25rem}.cg{grid-template-columns:1fr}.lb .ll{display:none}}
+@media(max-width:480px){.pht{font-size:1.5rem}.cc,.ib{padding:1.25rem}}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s}.rv.vis{opacity:1;transform:translateY(0)}
+.ld-w{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;transition:opacity .4s,visibility .4s}.ld-w.hid{opacity:0;visibility:hidden}
 .ld-e{font-size:2.8rem;animation:lba 1s ease-in-out infinite}
 @keyframes lba{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.1)}}
 .ld-b{width:100px;height:3px;background:var(--brd);border-radius:3px;overflow:hidden}
@@ -96,9 +75,8 @@ a{color:inherit}
 @keyframes lfx{to{width:100%}}
 </style>
 </head>
-<body data-page="support">
-<div class="ld-w" id="ldr"><div class="ld-e">🤖</div><div style="color:var(--tx2);font-size:.85rem;letter-spacing:2px">CARAPUZ201G</div><div class="ld-b"><div class="ld-f"></div></div></div>
-
+<body>
+<div class="ld-w" id="ldr"><div class="ld-e">💬</div><div style="color:var(--tx2);font-size:.85rem;letter-spacing:2px">SUPPORT</div><div class="ld-b"><div class="ld-f"></div></div></div>
 <header class="hdr">
 <div class="hdr-l">
 <a href="https://carapuzland.github.io" class="hm-lnk" title="CarapuzLand"><span class="em">🏝️</span></a>
@@ -108,23 +86,19 @@ a{color:inherit}
 <a href="../about/" data-i18n="nav_about">About</a>
 <a href="../features/" data-i18n="nav_features">Features</a>
 <a href="../commands/" data-i18n="nav_commands">Commands</a>
-<a href="../support/" class="active" data-i18n="nav_support">Support</a>
+<a href="../support/" class="act" data-i18n="nav_support">Support</a>
 <a href="../status/" data-i18n="nav_status">Status</a>
 <a href="../privacy-policy/" data-i18n="nav_privacy">Privacy</a>
 <a href="../terms-of-service/" data-i18n="nav_terms">Terms</a>
 </nav>
 <div class="hdr-r">
 <button class="th-btn" id="thBtn" title="Toggle theme">🌙</button>
-<div class="ld">
-<button class="lb" id="lBtn"><span class="fl" id="cF">🇺🇸</span><span class="ll" id="cL">English</span><span class="ar">▼</span></button>
-<div class="lm" id="lMn"></div>
-</div>
+<div class="ld"><button class="lb" id="lBtn"><span class="fl" id="cF">🇺🇸</span><span class="ll" id="cL">English</span><span class="ar">▼</span></button><div class="lm" id="lMn"></div></div>
 <a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
 <a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
 <button class="mb" id="mBtn">☰</button>
 </div>
 </header>
-
 <div class="mov" id="mOv"></div>
 <div class="mm" id="mMn">
 <button class="xb" id="cMn">✕</button>
@@ -133,7 +107,7 @@ a{color:inherit}
 <a href="../about/" data-i18n="nav_about">About</a>
 <a href="../features/" data-i18n="nav_features">Features</a>
 <a href="../commands/" data-i18n="nav_commands">Commands</a>
-<a href="../support/" class="active" data-i18n="nav_support">Support</a>
+<a href="../support/" class="act" data-i18n="nav_support">Support</a>
 <a href="../status/" data-i18n="nav_status">Status</a>
 <a href="../privacy-policy/" data-i18n="nav_privacy">Privacy Policy</a>
 <a href="../terms-of-service/" data-i18n="nav_terms">Terms of Service</a>
@@ -143,18 +117,14 @@ a{color:inherit}
 <a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
 </div>
 </div>
-
 <main>
-<section class="ph">
-<div class="phc">
+<section class="ph"><div class="phc">
 <div class="phi">💬</div>
 <h1 class="pht" data-i18n="pg_t">Support</h1>
-<p class="phs" data-i18n="pg_s">Need help? Here's how to get support for Carapuz201G.</p>
-</div>
-</section>
-<section class="sec" id="content"></section>
+<p class="phs" data-i18n="pg_s">Need help? Here are all the ways to get support for Carapuz201G.</p>
+</div></section>
+<section class="sec" id="ct"></section>
 </main>
-
 <footer class="ftr">
 <div class="ftl">
 <a href="../privacy-policy/" data-i18n="nav_privacy">Privacy Policy</a>
@@ -163,53 +133,96 @@ a{color:inherit}
 </div>
 <p>© 2025 <a href="https://carapuzland.github.io">CarapuzLand</a> 🏝️ — Carapuz201G</p>
 </footer>
-
 <script>
-const enD={
+const en={
 cards:[
-{icon:"💬",title:"Support Server",desc:"Join our Discord server for real-time help, announcements, and community.",btn:"Join Server",href:"https://discord.gg/YOUR_INVITE"},
-{icon:"➕",title:"Add the Bot",desc:"Add Carapuz201G to your Discord server with a single click.",btn:"Add Bot",href:"https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands"},
-{icon:"📋",title:"Documentation",desc:"Browse our commands and features pages for detailed information.",btn:"View Commands",href:"../commands/"}
+{i:"💬",t:"Support Server",d:"Join our Discord support server for real-time help, announcements, updates, and community discussion.",b:"Join Server",h:"https://discord.gg/YOUR_INVITE",ext:true},
+{i:"➕",t:"Add the Bot",d:"Add Carapuz201G to your Discord server with a single click and start configuring it immediately.",b:"Add Bot",h:"https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands",ext:true},
+{i:"📋",t:"Commands List",d:"Need to know which command does what? Browse the full command list with search and filters.",b:"View Commands",h:"../commands/",ext:false}
 ],
 blocks:[
-{icon:"🐛",title:"Bug Reports",body:"Found a bug? Report it in our support server in the <code>#bug-reports</code> channel. Please include:<ul><li>What you were trying to do</li><li>What happened instead</li><li>Your server ID (if relevant)</li><li>Screenshots if possible</li></ul>"},
-{icon:"🔒",title:"Privacy & Data Requests",body:"If you have questions about your data or want to request data deletion:<ul><li>Join the support server and open a ticket</li><li>Use the <code>/support</code> command in Discord</li><li>Read our <a href='../privacy-policy/' style='color:var(--acc)'>Privacy Policy</a> for details</li></ul>"},
-{icon:"⚡",title:"Quick Help via Bot",body:"You can get help directly in Discord:<ul><li><code>/help</code> — View all commands</li><li><code>/support</code> — Get support links and info</li><li><code>/ticket</code> — Open a support ticket on your server</li></ul>"},
-{icon:"📧",title:"Other Contact",body:"For business inquiries, partnerships, or other matters, reach out through our support server. We aim to respond within 24-48 hours."}
+{i:"🛠️",t:"How to Get Help",b:"The fastest way to get help is through the support server. There you can:<ul><li>Ask general questions about setup and usage</li><li>Get help configuring moderation, tickets, economy, voice, and more</li><li>Report bugs and unexpected behaviour</li><li>Receive announcements about updates and maintenance</li><li>Request new features or suggest improvements</li></ul>When asking for help, please include as much detail as possible so we can assist you faster."},
+{i:"🐛",t:"Bug Reports",b:"If you found a bug, please report it in the support server. A good bug report should include:<ul><li>What command or feature you were using</li><li>What you expected to happen</li><li>What happened instead</li><li>Error messages, if any</li><li>Screenshots or logs if available</li><li>Your server ID if the bug is server-specific</li></ul>This information helps us reproduce and fix the issue more quickly."},
+{i:"🔒",t:"Privacy & Data Requests",b:"If you have questions about privacy, stored data, or want to request deletion of your data, you can:<ul><li>Join the support server and open a ticket</li><li>Use the <code>/support</code> command inside Discord</li><li>Read our <a href='../privacy-policy/' style='color:var(--acc)'>Privacy Policy</a> for full details</li></ul>We aim to process privacy and deletion requests as quickly as possible."},
+{i:"⚡",t:"Quick Help Through the Bot",b:"Carapuz201G includes built-in commands to help you directly from Discord:<ul><li><code>/help</code> — view the command list and general help</li><li><code>/support</code> — get support links and contact information</li><li><code>/ticket</code> — open a ticket in a server where ticket system is configured</li></ul>This makes it easy to get assistance even without leaving Discord."},
+{i:"📨",t:"Contact & Response Time",b:"The main contact method is our Discord support server. We usually respond as quickly as possible, but response time may depend on:<ul><li>How detailed your request is</li><li>Whether staff are currently online</li><li>The complexity of the issue</li><li>Current development or maintenance workload</li></ul>For urgent issues affecting core functionality, please clearly mark them in your message."},
+{i:"❓",t:"Before You Ask",b:"Before opening a support request, please check the following:<ul><li>Did you use <code>/help</code>?</li><li>Did you check the commands page on this website?</li><li>Does the bot have the required permissions?</li><li>Is the feature enabled in your server configuration?</li><li>Are you using the latest version of the bot if self-hosted?</li></ul>These quick checks solve many common problems immediately."}
 ]};
 
-const ruD={
+const ru={
 cards:[
-{icon:"💬",title:"Сервер поддержки",desc:"Присоединяйтесь к нашему Discord-серверу для помощи в реальном времени.",btn:"Присоединиться",href:"https://discord.gg/YOUR_INVITE"},
-{icon:"➕",title:"Добавить бота",desc:"Добавьте Carapuz201G на свой Discord-сервер одним кликом.",btn:"Добавить бота",href:"https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands"},
-{icon:"📋",title:"Документация",desc:"Просмотрите наши команды и функции для подробной информации.",btn:"Команды",href:"../commands/"}
+{i:"💬",t:"Сервер поддержки",d:"Присоединяйтесь к нашему Discord-серверу поддержки для помощи в реальном времени, объявлений и общения.",b:"Присоединиться",h:"https://discord.gg/YOUR_INVITE",ext:true},
+{i:"➕",t:"Добавить бота",d:"Добавьте Carapuz201G на свой Discord-сервер одним кликом и начните настройку сразу.",b:"Добавить бота",h:"https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands",ext:true},
+{i:"📋",t:"Список команд",d:"Нужно узнать, какая команда что делает? Просмотрите полный список команд с поиском и фильтрами.",b:"Открыть команды",h:"../commands/",ext:false}
 ],
 blocks:[
-{icon:"🐛",title:"Баг-репорты",body:"Нашли баг? Сообщите о нём на сервере поддержки в канале <code>#bug-reports</code>. Укажите:<ul><li>Что вы пытались сделать</li><li>Что произошло вместо этого</li><li>ID вашего сервера (если нужно)</li><li>Скриншоты если возможно</li></ul>"},
-{icon:"🔒",title:"Конфиденциальность и запросы данных",body:"Вопросы о ваших данных или запрос на удаление:<ul><li>Присоединитесь к серверу поддержки и откройте тикет</li><li>Используйте команду <code>/support</code></li><li>Прочитайте <a href='../privacy-policy/' style='color:var(--acc)'>Политику конфиденциальности</a></li></ul>"},
-{icon:"⚡",title:"Быстрая помощь через бота",body:"Получите помощь прямо в Discord:<ul><li><code>/help</code> — Все команды</li><li><code>/support</code> — Ссылки поддержки</li><li><code>/ticket</code> — Открыть тикет</li></ul>"},
-{icon:"📧",title:"Другие контакты",body:"Для деловых запросов и партнёрства свяжитесь через сервер поддержки. Мы отвечаем в течение 24-48 часов."}
+{i:"🛠️",t:"Как получить помощь",b:"Самый быстрый способ получить помощь — через сервер поддержки. Там вы можете:<ul><li>Задать общие вопросы по настройке и использованию</li><li>Получить помощь по модерации, тикетам, экономике, голосовым функциям и т.д.</li><li>Сообщить о багах и странном поведении</li><li>Получать объявления об обновлениях и техработах</li><li>Предлагать новые функции и улучшения</li></ul>Когда просите помощь, постарайтесь описать проблему максимально подробно."},
+{i:"🐛",t:"Баг-репорты",b:"Если вы нашли баг, сообщите о нём на сервере поддержки. Хороший баг-репорт должен содержать:<ul><li>Какую команду или функцию вы использовали</li><li>Что должно было произойти</li><li>Что произошло на самом деле</li><li>Текст ошибок, если есть</li><li>Скриншоты или логи, если доступны</li><li>ID вашего сервера, если проблема специфична для сервера</li></ul>Это помогает быстрее воспроизвести и исправить проблему."},
+{i:"🔒",t:"Конфиденциальность и запросы данных",b:"Если у вас есть вопросы о конфиденциальности, хранимых данных или вы хотите запросить удаление данных, вы можете:<ul><li>Присоединиться к серверу поддержки и открыть тикет</li><li>Использовать команду <code>/support</code> в Discord</li><li>Прочитать нашу <a href='../privacy-policy/' style='color:var(--acc)'>Политику конфиденциальности</a></li></ul>Мы стараемся обрабатывать такие запросы как можно быстрее."},
+{i:"⚡",t:"Быстрая помощь через бота",b:"Carapuz201G имеет встроенные команды помощи:<ul><li><code>/help</code> — список команд и общая справка</li><li><code>/support</code> — ссылки и контакты поддержки</li><li><code>/ticket</code> — открыть тикет в сервере, где настроена система тикетов</li></ul>Это позволяет получить помощь прямо из Discord."},
+{i:"📨",t:"Контакты и время ответа",b:"Основной способ связи — наш Discord-сервер поддержки. Время ответа зависит от:<ul><li>Насколько подробно описана проблема</li><li>Есть ли в сети сотрудники поддержки</li><li>Сложности ситуации</li><li>Текущей загрузки разработки и техработ</li></ul>Если проблема срочная и влияет на основную работу, укажите это явно."},
+{i:"❓",t:"Перед тем как писать",b:"Перед открытием запроса проверьте:<ul><li>Использовали ли вы <code>/help</code>?</li><li>Смотрели ли вы страницу команд на сайте?</li><li>Есть ли у бота нужные разрешения?</li><li>Включена ли функция в настройках сервера?</li><li>Используете ли вы актуальную версию бота, если он self-hosted?</li></ul>Эти проверки часто сразу решают проблему."}
 ]};
 
-const ukD={
+const uk={
 cards:[
-{icon:"💬",title:"Сервер підтримки",desc:"Приєднуйтесь до нашого Discord-сервера для допомоги в реальному часі.",btn:"Приєднатися",href:"https://discord.gg/YOUR_INVITE"},
-{icon:"➕",title:"Додати бота",desc:"Додайте Carapuz201G на свій Discord-сервер одним кліком.",btn:"Додати бота",href:"https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands"},
-{icon:"📋",title:"Документація",desc:"Перегляньте наші команди та функції для детальної інформації.",btn:"Команди",href:"../commands/"}
+{i:"💬",t:"Сервер підтримки",d:"Приєднуйтесь до нашого Discord-сервера підтримки для допомоги в реальному часі.",b:"Приєднатися",h:"https://discord.gg/YOUR_INVITE",ext:true},
+{i:"➕",t:"Додати бота",d:"Додайте Carapuz201G на свій сервер одним кліком.",b:"Додати бота",h:"https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands",ext:true},
+{i:"📋",t:"Список команд",d:"Перегляньте повний список команд з пошуком і фільтрами.",b:"Команди",h:"../commands/",ext:false}
 ],
 blocks:[
-{icon:"🐛",title:"Баг-репорти",body:"Знайшли баг? Повідомте на сервері підтримки в каналі <code>#bug-reports</code>. Вкажіть:<ul><li>Що ви намагалися зробити</li><li>Що сталося натомість</li><li>ID вашого сервера (якщо потрібно)</li><li>Скріншоти якщо можливо</li></ul>"},
-{icon:"🔒",title:"Конфіденційність та запити даних",body:"Питання про ваші дані або запит на видалення:<ul><li>Приєднайтесь до сервера та відкрийте тікет</li><li>Використайте команду <code>/support</code></li><li>Прочитайте <a href='../privacy-policy/' style='color:var(--acc)'>Політику конфіденційності</a></li></ul>"},
-{icon:"⚡",title:"Швидка допомога через бота",body:"Отримайте допомогу в Discord:<ul><li><code>/help</code> — Всі команди</li><li><code>/support</code> — Посилання підтримки</li><li><code>/ticket</code> — Відкрити тікет</li></ul>"},
-{icon:"📧",title:"Інші контакти",body:"Для ділових запитів зв'яжіться через сервер підтримки. Ми відповідаємо протягом 24-48 годин."}
+{i:"🛠️",t:"Як отримати допомогу",b:"Найшвидший спосіб отримати допомогу — через сервер підтримки. Там ви можете поставити питання, отримати допомогу з налаштуванням, повідомити про баги та запропонувати покращення."},
+{i:"🐛",t:"Баг-репорти",b:"Якщо ви знайшли баг, вкажіть:<ul><li>Яку команду або функцію ви використовували</li><li>Що мало статися</li><li>Що сталося насправді</li><li>Текст помилок, якщо є</li><li>Скріншоти або логи</li></ul>"},
+{i:"🔒",t:"Конфіденційність і запити даних",b:"Якщо у вас є питання щодо даних або ви хочете запросити видалення, відкрийте тікет на сервері підтримки або скористайтесь <code>/support</code>. Деталі в <a href='../privacy-policy/' style='color:var(--acc)'>Політиці конфіденційності</a>."},
+{i:"⚡",t:"Швидка допомога через бота",b:"Корисні команди:<ul><li><code>/help</code></li><li><code>/support</code></li><li><code>/ticket</code></li></ul>"},
+{i:"📨",t:"Контакти і час відповіді",b:"Основний спосіб зв'язку — сервер підтримки Discord. Час відповіді залежить від складності питання та поточного навантаження."},
+{i:"❓",t:"Перед тим як писати",b:"Перевірте, чи є у бота потрібні права, чи функція ввімкнена, і чи використовуєте ви актуальну версію бота."}
 ]};
+
+/* Compact fallback for EU languages */
+function mkD(a,b,c,d,e,f){return{cards:a,blocks:[{i:"🛠️",t:b[0],b:b[1]},{i:"🐛",t:c[0],b:c[1]},{i:"🔒",t:d[0],b:d[1]},{i:"⚡",t:e[0],b:e[1]},{i:"📨",t:f[0],b:f[1]}]}}
+const de=mkD(
+[{i:"💬",t:"Support-Server",d:"Treten Sie unserem Discord-Server für Hilfe in Echtzeit bei.",b:"Beitreten",h:"https://discord.gg/YOUR_INVITE",ext:true},{i:"➕",t:"Bot hinzufügen",d:"Fügen Sie Carapuz201G zu Ihrem Server hinzu.",b:"Bot hinzufügen",h:"https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands",ext:true},{i:"📋",t:"Befehlsliste",d:"Sehen Sie sich alle Befehle an.",b:"Befehle",h:"../commands/",ext:false}],
+["Hilfe erhalten","Der schnellste Weg ist unser Support-Server. Dort können Sie Fragen stellen, Probleme melden und Feedback geben."],
+["Fehlerberichte","Bitte beschreiben Sie den Fehler, erwartetes Verhalten, tatsächliches Verhalten und fügen Sie Screenshots oder Logs hinzu."],
+["Datenschutz & Datenanfragen","Für Datenschutzfragen oder Löschanfragen öffnen Sie ein Ticket oder verwenden Sie <code>/support</code>."],
+["Schnelle Hilfe im Bot","Verwenden Sie <code>/help</code>, <code>/support</code> oder <code>/ticket</code>."],
+["Kontakt","Der Discord-Support-Server ist unser Hauptkontaktkanal."]
+);
+const fr=mkD(
+[{i:"💬",t:"Serveur de support",d:"Rejoignez notre serveur Discord.",b:"Rejoindre",h:"https://discord.gg/YOUR_INVITE",ext:true},{i:"➕",t:"Ajouter le bot",d:"Ajoutez Carapuz201G à votre serveur.",b:"Ajouter",h:"https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands",ext:true},{i:"📋",t:"Liste des commandes",d:"Consultez toutes les commandes.",b:"Commandes",h:"../commands/",ext:false}],
+["Obtenir de l'aide","Le moyen le plus rapide est notre serveur de support Discord."],
+["Rapports de bugs","Décrivez le problème, le comportement attendu et joignez des captures ou logs."],
+["Confidentialité & demandes de données","Pour les questions de confidentialité, ouvrez un ticket ou utilisez <code>/support</code>."],
+["Aide rapide via le bot","Utilisez <code>/help</code>, <code>/support</code> ou <code>/ticket</code>."],
+["Contact","Le serveur Discord est notre principal canal de contact."]
+);
+const es=mkD(
+[{i:"💬",t:"Servidor de soporte",d:"Únete a nuestro servidor de Discord.",b:"Unirse",h:"https://discord.gg/YOUR_INVITE",ext:true},{i:"➕",t:"Añadir bot",d:"Añade Carapuz201G a tu servidor.",b:"Añadir",h:"https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands",ext:true},{i:"📋",t:"Lista de comandos",d:"Consulta todos los comandos.",b:"Comandos",h:"../commands/",ext:false}],
+["Cómo obtener ayuda","La forma más rápida es nuestro servidor de soporte."],
+["Reportes de errores","Describe el problema, lo esperado y añade capturas o registros."],
+["Privacidad y datos","Para solicitudes de datos usa un ticket o <code>/support</code>."],
+["Ayuda rápida","Usa <code>/help</code>, <code>/support</code> o <code>/ticket</code>."],
+["Contacto","El servidor de Discord es nuestro canal principal."]
+);
+
+/* Reuse compact translations for remaining EU languages */
+const compactFallback={de,fr,es,it:es,pt:es,nl:es,pl:es,sv:es,da:es,fi:es,el:es,cs:es,sk:es,hu:es,ro:es,bg:es,hr:es,sl:es,et:es,lv:es,lt:es,ga:es,mt:es};
 
 const T={
-"en-US":{name:"English (US)",flag:"🇺🇸",nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"Support",pg_s:"Need help? Here's how to get support for Carapuz201G.",data:enD},
-"en-GB":{name:"English (UK)",flag:"🇬🇧",nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"Support",pg_s:"Need help? Here's how to get support for Carapuz201G.",data:enD},
-"ru":{name:"Русский",flag:"🇷🇺",nav_home:"Главная",nav_about:"О боте",nav_features:"Функции",nav_commands:"Команды",nav_support:"Поддержка",nav_status:"Статус",nav_privacy:"Конфиденциальность",nav_terms:"Условия",btn_add:"➕ Добавить бота",btn_support:"💬 Поддержка",pg_t:"Поддержка",pg_s:"Нужна помощь? Вот как получить поддержку для Carapuz201G.",data:ruD},
-"uk":{name:"Українська",flag:"🇺🇦",nav_home:"Головна",nav_about:"Про бота",nav_features:"Функції",nav_commands:"Команди",nav_support:"Підтримка",nav_status:"Статус",nav_privacy:"Конфіденційність",nav_terms:"Умови",btn_add:"➕ Додати бота",btn_support:"💬 Підтримка",pg_t:"Підтримка",pg_s:"Потрібна допомога? Ось як отримати підтримку для Carapuz201G.",data:ukD}
+"en-US":{name:"English (US)",flag:"🇺🇸",nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"Support",pg_s:"Need help? Here are all the ways to get support for Carapuz201G.",data:en},
+"en-GB":{name:"English (UK)",flag:"🇬🇧",nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"Support",pg_s:"Need help? Here are all the ways to get support for Carapuz201G.",data:en},
+"ru":{name:"Русский",flag:"🇷🇺",nav_home:"Главная",nav_about:"О боте",nav_features:"Функции",nav_commands:"Команды",nav_support:"Поддержка",nav_status:"Статус",nav_privacy:"Конфиденциальность",nav_terms:"Условия",btn_add:"➕ Добавить",btn_support:"💬 Поддержка",pg_t:"Поддержка",pg_s:"Нужна помощь? Вот все способы получить поддержку для Carapuz201G.",data:ru},
+"uk":{name:"Українська",flag:"🇺🇦",nav_home:"Головна",nav_about:"Про бота",nav_features:"Функції",nav_commands:"Команди",nav_support:"Підтримка",nav_status:"Статус",nav_privacy:"Конфіденційність",nav_terms:"Умови",btn_add:"➕ Додати",btn_support:"💬 Підтримка",pg_t:"Підтримка",pg_s:"Потрібна допомога? Ось усі способи отримати підтримку для Carapuz201G.",data:uk},
+"de":{name:"Deutsch",flag:"🇩🇪",nav_home:"Startseite",nav_about:"Über",nav_features:"Funktionen",nav_commands:"Befehle",nav_support:"Support",nav_status:"Status",nav_privacy:"Datenschutz",nav_terms:"Nutzungsbedingungen",btn_add:"➕ Hinzufügen",btn_support:"💬 Support",pg_t:"Support",pg_s:"Brauchen Sie Hilfe? Hier sind alle Wege, Unterstützung für Carapuz201G zu erhalten.",data:de},
+"fr":{name:"Français",flag:"🇫🇷",nav_home:"Accueil",nav_about:"À propos",nav_features:"Fonctionnalités",nav_commands:"Commandes",nav_support:"Support",nav_status:"Statut",nav_privacy:"Confidentialité",nav_terms:"Conditions",btn_add:"➕ Ajouter",btn_support:"💬 Support",pg_t:"Support",pg_s:"Besoin d'aide ? Voici toutes les façons d'obtenir de l'aide.",data:fr},
+"es":{name:"Español",flag:"🇪🇸",nav_home:"Inicio",nav_about:"Acerca de",nav_features:"Características",nav_commands:"Comandos",nav_support:"Soporte",nav_status:"Estado",nav_privacy:"Privacidad",nav_terms:"Términos",btn_add:"➕ Añadir",btn_support:"💬 Soporte",pg_t:"Soporte",pg_s:"¿Necesitas ayuda? Aquí tienes todas las formas de obtener soporte.",data:es}
 };
+const otherEU={it:"Italiano",pt:"Português",nl:"Nederlands",pl:"Polski",sv:"Svenska",da:"Dansk",fi:"Suomi",el:"Ελληνικά",cs:"Čeština",sk:"Slovenčina",hu:"Magyar",ro:"Română",bg:"Български",hr:"Hrvatski",sl:"Slovenščina",et:"Eesti",lv:"Latviešu",lt:"Lietuvių",ga:"Gaeilge",mt:"Malti"};
+const flags={it:"🇮🇹",pt:"🇵🇹",nl:"🇳🇱",pl:"🇵🇱",sv:"🇸🇪",da:"🇩🇰",fi:"🇫🇮",el:"🇬🇷",cs:"🇨🇿",sk:"🇸🇰",hu:"🇭🇺",ro:"🇷🇴",bg:"🇧🇬",hr:"🇭🇷",sl:"🇸🇮",et:"🇪🇪",lv:"🇱🇻",lt:"🇱🇹",ga:"🇮🇪",mt:"🇲🇹"};
+Object.keys(otherEU).forEach(k=>{
+T[k]={name:otherEU[k],flag:flags[k],nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"Support",pg_s:"Need help? Here are all the ways to get support for Carapuz201G.",data:compactFallback[k]};
+});
 
 let lang=localStorage.getItem('c2g-lang')||'en-US';
 let theme=localStorage.getItem('c2g-theme')||'dark';
@@ -221,7 +234,6 @@ setTimeout(()=>document.getElementById('ldr').classList.add('hid'),1100);
 
 function setTheme(t){theme=t;document.documentElement.setAttribute('data-theme',t);localStorage.setItem('c2g-theme',t);document.getElementById('thBtn').textContent=t==='dark'?'☀️':'🌙'}
 function togTheme(){setTheme(theme==='dark'?'light':'dark')}
-
 function buildLang(){
 const m=document.getElementById('lMn');m.innerHTML='';
 Object.keys(T).sort((a,b)=>T[a].name.localeCompare(T[b].name)).forEach(c=>{
@@ -230,43 +242,27 @@ d.innerHTML=`<span class="fl">${T[c].flag}</span><span>${T[c].name}</span>`;
 d.onclick=()=>{setLang(c);closeLM()};m.appendChild(d);
 });
 }
-
 function setLang(c){
-if(!T[c])c='en-US';lang=c;localStorage.setItem('c2g-lang',c);
-const t=T[c];
+if(!T[c])c='en-US';lang=c;localStorage.setItem('c2g-lang',c);const t=T[c];
 document.getElementById('cF').textContent=t.flag;
 document.getElementById('cL').textContent=t.name;
 document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k]});
-const sec=document.getElementById('content');sec.innerHTML='';
-// Cards grid
-let chtml='<div class="sg">';
-t.data.cards.forEach((card,i)=>{
-chtml+=`<div class="sc rv" style="transition-delay:${i*.08}s"><div class="sc-i">${card.icon}</div><div class="sc-t">${card.title}</div><div class="sc-d">${card.desc}</div><a href="${card.href}" class="btn btn-a" target="${card.href.startsWith('http')?'_blank':'_self'}">${card.btn}</a></div>`;
-});
-chtml+='</div>';
-// Info blocks
-t.data.blocks.forEach((b,i)=>{
-chtml+=`<div class="ib rv" style="transition-delay:${(i+3)*.08}s"><h3>${b.icon} ${b.title}</h3><p>${b.body}</p></div>`;
-});
-sec.innerHTML=chtml;
+const sec=document.getElementById('ct');let h='<div class="cg">';
+t.data.cards.forEach((card,i)=>{h+=`<div class="cc rv" style="transition-delay:${i*.06}s"><div class="cci">${card.i}</div><div class="cct">${card.t}</div><div class="ccd">${card.d}</div><a href="${card.h}" class="btn btn-a" ${card.ext?'target="_blank"':''}>${card.b}</a></div>`});
+h+='</div>';
+t.data.blocks.forEach((b,i)=>{h+=`<div class="ib rv" style="transition-delay:${(i+3)*.06}s"><h3>${b.i} ${b.t}</h3><p>${b.b}</p></div>`});
+sec.innerHTML=h;
 document.querySelectorAll('.lo').forEach(o=>o.classList.remove('act'));
 const keys=Object.keys(T).sort((a,b)=>T[a].name.localeCompare(T[b].name));
 const idx=keys.indexOf(c);const opts=document.querySelectorAll('.lo');
 if(opts[idx])opts[idx].classList.add('act');
-document.documentElement.lang=c;
-setTimeout(setupRv,50);
+document.documentElement.lang=c;setTimeout(setupRv,50);
 }
-
 function togLM(){const m=document.getElementById('lMn'),b=document.getElementById('lBtn');if(m.classList.contains('show'))closeLM();else{m.classList.add('show');b.classList.add('open')}}
 function closeLM(){document.getElementById('lMn').classList.remove('show');document.getElementById('lBtn').classList.remove('open')}
 function openMM(){document.getElementById('mMn').classList.add('show');document.getElementById('mOv').classList.add('show');document.body.style.overflow='hidden'}
 function closeMM(){document.getElementById('mMn').classList.remove('show');document.getElementById('mOv').classList.remove('show');document.body.style.overflow=''}
-
-function setupRv(){
-const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1});
-document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
-}
-
+function setupRv(){const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1});document.querySelectorAll('.rv').forEach(el=>obs.observe(el))}
 function setupEv(){
 document.getElementById('thBtn').onclick=togTheme;
 document.getElementById('lBtn').onclick=e=>{e.stopPropagation();togLM()};

@@ -4,85 +4,65 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy — Carapuz201G</title>
-<meta name="description" content="Privacy Policy for Carapuz201G Discord bot. Learn how your data is collected, used, and protected.">
+<meta name="description" content="Privacy Policy for Carapuz201G Discord bot. Learn how data is collected, used, stored, and protected.">
 <style>
 :root{--tr:0.3s}
-[data-theme="dark"]{--bg:#0b0f1a;--bg2:#111827;--card:rgba(17,24,39,0.88);--hdr:rgba(11,15,26,0.93);--tx:#e2e8f0;--tx2:#94a3b8;--acc:#5865F2;--acc2:#38bdf8;--brd:rgba(88,101,242,0.18);--shd:rgba(0,0,0,0.4);--glw:rgba(88,101,242,0.3);--dd:#1e293b;--ddh:#334155;--g1:#0b0f1a;--g2:#15102e;--g3:#0d2847}
-[data-theme="light"]{--bg:#f0f4ff;--bg2:#e8efff;--card:rgba(255,255,255,0.9);--hdr:rgba(240,244,255,0.95);--tx:#1e293b;--tx2:#64748b;--acc:#5865F2;--acc2:#0284c7;--brd:rgba(88,101,242,0.15);--shd:rgba(0,0,0,0.1);--glw:rgba(88,101,242,0.2);--dd:#fff;--ddh:#f1f5f9;--g1:#e4eaff;--g2:#f0e6ff;--g3:#dff0ff}
+[data-theme="dark"]{--bg:#0b0f1a;--bg2:#111827;--card:rgba(17,24,39,0.88);--hdr:rgba(11,15,26,0.93);--tx:#e2e8f0;--tx2:#94a3b8;--acc:#5865F2;--brd:rgba(88,101,242,0.18);--shd:rgba(0,0,0,0.4);--glw:rgba(88,101,242,0.3);--dd:#1e293b;--ddh:#334155;--g1:#0b0f1a;--g2:#15102e;--g3:#0d2847}
+[data-theme="light"]{--bg:#f0f4ff;--bg2:#e8efff;--card:rgba(255,255,255,0.92);--hdr:rgba(240,244,255,0.95);--tx:#1e293b;--tx2:#64748b;--acc:#5865F2;--brd:rgba(88,101,242,0.15);--shd:rgba(0,0,0,0.1);--glw:rgba(88,101,242,0.2);--dd:#fff;--ddh:#f1f5f9;--g1:#e4eaff;--g2:#f0e6ff;--g3:#dff0ff}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;transition:background var(--tr),color var(--tr);min-height:100vh}
-a{color:inherit}
-.hdr{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--hdr);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--brd);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;transition:background var(--tr)}
+a{color:inherit;text-decoration:none}
+.hdr{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--hdr);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--brd);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem}
 .hdr-l{display:flex;align-items:center;gap:.6rem}
-.hm-lnk{display:flex;align-items:center;text-decoration:none;color:var(--tx2);font-size:1.35rem;transition:color .3s}
-.hm-lnk:hover{color:var(--acc)}
+.hm-lnk{display:flex;align-items:center;color:var(--tx2);font-size:1.35rem;transition:color .3s}.hm-lnk:hover{color:var(--acc)}
 .hm-lnk .em{animation:fl 3s ease-in-out infinite}
 @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-.brand{font-size:1.15rem;font-weight:700;color:var(--tx);text-decoration:none;transition:color .3s}
-.brand:hover{color:var(--acc)}
+.brand{font-size:1.15rem;font-weight:700;color:var(--tx);transition:color .3s}.brand:hover{color:var(--acc)}
 .nav{display:flex;align-items:center;gap:.15rem}
-.nav a{padding:.35rem .55rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.8rem;font-weight:500;transition:all .2s;white-space:nowrap}
-.nav a:hover{color:var(--tx);background:var(--brd)}
-.nav a.active{color:var(--acc);background:rgba(88,101,242,.12)}
+.nav a{padding:.35rem .55rem;border-radius:8px;color:var(--tx2);font-size:.8rem;font-weight:500;transition:all .2s;white-space:nowrap}
+.nav a:hover{color:var(--tx);background:var(--brd)}.nav a.act{color:var(--acc);background:rgba(88,101,242,.12)}
 .hdr-r{display:flex;align-items:center;gap:.45rem}
-.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.4rem .8rem;border-radius:10px;font-size:.78rem;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid var(--brd);transition:all .3s;white-space:nowrap}
-.btn-a{background:var(--acc);color:#fff;border-color:var(--acc)}
-.btn-a:hover{background:#4752c4;box-shadow:0 4px 20px var(--glw);transform:translateY(-1px)}
-.btn-o{background:transparent;color:var(--tx)}
-.btn-o:hover{background:var(--brd);border-color:var(--acc)}
-.th-btn{background:var(--card);border:1px solid var(--brd);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--tx);transition:all .3s}
-.th-btn:hover{border-color:var(--acc);box-shadow:0 0 12px var(--glw);transform:rotate(20deg)}
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.45rem .9rem;border-radius:10px;font-size:.8rem;font-weight:600;cursor:pointer;border:1px solid var(--brd);transition:all .3s;white-space:nowrap}
+.btn-a{background:var(--acc);color:#fff;border-color:var(--acc)}.btn-a:hover{background:#4752c4;box-shadow:0 4px 20px var(--glw);transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--tx)}.btn-o:hover{background:var(--brd);border-color:var(--acc)}
+.th-btn{background:var(--card);border:1px solid var(--brd);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--tx);transition:all .3s}.th-btn:hover{border-color:var(--acc);box-shadow:0 0 12px var(--glw);transform:rotate(20deg)}
 .ld{position:relative}
-.lb{background:var(--card);border:1px solid var(--brd);border-radius:10px;padding:.35rem .65rem;cursor:pointer;display:flex;align-items:center;gap:.35rem;font-size:.78rem;color:var(--tx);transition:all .3s}
-.lb:hover{border-color:var(--acc);box-shadow:0 0 10px var(--glw)}
-.lb .ar{font-size:.55rem;transition:transform .3s}
-.lb.open .ar{transform:rotate(180deg)}
-.lm{position:absolute;top:calc(100% + 6px);right:0;background:var(--dd);border:1px solid var(--brd);border-radius:12px;padding:.35rem 0;min-width:190px;max-height:350px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .3s;box-shadow:0 16px 40px var(--shd);z-index:1001}
-.lm.show{opacity:1;visibility:visible;transform:translateY(0)}
-.lm::-webkit-scrollbar{width:5px}
-.lm::-webkit-scrollbar-thumb{background:var(--brd);border-radius:3px}
-.lo{display:flex;align-items:center;gap:.55rem;padding:.45rem .85rem;cursor:pointer;font-size:.82rem;color:var(--tx);transition:background .2s}
-.lo:hover{background:var(--ddh)}
-.lo.act{color:var(--acc);font-weight:600}
-.lo .fl{font-size:1.05rem}
+.lb{background:var(--card);border:1px solid var(--brd);border-radius:10px;padding:.35rem .65rem;cursor:pointer;display:flex;align-items:center;gap:.35rem;font-size:.78rem;color:var(--tx);transition:all .3s}.lb:hover{border-color:var(--acc);box-shadow:0 0 10px var(--glw)}
+.lb .ar{font-size:.55rem;transition:transform .3s}.lb.open .ar{transform:rotate(180deg)}
+.lm{position:absolute;top:calc(100% + 6px);right:0;background:var(--dd);border:1px solid var(--brd);border-radius:12px;padding:.35rem 0;min-width:190px;overflow:hidden;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .3s;box-shadow:0 16px 40px var(--shd);z-index:1001}.lm.show{opacity:1;visibility:visible;transform:translateY(0)}
+.lo{display:flex;align-items:center;gap:.55rem;padding:.45rem .85rem;cursor:pointer;font-size:.82rem;color:var(--tx);transition:background .2s}.lo:hover{background:var(--ddh)}.lo.act{color:var(--acc);font-weight:600}
 .mb{display:none;background:var(--card);border:1px solid var(--brd);border-radius:8px;width:34px;height:34px;align-items:center;justify-content:center;cursor:pointer;color:var(--tx);font-size:1.15rem}
-.mov{display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}
-.mov.show{display:block}
-.mm{position:fixed;top:0;right:-300px;width:270px;height:100%;background:var(--bg2);z-index:999;padding:1.25rem;transition:right .3s;overflow-y:auto;border-left:1px solid var(--brd)}
-.mm.show{right:0}
+.mov{display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}.mov.show{display:block}
+.mm{position:fixed;top:0;right:-300px;width:270px;height:100%;background:var(--bg2);z-index:999;padding:1.25rem;transition:right .3s;overflow-y:auto;border-left:1px solid var(--brd)}.mm.show{right:0}
 .mm .xb{background:none;border:none;color:var(--tx);font-size:1.4rem;cursor:pointer;float:right;padding:.25rem}
 .mn{display:flex;flex-direction:column;gap:.2rem;margin-top:2.5rem}
-.mn a{padding:.6rem .7rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.9rem;transition:all .2s}
-.mn a:hover,.mn a.active{color:var(--acc);background:rgba(88,101,242,.1)}
-.mab{display:flex;flex-direction:column;gap:.5rem;margin-top:1.25rem}
-.mab .btn{justify-content:center}
-.ph{padding:6rem 2rem 3rem;text-align:center;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);position:relative;overflow:hidden;transition:background var(--tr)}
+.mn a{padding:.6rem .7rem;border-radius:8px;color:var(--tx2);font-size:.9rem;transition:all .2s}.mn a:hover,.mn a.act{color:var(--acc);background:rgba(88,101,242,.1)}
+.mab{display:flex;flex-direction:column;gap:.5rem;margin-top:1.25rem}.mab .btn{justify-content:center}
+.ph{padding:6.5rem 2rem 3rem;text-align:center;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);position:relative;overflow:hidden}
 .ph::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(88,101,242,.12) 0%,transparent 60%);pointer-events:none}
-.phc{position:relative;z-index:2;max-width:680px;margin:0 auto}
-.phi{font-size:3.5rem;margin-bottom:.5rem;display:inline-block}
-.pht{font-size:2.2rem;font-weight:800;margin-bottom:.5rem;background:linear-gradient(135deg,var(--tx),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.phs{font-size:1.05rem;color:var(--tx2);line-height:1.6}
-.sec{padding:3rem 2rem;max-width:800px;margin:0 auto}
-.lb2{background:var(--card);border:1px solid var(--brd);border-radius:16px;padding:1.75rem;margin-bottom:1.25rem;transition:all .3s}
-.lb2:hover{border-color:var(--acc);box-shadow:0 8px 30px var(--shd)}
-.lb2 h2{font-size:1.05rem;font-weight:700;margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}
-.lb2 p,.lb2 ul{font-size:.88rem;color:var(--tx2);line-height:1.7}
-.lb2 ul{padding-left:1.2rem;margin-top:.4rem}
-.lb2 li{margin-bottom:.25rem}
-.lb2 strong{color:var(--tx)}
-.upd{text-align:center;color:var(--tx2);font-size:.82rem;margin-bottom:1.5rem;font-style:italic}
+.phc{position:relative;z-index:2;max-width:760px;margin:0 auto}
+.phi{font-size:3.8rem;margin-bottom:.6rem;display:inline-block}
+.pht{font-size:2.4rem;font-weight:800;margin-bottom:.6rem;background:linear-gradient(135deg,var(--tx),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.phs{font-size:1.05rem;color:var(--tx2);line-height:1.7}
+.sec{padding:3rem 2rem;max-width:950px;margin:0 auto}
+.topnote{background:var(--card);border:1px solid var(--brd);border-radius:16px;padding:1.25rem 1.4rem;margin-bottom:1.25rem;color:var(--tx2);font-size:.88rem;line-height:1.7}
+.blk{background:var(--card);border:1px solid var(--brd);border-radius:16px;padding:1.75rem;margin-bottom:1rem;transition:all .3s}
+.blk:hover{border-color:var(--acc);box-shadow:0 8px 26px var(--shd)}
+.blk h2{font-size:1.05rem;font-weight:700;margin-bottom:.65rem;color:var(--tx);display:flex;align-items:center;gap:.45rem}
+.blk p,.blk ul{font-size:.88rem;color:var(--tx2);line-height:1.75}
+.blk ul{padding-left:1.2rem;margin-top:.45rem}
+.blk li{margin-bottom:.25rem}
+.blk strong{color:var(--tx)}
+code{background:var(--brd);padding:.15rem .42rem;border-radius:6px;font-size:.82rem;color:var(--acc)}
 .ftr{text-align:center;padding:1.75rem;color:var(--tx2);font-size:.82rem;border-top:1px solid var(--brd);background:var(--hdr);backdrop-filter:blur(20px)}
-.ftr a{color:var(--acc);text-decoration:none}
-.ftr a:hover{text-decoration:underline}
+.ftr a{color:var(--acc)}.ftr a:hover{text-decoration:underline}
 .ftl{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-bottom:.65rem}
 @media(max-width:1024px){.nav{display:none}.mb{display:flex}.hdr-r .btn{display:none}}
-@media(max-width:768px){.ph{padding:5rem 1.25rem 2.5rem}.pht{font-size:1.7rem}.sec{padding:2rem 1.25rem}.lb .ll{display:none}}
-@media(max-width:480px){.pht{font-size:1.5rem}.lb2{padding:1.25rem}}
-.rv{opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s}
-.rv.vis{opacity:1;transform:translateY(0)}
-.ld-w{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;transition:opacity .4s,visibility .4s}
-.ld-w.hid{opacity:0;visibility:hidden}
+@media(max-width:768px){.ph{padding:5.5rem 1.25rem 2.5rem}.pht{font-size:1.8rem}.sec{padding:2rem 1.25rem}.lb .ll{display:none}}
+@media(max-width:480px){.pht{font-size:1.5rem}.blk,.topnote{padding:1.15rem}}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s}.rv.vis{opacity:1;transform:translateY(0)}
+.ld-w{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;transition:opacity .4s,visibility .4s}.ld-w.hid{opacity:0;visibility:hidden}
 .ld-e{font-size:2.8rem;animation:lba 1s ease-in-out infinite}
 @keyframes lba{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.1)}}
 .ld-b{width:100px;height:3px;background:var(--brd);border-radius:3px;overflow:hidden}
@@ -90,9 +70,8 @@ a{color:inherit}
 @keyframes lfx{to{width:100%}}
 </style>
 </head>
-<body data-page="privacy">
+<body>
 <div class="ld-w" id="ldr"><div class="ld-e">🔒</div><div style="color:var(--tx2);font-size:.85rem;letter-spacing:2px">PRIVACY POLICY</div><div class="ld-b"><div class="ld-f"></div></div></div>
-
 <header class="hdr">
 <div class="hdr-l">
 <a href="https://carapuzland.github.io" class="hm-lnk" title="CarapuzLand"><span class="em">🏝️</span></a>
@@ -104,21 +83,17 @@ a{color:inherit}
 <a href="../commands/" data-i18n="nav_commands">Commands</a>
 <a href="../support/" data-i18n="nav_support">Support</a>
 <a href="../status/" data-i18n="nav_status">Status</a>
-<a href="../privacy-policy/" class="active" data-i18n="nav_privacy">Privacy</a>
+<a href="../privacy-policy/" class="act" data-i18n="nav_privacy">Privacy</a>
 <a href="../terms-of-service/" data-i18n="nav_terms">Terms</a>
 </nav>
 <div class="hdr-r">
 <button class="th-btn" id="thBtn" title="Toggle theme">🌙</button>
-<div class="ld">
-<button class="lb" id="lBtn"><span class="fl" id="cF">🇺🇸</span><span class="ll" id="cL">English</span><span class="ar">▼</span></button>
-<div class="lm" id="lMn"></div>
-</div>
+<div class="ld"><button class="lb" id="lBtn"><span class="fl" id="cF">🇬🇧</span><span class="ll" id="cL">English</span><span class="ar">▼</span></button><div class="lm" id="lMn"></div></div>
 <a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
 <a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
 <button class="mb" id="mBtn">☰</button>
 </div>
 </header>
-
 <div class="mov" id="mOv"></div>
 <div class="mm" id="mMn">
 <button class="xb" id="cMn">✕</button>
@@ -129,7 +104,7 @@ a{color:inherit}
 <a href="../commands/" data-i18n="nav_commands">Commands</a>
 <a href="../support/" data-i18n="nav_support">Support</a>
 <a href="../status/" data-i18n="nav_status">Status</a>
-<a href="../privacy-policy/" class="active" data-i18n="nav_privacy">Privacy Policy</a>
+<a href="../privacy-policy/" class="act" data-i18n="nav_privacy">Privacy Policy</a>
 <a href="../terms-of-service/" data-i18n="nav_terms">Terms of Service</a>
 </div>
 <div class="mab">
@@ -139,14 +114,12 @@ a{color:inherit}
 </div>
 
 <main>
-<section class="ph">
-<div class="phc">
+<section class="ph"><div class="phc">
 <div class="phi">🔒</div>
 <h1 class="pht" data-i18n="pg_t">Privacy Policy</h1>
-<p class="phs" data-i18n="pg_s">How Carapuz201G handles your data.</p>
-</div>
-</section>
-<section class="sec" id="content"></section>
+<p class="phs" data-i18n="pg_s">How Carapuz201G collects, stores, and protects information.</p>
+</div></section>
+<section class="sec" id="ct"></section>
 </main>
 
 <footer class="ftr">
@@ -159,105 +132,165 @@ a{color:inherit}
 </footer>
 
 <script>
-const enP={updated:"Last updated: January 2025",sections:[
-{t:"1. Introduction",b:"This Privacy Policy describes how Carapuz201G (\"the Bot\", \"we\", \"us\") collects, uses, and protects information when you use our Discord bot. By using the Bot, you agree to the practices described in this policy."},
-{t:"2. Data We Collect",b:"We may collect and store the following data:<ul><li><strong>Server IDs</strong> — to save per-server configurations</li><li><strong>User IDs</strong> — for moderation logs, economy balances, warnings, and other bot features</li><li><strong>Channel IDs</strong> — for ticket systems, global chat, and feature configuration</li><li><strong>Message content</strong> — only when necessary for specific features (e.g., custom commands, auto-moderation). Messages are not stored permanently unless required by a feature you enable.</li><li><strong>Command usage data</strong> — to improve bot functionality</li></ul>"},
-{t:"3. How We Use Data",b:"Data is used exclusively for:<ul><li>Providing bot features and services</li><li>Saving server-specific settings and user progress</li><li>Moderation purposes (warnings, bans, logs)</li><li>Economy system (balances, transactions)</li><li>Improving bot performance and reliability</li></ul>"},
-{t:"4. Data Storage",b:"Data may be stored:<ul><li>On the operator's local computer</li><li>On a server or VPS</li><li>In the hosting environment where the bot runs</li></ul>We use reasonable security measures to protect your data, including encrypted configuration files. However, no method of electronic storage is 100% secure."},
-{t:"5. AI & Machine Learning",b:"Carapuz201G may optionally use local AI through <strong>Ollama</strong>. Important notes:<ul><li>The AI runs locally — no data is sent to external AI services</li><li>Discord messages are <strong>NOT</strong> used to train AI models</li><li>The AI does <strong>NOT</strong> learn from user messages</li><li>AI is used only to provide bot functionality when explicitly enabled by the server operator</li></ul>"},
-{t:"6. Data Sharing",b:"We do <strong>NOT</strong> sell, trade, or share your data with third parties. Data is only accessible to:<ul><li>The bot operator(s)</li><li>Discord (as required by their platform)</li></ul>"},
-{t:"7. Data Retention & Deletion",b:"<ul><li>Data is retained as long as needed for bot functionality</li><li>You may request deletion of your data by contacting us through the support server</li><li>Server data is removed when the bot is removed from a server (in most cases)</li><li>Use the <code>/support</code> command to learn how to request data deletion</li></ul>"},
-{t:"8. Children's Privacy",b:"The Bot is not intended for users under the age of 13, in accordance with Discord's Terms of Service. We do not knowingly collect data from children under 13."},
-{t:"9. Changes to This Policy",b:"We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated date. Continued use of the Bot after changes constitutes acceptance of the updated policy."},
-{t:"10. Contact",b:"If you have questions about this Privacy Policy or want to request data deletion, please:<ul><li>Join our support server</li><li>Use the <code>/support</code> command in Discord</li></ul>"}
-]};
-
-const ruP={updated:"Последнее обновление: январь 2025",sections:[
-{t:"1. Введение",b:"Настоящая Политика конфиденциальности описывает, как Carapuz201G (\"Бот\", \"мы\") собирает, использует и защищает информацию при использовании нашего Discord-бота. Используя Бота, вы соглашаетесь с практиками, описанными в этой политике."},
-{t:"2. Данные, которые мы собираем",b:"Мы можем собирать и хранить следующие данные:<ul><li><strong>ID серверов</strong> — для сохранения настроек сервера</li><li><strong>ID пользователей</strong> — для логов модерации, балансов экономики, предупреждений и других функций</li><li><strong>ID каналов</strong> — для тикетов, глобального чата и настройки функций</li><li><strong>Содержимое сообщений</strong> — только когда это необходимо для определённых функций (кастомные команды, автомодерация). Сообщения не хранятся постоянно, если это не требуется включённой функцией.</li><li><strong>Данные использования команд</strong> — для улучшения функциональности</li></ul>"},
-{t:"3. Как мы используем данные",b:"Данные используются исключительно для:<ul><li>Предоставления функций и сервисов бота</li><li>Сохранения настроек сервера и прогресса пользователей</li><li>Целей модерации (предупреждения, баны, логи)</li><li>Системы экономики (балансы, транзакции)</li><li>Улучшения производительности и надёжности</li></ul>"},
-{t:"4. Хранение данных",b:"Данные могут храниться:<ul><li>На локальном компьютере оператора</li><li>На сервере или VPS</li><li>В среде хостинга, где работает бот</li></ul>Мы применяем разумные меры безопасности, включая зашифрованные файлы конфигурации. Однако ни один метод электронного хранения не является на 100% безопасным."},
-{t:"5. ИИ и машинное обучение",b:"Carapuz201G может опционально использовать локальный ИИ через <strong>Ollama</strong>. Важные замечания:<ul><li>ИИ работает локально — данные не отправляются во внешние ИИ-сервисы</li><li>Сообщения Discord <strong>НЕ</strong> используются для обучения моделей ИИ</li><li>ИИ <strong>НЕ</strong> обучается на сообщениях пользователей</li><li>ИИ используется только для обеспечения функциональности бота, когда он явно включён оператором сервера</li></ul>"},
-{t:"6. Передача данных",b:"Мы <strong>НЕ</strong> продаём, не обмениваем и не передаём ваши данные третьим лицам. Данные доступны только:<ul><li>Оператору(ам) бота</li><li>Discord (как требуется их платформой)</li></ul>"},
-{t:"7. Хранение и удаление данных",b:"<ul><li>Данные хранятся до тех пор, пока они необходимы для функциональности бота</li><li>Вы можете запросить удаление данных, связавшись с нами через сервер поддержки</li><li>Данные сервера удаляются при удалении бота с сервера (в большинстве случаев)</li><li>Используйте команду <code>/support</code> для запроса удаления данных</li></ul>"},
-{t:"8. Конфиденциальность детей",b:"Бот не предназначен для пользователей младше 13 лет в соответствии с Условиями использования Discord. Мы сознательно не собираем данные детей младше 13 лет."},
-{t:"9. Изменения политики",b:"Мы можем обновлять эту Политику конфиденциальности время от времени. Изменения будут опубликованы на этой странице с обновлённой датой. Продолжение использования Бота после изменений означает принятие обновлённой политики."},
-{t:"10. Контакты",b:"Если у вас есть вопросы или вы хотите запросить удаление данных:<ul><li>Присоединитесь к серверу поддержки</li><li>Используйте команду <code>/support</code> в Discord</li></ul>"}
-]};
-
-const deP={updated:"Letzte Aktualisierung: Januar 2025",sections:[
-{t:"1. Einführung",b:"Diese Datenschutzrichtlinie beschreibt, wie Carapuz201G (\"der Bot\", \"wir\") Informationen sammelt, verwendet und schützt, wenn Sie unseren Discord-Bot nutzen. Durch die Nutzung des Bots stimmen Sie den in dieser Richtlinie beschriebenen Praktiken zu."},
-{t:"2. Daten, die wir erfassen",b:"Wir können folgende Daten erfassen und speichern:<ul><li><strong>Server-IDs</strong> — um serversspezifische Einstellungen zu speichern</li><li><strong>Benutzer-IDs</strong> — für Moderationsprotokolle, Wirtschaftsguthaben, Verwarnungen und andere Bot-Funktionen</li><li><strong>Kanal-IDs</strong> — für Ticket-Systeme, globalen Chat und Funktionskonfiguration</li><li><strong>Nachrichteninhalte</strong> — nur wenn für bestimmte Funktionen erforderlich (z.B. benutzerdefinierte Befehle, Auto-Moderation). Nachrichten werden nicht dauerhaft gespeichert, es sei denn, eine aktivierte Funktion erfordert dies.</li><li><strong>Befehlsnutzungsdaten</strong> — zur Verbesserung der Bot-Funktionalität</li></ul>"},
-{t:"3. Verwendung der Daten",b:"Daten werden ausschließlich verwendet für:<ul><li>Bereitstellung von Bot-Funktionen und -Diensten</li><li>Speichern serverspezifischer Einstellungen und Benutzerfortschritt</li><li>Moderationszwecke (Verwarnungen, Sperren, Protokolle)</li><li>Wirtschaftssystem (Guthaben, Transaktionen)</li><li>Verbesserung der Leistung und Zuverlässigkeit</li></ul>"},
-{t:"4. Datenspeicherung",b:"Daten können gespeichert werden:<ul><li>Auf dem lokalen Computer des Betreibers</li><li>Auf einem Server oder VPS</li><li>In der Hosting-Umgebung, in der der Bot läuft</li></ul>Wir verwenden angemessene Sicherheitsmaßnahmen, einschließlich verschlüsselter Konfigurationsdateien. Keine Methode der elektronischen Speicherung ist jedoch zu 100% sicher."},
-{t:"5. KI & Maschinelles Lernen",b:"Carapuz201G kann optional lokale KI über <strong>Ollama</strong> nutzen. Wichtige Hinweise:<ul><li>Die KI läuft lokal — es werden keine Daten an externe KI-Dienste gesendet</li><li>Discord-Nachrichten werden <strong>NICHT</strong> zum Trainieren von KI-Modellen verwendet</li><li>Die KI lernt <strong>NICHT</strong> aus Benutzernachrichten</li><li>KI wird nur zur Bereitstellung von Bot-Funktionalität verwendet, wenn sie vom Serverbetreiber ausdrücklich aktiviert wurde</li></ul>"},
-{t:"6. Datenweitergabe",b:"Wir verkaufen, tauschen oder teilen Ihre Daten <strong>NICHT</strong> mit Dritten. Daten sind nur zugänglich für:<ul><li>Den/die Bot-Betreiber</li><li>Discord (wie von deren Plattform gefordert)</li></ul>"},
-{t:"7. Datenaufbewahrung & Löschung",b:"<ul><li>Daten werden so lange aufbewahrt, wie sie für die Bot-Funktionalität benötigt werden</li><li>Sie können die Löschung Ihrer Daten über unseren Support-Server anfordern</li><li>Serverdaten werden entfernt, wenn der Bot von einem Server entfernt wird (in den meisten Fällen)</li><li>Verwenden Sie den Befehl <code>/support</code>, um zu erfahren, wie Sie eine Datenlöschung anfordern können</li></ul>"},
-{t:"8. Datenschutz für Kinder",b:"Der Bot ist nicht für Nutzer unter 13 Jahren bestimmt, gemäß den Discord-Nutzungsbedingungen. Wir erfassen wissentlich keine Daten von Kindern unter 13 Jahren."},
-{t:"9. Änderungen dieser Richtlinie",b:"Wir können diese Datenschutzrichtlinie von Zeit zu Zeit aktualisieren. Änderungen werden auf dieser Seite mit einem aktualisierten Datum veröffentlicht. Die weitere Nutzung des Bots nach Änderungen bedeutet die Annahme der aktualisierten Richtlinie."},
-{t:"10. Kontakt",b:"Bei Fragen zu dieser Datenschutzrichtlinie oder zur Anforderung einer Datenlöschung:<ul><li>Treten Sie unserem Support-Server bei</li><li>Verwenden Sie den Befehl <code>/support</code> in Discord</li></ul>"}
-]};
-
-const T={
-"en":{name:"English",flag:"🇬🇧",nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"Privacy Policy",pg_s:"How Carapuz201G handles your data.",pp:enP},
-"ru":{name:"Русский",flag:"🇷🇺",nav_home:"Главная",nav_about:"О боте",nav_features:"Функции",nav_commands:"Команды",nav_support:"Поддержка",nav_status:"Статус",nav_privacy:"Конфиденциальность",nav_terms:"Условия",btn_add:"➕ Добавить",btn_support:"💬 Поддержка",pg_t:"Политика конфиденциальности",pg_s:"Как Carapuz201G обрабатывает ваши данные.",pp:ruP},
-"de":{name:"Deutsch",flag:"🇩🇪",nav_home:"Startseite",nav_about:"Über",nav_features:"Funktionen",nav_commands:"Befehle",nav_support:"Support",nav_status:"Status",nav_privacy:"Datenschutz",nav_terms:"Nutzungsbedingungen",btn_add:"➕ Hinzufügen",btn_support:"💬 Support",pg_t:"Datenschutzrichtlinie",pg_s:"Wie Carapuz201G mit Ihren Daten umgeht.",pp:deP}
+const PP_EN = {
+name:"English", flag:"🇬🇧",
+nav_home:"Home", nav_about:"About", nav_features:"Features", nav_commands:"Commands", nav_support:"Support", nav_status:"Status", nav_privacy:"Privacy Policy", nav_terms:"Terms of Service",
+btn_add:"➕ Add Bot", btn_support:"💬 Support",
+pg_t:"Privacy Policy", pg_s:"How Carapuz201G collects, stores, and protects information.",
+updated:"Last updated: 2025-01-01",
+intro:"This Privacy Policy explains what information may be processed when you use Carapuz201G, how that information may be stored, why it is needed, and what rights server owners and users have regarding their data.",
+sections:[
+["1. Who this policy applies to","This policy applies to all users, server owners, moderators, and members who interact with Carapuz201G in Discord."],
+["2. What data may be processed","Depending on which features are enabled, the bot may process data such as:<ul><li>Discord user IDs</li><li>Discord server IDs</li><li>Channel IDs and role IDs</li><li>Message IDs</li><li>Moderation records such as warns, mutes, kicks, and bans</li><li>Economy balances and transaction-related data</li><li>Kingdoms / RPG related data</li><li>Ticket system metadata and transcripts</li><li>Verification configuration and completion state</li><li>Reaction role configuration</li><li>Custom command definitions</li><li>Reminder schedules</li><li>Giveaway entries and results</li><li>Global chat configuration</li></ul>Not every server uses every feature, so actual processed data depends on configuration."],
+["3. Why data is processed","Data is processed only to provide bot functionality. Examples include moderation records for moderation tools, balances for economy systems, ticket data for support systems, and role settings for verification and reaction roles."],
+["4. Where data may be stored","Data may be stored:<ul><li>On the operator's local computer</li><li>On a server or VPS</li><li>Inside the hosting environment where the bot runs</li></ul>The exact storage location depends on how the bot is deployed."],
+["5. Data minimization","Carapuz201G is designed to process only the data reasonably necessary for its features to work. We do not intentionally collect unnecessary personal information."],
+["6. Message content","Message content is not used for broad profiling or advertising. Some features may temporarily or operationally process message content if required by that feature, for example custom commands, moderation checks, ticket transcripts, or logging tools."],
+["7. AI / Ollama","If AI functionality is enabled, it is designed around <strong>local Ollama-based processing</strong>. Important points:<ul><li>AI is optional</li><li>Discord messages are <strong>not</strong> used to train the model</li><li>User conversations are <strong>not</strong> used to improve or fine-tune the model</li><li>AI is used only to perform bot functions when the feature is enabled</li><li>The intended design is local model execution rather than sending user content to external AI providers</li></ul>"],
+["8. Sharing of data","We do not sell personal data. We do not intentionally share bot data with third parties except where technically necessary to operate the service in its hosting environment or as required by law."],
+["9. Security measures","Reasonable security measures may include encrypted configuration, access restriction, permission checks, and operational logging. However, no system is perfectly secure, and absolute security cannot be guaranteed."],
+["10. Data retention","Data may be kept as long as it is required for the bot's functions, server administration, abuse prevention, logging, or user-requested features. Some records may remain until manually removed, automatically expired, or deleted after a request."],
+["11. User and server owner rights","Depending on the situation, users or server owners may request information about stored data, request correction where applicable, or request deletion of data that is no longer necessary."],
+["12. Data deletion requests","For data deletion or privacy-related requests, please use the support server or the <code>/support</code> command if available. Requests may require enough information to identify the relevant data safely."],
+["13. Children","Discord itself requires users to meet its minimum age rules. Carapuz201G is not intended to independently target children outside Discord's allowed age framework."],
+["14. Changes to this policy","This Privacy Policy may be updated from time to time. Changes may be published on this page without separate notice. Continued use of the bot after updates may be treated as acceptance of the updated policy."],
+["15. Contact","If you have privacy questions, concerns, or deletion requests, contact us through the support server linked on this website."]
+]
 };
 
-let lang=localStorage.getItem('c2g-lang-legal')||'en';
-let theme=localStorage.getItem('c2g-theme')||'dark';
+const PP_RU = {
+name:"Русский", flag:"🇷🇺",
+nav_home:"Главная", nav_about:"О боте", nav_features:"Функции", nav_commands:"Команды", nav_support:"Поддержка", nav_status:"Статус", nav_privacy:"Политика конфиденциальности", nav_terms:"Условия использования",
+btn_add:"➕ Добавить бота", btn_support:"💬 Поддержка",
+pg_t:"Политика конфиденциальности", pg_s:"Как Carapuz201G собирает, хранит и защищает информацию.",
+updated:"Последнее обновление: 2025-01-01",
+intro:"Настоящая Политика конфиденциальности объясняет, какая информация может обрабатываться при использовании Carapuz201G, как она может храниться, зачем она нужна и какие права есть у владельцев серверов и пользователей в отношении данных.",
+sections:[
+["1. На кого распространяется эта политика","Эта политика распространяется на всех пользователей, владельцев серверов, модераторов и участников, которые взаимодействуют с Carapuz201G в Discord."],
+["2. Какие данные могут обрабатываться","В зависимости от включённых функций бот может обрабатывать такие данные, как:<ul><li>ID пользователей Discord</li><li>ID серверов Discord</li><li>ID каналов и ролей</li><li>ID сообщений</li><li>Записи модерации: предупреждения, муты, кики, баны</li><li>Балансы экономики и связанные данные транзакций</li><li>Данные королевств / RPG-систем</li><li>Метаданные и транскрипты системы тикетов</li><li>Конфигурация верификации и состояние прохождения</li><li>Настройки ролей по реакциям</li><li>Определения кастомных команд</li><li>Расписания напоминаний</li><li>Данные розыгрышей и их результаты</li><li>Конфигурация глобального чата</li></ul>Не каждый сервер использует все функции, поэтому фактически обрабатываемые данные зависят от настройки."],
+["3. Зачем обрабатываются данные","Данные обрабатываются только для предоставления функций бота. Например: записи модерации — для инструментов модерации, балансы — для экономики, данные тикетов — для поддержки, настройки ролей — для верификации и ролей по реакциям."],
+["4. Где могут храниться данные","Данные могут храниться:<ul><li>На локальном компьютере оператора</li><li>На сервере или VPS</li><li>Внутри среды хостинга, где работает бот</li></ul>Точное место хранения зависит от способа развёртывания бота."],
+["5. Минимизация данных","Carapuz201G разработан так, чтобы обрабатывать только те данные, которые разумно необходимы для работы функций. Мы не стремимся собирать лишнюю личную информацию."],
+["6. Содержимое сообщений","Содержимое сообщений не используется для широкого профилирования или рекламы. Однако некоторые функции могут временно или операционно обрабатывать содержимое сообщений, если это необходимо для работы такой функции, например кастомные команды, проверки модерации, транскрипты тикетов или инструменты логирования."],
+["7. AI / Ollama","Если AI-функции включены, они ориентированы на <strong>локальную обработку через Ollama</strong>. Важно:<ul><li>AI является опциональной функцией</li><li>Сообщения Discord <strong>не</strong> используются для обучения модели</li><li>Разговоры пользователей <strong>не</strong> используются для улучшения или дообучения модели</li><li>AI используется только для выполнения функций бота, когда эта функция включена</li><li>Предполагаемый дизайн — локальный запуск модели, а не отправка пользовательского контента внешним AI-провайдерам</li></ul>"],
+["8. Передача данных","Мы не продаём персональные данные. Мы не передаём данные бота третьим лицам намеренно, кроме случаев, когда это технически необходимо для работы сервиса в хостинг-среде или требуется законом."],
+["9. Меры безопасности","Разумные меры безопасности могут включать зашифрованную конфигурацию, ограничение доступа, проверки разрешений и операционное логирование. Однако ни одна система не является абсолютно безопасной, и абсолютная защита не может быть гарантирована."],
+["10. Срок хранения данных","Данные могут храниться столько, сколько это требуется для работы функций бота, администрирования серверов, предотвращения злоупотреблений, логирования или пользовательских функций. Некоторые записи могут храниться до ручного удаления, автоматического истечения срока или удаления по запросу."],
+["11. Права пользователей и владельцев серверов","В зависимости от ситуации пользователи или владельцы серверов могут запросить информацию о сохранённых данных, запросить исправление там, где это применимо, или удаление данных, которые больше не нужны."],
+["12. Запросы на удаление данных","Для запросов на удаление данных или вопросов о конфиденциальности используйте сервер поддержки или команду <code>/support</code>, если она доступна. Для безопасной идентификации данных может потребоваться достаточная информация."],
+["13. Дети","Discord сам требует соблюдения минимального возраста. Carapuz201G не предназначен для самостоятельного таргетинга на детей вне возрастных рамок, разрешённых Discord."],
+["14. Изменения политики","Настоящая Политика конфиденциальности может время от времени обновляться. Изменения могут публиковаться на этой странице без отдельного уведомления. Продолжение использования бота после обновлений может рассматриваться как принятие обновлённой политики."],
+["15. Контакты","Если у вас есть вопросы о конфиденциальности, опасения или запросы на удаление, свяжитесь с нами через сервер поддержки, указанный на этом сайте."]
+]
+};
+
+const PP_DE = {
+name:"Deutsch", flag:"🇩🇪",
+nav_home:"Startseite", nav_about:"Über", nav_features:"Funktionen", nav_commands:"Befehle", nav_support:"Support", nav_status:"Status", nav_privacy:"Datenschutzrichtlinie", nav_terms:"Nutzungsbedingungen",
+btn_add:"➕ Bot hinzufügen", btn_support:"💬 Support",
+pg_t:"Datenschutzrichtlinie", pg_s:"Wie Carapuz201G Informationen erhebt, speichert und schützt.",
+updated:"Letzte Aktualisierung: 2025-01-01",
+intro:"Diese Datenschutzrichtlinie erklärt, welche Informationen bei der Nutzung von Carapuz201G verarbeitet werden können, wie sie gespeichert werden können, warum sie benötigt werden und welche Rechte Serverinhaber und Nutzer in Bezug auf diese Daten haben.",
+sections:[
+["1. Für wen diese Richtlinie gilt","Diese Richtlinie gilt für alle Nutzer, Serverinhaber, Moderatoren und Mitglieder, die mit Carapuz201G in Discord interagieren."],
+["2. Welche Daten verarbeitet werden können","Je nach aktivierten Funktionen kann der Bot unter anderem folgende Daten verarbeiten:<ul><li>Discord-Benutzer-IDs</li><li>Discord-Server-IDs</li><li>Kanal-IDs und Rollen-IDs</li><li>Nachrichten-IDs</li><li>Moderationsdaten wie Verwarnungen, Stummschaltungen, Kicks und Sperren</li><li>Wirtschaftsguthaben und transaktionsbezogene Daten</li><li>Königreichs- / RPG-Daten</li><li>Ticket-System-Metadaten und Transkripte</li><li>Verifizierungskonfiguration und Abschlussstatus</li><li>Reaktionsrollen-Konfiguration</li><li>Benutzerdefinierte Befehlsdefinitionen</li><li>Erinnerungspläne</li><li>Gewinnspiel-Einträge und Ergebnisse</li><li>Global-Chat-Konfiguration</li></ul>Nicht jeder Server verwendet jede Funktion, daher hängen die tatsächlich verarbeiteten Daten von der Konfiguration ab."],
+["3. Warum Daten verarbeitet werden","Daten werden ausschließlich verarbeitet, um Bot-Funktionen bereitzustellen. Beispiele: Moderationsdaten für Moderationswerkzeuge, Guthaben für Wirtschaftssysteme, Ticket-Daten für Support-Systeme und Rolleneinstellungen für Verifizierung und Reaktionsrollen."],
+["4. Wo Daten gespeichert werden können","Daten können gespeichert werden:<ul><li>Auf dem lokalen Computer des Betreibers</li><li>Auf einem Server oder VPS</li><li>Innerhalb der Hosting-Umgebung, in der der Bot läuft</li></ul>Der genaue Speicherort hängt davon ab, wie der Bot bereitgestellt wird."],
+["5. Datenminimierung","Carapuz201G ist darauf ausgelegt, nur die Daten zu verarbeiten, die für die jeweilige Funktion vernünftigerweise notwendig sind. Wir beabsichtigen nicht, unnötige personenbezogene Daten zu sammeln."],
+["6. Nachrichteninhalte","Nachrichteninhalte werden nicht für umfassendes Profiling oder Werbung verwendet. Einige Funktionen können Nachrichteninhalte jedoch vorübergehend oder funktional verarbeiten, wenn dies für diese Funktion erforderlich ist, z. B. benutzerdefinierte Befehle, Moderationsprüfungen, Ticket-Transkripte oder Logging-Tools."],
+["7. AI / Ollama","Wenn AI-Funktionen aktiviert sind, basieren sie auf <strong>lokaler Ollama-Verarbeitung</strong>. Wichtige Punkte:<ul><li>AI ist optional</li><li>Discord-Nachrichten werden <strong>nicht</strong> zum Trainieren des Modells verwendet</li><li>Nutzerkonversationen werden <strong>nicht</strong> zur Verbesserung oder Feinabstimmung des Modells genutzt</li><li>AI wird nur verwendet, um Bot-Funktionen auszuführen, wenn die Funktion aktiviert ist</li><li>Das vorgesehene Design ist die lokale Modellausführung und nicht das Senden von Nutzerinhalten an externe AI-Anbieter</li></ul>"],
+["8. Weitergabe von Daten","Wir verkaufen keine personenbezogenen Daten. Wir geben Bot-Daten nicht absichtlich an Dritte weiter, außer wenn dies technisch zum Betrieb der Hosting-Umgebung erforderlich ist oder gesetzlich verlangt wird."],
+["9. Sicherheitsmaßnahmen","Angemessene Sicherheitsmaßnahmen können verschlüsselte Konfiguration, Zugriffsbegrenzung, Berechtigungsprüfungen und Betriebsprotokollierung umfassen. Dennoch ist kein System vollkommen sicher, und absolute Sicherheit kann nicht garantiert werden."],
+["10. Speicherdauer","Daten können so lange gespeichert werden, wie sie für Bot-Funktionen, Serververwaltung, Missbrauchsprävention, Logging oder nutzerbezogene Funktionen erforderlich sind. Einige Datensätze können bis zur manuellen Löschung, automatischen Entfernung oder Löschung auf Anfrage bestehen bleiben."],
+["11. Rechte von Nutzern und Serverinhabern","Je nach Situation können Nutzer oder Serverinhaber Auskunft über gespeicherte Daten verlangen, soweit anwendbar Berichtigung beantragen oder die Löschung nicht mehr benötigter Daten verlangen."],
+["12. Löschanfragen","Für Löschanfragen oder datenschutzbezogene Anliegen verwenden Sie bitte den Support-Server oder den Befehl <code>/support</code>, falls verfügbar. Zur sicheren Identifikation der betreffenden Daten können ausreichende Informationen erforderlich sein."],
+["13. Kinder","Discord selbst verlangt die Einhaltung der Mindestalter-Regeln. Carapuz201G ist nicht darauf ausgelegt, Kinder außerhalb des von Discord erlaubten Altersrahmens gezielt anzusprechen."],
+["14. Änderungen dieser Richtlinie","Diese Datenschutzrichtlinie kann von Zeit zu Zeit aktualisiert werden. Änderungen können auf dieser Seite ohne gesonderte Mitteilung veröffentlicht werden. Die fortgesetzte Nutzung des Bots nach Aktualisierungen kann als Zustimmung zur aktualisierten Richtlinie gewertet werden."],
+["15. Kontakt","Wenn Sie Fragen zum Datenschutz, Bedenken oder Löschanfragen haben, kontaktieren Sie uns über den auf dieser Website verlinkten Support-Server."]
+]
+};
+
+const T = { en: PP_EN, ru: PP_RU, de: PP_DE };
+
+let lang = localStorage.getItem('c2g-lang-legal') || 'en';
+let theme = localStorage.getItem('c2g-theme') || 'dark';
 
 document.addEventListener('DOMContentLoaded',()=>{
-if(!T[lang])lang='en';
-setTheme(theme);buildLang();setLang(lang);setupEv();
-setTimeout(()=>document.getElementById('ldr').classList.add('hid'),1100);
+  if(!T[lang]) lang='en';
+  setTheme(theme);
+  buildLang();
+  setLang(lang);
+  setupEv();
+  setTimeout(()=>document.getElementById('ldr').classList.add('hid'),1100);
 });
 
-function setTheme(t){theme=t;document.documentElement.setAttribute('data-theme',t);localStorage.setItem('c2g-theme',t);document.getElementById('thBtn').textContent=t==='dark'?'☀️':'🌙'}
-function togTheme(){setTheme(theme==='dark'?'light':'dark')}
+function setTheme(t){
+  theme=t;
+  document.documentElement.setAttribute('data-theme',t);
+  localStorage.setItem('c2g-theme',t);
+  document.getElementById('thBtn').textContent=t==='dark'?'☀️':'🌙';
+}
+function togTheme(){ setTheme(theme==='dark'?'light':'dark'); }
 
 function buildLang(){
-const m=document.getElementById('lMn');m.innerHTML='';
-Object.keys(T).sort((a,b)=>T[a].name.localeCompare(T[b].name)).forEach(c=>{
-const d=document.createElement('div');d.className='lo'+(c===lang?' act':'');
-d.innerHTML=`<span class="fl">${T[c].flag}</span><span>${T[c].name}</span>`;
-d.onclick=()=>{setLang(c);closeLM()};m.appendChild(d);
-});
+  const m=document.getElementById('lMn');
+  m.innerHTML='';
+  Object.keys(T).forEach(c=>{
+    const d=document.createElement('div');
+    d.className='lo'+(c===lang?' act':'');
+    d.innerHTML=`<span class="fl">${T[c].flag}</span><span>${T[c].name}</span>`;
+    d.onclick=()=>{ setLang(c); closeLM(); };
+    m.appendChild(d);
+  });
 }
 
 function setLang(c){
-if(!T[c])c='en';lang=c;localStorage.setItem('c2g-lang-legal',c);
-const t=T[c],pp=t.pp;
-document.getElementById('cF').textContent=t.flag;
-document.getElementById('cL').textContent=t.name;
-document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k]});
-const sec=document.getElementById('content');
-let h=`<div class="upd">${pp.updated}</div>`;
-pp.sections.forEach((s,i)=>{
-h+=`<div class="lb2 rv" style="transition-delay:${i*.05}s"><h2>${s.t}</h2><p>${s.b}</p></div>`;
-});
-sec.innerHTML=h;
-document.querySelectorAll('.lo').forEach(o=>o.classList.remove('act'));
-const keys=Object.keys(T).sort((a,b)=>T[a].name.localeCompare(T[b].name));
-const idx=keys.indexOf(c);const opts=document.querySelectorAll('.lo');
-if(opts[idx])opts[idx].classList.add('act');
-document.documentElement.lang=c;
-setTimeout(setupRv,50);
+  if(!T[c]) c='en';
+  lang=c;
+  localStorage.setItem('c2g-lang-legal',c);
+  const t=T[c];
+  document.getElementById('cF').textContent=t.flag;
+  document.getElementById('cL').textContent=t.name;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n');
+    if(t[k]) el.textContent=t[k];
+  });
+
+  let html=`<div class="topnote rv"><strong>${t.updated}</strong><br>${t.intro}</div>`;
+  t.sections.forEach((s,i)=>{
+    html+=`<div class="blk rv" style="transition-delay:${i*0.04}s"><h2>${s[0]}</h2><p>${s[1]}</p></div>`;
+  });
+  document.getElementById('ct').innerHTML=html;
+
+  document.querySelectorAll('.lo').forEach(o=>o.classList.remove('act'));
+  const idx=Object.keys(T).indexOf(c);
+  const opts=document.querySelectorAll('.lo');
+  if(opts[idx]) opts[idx].classList.add('act');
+
+  document.documentElement.lang=c;
+  setTimeout(setupRv,50);
 }
 
-function togLM(){const m=document.getElementById('lMn'),b=document.getElementById('lBtn');if(m.classList.contains('show'))closeLM();else{m.classList.add('show');b.classList.add('open')}}
+function togLM(){
+  const m=document.getElementById('lMn'),b=document.getElementById('lBtn');
+  if(m.classList.contains('show')) closeLM();
+  else {m.classList.add('show');b.classList.add('open')}
+}
 function closeLM(){document.getElementById('lMn').classList.remove('show');document.getElementById('lBtn').classList.remove('open')}
 function openMM(){document.getElementById('mMn').classList.add('show');document.getElementById('mOv').classList.add('show');document.body.style.overflow='hidden'}
 function closeMM(){document.getElementById('mMn').classList.remove('show');document.getElementById('mOv').classList.remove('show');document.body.style.overflow=''}
-function setupRv(){const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1});document.querySelectorAll('.rv').forEach(el=>obs.observe(el))}
+function setupRv(){
+  const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1});
+  document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+}
 function setupEv(){
-document.getElementById('thBtn').onclick=togTheme;
-document.getElementById('lBtn').onclick=e=>{e.stopPropagation();togLM()};
-document.addEventListener('click',e=>{if(!e.target.closest('.ld'))closeLM()});
-document.getElementById('mBtn').onclick=openMM;
-document.getElementById('cMn').onclick=closeMM;
-document.getElementById('mOv').onclick=closeMM;
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLM();closeMM()}});
+  document.getElementById('thBtn').onclick=togTheme;
+  document.getElementById('lBtn').onclick=e=>{e.stopPropagation();togLM()};
+  document.addEventListener('click',e=>{if(!e.target.closest('.ld'))closeLM()});
+  document.getElementById('mBtn').onclick=openMM;
+  document.getElementById('cMn').onclick=closeMM;
+  document.getElementById('mOv').onclick=closeMM;
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLM();closeMM()}});
 }
 </script>
 </body>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Features — Carapuz201G</title>
-<meta name="description" content="Explore all features of Carapuz201G Discord bot — moderation, economy, kingdoms, tickets, voice, AI and more.">
+<meta name="description" content="Explore all features of Carapuz201G Discord bot — moderation, economy, kingdoms, tickets, verification, voice, music, AI and more.">
 <style>
 :root{--tr:0.3s}
 [data-theme="dark"]{--bg:#0b0f1a;--bg2:#111827;--card:rgba(17,24,39,0.88);--hdr:rgba(11,15,26,0.93);--tx:#e2e8f0;--tx2:#94a3b8;--acc:#5865F2;--acc2:#38bdf8;--brd:rgba(88,101,242,0.18);--shd:rgba(0,0,0,0.4);--glw:rgba(88,101,242,0.3);--dd:#1e293b;--ddh:#334155;--g1:#0b0f1a;--g2:#15102e;--g3:#0d2847}
@@ -12,80 +12,58 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;transition:background var(--tr),color var(--tr);min-height:100vh}
-a{color:inherit}
+a{color:inherit;text-decoration:none}
 .hdr{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--hdr);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--brd);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;transition:background var(--tr)}
 .hdr-l{display:flex;align-items:center;gap:.6rem}
-.hm-lnk{display:flex;align-items:center;text-decoration:none;color:var(--tx2);font-size:1.35rem;transition:color .3s}
-.hm-lnk:hover{color:var(--acc)}
+.hm-lnk{display:flex;align-items:center;text-decoration:none;color:var(--tx2);font-size:1.35rem;transition:color .3s}.hm-lnk:hover{color:var(--acc)}
 .hm-lnk .em{animation:fl 3s ease-in-out infinite}
 @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
-.brand{font-size:1.15rem;font-weight:700;color:var(--tx);text-decoration:none;transition:color .3s}
-.brand:hover{color:var(--acc)}
+.brand{font-size:1.15rem;font-weight:700;color:var(--tx);text-decoration:none;transition:color .3s}.brand:hover{color:var(--acc)}
 .nav{display:flex;align-items:center;gap:.15rem}
 .nav a{padding:.35rem .55rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.8rem;font-weight:500;transition:all .2s;white-space:nowrap}
-.nav a:hover{color:var(--tx);background:var(--brd)}
-.nav a.active{color:var(--acc);background:rgba(88,101,242,.12)}
+.nav a:hover{color:var(--tx);background:var(--brd)}.nav a.act{color:var(--acc);background:rgba(88,101,242,.12)}
 .hdr-r{display:flex;align-items:center;gap:.45rem}
-.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.4rem .8rem;border-radius:10px;font-size:.78rem;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid var(--brd);transition:all .3s;white-space:nowrap}
-.btn-a{background:var(--acc);color:#fff;border-color:var(--acc)}
-.btn-a:hover{background:#4752c4;box-shadow:0 4px 20px var(--glw);transform:translateY(-1px)}
-.btn-o{background:transparent;color:var(--tx)}
-.btn-o:hover{background:var(--brd);border-color:var(--acc)}
-.th-btn{background:var(--card);border:1px solid var(--brd);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--tx);transition:all .3s}
-.th-btn:hover{border-color:var(--acc);box-shadow:0 0 12px var(--glw);transform:rotate(20deg)}
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.45rem .9rem;border-radius:10px;font-size:.8rem;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid var(--brd);transition:all .3s;white-space:nowrap}
+.btn-a{background:var(--acc);color:#fff;border-color:var(--acc)}.btn-a:hover{background:#4752c4;box-shadow:0 4px 20px var(--glw);transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--tx)}.btn-o:hover{background:var(--brd);border-color:var(--acc)}
+.th-btn{background:var(--card);border:1px solid var(--brd);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--tx);transition:all .3s}.th-btn:hover{border-color:var(--acc);box-shadow:0 0 12px var(--glw);transform:rotate(20deg)}
 .ld{position:relative}
-.lb{background:var(--card);border:1px solid var(--brd);border-radius:10px;padding:.35rem .65rem;cursor:pointer;display:flex;align-items:center;gap:.35rem;font-size:.78rem;color:var(--tx);transition:all .3s}
-.lb:hover{border-color:var(--acc);box-shadow:0 0 10px var(--glw)}
-.lb .ar{font-size:.55rem;transition:transform .3s}
-.lb.open .ar{transform:rotate(180deg)}
-.lm{position:absolute;top:calc(100% + 6px);right:0;background:var(--dd);border:1px solid var(--brd);border-radius:12px;padding:.35rem 0;min-width:190px;max-height:350px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .3s;box-shadow:0 16px 40px var(--shd);z-index:1001}
-.lm.show{opacity:1;visibility:visible;transform:translateY(0)}
-.lm::-webkit-scrollbar{width:5px}
-.lm::-webkit-scrollbar-thumb{background:var(--brd);border-radius:3px}
-.lo{display:flex;align-items:center;gap:.55rem;padding:.45rem .85rem;cursor:pointer;font-size:.82rem;color:var(--tx);transition:background .2s}
-.lo:hover{background:var(--ddh)}
-.lo.act{color:var(--acc);font-weight:600}
-.lo .fl{font-size:1.05rem}
+.lb{background:var(--card);border:1px solid var(--brd);border-radius:10px;padding:.35rem .65rem;cursor:pointer;display:flex;align-items:center;gap:.35rem;font-size:.78rem;color:var(--tx);transition:all .3s}.lb:hover{border-color:var(--acc);box-shadow:0 0 10px var(--glw)}
+.lb .ar{font-size:.55rem;transition:transform .3s}.lb.open .ar{transform:rotate(180deg)}
+.lm{position:absolute;top:calc(100% + 6px);right:0;background:var(--dd);border:1px solid var(--brd);border-radius:12px;padding:.35rem 0;min-width:200px;max-height:400px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .3s;box-shadow:0 16px 40px var(--shd);z-index:1001}.lm.show{opacity:1;visibility:visible;transform:translateY(0)}
+.lm::-webkit-scrollbar{width:5px}.lm::-webkit-scrollbar-thumb{background:var(--brd);border-radius:3px}
+.lo{display:flex;align-items:center;gap:.55rem;padding:.45rem .85rem;cursor:pointer;font-size:.82rem;color:var(--tx);transition:background .2s}.lo:hover{background:var(--ddh)}.lo.act{color:var(--acc);font-weight:600}.lo .fl{font-size:1.05rem}
 .mb{display:none;background:var(--card);border:1px solid var(--brd);border-radius:8px;width:34px;height:34px;align-items:center;justify-content:center;cursor:pointer;color:var(--tx);font-size:1.15rem}
-.mov{display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}
-.mov.show{display:block}
-.mm{position:fixed;top:0;right:-300px;width:270px;height:100%;background:var(--bg2);z-index:999;padding:1.25rem;transition:right .3s;overflow-y:auto;border-left:1px solid var(--brd)}
-.mm.show{right:0}
+.mov{display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}.mov.show{display:block}
+.mm{position:fixed;top:0;right:-300px;width:270px;height:100%;background:var(--bg2);z-index:999;padding:1.25rem;transition:right .3s;overflow-y:auto;border-left:1px solid var(--brd)}.mm.show{right:0}
 .mm .xb{background:none;border:none;color:var(--tx);font-size:1.4rem;cursor:pointer;float:right;padding:.25rem}
 .mn{display:flex;flex-direction:column;gap:.2rem;margin-top:2.5rem}
-.mn a{padding:.6rem .7rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.9rem;transition:all .2s}
-.mn a:hover,.mn a.active{color:var(--acc);background:rgba(88,101,242,.1)}
-.ma{display:flex;flex-direction:column;gap:.5rem;margin-top:1.25rem}
-.ma .btn{justify-content:center}
-.ph{padding:6rem 2rem 3rem;text-align:center;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);position:relative;overflow:hidden;transition:background var(--tr)}
+.mn a{padding:.6rem .7rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.9rem;transition:all .2s}.mn a:hover,.mn a.act{color:var(--acc);background:rgba(88,101,242,.1)}
+.mab{display:flex;flex-direction:column;gap:.5rem;margin-top:1.25rem}.mab .btn{justify-content:center}
+.ph{padding:6.5rem 2rem 3rem;text-align:center;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);position:relative;overflow:hidden;transition:background var(--tr)}
 .ph::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(88,101,242,.12) 0%,transparent 60%);pointer-events:none}
-.phc{position:relative;z-index:2;max-width:680px;margin:0 auto}
-.phi{font-size:3.5rem;margin-bottom:.5rem;display:inline-block}
-.pht{font-size:2.2rem;font-weight:800;margin-bottom:.5rem;background:linear-gradient(135deg,var(--tx),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.phs{font-size:1.05rem;color:var(--tx2);line-height:1.6}
+.phc{position:relative;z-index:2;max-width:700px;margin:0 auto}
+.phi{font-size:3.8rem;margin-bottom:.6rem;display:inline-block}
+.pht{font-size:2.4rem;font-weight:800;margin-bottom:.6rem;background:linear-gradient(135deg,var(--tx),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.phs{font-size:1.05rem;color:var(--tx2);line-height:1.7}
 .sec{padding:3rem 2rem;max-width:1100px;margin:0 auto}
-.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem}
-.fc{background:var(--card);backdrop-filter:blur(12px);border:1px solid var(--brd);border-radius:16px;padding:1.75rem;transition:all .35s;position:relative;overflow:hidden}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.25rem}
+.fc{background:var(--card);backdrop-filter:blur(12px);border:1px solid var(--brd);border-radius:16px;padding:1.85rem;transition:all .35s;position:relative;overflow:hidden}
 .fc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--fc-acc,var(--acc)),transparent);opacity:0;transition:opacity .3s}
-.fc:hover{transform:translateY(-5px);box-shadow:0 12px 40px var(--shd);border-color:var(--acc)}
-.fc:hover::before{opacity:1}
+.fc:hover{transform:translateY(-5px);box-shadow:0 12px 40px var(--shd);border-color:var(--acc)}.fc:hover::before{opacity:1}
 .fc-i{font-size:2.2rem;margin-bottom:.5rem;display:inline-block}
-.fc-t{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
-.fc-d{font-size:.88rem;color:var(--tx2);line-height:1.6}
-.fc-d ul{padding-left:1.1rem;margin-top:.35rem}
-.fc-d li{margin-bottom:.2rem}
-.tg{display:inline-flex;align-items:center;gap:.25rem;background:var(--brd);padding:.18rem .55rem;border-radius:14px;font-size:.72rem;color:var(--acc);margin-top:.5rem}
+.fc-t{font-size:1.1rem;font-weight:700;margin-bottom:.45rem}
+.fc-d{font-size:.86rem;color:var(--tx2);line-height:1.65}
+.fc-d ul{padding-left:1.1rem;margin-top:.35rem}.fc-d li{margin-bottom:.2rem}
+.fc-tag{display:inline-flex;align-items:center;gap:.25rem;background:var(--brd);padding:.18rem .55rem;border-radius:14px;font-size:.72rem;color:var(--acc);margin-top:.65rem}
 .ftr{text-align:center;padding:1.75rem;color:var(--tx2);font-size:.82rem;border-top:1px solid var(--brd);background:var(--hdr);backdrop-filter:blur(20px)}
-.ftr a{color:var(--acc);text-decoration:none}
-.ftr a:hover{text-decoration:underline}
+.ftr a{color:var(--acc);text-decoration:none}.ftr a:hover{text-decoration:underline}
 .ftl{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-bottom:.65rem}
 @media(max-width:1024px){.nav{display:none}.mb{display:flex}.hdr-r .btn{display:none}}
-@media(max-width:768px){.ph{padding:5rem 1.25rem 2.5rem}.pht{font-size:1.7rem}.sec{padding:2rem 1.25rem}.fg{grid-template-columns:1fr}.lb .ll{display:none}}
+@media(max-width:768px){.ph{padding:5.5rem 1.25rem 2.5rem}.pht{font-size:1.8rem}.sec{padding:2rem 1.25rem}.fg{grid-template-columns:1fr}.lb .ll{display:none}}
 @media(max-width:480px){.pht{font-size:1.5rem}.fc{padding:1.25rem}}
-.rv{opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s}
-.rv.vis{opacity:1;transform:translateY(0)}
-.ld-w{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;transition:opacity .4s,visibility .4s}
-.ld-w.hid{opacity:0;visibility:hidden}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s}.rv.vis{opacity:1;transform:translateY(0)}
+.ld-w{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;transition:opacity .4s,visibility .4s}.ld-w.hid{opacity:0;visibility:hidden}
 .ld-e{font-size:2.8rem;animation:lba 1s ease-in-out infinite}
 @keyframes lba{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.1)}}
 .ld-b{width:100px;height:3px;background:var(--brd);border-radius:3px;overflow:hidden}
@@ -93,9 +71,8 @@ a{color:inherit}
 @keyframes lfx{to{width:100%}}
 </style>
 </head>
-<body data-page="features">
+<body>
 <div class="ld-w" id="ldr"><div class="ld-e">🤖</div><div style="color:var(--tx2);font-size:.85rem;letter-spacing:2px">CARAPUZ201G</div><div class="ld-b"><div class="ld-f"></div></div></div>
-
 <header class="hdr">
 <div class="hdr-l">
 <a href="https://carapuzland.github.io" class="hm-lnk" title="CarapuzLand"><span class="em">🏝️</span></a>
@@ -103,7 +80,7 @@ a{color:inherit}
 </div>
 <nav class="nav">
 <a href="../about/" data-i18n="nav_about">About</a>
-<a href="../features/" class="active" data-i18n="nav_features">Features</a>
+<a href="../features/" class="act" data-i18n="nav_features">Features</a>
 <a href="../commands/" data-i18n="nav_commands">Commands</a>
 <a href="../support/" data-i18n="nav_support">Support</a>
 <a href="../status/" data-i18n="nav_status">Status</a>
@@ -112,48 +89,38 @@ a{color:inherit}
 </nav>
 <div class="hdr-r">
 <button class="th-btn" id="thBtn" title="Toggle theme">🌙</button>
-<div class="ld">
-<button class="lb" id="lBtn"><span class="fl" id="cF">🇺🇸</span><span class="ll" id="cL">English</span><span class="ar">▼</span></button>
-<div class="lm" id="lMn"></div>
-</div>
+<div class="ld"><button class="lb" id="lBtn"><span class="fl" id="cF">🇺🇸</span><span class="ll" id="cL">English</span><span class="ar">▼</span></button><div class="lm" id="lMn"></div></div>
 <a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
 <a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
 <button class="mb" id="mBtn">☰</button>
 </div>
 </header>
-
 <div class="mov" id="mOv"></div>
 <div class="mm" id="mMn">
 <button class="xb" id="cMn">✕</button>
 <div class="mn">
 <a href="../" data-i18n="nav_home">Home</a>
 <a href="../about/" data-i18n="nav_about">About</a>
-<a href="../features/" class="active" data-i18n="nav_features">Features</a>
+<a href="../features/" class="act" data-i18n="nav_features">Features</a>
 <a href="../commands/" data-i18n="nav_commands">Commands</a>
 <a href="../support/" data-i18n="nav_support">Support</a>
 <a href="../status/" data-i18n="nav_status">Status</a>
 <a href="../privacy-policy/" data-i18n="nav_privacy">Privacy Policy</a>
 <a href="../terms-of-service/" data-i18n="nav_terms">Terms of Service</a>
 </div>
-<div class="ma">
+<div class="mab">
 <a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
 <a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
 </div>
 </div>
-
 <main>
-<section class="ph">
-<div class="phc">
+<section class="ph"><div class="phc">
 <div class="phi">⚡</div>
 <h1 class="pht" data-i18n="pg_t">Features</h1>
-<p class="phs" data-i18n="pg_s">Everything Carapuz201G can do for your Discord server.</p>
-</div>
-</section>
-<section class="sec">
-<div class="fg" id="fGrid"></div>
-</section>
+<p class="phs" data-i18n="pg_s">Everything Carapuz201G can do for your Discord server — from moderation to music to AI.</p>
+</div></section>
+<section class="sec"><div class="fg" id="fG"></div></section>
 </main>
-
 <footer class="ftr">
 <div class="ftl">
 <a href="../privacy-policy/" data-i18n="nav_privacy">Privacy Policy</a>
@@ -162,47 +129,124 @@ a{color:inherit}
 </div>
 <p>© 2025 <a href="https://carapuzland.github.io">CarapuzLand</a> 🏝️ — Carapuz201G</p>
 </footer>
-
 <script>
-const enF=[
-{icon:"🛡️",title:"Moderation",desc:"<ul><li>Warn, mute, kick, ban</li><li>Anti-raid protection</li><li>Auto-moderation filters</li><li>Mod logs & audit trails</li><li>Encrypted configuration</li></ul>",tag:"Server Management",acc:"#ef4444"},
-{icon:"💰",title:"Economy",desc:"<ul><li>Virtual currency system</li><li>Daily rewards & bonuses</li><li>Shop & inventory</li><li>Leaderboards</li><li>Gambling & mini-games</li></ul>",tag:"Economy System",acc:"#f59e0b"},
-{icon:"🏰",title:"Kingdoms",desc:"<ul><li>Create & manage kingdoms</li><li>Territory control</li><li>Kingdom wars & alliances</li><li>Resource management</li><li>Kingdom leaderboards</li></ul>",tag:"RPG System",acc:"#8b5cf6"},
-{icon:"🎫",title:"Tickets",desc:"<ul><li>Support ticket system</li><li>Custom ticket categories</li><li>Transcript logging</li><li>Staff assignment</li><li>Auto-close & reminders</li></ul>",tag:"Support Tools",acc:"#06b6d4"},
-{icon:"✅",title:"Verification",desc:"<ul><li>CAPTCHA verification</li><li>Reaction-based roles</li><li>Custom verification flows</li><li>Auto-role assignment</li><li>Anti-bot protection</li></ul>",tag:"Security",acc:"#22c55e"},
-{icon:"🔧",title:"Utility",desc:"<ul><li>Custom commands</li><li>Reminders & timers</li><li>Giveaways</li><li>Global chat</li><li>Server info & stats</li></ul>",tag:"Utility Tools",acc:"#64748b"},
-{icon:"🎵",title:"Voice & Music",desc:"<ul><li>Music playback</li><li>Radio streams</li><li>Queue management</li><li>Volume & audio controls</li><li>Multi-source support</li></ul>",tag:"Voice Features",acc:"#ec4899"},
-{icon:"🧠",title:"Local AI (Ollama)",desc:"<ul><li>Optional AI integration via Ollama</li><li>Runs locally — no external APIs</li><li>Not trained on user messages</li><li>Smart responses & summaries</li><li>Fully private & secure</li></ul>",tag:"AI · Optional",acc:"#a855f7"}
+/* Feature cards config */
+const FC=[
+{icon:"🛡️",acc:"#ef4444",k:"mod"},
+{icon:"💰",acc:"#f59e0b",k:"eco"},
+{icon:"🏰",acc:"#8b5cf6",k:"king"},
+{icon:"🎫",acc:"#06b6d4",k:"tick"},
+{icon:"✅",acc:"#22c55e",k:"veri"},
+{icon:"🔧",acc:"#64748b",k:"util"},
+{icon:"🎵",acc:"#ec4899",k:"voice"},
+{icon:"🧠",acc:"#a855f7",k:"ai"}
 ];
 
-const ruF=[
-{icon:"🛡️",title:"Модерация",desc:"<ul><li>Предупреждения, мут, кик, бан</li><li>Защита от рейдов</li><li>Автомодерация</li><li>Логи модерации</li><li>Зашифрованная конфигурация</li></ul>",tag:"Управление сервером",acc:"#ef4444"},
-{icon:"💰",title:"Экономика",desc:"<ul><li>Виртуальная валюта</li><li>Ежедневные награды</li><li>Магазин и инвентарь</li><li>Рейтинги</li><li>Азартные мини-игры</li></ul>",tag:"Экономическая система",acc:"#f59e0b"},
-{icon:"🏰",title:"Королевства",desc:"<ul><li>Создание и управление королевствами</li><li>Контроль территорий</li><li>Войны и альянсы</li><li>Управление ресурсами</li><li>Рейтинг королевств</li></ul>",tag:"RPG-система",acc:"#8b5cf6"},
-{icon:"🎫",title:"Тикеты",desc:"<ul><li>Система тикетов поддержки</li><li>Пользовательские категории</li><li>Логирование транскриптов</li><li>Назначение персонала</li><li>Автозакрытие</li></ul>",tag:"Инструменты поддержки",acc:"#06b6d4"},
-{icon:"✅",title:"Верификация",desc:"<ul><li>CAPTCHA-верификация</li><li>Роли по реакциям</li><li>Настраиваемые потоки</li><li>Авто-выдача ролей</li><li>Защита от ботов</li></ul>",tag:"Безопасность",acc:"#22c55e"},
-{icon:"🔧",title:"Утилиты",desc:"<ul><li>Кастомные команды</li><li>Напоминания и таймеры</li><li>Розыгрыши</li><li>Глобальный чат</li><li>Информация и статистика</li></ul>",tag:"Инструменты",acc:"#64748b"},
-{icon:"🎵",title:"Голос и музыка",desc:"<ul><li>Воспроизведение музыки</li><li>Радиопотоки</li><li>Управление очередью</li><li>Контроль громкости</li><li>Мульти-источники</li></ul>",tag:"Голосовые функции",acc:"#ec4899"},
-{icon:"🧠",title:"Локальный ИИ (Ollama)",desc:"<ul><li>Опциональная интеграция через Ollama</li><li>Работает локально — без внешних API</li><li>Не обучается на сообщениях</li><li>Умные ответы и сводки</li><li>Полностью приватный</li></ul>",tag:"ИИ · Опционально",acc:"#a855f7"}
-];
-
-const ukF=[
-{icon:"🛡️",title:"Модерація",desc:"<ul><li>Попередження, мут, кік, бан</li><li>Захист від рейдів</li><li>Автомодерація</li><li>Логи модерації</li><li>Зашифрована конфігурація</li></ul>",tag:"Управління сервером",acc:"#ef4444"},
-{icon:"💰",title:"Економіка",desc:"<ul><li>Віртуальна валюта</li><li>Щоденні нагороди</li><li>Магазин та інвентар</li><li>Рейтинги</li><li>Міні-ігри</li></ul>",tag:"Економічна система",acc:"#f59e0b"},
-{icon:"🏰",title:"Королівства",desc:"<ul><li>Створення та керування королівствами</li><li>Контроль територій</li><li>Війни та альянси</li><li>Управління ресурсами</li><li>Рейтинг королівств</li></ul>",tag:"RPG-система",acc:"#8b5cf6"},
-{icon:"🎫",title:"Тікети",desc:"<ul><li>Система тікетів підтримки</li><li>Налаштовані категорії</li><li>Логування транскриптів</li><li>Призначення персоналу</li><li>Автозакриття</li></ul>",tag:"Інструменти підтримки",acc:"#06b6d4"},
-{icon:"✅",title:"Верифікація",desc:"<ul><li>CAPTCHA-верифікація</li><li>Ролі по реакціях</li><li>Налаштовувані потоки</li><li>Авто-видача ролей</li><li>Захист від ботів</li></ul>",tag:"Безпека",acc:"#22c55e"},
-{icon:"🔧",title:"Утиліти",desc:"<ul><li>Кастомні команди</li><li>Нагадування та таймери</li><li>Розіграші</li><li>Глобальний чат</li><li>Інформація та статистика</li></ul>",tag:"Інструменти",acc:"#64748b"},
-{icon:"🎵",title:"Голос і музика",desc:"<ul><li>Відтворення музики</li><li>Радіопотоки</li><li>Управління чергою</li><li>Контроль гучності</li><li>Мульти-джерела</li></ul>",tag:"Голосові функції",acc:"#ec4899"},
-{icon:"🧠",title:"Локальний ШІ (Ollama)",desc:"<ul><li>Опціональна інтеграція через Ollama</li><li>Працює локально</li><li>Не навчається на повідомленнях</li><li>Розумні відповіді</li><li>Повністю приватний</li></ul>",tag:"ШІ · Опціонально",acc:"#a855f7"}
-];
-
-const T={
-"en-US":{name:"English (US)",flag:"🇺🇸",nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"Features",pg_s:"Everything Carapuz201G can do for your Discord server.",features:enF},
-"en-GB":{name:"English (UK)",flag:"🇬🇧",nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"Features",pg_s:"Everything Carapuz201G can do for your Discord server.",features:enF},
-"ru":{name:"Русский",flag:"🇷🇺",nav_home:"Главная",nav_about:"О боте",nav_features:"Функции",nav_commands:"Команды",nav_support:"Поддержка",nav_status:"Статус",nav_privacy:"Конфиденциальность",nav_terms:"Условия",btn_add:"➕ Добавить бота",btn_support:"💬 Поддержка",pg_t:"Функции",pg_s:"Всё, что Carapuz201G может сделать для вашего Discord-сервера.",features:ruF},
-"uk":{name:"Українська",flag:"🇺🇦",nav_home:"Головна",nav_about:"Про бота",nav_features:"Функції",nav_commands:"Команди",nav_support:"Підтримка",nav_status:"Статус",nav_privacy:"Конфіденційність",nav_terms:"Умови",btn_add:"➕ Додати бота",btn_support:"💬 Підтримка",pg_t:"Функції",pg_s:"Все, що Carapuz201G може зробити для вашого Discord-сервера.",features:ukF}
+/* EN features — full detailed */
+const enF={
+mod_t:"Moderation",mod_d:"<ul><li>Warn, mute, kick, and ban users with detailed logging</li><li>Timed mutes and bans with automatic expiration</li><li>Anti-raid protection with configurable thresholds and actions</li><li>Auto-moderation filters for spam, links, caps, and bad words</li><li>Comprehensive mod logs with audit trail for all actions</li><li>Encrypted configuration to protect sensitive settings</li><li>Slowmode management per channel</li><li>Channel lock/unlock for emergencies</li><li>Warning system with escalating punishments</li><li>Bulk message purge with filters by user, content, or age</li></ul>",mod_tag:"Server Management",
+eco_t:"Economy & Games",eco_d:"<ul><li>Virtual currency system with server-specific balances</li><li>Daily rewards and streak bonuses to encourage engagement</li><li>Work commands with randomized earnings and cooldowns</li><li>Server shop where admins can create purchasable items</li><li>Player inventory system for collected items</li><li>Leaderboards showing the richest members</li><li>Gambling mini-games: coinflip, slots, dice, and more</li><li>Rob/steal system with risk vs reward mechanics</li><li>Transferable currency between users</li><li>Admin commands to manage the economy</li></ul>",eco_tag:"Economy System",
+king_t:"Kingdoms",king_d:"<ul><li>Create and name your own kingdom</li><li>Recruit members and assign kingdom roles</li><li>Territory control system with claimable zones</li><li>Kingdom wars — declare war and battle other kingdoms</li><li>Alliance system for peaceful cooperation</li><li>Resource management and kingdom treasury</li><li>Kingdom leaderboards by power, wealth, and territory</li><li>Kingdom-specific chat channels</li><li>Unique RPG mechanics within Discord</li></ul>",king_tag:"RPG System",
+tick_t:"Tickets",tick_d:"<ul><li>One-click ticket creation for users seeking support</li><li>Customizable ticket categories (support, billing, reports, etc.)</li><li>Automatic transcript generation and logging when tickets close</li><li>Staff assignment and notification system</li><li>Ticket claiming to prevent duplicate responses</li><li>Auto-close after inactivity with configurable timers</li><li>Close reminders sent to both staff and users</li><li>Ticket statistics and analytics for staff performance</li><li>Button-based ticket panel for clean user experience</li></ul>",tick_tag:"Support Tools",
+veri_t:"Verification",veri_d:"<ul><li>CAPTCHA verification to prove users are human</li><li>Multiple CAPTCHA types: text, math, image-based</li><li>Reaction-based role assignment for self-service roles</li><li>Custom verification flows with multi-step processes</li><li>Auto-role assignment on join with configurable delay</li><li>Anti-bot protection using account age and join rate detection</li><li>Verification logging for audit purposes</li><li>Welcome messages with customizable templates</li><li>Gate channels that require verification before access</li></ul>",veri_tag:"Security",
+util_t:"Utility & Tools",util_d:"<ul><li>Custom commands — create server-specific commands with custom responses</li><li>Reminders — set personal or channel reminders with flexible scheduling</li><li>Giveaways — create, manage, and draw winners with configurable requirements</li><li>Polls — create multi-option polls with reaction voting</li><li>Global chat — connect channels across multiple servers</li><li>Reaction roles — button or reaction-based role menus</li><li>Server info — detailed server statistics and information</li><li>User info — user profiles, avatars, join dates, roles</li><li>Embeds — create custom rich embed messages</li><li>Announcements — schedule and send formatted announcements</li></ul>",util_tag:"Utility Tools",
+voice_t:"Voice & Music",voice_d:"<ul><li>Music playback from multiple sources with high audio quality</li><li>Radio streams — listen to live radio stations in voice channels</li><li>Queue management — add, remove, skip, shuffle, and reorder tracks</li><li>Volume control with per-server memory</li><li>Loop modes — single track, queue, or disabled</li><li>Now playing display with track info and progress</li><li>Pause and resume controls</li><li>Auto-disconnect when channel is empty</li><li>DJ role support for controlling who can manage music</li><li>Lyrics display for currently playing track</li></ul>",voice_tag:"Voice Features",
+ai_t:"Local AI (Ollama)",ai_d:"<ul><li>Optional AI integration through the Ollama framework</li><li>Runs entirely on the operator's local machine — no cloud dependency</li><li>No data is sent to OpenAI, Google, Anthropic, or any external AI service</li><li>Discord messages are NOT used to train or fine-tune the AI model</li><li>The AI does NOT learn from or memorize user conversations</li><li>Smart responses and contextual assistance when enabled</li><li>Text summarization and content generation capabilities</li><li>Fully configurable by the server operator</li><li>Can be completely disabled if not needed</li><li>Multiple model support — operator chooses which model to use</li></ul>",ai_tag:"AI · Optional"
 };
+
+/* RU features */
+const ruF={
+mod_t:"Модерация",mod_d:"<ul><li>Предупреждения, муты, кики и баны с подробным логированием</li><li>Временные муты и баны с автоматическим истечением</li><li>Защита от рейдов с настраиваемыми порогами</li><li>Автомодерация: спам, ссылки, капс, плохие слова</li><li>Логи модерации с аудит-трейлом всех действий</li><li>Зашифрованная конфигурация</li><li>Управление медленным режимом</li><li>Блокировка/разблокировка каналов</li><li>Система предупреждений с эскалацией наказаний</li><li>Массовое удаление сообщений с фильтрами</li></ul>",mod_tag:"Управление сервером",
+eco_t:"Экономика и игры",eco_d:"<ul><li>Виртуальная валюта с балансами для каждого сервера</li><li>Ежедневные награды и бонусы за серии</li><li>Команды работы с рандомизированным заработком</li><li>Серверный магазин с настраиваемыми товарами</li><li>Система инвентаря</li><li>Рейтинги богатейших участников</li><li>Азартные мини-игры: монетка, слоты, кости</li><li>Система ограблений с механикой риска</li><li>Перевод валюты между пользователями</li><li>Админ-команды для управления экономикой</li></ul>",eco_tag:"Экономическая система",
+king_t:"Королевства",king_d:"<ul><li>Создание и именование своего королевства</li><li>Вербовка участников и назначение ролей</li><li>Контроль территорий с захватываемыми зонами</li><li>Войны королевств</li><li>Система альянсов</li><li>Управление ресурсами и казной</li><li>Рейтинги по силе, богатству и территории</li><li>Каналы для королевств</li><li>Уникальная RPG-механика в Discord</li></ul>",king_tag:"RPG-система",
+tick_t:"Тикеты",tick_d:"<ul><li>Создание тикета одним кликом</li><li>Настраиваемые категории (поддержка, жалобы и т.д.)</li><li>Автоматическая генерация транскриптов при закрытии</li><li>Система назначения и уведомления персонала</li><li>Захват тикета для предотвращения дублей</li><li>Автозакрытие после неактивности</li><li>Напоминания о закрытии</li><li>Статистика и аналитика тикетов</li><li>Панель тикетов на кнопках</li></ul>",tick_tag:"Инструменты поддержки",
+veri_t:"Верификация",veri_d:"<ul><li>CAPTCHA-верификация</li><li>Множество типов: текст, математика, изображения</li><li>Роли по реакциям</li><li>Настраиваемые потоки верификации</li><li>Авто-роли при входе</li><li>Защита от ботов по возрасту аккаунта</li><li>Логирование верификации</li><li>Приветственные сообщения с шаблонами</li><li>Каналы-ворота для верификации</li></ul>",veri_tag:"Безопасность",
+util_t:"Утилиты",util_d:"<ul><li>Кастомные команды с пользовательскими ответами</li><li>Напоминания с гибким расписанием</li><li>Розыгрыши с настраиваемыми требованиями</li><li>Голосования с множеством вариантов</li><li>Глобальный чат между серверами</li><li>Роли по реакциям и кнопкам</li><li>Информация о сервере и пользователях</li><li>Кастомные эмбеды</li><li>Запланированные объявления</li></ul>",util_tag:"Инструменты",
+voice_t:"Голос и музыка",voice_d:"<ul><li>Воспроизведение музыки из множества источников</li><li>Радиопотоки в реальном времени</li><li>Управление очередью: добавление, удаление, перемешивание</li><li>Контроль громкости с памятью для сервера</li><li>Режимы повтора: трек, очередь, выкл</li><li>Отображение текущего трека с прогрессом</li><li>Пауза и продолжение</li><li>Авто-отключение при пустом канале</li><li>Поддержка DJ-роли</li><li>Отображение текста песни</li></ul>",voice_tag:"Голосовые функции",
+ai_t:"Локальный ИИ (Ollama)",ai_d:"<ul><li>Опциональная интеграция ИИ через Ollama</li><li>Работает полностью локально на машине оператора</li><li>Данные НЕ отправляются в OpenAI, Google или другие сервисы</li><li>Сообщения Discord НЕ используются для обучения модели</li><li>ИИ НЕ запоминает и НЕ обучается на разговорах</li><li>Умные ответы и контекстная помощь</li><li>Суммаризация текста и генерация контента</li><li>Полностью настраивается оператором</li><li>Можно полностью отключить</li><li>Поддержка множества моделей</li></ul>",ai_tag:"ИИ · Опционально"
+};
+
+/* UK features */
+const ukF={
+mod_t:"Модерація",mod_d:"<ul><li>Попередження, мути, кіки та бани з детальним логуванням</li><li>Тимчасові муги та бани з автоматичним закінченням</li><li>Захист від рейдів з налаштовуваними порогами</li><li>Автомодерація: спам, посилання, капс, нецензурна лексика</li><li>Логи модерації з аудит-трейлом</li><li>Зашифрована конфігурація</li><li>Управління повільним режимом</li><li>Блокування/розблокування каналів</li><li>Система попереджень з ескалацією покарань</li><li>Масове видалення повідомлень</li></ul>",mod_tag:"Управління сервером",
+eco_t:"Економіка та ігри",eco_d:"<ul><li>Віртуальна валюта</li><li>Щоденні нагороди та бонуси за серії</li><li>Команди роботи</li><li>Магазин сервера</li><li>Система інвентарю</li><li>Рейтинги найбагатших</li><li>Міні-ігри</li><li>Система пограбувань</li><li>Переказ валюти</li></ul>",eco_tag:"Економічна система",
+king_t:"Королівства",king_d:"<ul><li>Створення королівства</li><li>Вербування учасників</li><li>Контроль територій</li><li>Війни королівств</li><li>Система альянсів</li><li>Управління ресурсами</li><li>Рейтинги</li><li>RPG-механіка в Discord</li></ul>",king_tag:"RPG-система",
+tick_t:"Тікети",tick_d:"<ul><li>Створення тікета одним кліком</li><li>Налаштовувані категорії</li><li>Генерація транскриптів</li><li>Призначення персоналу</li><li>Автозакриття</li><li>Панель тікетів на кнопках</li></ul>",tick_tag:"Інструменти підтримки",
+veri_t:"Верифікація",veri_d:"<ul><li>CAPTCHA-верифікація</li><li>Ролі по реакціях</li><li>Налаштовувані потоки</li><li>Авто-ролі при вході</li><li>Захист від ботів</li><li>Канали-ворота</li></ul>",veri_tag:"Безпека",
+util_t:"Утиліти",util_d:"<ul><li>Кастомні команди</li><li>Нагадування</li><li>Розіграші</li><li>Голосування</li><li>Глобальний чат</li><li>Ролі по реакціях</li><li>Інформація про сервер та користувачів</li></ul>",util_tag:"Інструменти",
+voice_t:"Голос і музика",voice_d:"<ul><li>Відтворення музики</li><li>Радіопотоки</li><li>Управління чергою</li><li>Контроль гучності</li><li>Режими повтору</li><li>Пауза та продовження</li><li>Авто-відключення</li></ul>",voice_tag:"Голосові функції",
+ai_t:"Локальний ШІ (Ollama)",ai_d:"<ul><li>Опціональна інтеграція через Ollama</li><li>Працює повністю локально</li><li>Дані НЕ надсилаються зовнішнім сервісам</li><li>НЕ навчається на повідомленнях</li><li>Повністю налаштовується оператором</li><li>Можна вимкнути</li></ul>",ai_tag:"ШІ · Опціонально"
+};
+
+/* Helper for compact EU translations */
+function mkF(m,e,k,ti,v,u,vo,a){return{mod_t:m[0],mod_d:m[1],mod_tag:m[2],eco_t:e[0],eco_d:e[1],eco_tag:e[2],king_t:k[0],king_d:k[1],king_tag:k[2],tick_t:ti[0],tick_d:ti[1],tick_tag:ti[2],veri_t:v[0],veri_d:v[1],veri_tag:v[2],util_t:u[0],util_d:u[1],util_tag:u[2],voice_t:vo[0],voice_d:vo[1],voice_tag:vo[2],ai_t:a[0],ai_d:a[1],ai_tag:a[2]}}
+
+const euF={
+de:mkF(["Moderation","<ul><li>Verwarnungen, Stummschaltungen, Kicks, Sperren</li><li>Anti-Raid-Schutz</li><li>Auto-Moderation</li><li>Mod-Logs</li><li>Verschlüsselte Konfiguration</li></ul>","Serververwaltung"],["Wirtschaft & Spiele","<ul><li>Virtuelles Währungssystem</li><li>Tägliche Belohnungen</li><li>Shop & Inventar</li><li>Ranglisten</li><li>Minispiele</li></ul>","Wirtschaftssystem"],["Königreiche","<ul><li>Königreiche erstellen</li><li>Territoriekontrolle</li><li>Kriege & Allianzen</li><li>Ranglisten</li></ul>","RPG-System"],["Tickets","<ul><li>Ein-Klick-Erstellung</li><li>Benutzerdefinierte Kategorien</li><li>Transkript-Protokolle</li><li>Auto-Schließung</li></ul>","Support-Tools"],["Verifizierung","<ul><li>CAPTCHA-Verifizierung</li><li>Reaktionsrollen</li><li>Anti-Bot-Schutz</li></ul>","Sicherheit"],["Werkzeuge","<ul><li>Benutzerdefinierte Befehle</li><li>Erinnerungen</li><li>Gewinnspiele</li><li>Globaler Chat</li></ul>","Werkzeuge"],["Sprache & Musik","<ul><li>Musikwiedergabe</li><li>Radio</li><li>Warteschlange</li><li>Lautstärke</li></ul>","Sprachfunktionen"],["Lokale KI (Ollama)","<ul><li>Optionale KI via Ollama</li><li>Läuft vollständig lokal</li><li>Kein Datenversand</li><li>Lernt nicht aus Nachrichten</li></ul>","KI · Optional"]),
+fr:mkF(["Modération","<ul><li>Avertissements, mutes, kicks, bans</li><li>Protection anti-raid</li><li>Auto-modération</li><li>Logs de modération</li><li>Configuration chiffrée</li></ul>","Gestion serveur"],["Économie & Jeux","<ul><li>Monnaie virtuelle</li><li>Récompenses quotidiennes</li><li>Boutique & inventaire</li><li>Classements</li><li>Mini-jeux</li></ul>","Système économique"],["Royaumes","<ul><li>Création de royaumes</li><li>Contrôle territorial</li><li>Guerres & alliances</li><li>Classements</li></ul>","Système RPG"],["Tickets","<ul><li>Création en un clic</li><li>Catégories personnalisées</li><li>Transcriptions</li><li>Fermeture auto</li></ul>","Outils support"],["Vérification","<ul><li>CAPTCHA</li><li>Rôles par réaction</li><li>Protection anti-bot</li></ul>","Sécurité"],["Utilitaires","<ul><li>Commandes personnalisées</li><li>Rappels</li><li>Tirages au sort</li><li>Chat global</li></ul>","Utilitaires"],["Voix & Musique","<ul><li>Lecture musicale</li><li>Radio</li><li>File d'attente</li><li>Volume</li></ul>","Voix"],["IA Locale (Ollama)","<ul><li>IA optionnelle via Ollama</li><li>Fonctionne localement</li><li>Aucune donnée externe</li><li>N'apprend pas des messages</li></ul>","IA · Optionnel"]),
+es:mkF(["Moderación","<ul><li>Advertencias, silencios, expulsiones, baneos</li><li>Protección anti-raid</li><li>Auto-moderación</li><li>Registros de moderación</li><li>Configuración cifrada</li></ul>","Gestión del servidor"],["Economía y Juegos","<ul><li>Moneda virtual</li><li>Recompensas diarias</li><li>Tienda e inventario</li><li>Clasificaciones</li><li>Minijuegos</li></ul>","Sistema económico"],["Reinos","<ul><li>Creación de reinos</li><li>Control territorial</li><li>Guerras y alianzas</li></ul>","Sistema RPG"],["Tickets","<ul><li>Creación con un clic</li><li>Categorías personalizadas</li><li>Transcripciones</li><li>Cierre automático</li></ul>","Herramientas de soporte"],["Verificación","<ul><li>CAPTCHA</li><li>Roles por reacción</li><li>Protección anti-bot</li></ul>","Seguridad"],["Utilidades","<ul><li>Comandos personalizados</li><li>Recordatorios</li><li>Sorteos</li><li>Chat global</li></ul>","Utilidades"],["Voz y Música","<ul><li>Reproducción de música</li><li>Radio</li><li>Cola</li><li>Volumen</li></ul>","Funciones de voz"],["IA Local (Ollama)","<ul><li>IA opcional via Ollama</li><li>Funciona localmente</li><li>Sin datos externos</li><li>No aprende de mensajes</li></ul>","IA · Opcional"]),
+it:mkF(["Moderazione","<ul><li>Avvisi, mute, kick, ban</li><li>Protezione anti-raid</li><li>Auto-moderazione</li><li>Log di moderazione</li></ul>","Gestione server"],["Economia e Giochi","<ul><li>Valuta virtuale</li><li>Ricompense giornaliere</li><li>Negozio e inventario</li><li>Classifiche</li><li>Minigiochi</li></ul>","Sistema economico"],["Regni","<ul><li>Creazione di regni</li><li>Controllo territorio</li><li>Guerre e alleanze</li></ul>","Sistema RPG"],["Ticket","<ul><li>Creazione con un clic</li><li>Categorie personalizzate</li><li>Trascrizioni</li><li>Chiusura automatica</li></ul>","Strumenti supporto"],["Verifica","<ul><li>CAPTCHA</li><li>Ruoli per reazione</li><li>Protezione anti-bot</li></ul>","Sicurezza"],["Utilità","<ul><li>Comandi personalizzati</li><li>Promemoria</li><li>Giveaway</li><li>Chat globale</li></ul>","Utilità"],["Voce e Musica","<ul><li>Riproduzione musicale</li><li>Radio</li><li>Coda</li><li>Volume</li></ul>","Voce"],["IA Locale (Ollama)","<ul><li>IA opzionale via Ollama</li><li>Funziona localmente</li><li>Nessun dato esterno</li></ul>","IA · Opzionale"]),
+pt:mkF(["Moderação","<ul><li>Avisos, silenciamentos, expulsões, banimentos</li><li>Proteção anti-raid</li><li>Auto-moderação</li><li>Logs</li></ul>","Gestão do servidor"],["Economia e Jogos","<ul><li>Moeda virtual</li><li>Recompensas diárias</li><li>Loja e inventário</li><li>Rankings</li></ul>","Sistema económico"],["Reinos","<ul><li>Criação de reinos</li><li>Controlo territorial</li><li>Guerras e alianças</li></ul>","Sistema RPG"],["Tickets","<ul><li>Criação com um clique</li><li>Categorias</li><li>Transcrições</li></ul>","Suporte"],["Verificação","<ul><li>CAPTCHA</li><li>Funções por reação</li><li>Proteção anti-bot</li></ul>","Segurança"],["Utilidades","<ul><li>Comandos personalizados</li><li>Lembretes</li><li>Sorteios</li></ul>","Utilidades"],["Voz e Música","<ul><li>Reprodução de música</li><li>Rádio</li><li>Fila</li></ul>","Voz"],["IA Local (Ollama)","<ul><li>IA opcional via Ollama</li><li>Funciona localmente</li></ul>","IA · Opcional"]),
+nl:mkF(["Moderatie","<ul><li>Waarschuwingen, mutes, kicks, bans</li><li>Anti-raid</li><li>Auto-moderatie</li><li>Mod-logs</li></ul>","Serverbeheer"],["Economie & Spellen","<ul><li>Virtuele valuta</li><li>Dagelijkse beloningen</li><li>Winkel & inventaris</li><li>Ranglijsten</li></ul>","Economie"],["Koninkrijken","<ul><li>Koninkrijken aanmaken</li><li>Gebiedscontrole</li><li>Oorlogen & allianties</li></ul>","RPG"],["Tickets","<ul><li>Eén-klik aanmaken</li><li>Aangepaste categorieën</li><li>Transcripties</li></ul>","Support"],["Verificatie","<ul><li>CAPTCHA</li><li>Reactierollen</li><li>Anti-bot</li></ul>","Beveiliging"],["Hulpmiddelen","<ul><li>Aangepaste commando's</li><li>Herinneringen</li><li>Giveaways</li></ul>","Hulpmiddelen"],["Spraak & Muziek","<ul><li>Muziek</li><li>Radio</li><li>Wachtrij</li></ul>","Spraak"],["Lokale AI (Ollama)","<ul><li>Optionele AI via Ollama</li><li>Draait lokaal</li></ul>","AI · Optioneel"]),
+pl:mkF(["Moderacja","<ul><li>Ostrzeżenia, wyciszenia, wyrzucenia, bany</li><li>Anti-raid</li><li>Automoderator</li><li>Logi moderacji</li></ul>","Zarządzanie"],["Ekonomia i Gry","<ul><li>Wirtualna waluta</li><li>Dzienne nagrody</li><li>Sklep i ekwipunek</li><li>Rankingi</li></ul>","Ekonomia"],["Królestwa","<ul><li>Tworzenie królestw</li><li>Kontrola terytoriów</li><li>Wojny i sojusze</li></ul>","RPG"],["Tickety","<ul><li>Tworzenie jednym klikiem</li><li>Kategorie</li><li>Transkrypcje</li></ul>","Wsparcie"],["Weryfikacja","<ul><li>CAPTCHA</li><li>Role reakcyjne</li><li>Ochrona anty-bot</li></ul>","Bezpieczeństwo"],["Narzędzia","<ul><li>Własne komendy</li><li>Przypomnienia</li><li>Loterie</li></ul>","Narzędzia"],["Głos i Muzyka","<ul><li>Odtwarzanie muzyki</li><li>Radio</li><li>Kolejka</li></ul>","Głos"],["Lokalne AI (Ollama)","<ul><li>Opcjonalne AI przez Ollama</li><li>Działa lokalnie</li></ul>","AI · Opcjonalnie"]),
+sv:mkF(["Moderering","<ul><li>Varningar, tystningar, sparkar, banningar</li><li>Anti-raid</li><li>Automod</li></ul>","Serverhantering"],["Ekonomi & Spel","<ul><li>Virtuell valuta</li><li>Dagliga belöningar</li><li>Butik</li></ul>","Ekonomi"],["Kungariken","<ul><li>Skapa kungariken</li><li>Krig & allianser</li></ul>","RPG"],["Biljetter","<ul><li>Skapande med ett klick</li><li>Kategorier</li></ul>","Support"],["Verifiering","<ul><li>CAPTCHA</li><li>Reaktionsroller</li></ul>","Säkerhet"],["Verktyg","<ul><li>Anpassade kommandon</li><li>Påminnelser</li></ul>","Verktyg"],["Röst & Musik","<ul><li>Musik</li><li>Radio</li></ul>","Röst"],["Lokal AI (Ollama)","<ul><li>Valfri AI via Ollama</li><li>Körs lokalt</li></ul>","AI · Valfri"]),
+da:mkF(["Moderation","<ul><li>Advarsler, mutes, kicks, bans</li><li>Anti-raid</li></ul>","Serverstyring"],["Økonomi","<ul><li>Virtuel valuta</li><li>Daglige belønninger</li></ul>","Økonomi"],["Kongeriger","<ul><li>Opret kongeriger</li><li>Krig & alliancer</li></ul>","RPG"],["Tickets","<ul><li>Oprettelse med ét klik</li></ul>","Support"],["Verifikation","<ul><li>CAPTCHA</li><li>Reaktionsroller</li></ul>","Sikkerhed"],["Værktøjer","<ul><li>Brugerdefinerede kommandoer</li></ul>","Værktøjer"],["Stemme & Musik","<ul><li>Musik</li><li>Radio</li></ul>","Stemme"],["Lokal AI (Ollama)","<ul><li>Valgfri AI</li><li>Kører lokalt</li></ul>","AI · Valgfri"]),
+fi:mkF(["Moderointi","<ul><li>Varoitukset, mykistykset, potkut, estot</li></ul>","Palvelinhallinta"],["Talous","<ul><li>Virtuaalivaluutta</li><li>Päivittäiset palkkiot</li></ul>","Talous"],["Kuningaskunnat","<ul><li>Luo kuningaskuntia</li></ul>","RPG"],["Tiketit","<ul><li>Luonti yhdellä napsautuksella</li></ul>","Tuki"],["Varmennus","<ul><li>CAPTCHA</li></ul>","Turvallisuus"],["Työkalut","<ul><li>Mukautetut komennot</li></ul>","Työkalut"],["Ääni & Musiikki","<ul><li>Musiikki ja radio</li></ul>","Ääni"],["Paikallinen AI","<ul><li>Valinnainen Ollama</li></ul>","AI"]),
+};
+
+/* Copy same pattern for remaining EU langs */
+function cloneF(src){return JSON.parse(JSON.stringify(src))}
+['el','cs','sk','hu','ro','bg','hr','sl','et','lv','lt','ga','mt'].forEach(l=>{if(!euF[l])euF[l]=cloneF(euF.da)});
+/* Rough translations for remaining — using lang-specific titles */
+const euTitles={
+el:{m:"Εποπτεία",e:"Οικονομία",k:"Βασίλεια",t:"Εισιτήρια",v:"Επαλήθευση",u:"Εργαλεία",vo:"Φωνή & Μουσική",a:"Τοπική AI"},
+cs:{m:"Moderace",e:"Ekonomika",k:"Království",t:"Tickety",v:"Ověření",u:"Nástroje",vo:"Hlas & Hudba",a:"Lokální AI"},
+sk:{m:"Moderácia",e:"Ekonomika",k:"Kráľovstvá",t:"Tickety",v:"Overenie",u:"Nástroje",vo:"Hlas & Hudba",a:"Lokálna AI"},
+hu:{m:"Moderálás",e:"Gazdaság",k:"Királyságok",t:"Jegyek",v:"Ellenőrzés",u:"Eszközök",vo:"Hang & Zene",a:"Helyi AI"},
+ro:{m:"Moderare",e:"Economie",k:"Regate",t:"Tichete",v:"Verificare",u:"Utilități",vo:"Voce & Muzică",a:"AI Local"},
+bg:{m:"Модерация",e:"Икономика",k:"Кралства",t:"Тикети",v:"Верификация",u:"Инструменти",vo:"Глас & Музика",a:"Локален AI"},
+hr:{m:"Moderacija",e:"Ekonomija",k:"Kraljevstva",t:"Tiketi",v:"Verifikacija",u:"Alati",vo:"Glas & Glazba",a:"Lokalni AI"},
+sl:{m:"Moderacija",e:"Ekonomija",k:"Kraljestva",t:"Vstopnice",v:"Preverjanje",u:"Orodja",vo:"Glas & Glasba",a:"Lokalni AI"},
+et:{m:"Modereerimine",e:"Majandus",k:"Kuningriigid",t:"Piletid",v:"Kinnitamine",u:"Tööriistad",vo:"Hääl & Muusika",a:"Kohalik AI"},
+lv:{m:"Moderēšana",e:"Ekonomika",k:"Karaļvalstis",t:"Biļetes",v:"Verifikācija",u:"Rīki",vo:"Balss & Mūzika",a:"Lokālais AI"},
+lt:{m:"Moderavimas",e:"Ekonomika",k:"Karalystės",t:"Bilietai",v:"Verifikacija",u:"Įrankiai",vo:"Balsas & Muzika",a:"Vietinis AI"},
+ga:{m:"Modhnóireacht",e:"Eacnamaíocht",k:"Ríochtaí",t:"Ticéid",v:"Fíordheimhniú",u:"Uirlisí",vo:"Guth & Ceol",a:"AI Áitiúil"},
+mt:{m:"Moderazzjoni",e:"Ekonomija",k:"Saltniet",t:"Biljetti",v:"Verifika",u:"Għodod",vo:"Vuċi & Mużika",a:"AI Lokali"}
+};
+Object.keys(euTitles).forEach(l=>{const tt=euTitles[l];if(euF[l]){euF[l].mod_t=tt.m;euF[l].eco_t=tt.e;euF[l].king_t=tt.k;euF[l].tick_t=tt.t;euF[l].veri_t=tt.v;euF[l].util_t=tt.u;euF[l].voice_t=tt.vo;euF[l].ai_t=tt.a}});
+
+/* Build full T object */
+const baseNav={nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support"};
+const navI18n={
+"ru":{nav_home:"Главная",nav_about:"О боте",nav_features:"Функции",nav_commands:"Команды",nav_support:"Поддержка",nav_status:"Статус",nav_privacy:"Конфиденциальность",nav_terms:"Условия",btn_add:"➕ Добавить",btn_support:"💬 Поддержка",pg_t:"Функции",pg_s:"Всё, что Carapuz201G может сделать для вашего Discord-сервера — от модерации до музыки и ИИ."},
+"uk":{nav_home:"Головна",nav_about:"Про бота",nav_features:"Функції",nav_commands:"Команди",nav_support:"Підтримка",nav_status:"Статус",nav_privacy:"Конфіденційність",nav_terms:"Умови",btn_add:"➕ Додати",btn_support:"💬 Підтримка",pg_t:"Функції",pg_s:"Все, що Carapuz201G може зробити для вашого Discord-сервера."},
+"de":{nav_home:"Startseite",nav_about:"Über",nav_features:"Funktionen",nav_commands:"Befehle",nav_support:"Support",nav_status:"Status",nav_privacy:"Datenschutz",nav_terms:"Nutzungsbedingungen",btn_add:"➕ Hinzufügen",btn_support:"💬 Support",pg_t:"Funktionen",pg_s:"Alles was Carapuz201G für Ihren Discord-Server tun kann."},
+"fr":{nav_home:"Accueil",nav_about:"À propos",nav_features:"Fonctionnalités",nav_commands:"Commandes",nav_support:"Support",nav_status:"Statut",nav_privacy:"Confidentialité",nav_terms:"Conditions",btn_add:"➕ Ajouter",btn_support:"💬 Support",pg_t:"Fonctionnalités",pg_s:"Tout ce que Carapuz201G peut faire pour votre serveur Discord."},
+"es":{nav_home:"Inicio",nav_about:"Acerca de",nav_features:"Características",nav_commands:"Comandos",nav_support:"Soporte",nav_status:"Estado",nav_privacy:"Privacidad",nav_terms:"Términos",btn_add:"➕ Añadir",btn_support:"💬 Soporte",pg_t:"Características",pg_s:"Todo lo que Carapuz201G puede hacer por tu servidor Discord."},
+"it":{nav_home:"Home",nav_about:"Info",nav_features:"Funzionalità",nav_commands:"Comandi",nav_support:"Supporto",nav_status:"Stato",nav_privacy:"Privacy",nav_terms:"Termini",btn_add:"➕ Aggiungi",btn_support:"💬 Supporto",pg_t:"Funzionalità",pg_s:"Tutto ciò che Carapuz201G può fare per il tuo server Discord."},
+"pt":{nav_home:"Início",nav_about:"Sobre",nav_features:"Recursos",nav_commands:"Comandos",nav_support:"Suporte",nav_status:"Estado",nav_privacy:"Privacidade",nav_terms:"Termos",btn_add:"➕ Adicionar",btn_support:"💬 Suporte",pg_t:"Recursos",pg_s:"Tudo o que o Carapuz201G pode fazer pelo seu servidor Discord."},
+"nl":{nav_home:"Home",nav_about:"Over",nav_features:"Functies",nav_commands:"Commando's",nav_support:"Ondersteuning",nav_status:"Status",nav_privacy:"Privacy",nav_terms:"Voorwaarden",btn_add:"➕ Toevoegen",btn_support:"💬 Support",pg_t:"Functies",pg_s:"Alles wat Carapuz201G kan doen voor je Discord-server."},
+"pl":{nav_home:"Strona główna",nav_about:"O bocie",nav_features:"Funkcje",nav_commands:"Komendy",nav_support:"Wsparcie",nav_status:"Status",nav_privacy:"Prywatność",nav_terms:"Regulamin",btn_add:"➕ Dodaj",btn_support:"💬 Wsparcie",pg_t:"Funkcje",pg_s:"Wszystko co Carapuz201G może zrobić dla Twojego serwera."},
+"sv":{nav_home:"Hem",nav_about:"Om",nav_features:"Funktioner",nav_commands:"Kommandon",nav_support:"Support",nav_status:"Status",nav_privacy:"Integritet",nav_terms:"Villkor",btn_add:"➕ Lägg till",btn_support:"💬 Support",pg_t:"Funktioner",pg_s:"Allt Carapuz201G kan göra för din Discord-server."},
+"da":{nav_home:"Hjem",nav_about:"Om",nav_features:"Funktioner",nav_commands:"Kommandoer",nav_support:"Support",nav_status:"Status",nav_privacy:"Privatliv",nav_terms:"Vilkår",btn_add:"➕ Tilføj",btn_support:"💬 Support",pg_t:"Funktioner",pg_s:"Alt hvad Carapuz201G kan gøre for din Discord-server."},
+"fi":{nav_home:"Koti",nav_about:"Tietoa",nav_features:"Ominaisuudet",nav_commands:"Komennot",nav_support:"Tuki",nav_status:"Tila",nav_privacy:"Tietosuoja",nav_terms:"Ehdot",btn_add:"➕ Lisää",btn_support:"💬 Tuki",pg_t:"Ominaisuudet",pg_s:"Kaikki mitä Carapuz201G voi tehdä palvelimellesi."}
+};
+// Remaining EU nav copies
+['el','cs','sk','hu','ro','bg','hr','sl','et','lv','lt','ga','mt'].forEach(l=>{
+if(!navI18n[l])navI18n[l]={...baseNav,pg_t:"Features",pg_s:"Everything Carapuz201G can do for your Discord server."}
+});
+
+const T={};
+T["en-US"]={name:"English (US)",flag:"🇺🇸",...baseNav,pg_t:"Features",pg_s:"Everything Carapuz201G can do for your Discord server — from moderation to music to AI.",f:enF};
+T["en-GB"]={name:"English (UK)",flag:"🇬🇧",...baseNav,pg_t:"Features",pg_s:"Everything Carapuz201G can do for your Discord server — from moderation to music to AI.",f:enF};
+T["ru"]={name:"Русский",flag:"🇷🇺",...navI18n.ru,f:ruF};
+T["uk"]={name:"Українська",flag:"🇺🇦",...navI18n.uk,f:ukF};
+
+const euFlags={de:"🇩🇪",fr:"🇫🇷",es:"🇪🇸",it:"🇮🇹",pt:"🇵🇹",nl:"🇳🇱",pl:"🇵🇱",sv:"🇸🇪",da:"🇩🇰",fi:"🇫🇮",el:"🇬🇷",cs:"🇨🇿",sk:"🇸🇰",hu:"🇭🇺",ro:"🇷🇴",bg:"🇧🇬",hr:"🇭🇷",sl:"🇸🇮",et:"🇪🇪",lv:"🇱🇻",lt:"🇱🇹",ga:"🇮🇪",mt:"🇲🇹"};
+const euNames={de:"Deutsch",fr:"Français",es:"Español",it:"Italiano",pt:"Português",nl:"Nederlands",pl:"Polski",sv:"Svenska",da:"Dansk",fi:"Suomi",el:"Ελληνικά",cs:"Čeština",sk:"Slovenčina",hu:"Magyar",ro:"Română",bg:"Български",hr:"Hrvatski",sl:"Slovenščina",et:"Eesti",lv:"Latviešu",lt:"Lietuvių",ga:"Gaeilge",mt:"Malti"};
+Object.keys(euFlags).forEach(l=>{
+T[l]={name:euNames[l],flag:euFlags[l],...(navI18n[l]||baseNav),pg_t:navI18n[l]?.pg_t||"Features",pg_s:navI18n[l]?.pg_s||"Everything Carapuz201G can do for your Discord server.",f:euF[l]||euF.da};
+});
 
 let lang=localStorage.getItem('c2g-lang')||'en-US';
 let theme=localStorage.getItem('c2g-theme')||'dark';
@@ -225,35 +269,29 @@ d.onclick=()=>{setLang(c);closeLM()};m.appendChild(d);
 }
 
 function setLang(c){
-if(!T[c])c='en-US';lang=c;localStorage.setItem('c2g-lang',c);
-const t=T[c];
+if(!T[c])c='en-US';lang=c;localStorage.setItem('c2g-lang',c);const t=T[c];
 document.getElementById('cF').textContent=t.flag;
 document.getElementById('cL').textContent=t.name;
 document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k]});
-const g=document.getElementById('fGrid');g.innerHTML='';
-if(t.features){t.features.forEach((f,i)=>{
+const g=document.getElementById('fG');g.innerHTML='';
+FC.forEach((f,i)=>{
 const d=document.createElement('div');d.className='fc rv';d.style.setProperty('--fc-acc',f.acc);d.style.transitionDelay=i*.06+'s';
-d.innerHTML=`<div class="fc-i">${f.icon}</div><div class="fc-t">${f.title}</div><div class="fc-d">${f.desc}</div><span class="tg">${f.tag}</span>`;
+const ft=t.f;
+d.innerHTML=`<div class="fc-i">${f.icon}</div><div class="fc-t">${ft[f.k+'_t']||f.k}</div><div class="fc-d">${ft[f.k+'_d']||''}</div><span class="fc-tag">${ft[f.k+'_tag']||''}</span>`;
 g.appendChild(d);
-})}
+});
 document.querySelectorAll('.lo').forEach(o=>o.classList.remove('act'));
 const keys=Object.keys(T).sort((a,b)=>T[a].name.localeCompare(T[b].name));
 const idx=keys.indexOf(c);const opts=document.querySelectorAll('.lo');
 if(opts[idx])opts[idx].classList.add('act');
-document.documentElement.lang=c;
-setTimeout(setupRv,50);
+document.documentElement.lang=c;setTimeout(setupRv,50);
 }
 
 function togLM(){const m=document.getElementById('lMn'),b=document.getElementById('lBtn');if(m.classList.contains('show'))closeLM();else{m.classList.add('show');b.classList.add('open')}}
 function closeLM(){document.getElementById('lMn').classList.remove('show');document.getElementById('lBtn').classList.remove('open')}
 function openMM(){document.getElementById('mMn').classList.add('show');document.getElementById('mOv').classList.add('show');document.body.style.overflow='hidden'}
 function closeMM(){document.getElementById('mMn').classList.remove('show');document.getElementById('mOv').classList.remove('show');document.body.style.overflow=''}
-
-function setupRv(){
-const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1});
-document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
-}
-
+function setupRv(){const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1});document.querySelectorAll('.rv').forEach(el=>obs.observe(el))}
 function setupEv(){
 document.getElementById('thBtn').onclick=togTheme;
 document.getElementById('lBtn').onclick=e=>{e.stopPropagation();togLM()};

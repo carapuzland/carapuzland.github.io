@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — Carapuz201G</title>
-<meta name="description" content="Learn about Carapuz201G Discord bot — architecture, philosophy, data handling, and optional local AI.">
+<meta name="description" content="Learn about Carapuz201G Discord bot — architecture, philosophy, data handling, optional local AI through Ollama, and more.">
 <style>
 :root{--tr:0.3s}
 [data-theme="dark"]{--bg:#0b0f1a;--bg2:#111827;--card:rgba(17,24,39,0.88);--hdr:rgba(11,15,26,0.93);--tx:#e2e8f0;--tx2:#94a3b8;--acc:#5865F2;--acc2:#38bdf8;--brd:rgba(88,101,242,0.18);--shd:rgba(0,0,0,0.4);--glw:rgba(88,101,242,0.3);--dd:#1e293b;--ddh:#334155;--g1:#0b0f1a;--g2:#15102e;--g3:#0d2847}
@@ -12,7 +12,7 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;transition:background var(--tr),color var(--tr);min-height:100vh}
-a{color:inherit}
+a{color:inherit;text-decoration:none}
 .hdr{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--hdr);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--brd);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 1.25rem;transition:background var(--tr)}
 .hdr-l{display:flex;align-items:center;gap:.6rem}
 .hm-lnk{display:flex;align-items:center;text-decoration:none;color:var(--tx2);font-size:1.35rem;transition:color .3s}
@@ -24,11 +24,11 @@ a{color:inherit}
 .nav{display:flex;align-items:center;gap:.15rem}
 .nav a{padding:.35rem .55rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.8rem;font-weight:500;transition:all .2s;white-space:nowrap}
 .nav a:hover{color:var(--tx);background:var(--brd)}
-.nav a.active{color:var(--acc);background:rgba(88,101,242,.12)}
+.nav a.act{color:var(--acc);background:rgba(88,101,242,.12)}
 .hdr-r{display:flex;align-items:center;gap:.45rem}
-.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.4rem .8rem;border-radius:10px;font-size:.78rem;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid var(--brd);transition:all .3s;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.45rem .9rem;border-radius:10px;font-size:.8rem;font-weight:600;text-decoration:none;cursor:pointer;border:1px solid var(--brd);transition:all .3s;white-space:nowrap}
 .btn-a{background:var(--acc);color:#fff;border-color:var(--acc)}
-.btn-a:hover{background:#4752c4;box-shadow:0 4px 20px var(--glw);transform:translateY(-1px)}
+.btn-a:hover{background:#4752c4;box-shadow:0 4px 20px var(--glw);transform:translateY(-2px)}
 .btn-o{background:transparent;color:var(--tx)}
 .btn-o:hover{background:var(--brd);border-color:var(--acc)}
 .th-btn{background:var(--card);border:1px solid var(--brd);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--tx);transition:all .3s}
@@ -38,7 +38,7 @@ a{color:inherit}
 .lb:hover{border-color:var(--acc);box-shadow:0 0 10px var(--glw)}
 .lb .ar{font-size:.55rem;transition:transform .3s}
 .lb.open .ar{transform:rotate(180deg)}
-.lm{position:absolute;top:calc(100% + 6px);right:0;background:var(--dd);border:1px solid var(--brd);border-radius:12px;padding:.35rem 0;min-width:190px;max-height:350px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .3s;box-shadow:0 16px 40px var(--shd);z-index:1001}
+.lm{position:absolute;top:calc(100% + 6px);right:0;background:var(--dd);border:1px solid var(--brd);border-radius:12px;padding:.35rem 0;min-width:200px;max-height:400px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .3s;box-shadow:0 16px 40px var(--shd);z-index:1001}
 .lm.show{opacity:1;visibility:visible;transform:translateY(0)}
 .lm::-webkit-scrollbar{width:5px}
 .lm::-webkit-scrollbar-thumb{background:var(--brd);border-radius:3px}
@@ -47,31 +47,30 @@ a{color:inherit}
 .lo.act{color:var(--acc);font-weight:600}
 .lo .fl{font-size:1.05rem}
 .mb{display:none;background:var(--card);border:1px solid var(--brd);border-radius:8px;width:34px;height:34px;align-items:center;justify-content:center;cursor:pointer;color:var(--tx);font-size:1.15rem}
-.mov{display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}
-.mov.show{display:block}
-.mm{position:fixed;top:0;right:-300px;width:270px;height:100%;background:var(--bg2);z-index:999;padding:1.25rem;transition:right .3s;overflow-y:auto;border-left:1px solid var(--brd)}
-.mm.show{right:0}
-.mm .cb{background:none;border:none;color:var(--tx);font-size:1.4rem;cursor:pointer;float:right;padding:.25rem}
+.mov{display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}.mov.show{display:block}
+.mm{position:fixed;top:0;right:-300px;width:270px;height:100%;background:var(--bg2);z-index:999;padding:1.25rem;transition:right .3s;overflow-y:auto;border-left:1px solid var(--brd)}.mm.show{right:0}
+.mm .xb{background:none;border:none;color:var(--tx);font-size:1.4rem;cursor:pointer;float:right;padding:.25rem}
 .mn{display:flex;flex-direction:column;gap:.2rem;margin-top:2.5rem}
 .mn a{padding:.6rem .7rem;border-radius:8px;text-decoration:none;color:var(--tx2);font-size:.9rem;transition:all .2s}
-.mn a:hover,.mn a.active{color:var(--acc);background:rgba(88,101,242,.1)}
-.ma{display:flex;flex-direction:column;gap:.5rem;margin-top:1.25rem}
-.ma .btn{justify-content:center}
-/* PAGE HERO */
-.ph{padding:6rem 2rem 3rem;text-align:center;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);position:relative;overflow:hidden;transition:background var(--tr)}
+.mn a:hover,.mn a.act{color:var(--acc);background:rgba(88,101,242,.1)}
+.mab{display:flex;flex-direction:column;gap:.5rem;margin-top:1.25rem}
+.mab .btn{justify-content:center}
+/* HERO */
+.ph{padding:6.5rem 2rem 3rem;text-align:center;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);position:relative;overflow:hidden;transition:background var(--tr)}
 .ph::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(88,101,242,.12) 0%,transparent 60%);pointer-events:none}
-.phc{position:relative;z-index:2;max-width:680px;margin:0 auto}
-.phi{font-size:3.5rem;margin-bottom:.5rem;display:inline-block}
-.pht{font-size:2.2rem;font-weight:800;margin-bottom:.5rem;background:linear-gradient(135deg,var(--tx),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.phs{font-size:1.05rem;color:var(--tx2);line-height:1.6}
-/* CONTENT */
+.phc{position:relative;z-index:2;max-width:700px;margin:0 auto}
+.phi{font-size:3.8rem;margin-bottom:.6rem;display:inline-block}
+.pht{font-size:2.4rem;font-weight:800;margin-bottom:.6rem;background:linear-gradient(135deg,var(--tx),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.phs{font-size:1.05rem;color:var(--tx2);line-height:1.7}
+/* CONTENT BLOCKS */
 .sec{padding:3rem 2rem;max-width:900px;margin:0 auto}
-.cb2{background:var(--card);backdrop-filter:blur(12px);border:1px solid var(--brd);border-radius:16px;padding:1.75rem;margin-bottom:1.25rem;transition:all .3s}
-.cb2:hover{border-color:var(--acc);box-shadow:0 8px 30px var(--shd)}
-.cb2 h3{font-size:1.1rem;font-weight:700;margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem}
-.cb2 p{font-size:.9rem;color:var(--tx2);line-height:1.65}
-.cb2 ul{margin-top:.5rem;padding-left:1.2rem;font-size:.88rem;color:var(--tx2);line-height:1.7}
-.hl{background:rgba(88,101,242,.1);color:var(--acc);padding:.15rem .45rem;border-radius:6px;font-size:.82rem;font-weight:600}
+.blk{background:var(--card);backdrop-filter:blur(12px);border:1px solid var(--brd);border-radius:16px;padding:1.85rem;margin-bottom:1.25rem;transition:all .3s}
+.blk:hover{border-color:var(--acc);box-shadow:0 8px 30px var(--shd)}
+.blk h3{font-size:1.1rem;font-weight:700;margin-bottom:.65rem;display:flex;align-items:center;gap:.5rem}
+.blk p{font-size:.9rem;color:var(--tx2);line-height:1.7}
+.blk ul{margin-top:.5rem;padding-left:1.25rem;font-size:.88rem;color:var(--tx2);line-height:1.75}
+.blk li{margin-bottom:.25rem}
+.hl{background:rgba(88,101,242,.12);color:var(--acc);padding:.15rem .45rem;border-radius:6px;font-size:.82rem;font-weight:600}
 /* FOOTER */
 .ftr{text-align:center;padding:1.75rem;color:var(--tx2);font-size:.82rem;border-top:1px solid var(--brd);background:var(--hdr);backdrop-filter:blur(20px)}
 .ftr a{color:var(--acc);text-decoration:none}
@@ -79,12 +78,10 @@ a{color:inherit}
 .ftl{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-bottom:.65rem}
 /* RESPONSIVE */
 @media(max-width:1024px){.nav{display:none}.mb{display:flex}.hdr-r .btn{display:none}}
-@media(max-width:768px){.ph{padding:5rem 1.25rem 2.5rem}.pht{font-size:1.7rem}.sec{padding:2rem 1.25rem}.lb .ll{display:none}}
-@media(max-width:480px){.pht{font-size:1.5rem}.cb2{padding:1.25rem}}
-.rv{opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s}
-.rv.vis{opacity:1;transform:translateY(0)}
-.ld-w{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;transition:opacity .4s,visibility .4s}
-.ld-w.hid{opacity:0;visibility:hidden}
+@media(max-width:768px){.ph{padding:5.5rem 1.25rem 2.5rem}.pht{font-size:1.8rem}.sec{padding:2rem 1.25rem}.lb .ll{display:none}}
+@media(max-width:480px){.pht{font-size:1.5rem}.blk{padding:1.25rem}}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s}.rv.vis{opacity:1;transform:translateY(0)}
+.ld-w{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;transition:opacity .4s,visibility .4s}.ld-w.hid{opacity:0;visibility:hidden}
 .ld-e{font-size:2.8rem;animation:lba 1s ease-in-out infinite}
 @keyframes lba{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.1)}}
 .ld-b{width:100px;height:3px;background:var(--brd);border-radius:3px;overflow:hidden}
@@ -92,16 +89,15 @@ a{color:inherit}
 @keyframes lfx{to{width:100%}}
 </style>
 </head>
-<body data-page="about">
+<body>
 <div class="ld-w" id="ldr"><div class="ld-e">🤖</div><div style="color:var(--tx2);font-size:.85rem;letter-spacing:2px">CARAPUZ201G</div><div class="ld-b"><div class="ld-f"></div></div></div>
-
 <header class="hdr">
 <div class="hdr-l">
 <a href="https://carapuzland.github.io" class="hm-lnk" title="CarapuzLand"><span class="em">🏝️</span></a>
 <a href="../" class="brand">Carapuz201G</a>
 </div>
 <nav class="nav">
-<a href="../about/" class="active" data-i18n="nav_about">About</a>
+<a href="../about/" class="act" data-i18n="nav_about">About</a>
 <a href="../features/" data-i18n="nav_features">Features</a>
 <a href="../commands/" data-i18n="nav_commands">Commands</a>
 <a href="../support/" data-i18n="nav_support">Support</a>
@@ -111,22 +107,18 @@ a{color:inherit}
 </nav>
 <div class="hdr-r">
 <button class="th-btn" id="thBtn" title="Toggle theme">🌙</button>
-<div class="ld">
-<button class="lb" id="lBtn"><span class="fl" id="cF">🇺🇸</span><span class="ll" id="cL">English</span><span class="ar">▼</span></button>
-<div class="lm" id="lMn"></div>
-</div>
+<div class="ld"><button class="lb" id="lBtn"><span class="fl" id="cF">🇺🇸</span><span class="ll" id="cL">English</span><span class="ar">▼</span></button><div class="lm" id="lMn"></div></div>
 <a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
 <a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
 <button class="mb" id="mBtn">☰</button>
 </div>
 </header>
-
 <div class="mov" id="mOv"></div>
 <div class="mm" id="mMn">
-<button class="cb" id="cMn">✕</button>
+<button class="xb" id="cMn">✕</button>
 <div class="mn">
 <a href="../" data-i18n="nav_home">Home</a>
-<a href="../about/" class="active" data-i18n="nav_about">About</a>
+<a href="../about/" class="act" data-i18n="nav_about">About</a>
 <a href="../features/" data-i18n="nav_features">Features</a>
 <a href="../commands/" data-i18n="nav_commands">Commands</a>
 <a href="../support/" data-i18n="nav_support">Support</a>
@@ -134,24 +126,19 @@ a{color:inherit}
 <a href="../privacy-policy/" data-i18n="nav_privacy">Privacy Policy</a>
 <a href="../terms-of-service/" data-i18n="nav_terms">Terms of Service</a>
 </div>
-<div class="ma">
+<div class="mab">
 <a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
 <a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
 </div>
 </div>
-
 <main>
-<section class="ph">
-<div class="phc">
+<section class="ph"><div class="phc">
 <div class="phi">ℹ️</div>
 <h1 class="pht" data-i18n="pg_t">About Carapuz201G</h1>
 <p class="phs" data-i18n="pg_s">Learn what makes this bot tick — its philosophy, architecture, and approach to your data.</p>
-</div>
-</section>
-
-<section class="sec" id="content"></section>
+</div></section>
+<section class="sec" id="ct"></section>
 </main>
-
 <footer class="ftr">
 <div class="ftl">
 <a href="../privacy-policy/" data-i18n="nav_privacy">Privacy Policy</a>
@@ -160,46 +147,119 @@ a{color:inherit}
 </div>
 <p>© 2025 <a href="https://carapuzland.github.io">CarapuzLand</a> 🏝️ — Carapuz201G</p>
 </footer>
-
 <script>
-const en={nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"About Carapuz201G",pg_s:"Learn what makes this bot tick — its philosophy, architecture, and approach to your data.",
-blocks:[
-{icon:"🤖",title:"What is Carapuz201G?",body:"Carapuz201G is a large, feature-rich Discord bot written in Python. It provides a comprehensive suite of tools for server management, including moderation, economy, kingdoms, ticketing, verification, voice/music, and much more. It is designed to be a single all-in-one solution so you don't need multiple bots."},
-{icon:"⚙️",title:"How It Works",body:"The bot runs as a self-hosted Python application using the discord.py library. It connects to Discord via the Gateway API and responds to slash commands and events. Configuration is stored in encrypted files for security. The bot supports cogs/modules that can be enabled or disabled per server."},
-{icon:"🏗️",title:"Architecture",body:"<ul><li>Written in <span class='hl'>Python</span> with discord.py</li><li>Modular cog-based architecture</li><li>Encrypted configuration storage</li><li>Supports SQLite / JSON data backends</li><li>Optional integration with <span class='hl'>Ollama</span> for local AI</li><li>Can be deployed on any machine — your PC, a VPS, or a dedicated server</li></ul>"},
-{icon:"💾",title:"Data Storage",body:"Data may be stored on the operator's computer, on a server, or in the hosting environment. The bot stores only the data necessary for its functions: server settings, user warns/economy balances, ticket logs, etc. No data is sold or shared with third parties."},
-{icon:"🧠",title:"Optional Local AI",body:"Carapuz201G supports optional local AI through <span class='hl'>Ollama</span>. This means:<ul><li>The AI model runs locally on the operator's machine</li><li>No Discord messages are sent to external AI services</li><li>The AI is <b>not</b> trained on user messages</li><li>AI is used solely to enhance bot functionality (e.g. smart responses)</li></ul>"},
-{icon:"💡",title:"Philosophy",body:"The goal is to provide a powerful, privacy-respecting bot that server owners can trust. All features are designed to be transparent, configurable, and secure. The bot is free to use, open for feedback, and constantly improving."}
-]};
+const enB=[
+{i:"🤖",t:"What is Carapuz201G?",b:"Carapuz201G is a large, feature-rich Discord bot written entirely in Python. It is designed to be a single all-in-one solution for Discord server management, so you don't need to invite multiple bots for different tasks. The bot provides a comprehensive suite of tools covering moderation, economy, kingdoms, ticketing, verification, voice and music, giveaways, reminders, global chat, custom commands, reaction roles, and much more. Whether you run a small community or a large public server, Carapuz201G has the tools to help you manage and engage your members effectively."},
+{i:"⚙️",t:"How It Works",b:"The bot runs as a self-hosted Python application using the <span class='hl'>discord.py</span> library. It connects to Discord via the Gateway API and processes slash commands, events, and interactions in real time. The bot is designed to be modular — each feature is implemented as a separate cog (module) that can be enabled or disabled on a per-server basis. This means server administrators have full control over which features are active in their server. Configuration is stored in encrypted files to ensure security, and all settings can be adjusted through Discord commands without needing to edit any files manually."},
+{i:"🏗️",t:"Architecture & Technology",b:"<ul><li>Written in <span class='hl'>Python 3.10+</span> with the discord.py library</li><li>Modular cog-based architecture — each feature is a separate module</li><li>Encrypted configuration storage for sensitive data like tokens and API keys</li><li>Supports both <span class='hl'>SQLite</span> and <span class='hl'>JSON</span> data backends depending on deployment needs</li><li>Optional integration with <span class='hl'>Ollama</span> for local AI capabilities</li><li>Asynchronous design for high performance and low latency</li><li>Built-in error handling, logging, and recovery mechanisms</li><li>Can be deployed on any machine — your personal computer, a VPS, a dedicated server, or any hosting environment that supports Python</li></ul>"},
+{i:"💾",t:"Data Storage & Security",b:"Data may be stored in different locations depending on the deployment:<ul><li><strong>On the operator's local computer</strong> — if the bot is run from a personal machine</li><li><strong>On a server or VPS</strong> — for always-on deployments</li><li><strong>In the hosting environment</strong> — wherever the bot process runs</li></ul>The bot stores only the data necessary for its functions: server configurations, user warnings, economy balances, kingdom data, ticket logs, custom command definitions, giveaway entries, reminder schedules, and similar operational data. All configuration files containing sensitive information (such as bot tokens) are encrypted. No user data is sold, shared with third parties, or used for advertising purposes. Data retention follows a minimal approach — data is kept only as long as it serves a functional purpose."},
+{i:"🧠",t:"Optional Local AI (Ollama)",b:"Carapuz201G supports optional AI integration through <span class='hl'>Ollama</span>, a framework for running large language models locally. This is an important distinction from cloud-based AI services. Here's what you need to know:<ul><li>The AI model runs <strong>entirely locally</strong> on the operator's machine — no data is sent to OpenAI, Google, or any other external AI service</li><li>Discord messages are <strong>NOT</strong> used to train or fine-tune the AI model in any way</li><li>The AI does <strong>NOT</strong> learn from user conversations or store message history for training</li><li>AI features are <strong>completely optional</strong> — they must be explicitly enabled by the server operator</li><li>When enabled, AI is used solely to enhance bot functionality, such as providing smart responses, generating summaries, or assisting with moderation decisions</li><li>The operator has full control over which AI model is used, what it has access to, and how it responds</li></ul>This approach ensures that AI capabilities are available without compromising user privacy or sending data to external services."},
+{i:"🔒",t:"Privacy & Transparency",b:"Privacy is a core principle of Carapuz201G. The bot is designed to be transparent about what data it collects and how that data is used. Key privacy commitments:<ul><li>We collect only the minimum data required for bot features to function</li><li>No message content is stored permanently unless a specific feature requires it (like custom commands or auto-moderation rules)</li><li>No data is ever sold, traded, or shared with third parties</li><li>Users can request information about their stored data at any time</li><li>Users can request deletion of their data through the support server or the <code>/support</code> command</li><li>Server data is typically removed when the bot leaves a server</li></ul>For complete details, please review our <a href='../privacy-policy/' style='color:var(--acc)'>Privacy Policy</a>."},
+{i:"🎯",t:"Design Philosophy",b:"Carapuz201G is built around several core principles:<ul><li><strong>All-in-one:</strong> One bot should be able to replace multiple specialized bots, reducing clutter and complexity in your server</li><li><strong>Configurable:</strong> Every feature can be customized, enabled, or disabled to match your server's needs</li><li><strong>Privacy-first:</strong> We believe users deserve to know exactly what data is collected and how it's used, with the ability to opt out</li><li><strong>Self-hosted:</strong> The bot can be deployed anywhere, giving operators full control over their instance</li><li><strong>Secure by default:</strong> Encrypted configurations, permission checks, and audit logging are built in from the start</li><li><strong>Community-driven:</strong> Feedback from users directly shapes the bot's development and feature priorities</li></ul>"},
+{i:"🚀",t:"Getting Started",b:"Getting started with Carapuz201G is simple:<ul><li><strong>Add the bot</strong> to your server using the invite link</li><li><strong>Use <code>/help</code></strong> to see all available commands</li><li><strong>Configure features</strong> using the setup commands for each module</li><li><strong>Join the support server</strong> if you need help or have questions</li><li><strong>Explore features</strong> at your own pace — everything is documented on this website</li></ul>The bot is free to use with all features included. There are no premium tiers, paywalls, or hidden costs."},
+{i:"💡",t:"Future Development",b:"Carapuz201G is actively maintained and continuously improved. Development priorities include:<ul><li>Adding new features based on community feedback</li><li>Improving performance and reducing resource usage</li><li>Expanding language support and localization</li><li>Enhancing AI capabilities with new local models</li><li>Improving the web dashboard and documentation</li><li>Bug fixes and security updates</li></ul>We welcome suggestions and feedback through our support server. Your input directly influences the bot's roadmap."}
+];
+
+const ruB=[
+{i:"🤖",t:"Что такое Carapuz201G?",b:"Carapuz201G — это большой многофункциональный Discord-бот, полностью написанный на Python. Он разработан как единое решение «всё-в-одном» для управления Discord-серверами, чтобы вам не нужно было приглашать множество ботов для разных задач. Бот предоставляет полный набор инструментов: модерация, экономика, королевства, тикеты, верификация, голос и музыка, розыгрыши, напоминания, глобальный чат, кастомные команды, роли по реакциям и многое другое. Независимо от размера вашего сервера, Carapuz201G имеет все необходимые инструменты."},
+{i:"⚙️",t:"Как он работает",b:"Бот запускается как self-hosted Python-приложение с использованием библиотеки <span class='hl'>discord.py</span>. Он подключается к Discord через Gateway API и обрабатывает слэш-команды, события и взаимодействия в реальном времени. Бот имеет модульную архитектуру — каждая функция реализована как отдельный cog (модуль), который можно включать или отключать для каждого сервера. Администраторы серверов имеют полный контроль над активными функциями. Конфигурация хранится в зашифрованных файлах для обеспечения безопасности."},
+{i:"🏗️",t:"Архитектура и технологии",b:"<ul><li>Написан на <span class='hl'>Python 3.10+</span> с библиотекой discord.py</li><li>Модульная архитектура на основе cogs — каждая функция отдельный модуль</li><li>Зашифрованное хранение конфигурации для токенов и API-ключей</li><li>Поддержка <span class='hl'>SQLite</span> и <span class='hl'>JSON</span> бэкендов</li><li>Опциональная интеграция с <span class='hl'>Ollama</span> для локального ИИ</li><li>Асинхронный дизайн для высокой производительности</li><li>Встроенная обработка ошибок, логирование и механизмы восстановления</li><li>Развёртывание на любой машине — ваш ПК, VPS, выделенный сервер</li></ul>"},
+{i:"💾",t:"Хранение данных и безопасность",b:"Данные могут храниться в разных местах в зависимости от развёртывания:<ul><li><strong>На локальном компьютере оператора</strong></li><li><strong>На сервере или VPS</strong></li><li><strong>В среде хостинга</strong></li></ul>Бот хранит только данные, необходимые для его функций: настройки серверов, предупреждения, балансы экономики, данные королевств, логи тикетов, определения кастомных команд, записи розыгрышей и т.д. Все конфигурационные файлы с чувствительной информацией зашифрованы. Данные не продаются и не передаются третьим лицам."},
+{i:"🧠",t:"Опциональный локальный ИИ (Ollama)",b:"Carapuz201G поддерживает опциональную интеграцию ИИ через <span class='hl'>Ollama</span> — фреймворк для запуска языковых моделей локально. Важные моменты:<ul><li>Модель ИИ работает <strong>полностью локально</strong> на машине оператора — данные не отправляются в OpenAI, Google или другие внешние сервисы</li><li>Сообщения Discord <strong>НЕ</strong> используются для обучения или настройки модели ИИ</li><li>ИИ <strong>НЕ</strong> обучается на разговорах пользователей и не хранит историю для тренировки</li><li>ИИ-функции <strong>полностью опциональны</strong> — их нужно явно включить</li><li>ИИ используется только для расширения функций бота: умные ответы, генерация сводок, помощь с модерацией</li><li>Оператор полностью контролирует модель, доступ и поведение ИИ</li></ul>"},
+{i:"🔒",t:"Конфиденциальность и прозрачность",b:"Конфиденциальность — ключевой принцип Carapuz201G:<ul><li>Мы собираем только минимум данных для работы функций</li><li>Содержимое сообщений не хранится постоянно, если это не требуется функцией</li><li>Данные никогда не продаются и не передаются третьим лицам</li><li>Пользователи могут запросить информацию о своих данных</li><li>Пользователи могут запросить удаление данных через сервер поддержки</li><li>Данные сервера удаляются при удалении бота</li></ul>Подробности в нашей <a href='../privacy-policy/' style='color:var(--acc)'>Политике конфиденциальности</a>."},
+{i:"🎯",t:"Философия проекта",b:"Carapuz201G построен вокруг нескольких принципов:<ul><li><strong>Всё-в-одном:</strong> один бот вместо множества специализированных</li><li><strong>Настраиваемость:</strong> каждую функцию можно включить, выключить или настроить</li><li><strong>Конфиденциальность:</strong> пользователи должны знать, какие данные собираются и как используются</li><li><strong>Self-hosted:</strong> полный контроль оператора над своим экземпляром</li><li><strong>Безопасность по умолчанию:</strong> шифрование, проверки разрешений, логирование</li><li><strong>Обратная связь:</strong> развитие определяется запросами сообщества</li></ul>"},
+{i:"🚀",t:"Начало работы",b:"Начать работу с Carapuz201G просто:<ul><li><strong>Добавьте бота</strong> на сервер по ссылке-приглашению</li><li><strong>Используйте <code>/help</code></strong> для списка всех команд</li><li><strong>Настройте функции</strong> через команды настройки каждого модуля</li><li><strong>Присоединитесь к серверу поддержки</strong> при необходимости</li></ul>Бот бесплатен со всеми функциями. Нет премиум-тарифов или скрытых расходов."},
+{i:"💡",t:"Дальнейшее развитие",b:"Carapuz201G активно поддерживается и улучшается:<ul><li>Новые функции по запросам сообщества</li><li>Улучшение производительности</li><li>Расширение языковой поддержки</li><li>Развитие ИИ-возможностей</li><li>Улучшение документации</li><li>Исправление ошибок и обновления безопасности</li></ul>Мы приветствуем предложения через сервер поддержки."}
+];
+
+const ukB=[
+{i:"🤖",t:"Що таке Carapuz201G?",b:"Carapuz201G — це великий багатофункціональний Discord-бот, повністю написаний на Python. Він розроблений як єдине рішення «все-в-одному» для управління Discord-серверами. Бот надає повний набір інструментів: модерація, економіка, королівства, тікети, верифікація, голос і музика, розіграші, нагадування, глобальний чат, кастомні команди та багато іншого."},
+{i:"⚙️",t:"Як він працює",b:"Бот запускається як self-hosted Python-додаток з бібліотекою <span class='hl'>discord.py</span>. Він підключається до Discord через Gateway API та обробляє слеш-команди та події в реальному часі. Кожна функція реалізована як окремий cog (модуль), який можна вмикати або вимикати. Конфігурація зберігається в зашифрованих файлах."},
+{i:"🏗️",t:"Архітектура",b:"<ul><li>Написаний на <span class='hl'>Python 3.10+</span> з discord.py</li><li>Модульна архітектура на основі cogs</li><li>Зашифроване зберігання конфігурації</li><li>Підтримка SQLite та JSON</li><li>Опціональна інтеграція з <span class='hl'>Ollama</span></li><li>Асинхронний дизайн</li><li>Розгортання на будь-якій машині</li></ul>"},
+{i:"💾",t:"Зберігання даних",b:"Дані можуть зберігатися на комп'ютері оператора, на сервері або в середовищі хостингу. Бот зберігає лише необхідні дані: налаштування серверів, попередження, баланси, дані королівств, логи тікетів тощо. Дані не продаються і не передаються третім особам."},
+{i:"🧠",t:"Локальний ШІ (Ollama)",b:"Carapuz201G підтримує опціональний ШІ через <span class='hl'>Ollama</span>:<ul><li>Модель працює <strong>повністю локально</strong></li><li>Повідомлення Discord <strong>НЕ</strong> використовуються для навчання</li><li>ШІ <strong>НЕ</strong> навчається на розмовах користувачів</li><li>Функції ШІ <strong>опціональні</strong></li><li>Оператор має повний контроль</li></ul>"},
+{i:"🔒",t:"Конфіденційність",b:"Ключові принципи:<ul><li>Мінімум даних для роботи функцій</li><li>Вміст повідомлень не зберігається постійно</li><li>Дані не продаються третім особам</li><li>Користувачі можуть запросити видалення даних</li></ul>Деталі в <a href='../privacy-policy/' style='color:var(--acc)'>Політиці конфіденційності</a>."},
+{i:"🎯",t:"Філософія",b:"<ul><li><strong>Все-в-одному:</strong> один бот замість багатьох</li><li><strong>Налаштовуваність:</strong> кожну функцію можна контролювати</li><li><strong>Приватність:</strong> прозорість у зборі даних</li><li><strong>Безпека:</strong> шифрування та логування за замовчуванням</li></ul>"},
+{i:"🚀",t:"Початок роботи",b:"<ul><li>Додайте бота на сервер</li><li>Використайте <code>/help</code></li><li>Налаштуйте функції</li><li>Приєднайтесь до сервера підтримки</li></ul>Бот безкоштовний з усіма функціями."},
+{i:"💡",t:"Розвиток",b:"Бот активно підтримується та покращується. Нові функції, покращення продуктивності, розширення мовної підтримки та виправлення помилок."}
+];
+
+/* Compact blocks for other EU languages */
+function mkB(t){return[
+{i:"🤖",t:t[0],b:t[1]},{i:"⚙️",t:t[2],b:t[3]},{i:"🏗️",t:t[4],b:t[5]},
+{i:"💾",t:t[6],b:t[7]},{i:"🧠",t:t[8],b:t[9]},{i:"🔒",t:t[10],b:t[11]},
+{i:"🎯",t:t[12],b:t[13]},{i:"🚀",t:t[14],b:t[15]},{i:"💡",t:t[16],b:t[17]}
+]}
+
+const deB=mkB(["Was ist Carapuz201G?","Carapuz201G ist ein großer, funktionsreicher Discord-Bot, vollständig in Python geschrieben. Er ist als All-in-One-Lösung für die Serververwaltung konzipiert: Moderation, Wirtschaft, Königreiche, Tickets, Verifizierung, Sprache, Musik, Gewinnspiele und optionale lokale KI.","Wie es funktioniert","Der Bot läuft als selbstgehostete Python-Anwendung mit discord.py. Er verbindet sich über die Gateway API und verarbeitet Slash-Befehle in Echtzeit. Jede Funktion ist als separates Modul (Cog) implementiert, das pro Server aktiviert oder deaktiviert werden kann. Die Konfiguration wird verschlüsselt gespeichert.","Architektur","<ul><li>Python 3.10+ mit discord.py</li><li>Modulare Cog-Architektur</li><li>Verschlüsselte Konfiguration</li><li>SQLite/JSON-Backends</li><li>Optionale Ollama-Integration</li><li>Asynchrones Design</li><li>Deployment überall möglich</li></ul>","Datenspeicherung","Daten können auf dem Computer des Betreibers, einem Server/VPS oder in der Hosting-Umgebung gespeichert werden. Nur funktionell notwendige Daten werden erfasst. Konfigurationsdateien sind verschlüsselt. Keine Datenweitergabe an Dritte.","Lokale KI (Ollama)","Optionale KI über Ollama — läuft vollständig lokal. <strong>Keine</strong> Daten an externe KI-Dienste. Nachrichten werden <strong>nicht</strong> zum Training verwendet. Vollständig optional und vom Betreiber kontrolliert.","Datenschutz","Minimale Datenerfassung. Keine Weitergabe an Dritte. Löschanfragen über den Support-Server möglich. Details in unserer <a href='../privacy-policy/' style='color:var(--acc)'>Datenschutzrichtlinie</a>.","Philosophie","<ul><li>All-in-One statt vieler Bots</li><li>Vollständig konfigurierbar</li><li>Privacy-first Ansatz</li><li>Sicherheit standardmäßig</li></ul>","Erste Schritte","Bot hinzufügen → <code>/help</code> verwenden → Features konfigurieren → Support-Server beitreten. Kostenlos mit allen Funktionen.","Entwicklung","Aktive Wartung, neue Features basierend auf Community-Feedback, Leistungsverbesserungen und Sicherheitsupdates."]);
+
+const frB=mkB(["Qu'est-ce que Carapuz201G ?","Carapuz201G est un bot Discord complet écrit en Python. Solution tout-en-un pour la gestion de serveur : modération, économie, royaumes, tickets, vérification, voix, musique, tirages au sort et IA locale optionnelle.","Comment ça marche","Le bot fonctionne comme une application Python auto-hébergée avec discord.py. Il se connecte via l'API Gateway et traite les commandes slash en temps réel. Chaque fonctionnalité est un module (cog) activable/désactivable par serveur. Configuration chiffrée.","Architecture","<ul><li>Python 3.10+ avec discord.py</li><li>Architecture modulaire par cogs</li><li>Configuration chiffrée</li><li>Backends SQLite/JSON</li><li>Intégration Ollama optionnelle</li><li>Design asynchrone</li></ul>","Stockage des données","Les données sont stockées sur la machine de l'opérateur, un serveur/VPS ou l'environnement d'hébergement. Seules les données fonctionnellement nécessaires sont collectées. Fichiers de configuration chiffrés. Aucune vente de données.","IA Locale (Ollama)","IA optionnelle via Ollama — fonctionne entièrement en local. <strong>Aucune</strong> donnée envoyée à des services externes. Les messages ne sont <strong>pas</strong> utilisés pour l'entraînement. Entièrement optionnel.","Confidentialité","Collecte minimale de données. Pas de partage avec des tiers. Demandes de suppression via le serveur de support. Détails dans notre <a href='../privacy-policy/' style='color:var(--acc)'>Politique de confidentialité</a>.","Philosophie","<ul><li>Tout-en-un</li><li>Entièrement configurable</li><li>Respect de la vie privée</li><li>Sécurité par défaut</li></ul>","Démarrage","Ajoutez le bot → utilisez <code>/help</code> → configurez les fonctionnalités. Gratuit avec toutes les fonctionnalités.","Développement","Maintenance active, nouvelles fonctionnalités basées sur les retours de la communauté."]);
+
+const esB=mkB(["¿Qué es Carapuz201G?","Carapuz201G es un bot de Discord completo escrito en Python. Solución todo-en-uno: moderación, economía, reinos, tickets, verificación, voz, música, sorteos e IA local opcional.","Cómo funciona","El bot se ejecuta como una aplicación Python auto-alojada con discord.py. Se conecta a través de la API Gateway y procesa comandos en tiempo real. Cada función es un módulo (cog) que se puede activar/desactivar por servidor.","Arquitectura","<ul><li>Python 3.10+ con discord.py</li><li>Arquitectura modular por cogs</li><li>Configuración cifrada</li><li>SQLite/JSON</li><li>Integración Ollama opcional</li><li>Diseño asíncrono</li></ul>","Almacenamiento de datos","Los datos se almacenan en la máquina del operador, servidor/VPS o entorno de hosting. Solo datos funcionalmente necesarios. Configuración cifrada. Sin venta de datos.","IA Local (Ollama)","IA opcional via Ollama — funciona completamente en local. <strong>Sin</strong> datos a servicios externos. Los mensajes <strong>no</strong> se usan para entrenamiento.","Privacidad","Recopilación mínima. Sin compartir con terceros. Solicitudes de eliminación a través del servidor de soporte. Detalles en nuestra <a href='../privacy-policy/' style='color:var(--acc)'>Política de privacidad</a>.","Filosofía","<ul><li>Todo-en-uno</li><li>Totalmente configurable</li><li>Privacidad primero</li><li>Seguridad por defecto</li></ul>","Primeros pasos","Añade el bot → usa <code>/help</code> → configura funciones. Gratis con todas las funciones.","Desarrollo","Mantenimiento activo y mejoras basadas en feedback de la comunidad."]);
+
+const itB=mkB(["Cos'è Carapuz201G?","Carapuz201G è un bot Discord completo scritto in Python. Soluzione all-in-one: moderazione, economia, regni, ticket, verifica, voce, musica, giveaway e IA locale opzionale.","Come funziona","Il bot funziona come applicazione Python self-hosted con discord.py. Si connette tramite Gateway API e processa comandi slash in tempo reale. Ogni funzionalità è un modulo (cog) attivabile/disattivabile per server.","Architettura","<ul><li>Python 3.10+ con discord.py</li><li>Architettura modulare a cog</li><li>Configurazione crittografata</li><li>Backend SQLite/JSON</li><li>Integrazione Ollama opzionale</li></ul>","Archiviazione dati","I dati sono archiviati sulla macchina dell'operatore, server/VPS o ambiente di hosting. Solo dati funzionalmente necessari. Configurazione crittografata. Nessuna vendita di dati.","IA Locale (Ollama)","IA opzionale tramite Ollama — funziona interamente in locale. <strong>Nessun</strong> dato inviato a servizi esterni. I messaggi <strong>non</strong> vengono usati per l'addestramento.","Privacy","Raccolta minima. Nessuna condivisione con terzi. Richieste di eliminazione tramite server di supporto.","Filosofia","<ul><li>All-in-one</li><li>Completamente configurabile</li><li>Privacy-first</li><li>Sicurezza di default</li></ul>","Per iniziare","Aggiungi il bot → usa <code>/help</code> → configura le funzionalità. Gratuito.","Sviluppo","Manutenzione attiva e miglioramenti basati su feedback della community."]);
+
+const ptB=mkB(["O que é o Carapuz201G?","Carapuz201G é um bot Discord completo escrito em Python. Solução tudo-em-um: moderação, economia, reinos, tickets, verificação, voz, música, sorteios e IA local opcional.","Como funciona","O bot executa como aplicação Python auto-hospedada com discord.py. Liga-se via Gateway API e processa comandos em tempo real. Cada função é um módulo (cog) ativável/desativável por servidor.","Arquitetura","<ul><li>Python 3.10+ com discord.py</li><li>Arquitetura modular por cogs</li><li>Configuração encriptada</li><li>SQLite/JSON</li><li>Integração Ollama opcional</li></ul>","Armazenamento de dados","Os dados são armazenados na máquina do operador, servidor/VPS ou ambiente de hosting. Apenas dados funcionalmente necessários. Sem venda de dados.","IA Local (Ollama)","IA opcional via Ollama — funciona localmente. <strong>Sem</strong> dados para serviços externos. Mensagens <strong>não</strong> usadas para treino.","Privacidade","Recolha mínima. Sem partilha com terceiros. Pedidos de eliminação via servidor de suporte.","Filosofia","<ul><li>Tudo-em-um</li><li>Configurável</li><li>Privacidade primeiro</li><li>Segurança por defeito</li></ul>","Começar","Adicione o bot → use <code>/help</code> → configure. Gratuito.","Desenvolvimento","Manutenção ativa e melhorias baseadas em feedback."]);
+
+/* Short-form generator for remaining EU langs */
+function mkShort(w,h,a,d,ai,pr,ph,st,dev){return mkB([w[0],w[1],h[0],h[1],a[0],"<ul><li>Python 3.10+ / discord.py</li><li>"+a[1]+"</li><li>"+a[2]+"</li><li>SQLite/JSON</li><li>Ollama</li></ul>",d[0],d[1],ai[0],ai[1],pr[0],pr[1],ph[0],"<ul><li>"+ph[1]+"</li><li>"+ph[2]+"</li><li>"+ph[3]+"</li></ul>",st[0],st[1],dev[0],dev[1]])}
+
+const shortData={
+nl:mkShort(["Wat is Carapuz201G?","Een krachtige all-in-one Discord-bot in Python. Moderatie, economie, koninkrijken, tickets, verificatie, muziek en optionele lokale AI."],["Hoe werkt het","Self-hosted Python-app met discord.py. Modulaire cog-architectuur per server configureerbaar."],["Architectuur","Modulaire cogs","Versleutelde configuratie"],["Gegevensopslag","Gegevens op de machine van de operator. Alleen noodzakelijke gegevens. Versleuteld. Geen verkoop."],["Lokale AI (Ollama)","Optionele AI via Ollama — draait lokaal. Geen data naar externe diensten. Leert niet van berichten."],["Privacy","Minimale gegevensverzameling. Geen delen met derden."],["Filosofie","Alles-in-één","Volledig configureerbaar","Privacy-first"],["Aan de slag","Bot toevoegen → /help → configureren. Gratis."],["Ontwikkeling","Actief onderhouden met community-feedback."]),
+pl:mkShort(["Czym jest Carapuz201G?","Potężny all-in-one bot Discord w Pythonie. Moderacja, ekonomia, królestwa, tickety, weryfikacja, muzyka i opcjonalny lokalny AI."],["Jak działa","Self-hosted Python z discord.py. Modularna architektura cog."],["Architektura","Modularne cogi","Szyfrowana konfiguracja"],["Przechowywanie danych","Dane na maszynie operatora. Tylko niezbędne dane. Szyfrowane. Brak sprzedaży."],["Lokalne AI (Ollama)","Opcjonalne AI przez Ollama — działa lokalnie. Nie uczy się z wiadomości."],["Prywatność","Minimalne zbieranie danych. Brak udostępniania trzecim stronom."],["Filozofia","Wszystko-w-jednym","W pełni konfigurowalne","Prywatność przede wszystkim"],["Rozpoczęcie","Dodaj bota → /help → skonfiguruj. Bezpłatnie."],["Rozwój","Aktywne utrzymanie z feedbackiem społeczności."]),
+sv:mkShort(["Vad är Carapuz201G?","En kraftfull allt-i-ett Discord-bot i Python. Moderering, ekonomi, kungariken, biljetter, verifiering, musik och valfri lokal AI."],["Hur det fungerar","Self-hosted Python med discord.py. Modulär cog-arkitektur."],["Arkitektur","Modulära cogs","Krypterad konfiguration"],["Datalagring","Data på operatörens maskin. Bara nödvändig data. Krypterad. Ingen försäljning."],["Lokal AI (Ollama)","Valfri AI via Ollama — körs lokalt. Lär sig inte av meddelanden."],["Integritet","Minimal datainsamling. Ingen delning med tredje part."],["Filosofi","Allt-i-ett","Fullt konfigurerbar","Integritet först"],["Kom igång","Lägg till boten → /help → konfigurera. Gratis."],["Utveckling","Aktivt underhåll med community-feedback."]),
+da:mkShort(["Hvad er Carapuz201G?","En kraftfuld alt-i-én Discord-bot i Python. Moderation, økonomi, kongeriger, tickets, verifikation, musik og valgfri lokal AI."],["Hvordan det virker","Self-hosted Python med discord.py. Modulær cog-arkitektur."],["Arkitektur","Modulære cogs","Krypteret konfiguration"],["Datalagring","Data på operatørens maskine. Kun nødvendige data. Krypteret."],["Lokal AI (Ollama)","Valgfri AI via Ollama — kører lokalt. Lærer ikke af beskeder."],["Privatliv","Minimal dataindsamling. Ingen deling med tredjepart."],["Filosofi","Alt-i-én","Fuldt konfigurerbar","Privatliv først"],["Kom i gang","Tilføj bot → /help → konfigurer. Gratis."],["Udvikling","Aktiv vedligeholdelse med community-feedback."]),
+fi:mkShort(["Mikä on Carapuz201G?","Tehokas all-in-one Discord-botti Pythonilla. Moderointi, talous, kuningaskunnat, tiketit, varmennus, musiikki ja valinnainen paikallinen AI."],["Miten se toimii","Self-hosted Python discord.py:llä. Modulaarinen cog-arkkitehtuuri."],["Arkkitehtuuri","Modulaariset cogit","Salattu konfiguraatio"],["Tietojen tallennus","Tiedot operaattorin koneella. Vain välttämättömät tiedot. Salattu."],["Paikallinen AI (Ollama)","Valinnainen AI Ollaman kautta — toimii paikallisesti. Ei opi viesteistä."],["Tietosuoja","Minimaalinen tiedonkeruu. Ei jakamista kolmansille."],["Filosofia","Kaikki yhdessä","Täysin konfiguroitava","Tietosuoja ensin"],["Aloitus","Lisää botti → /help → konfiguroi. Ilmainen."],["Kehitys","Aktiivinen ylläpito yhteisön palautteella."]),
+el:mkShort(["Τι είναι το Carapuz201G;","Ένα ισχυρό all-in-one Discord bot σε Python. Εποπτεία, οικονομία, βασίλεια, εισιτήρια, επαλήθευση, μουσική και προαιρετική τοπική AI."],["Πώς λειτουργεί","Self-hosted Python με discord.py. Αρθρωτή αρχιτεκτονική cog."],["Αρχιτεκτονική","Αρθρωτά cogs","Κρυπτογραφημένη διαμόρφωση"],["Αποθήκευση","Δεδομένα στη μηχανή του χειριστή. Μόνο απαραίτητα. Κρυπτογραφημένα."],["Τοπική AI (Ollama)","Προαιρετική AI μέσω Ollama — τρέχει τοπικά. Δεν μαθαίνει από μηνύματα."],["Απόρρητο","Ελάχιστη συλλογή. Χωρίς κοινοποίηση σε τρίτους."],["Φιλοσοφία","Όλα-σε-ένα","Πλήρως ρυθμιζόμενο","Απόρρητο πρώτα"],["Ξεκινήστε","Προσθέστε bot → /help → ρυθμίστε. Δωρεάν."],["Ανάπτυξη","Ενεργή συντήρηση με feedback κοινότητας."]),
+cs:mkShort(["Co je Carapuz201G?","Výkonný all-in-one Discord bot v Pythonu. Moderace, ekonomika, království, tickety, ověření, hudba a volitelná lokální AI."],["Jak funguje","Self-hosted Python s discord.py. Modulární cog architektura."],["Architektura","Modulární cogy","Šifrovaná konfigurace"],["Ukládání dat","Data na stroji operátora. Pouze nezbytná data. Šifrovaná."],["Lokální AI (Ollama)","Volitelná AI přes Ollama — běží lokálně. Neučí se ze zpráv."],["Soukromí","Minimální sběr dat. Bez sdílení s třetími stranami."],["Filozofie","Vše v jednom","Plně konfigurovatelné","Soukromí na prvním místě"],["Začínáme","Přidejte bot → /help → nastavte. Zdarma."],["Vývoj","Aktivní údržba s feedbackem komunity."]),
+sk:mkShort(["Čo je Carapuz201G?","Výkonný all-in-one Discord bot v Pythone. Moderácia, ekonomika, kráľovstvá, tickety, overenie, hudba a voliteľná lokálna AI."],["Ako funguje","Self-hosted Python s discord.py. Modulárna cog architektúra."],["Architektúra","Modulárne cogy","Šifrovaná konfigurácia"],["Ukladanie dát","Dáta na stroji operátora. Iba nevyhnutné dáta. Šifrované."],["Lokálna AI (Ollama)","Voliteľná AI cez Ollama — beží lokálne. Neučí sa zo správ."],["Súkromie","Minimálny zber dát. Bez zdieľania s tretími stranami."],["Filozofia","Všetko v jednom","Plne konfigurovateľné","Súkromie na prvom mieste"],["Začíname","Pridajte bot → /help → nastavte. Zadarmo."],["Vývoj","Aktívna údržba s feedbackom komunity."]),
+hu:mkShort(["Mi az a Carapuz201G?","Erőteljes all-in-one Discord bot Pythonban. Moderálás, gazdaság, királyságok, jegyek, ellenőrzés, zene és opcionális helyi AI."],["Hogyan működik","Self-hosted Python discord.py-vel. Moduláris cog architektúra."],["Architektúra","Moduláris cogok","Titkosított konfiguráció"],["Adattárolás","Adatok az operátor gépén. Csak szükséges adatok. Titkosított."],["Helyi AI (Ollama)","Opcionális AI Ollamán keresztül — helyben fut. Nem tanul üzenetekből."],["Adatvédelem","Minimális adatgyűjtés. Nincs megosztás harmadik felekkel."],["Filozófia","Minden egyben","Teljesen konfigurálható","Adatvédelem először"],["Kezdés","Bot hozzáadása → /help → konfigurálás. Ingyenes."],["Fejlesztés","Aktív karbantartás közösségi visszajelzéssel."]),
+ro:mkShort(["Ce este Carapuz201G?","Un bot Discord puternic all-in-one în Python. Moderare, economie, regate, tichete, verificare, muzică și AI local opțional."],["Cum funcționează","Aplicație Python self-hosted cu discord.py. Arhitectură modulară cog."],["Arhitectură","Cog-uri modulare","Configurație criptată"],["Stocare date","Date pe mașina operatorului. Doar date necesare. Criptat."],["AI Local (Ollama)","AI opțional prin Ollama — rulează local. Nu învață din mesaje."],["Confidențialitate","Colectare minimă. Fără partajare cu terți."],["Filozofie","Totul într-unul","Complet configurabil","Confidențialitate întâi"],["Începeți","Adăugați bot → /help → configurați. Gratuit."],["Dezvoltare","Întreținere activă cu feedback-ul comunității."]),
+bg:mkShort(["Какво е Carapuz201G?","Мощен all-in-one Discord бот на Python. Модерация, икономика, кралства, тикети, верификация, музика и опционален локален AI."],["Как работи","Self-hosted Python с discord.py. Модулна cog архитектура."],["Архитектура","Модулни cogs","Криптирана конфигурация"],["Съхранение","Данни на машината на оператора. Само необходими данни. Криптирани."],["Локален AI (Ollama)","Опционален AI чрез Ollama — работи локално. Не учи от съобщения."],["Поверителност","Минимално събиране. Без споделяне с трети страни."],["Философия","Всичко в едно","Напълно конфигурируем","Поверителност на първо място"],["Начало","Добавете бот → /help → конфигурирайте. Безплатно."],["Развитие","Активна поддръжка с обратна връзка."]),
+hr:mkShort(["Što je Carapuz201G?","Snažan sve-u-jednom Discord bot u Pythonu. Moderacija, ekonomija, kraljevstva, tiketi, verifikacija, glazba i opcionalni lokalni AI."],["Kako radi","Self-hosted Python s discord.py. Modularna cog arhitektura."],["Arhitektura","Modularni cogovi","Kriptirana konfiguracija"],["Pohrana podataka","Podaci na stroju operatera. Samo potrebni podaci. Kriptirano."],["Lokalni AI (Ollama)","Opcionalni AI putem Ollamea — radi lokalno. Ne uči iz poruka."],["Privatnost","Minimalno prikupljanje. Bez dijeljenja s trećim stranama."],["Filozofija","Sve-u-jednom","Potpuno konfigurabilno","Privatnost prvo"],["Započnite","Dodajte bot → /help → konfigurirajte. Besplatno."],["Razvoj","Aktivno održavanje s povratnim informacijama zajednice."]),
+sl:mkShort(["Kaj je Carapuz201G?","Zmogljiv vse-v-enem Discord bot v Pythonu. Moderacija, ekonomija, kraljestva, vstopnice, preverjanje, glasba in AI."],["Kako deluje","Self-hosted Python z discord.py. Modularna cog arhitektura."],["Arhitektura","Modularni cogi","Šifrirana konfiguracija"],["Shranjevanje","Podatki na operaterjevi napravi. Samo potrebni podatki. Šifrirano."],["Lokalni AI (Ollama)","Izbirni AI prek Ollame — deluje lokalno. Ne uči se iz sporočil."],["Zasebnost","Minimalno zbiranje. Brez deljenja s tretjimi osebami."],["Filozofija","Vse v enem","Popolnoma nastavljiv","Zasebnost najprej"],["Začnite","Dodajte bot → /help → nastavite. Brezplačno."],["Razvoj","Aktivno vzdrževanje s povratnimi informacijami skupnosti."]),
+et:mkShort(["Mis on Carapuz201G?","Võimas kõik-ühes Discord bot Pythonis. Modereerimine, majandus, kuningriigid, piletid, kinnitamine, muusika ja valikuline kohalik AI."],["Kuidas töötab","Self-hosted Python discord.py-ga. Modulaarne cog-arhitektuur."],["Arhitektuur","Modulaarsed cogid","Krüpteeritud konfiguratsioon"],["Andmete salvestamine","Andmed operaatori masinal. Ainult vajalikud andmed. Krüpteeritud."],["Kohalik AI (Ollama)","Valikuline AI Ollama kaudu — töötab kohapeal. Ei õpi sõnumitest."],["Privaatsus","Minimaalne kogumine. Ei jagata kolmandatele osapooltele."],["Filosoofia","Kõik ühes","Täielikult seadistatav","Privaatsus esmalt"],["Alustamine","Lisage bot → /help → seadistage. Tasuta."],["Arendus","Aktiivne hooldus kogukonna tagasisidega."]),
+lv:mkShort(["Kas ir Carapuz201G?","Jaudīgs viss-vienā Discord bots Python. Moderēšana, ekonomika, karaļvalstis, biļetes, verifikācija, mūzika un lokāls AI."],["Kā tas darbojas","Self-hosted Python ar discord.py. Modulāra cog arhitektūra."],["Arhitektūra","Modulāri cogi","Šifrēta konfigurācija"],["Datu glabāšana","Dati operatora mašīnā. Tikai nepieciešamie dati. Šifrēti."],["Lokālais AI (Ollama)","Izvēles AI caur Ollama — darbojas lokāli. Nemācās no ziņām."],["Privātums","Minimāla datu vākšana. Netiek dalīts ar trešajām pusēm."],["Filozofija","Viss vienā","Pilnībā konfigurējams","Privātums vispirms"],["Sākums","Pievienojiet botu → /help → konfigurējiet. Bezmaksas."],["Attīstība","Aktīva uzturēšana ar kopienas atsauksmēm."]),
+lt:mkShort(["Kas yra Carapuz201G?","Galingas viskas-viename Discord botas Python. Moderavimas, ekonomika, karalystės, bilietai, verifikavimas, muzika ir vietinis AI."],["Kaip veikia","Self-hosted Python su discord.py. Modulinė cog architektūra."],["Architektūra","Moduliniai cogai","Šifruota konfigūracija"],["Duomenų saugojimas","Duomenys operatoriaus mašinoje. Tik būtini duomenys. Šifruoti."],["Vietinis AI (Ollama)","Pasirenkamas AI per Ollama — veikia vietiniai. Nesimoko iš žinučių."],["Privatumas","Minimalus rinkimas. Nesidalijama su trečiosiomis šalimis."],["Filosofija","Viskas viename","Pilnai konfigūruojamas","Privatumas pirmiausia"],["Pradžia","Pridėkite botą → /help → konfigūruokite. Nemokama."],["Plėtra","Aktyvi priežiūra su bendruomenės atsiliepimais."]),
+ga:mkShort(["Cad é Carapuz201G?","Bot Discord cumhachtach gach-rud-in-aon i Python. Modhnóireacht, eacnamaíocht, ríochtaí, ticéid, fíordheimhniú, ceol agus AI áitiúil roghnach."],["Conas a oibríonn sé","Aip Python féin-óstáilte le discord.py. Ailtireacht mhodúlach cog."],["Ailtireacht","Coganna modúlacha","Cumraíocht criptithe"],["Stóráil sonraí","Sonraí ar mheaisín an oibreora. Sonraí riachtanacha amháin. Criptithe."],["AI Áitiúil (Ollama)","AI roghnach trí Ollama — ritheann go háitiúil. Ní fhoghlaimíonn ó theachtaireachtaí."],["Príobháideachas","Bailiú íosta. Gan roinnt le tríú páirtithe."],["Fealsúnacht","Gach rud in aon","Inchumraithe go hiomlán","Príobháideachas ar dtús"],["Tosaigh","Cuir bot leis → /help → cumraigh. Saor in aisce."],["Forbairt","Cothabháil ghníomhach le haiseolas ón bpobal."]),
+mt:mkShort(["X'inhu Carapuz201G?","Bot Discord qawwi all-in-one f'Python. Moderazzjoni, ekonomija, saltniet, biljetti, verifika, mużika u AI lokali opzjonali."],["Kif jaħdem","App Python self-hosted b'discord.py. Arkitettura modulari cog."],["Arkitettura","Cogs modulari","Konfigurazzjoni kriptata"],["Ħażna tad-data","Data fuq il-magna tal-operatur. Data meħtieġa biss. Kriptata."],["AI Lokali (Ollama)","AI opzjonali permezz Ollama — jaħdem lokalment. Ma jitgħallimx mill-messaġġi."],["Privatezza","Ġbir minimu. Ebda qsim ma' terzi."],["Filosofija","Kollox f'wieħed","Kompletament konfigurabbli","Privatezza l-ewwel"],["Ibda","Żid bot → /help → ikkonfigura. B'xejn."],["Żvilupp","Manutenzjoni attiva b'feedback tal-komunità."])
+};
 
 const T={
-"en-US":{name:"English (US)",flag:"🇺🇸",...en},
-"en-GB":{name:"English (UK)",flag:"🇬🇧",...en},
-"ru":{name:"Русский",flag:"🇷🇺",nav_home:"Главная",nav_about:"О боте",nav_features:"Функции",nav_commands:"Команды",nav_support:"Поддержка",nav_status:"Статус",nav_privacy:"Конфиденциальность",nav_terms:"Условия",btn_add:"➕ Добавить бота",btn_support:"💬 Поддержка",pg_t:"О боте Carapuz201G",pg_s:"Узнайте, что делает этого бота особенным — философия, архитектура и подход к вашим данным.",
-blocks:[
-{icon:"🤖",title:"Что такое Carapuz201G?",body:"Carapuz201G — это большой многофункциональный Discord-бот, написанный на Python. Он предоставляет полный набор инструментов для управления сервером: модерация, экономика, королевства, тикеты, верификация, голос/музыка и многое другое. Разработан как единое решение «всё-в-одном», чтобы вам не нужно было несколько ботов."},
-{icon:"⚙️",title:"Как он работает",body:"Бот запускается как self-hosted Python-приложение с использованием библиотеки discord.py. Он подключается к Discord через Gateway API и обрабатывает слэш-команды и события. Конфигурация хранится в зашифрованных файлах. Бот поддерживает модульную систему (cogs), которую можно включать/отключать для каждого сервера."},
-{icon:"🏗️",title:"Архитектура",body:"<ul><li>Написан на <span class='hl'>Python</span> с discord.py</li><li>Модульная архитектура на основе cogs</li><li>Зашифрованное хранение конфигурации</li><li>Поддержка SQLite / JSON</li><li>Опциональная интеграция с <span class='hl'>Ollama</span> для локального ИИ</li><li>Развёртывание на любой машине — ваш ПК, VPS или выделенный сервер</li></ul>"},
-{icon:"💾",title:"Хранение данных",body:"Данные могут храниться на компьютере оператора, на сервере или в среде хостинга. Бот хранит только данные, необходимые для его функций: настройки серверов, предупреждения/балансы экономики, логи тикетов и т.д. Данные не продаются и не передаются третьим лицам."},
-{icon:"🧠",title:"Опциональный локальный ИИ",body:"Carapuz201G поддерживает опциональный локальный ИИ через <span class='hl'>Ollama</span>. Это значит:<ul><li>Модель ИИ работает локально на машине оператора</li><li>Сообщения Discord не отправляются во внешние ИИ-сервисы</li><li>ИИ <b>не</b> обучается на сообщениях пользователей</li><li>ИИ используется только для расширения функций бота</li></ul>"},
-{icon:"💡",title:"Философия",body:"Цель — предоставить мощного, уважающего конфиденциальность бота, которому владельцы серверов могут доверять. Все функции прозрачны, настраиваемы и безопасны. Бот бесплатен, открыт для обратной связи и постоянно улучшается."}
-]},
-"uk":{name:"Українська",flag:"🇺🇦",nav_home:"Головна",nav_about:"Про бота",nav_features:"Функції",nav_commands:"Команди",nav_support:"Підтримка",nav_status:"Статус",nav_privacy:"Конфіденційність",nav_terms:"Умови",btn_add:"➕ Додати бота",btn_support:"💬 Підтримка",pg_t:"Про бота Carapuz201G",pg_s:"Дізнайтеся, що робить цього бота особливим — філософія, архітектура та підхід до ваших даних.",
-blocks:[
-{icon:"🤖",title:"Що таке Carapuz201G?",body:"Carapuz201G — це великий багатофункціональний Discord-бот, написаний на Python. Він надає повний набір інструментів для управління сервером: модерація, економіка, королівства, тікети, верифікація, голос/музика та багато іншого. Розроблений як єдине рішення «все-в-одному»."},
-{icon:"⚙️",title:"Як він працює",body:"Бот запускається як self-hosted Python-додаток з використанням бібліотеки discord.py. Він підключається до Discord через Gateway API та обробляє слеш-команди та події. Конфігурація зберігається в зашифрованих файлах. Бот підтримує модульну систему (cogs)."},
-{icon:"🏗️",title:"Архітектура",body:"<ul><li>Написаний на <span class='hl'>Python</span> з discord.py</li><li>Модульна архітектура на основі cogs</li><li>Зашифроване зберігання конфігурації</li><li>Підтримка SQLite / JSON</li><li>Опціональна інтеграція з <span class='hl'>Ollama</span></li><li>Розгортання на будь-якій машині</li></ul>"},
-{icon:"💾",title:"Зберігання даних",body:"Дані можуть зберігатися на комп'ютері оператора, на сервері або у середовищі хостингу. Бот зберігає лише дані, необхідні для його функцій. Дані не продаються і не передаються третім особам."},
-{icon:"🧠",title:"Опціональний локальний ШІ",body:"Carapuz201G підтримує опціональний локальний ШІ через <span class='hl'>Ollama</span>:<ul><li>Модель ШІ працює локально</li><li>Повідомлення Discord не надсилаються зовнішнім сервісам</li><li>ШІ <b>не</b> навчається на повідомленнях користувачів</li><li>ШІ використовується лише для розширення функцій бота</li></ul>"},
-{icon:"💡",title:"Філософія",body:"Мета — надати потужного, приватного бота, якому можна довіряти. Усі функції прозорі, налаштовувані та безпечні."}
-]}
+"en-US":{name:"English (US)",flag:"🇺🇸",nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"About Carapuz201G",pg_s:"Learn what makes this bot tick — its philosophy, architecture, and approach to your data.",blocks:enB},
+"en-GB":{name:"English (UK)",flag:"🇬🇧",nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"About Carapuz201G",pg_s:"Learn what makes this bot tick — its philosophy, architecture, and approach to your data.",blocks:enB},
+"ru":{name:"Русский",flag:"🇷🇺",nav_home:"Главная",nav_about:"О боте",nav_features:"Функции",nav_commands:"Команды",nav_support:"Поддержка",nav_status:"Статус",nav_privacy:"Конфиденциальность",nav_terms:"Условия",btn_add:"➕ Добавить",btn_support:"💬 Поддержка",pg_t:"О боте Carapuz201G",pg_s:"Узнайте, что делает этого бота особенным — философия, архитектура и подход к вашим данным.",blocks:ruB},
+"uk":{name:"Українська",flag:"🇺🇦",nav_home:"Головна",nav_about:"Про бота",nav_features:"Функції",nav_commands:"Команди",nav_support:"Підтримка",nav_status:"Статус",nav_privacy:"Конфіденційність",nav_terms:"Умови",btn_add:"➕ Додати",btn_support:"💬 Підтримка",pg_t:"Про бота Carapuz201G",pg_s:"Дізнайтеся, що робить цього бота особливим — філософія, архітектура та підхід до ваших даних.",blocks:ukB},
+"de":{name:"Deutsch",flag:"🇩🇪",nav_home:"Startseite",nav_about:"Über",nav_features:"Funktionen",nav_commands:"Befehle",nav_support:"Support",nav_status:"Status",nav_privacy:"Datenschutz",nav_terms:"Nutzungsbedingungen",btn_add:"➕ Hinzufügen",btn_support:"💬 Support",pg_t:"Über Carapuz201G",pg_s:"Erfahren Sie mehr über Philosophie, Architektur und Datenschutz dieses Bots.",blocks:deB},
+"fr":{name:"Français",flag:"🇫🇷",nav_home:"Accueil",nav_about:"À propos",nav_features:"Fonctionnalités",nav_commands:"Commandes",nav_support:"Support",nav_status:"Statut",nav_privacy:"Confidentialité",nav_terms:"Conditions",btn_add:"➕ Ajouter",btn_support:"💬 Support",pg_t:"À propos de Carapuz201G",pg_s:"Découvrez la philosophie, l'architecture et l'approche de la confidentialité de ce bot.",blocks:frB},
+"es":{name:"Español",flag:"🇪🇸",nav_home:"Inicio",nav_about:"Acerca de",nav_features:"Características",nav_commands:"Comandos",nav_support:"Soporte",nav_status:"Estado",nav_privacy:"Privacidad",nav_terms:"Términos",btn_add:"➕ Añadir",btn_support:"💬 Soporte",pg_t:"Acerca de Carapuz201G",pg_s:"Conoce la filosofía, arquitectura y enfoque de privacidad de este bot.",blocks:esB},
+"it":{name:"Italiano",flag:"🇮🇹",nav_home:"Home",nav_about:"Info",nav_features:"Funzionalità",nav_commands:"Comandi",nav_support:"Supporto",nav_status:"Stato",nav_privacy:"Privacy",nav_terms:"Termini",btn_add:"➕ Aggiungi",btn_support:"💬 Supporto",pg_t:"Informazioni su Carapuz201G",pg_s:"Scopri la filosofia, l'architettura e l'approccio alla privacy di questo bot.",blocks:itB},
+"pt":{name:"Português",flag:"🇵🇹",nav_home:"Início",nav_about:"Sobre",nav_features:"Recursos",nav_commands:"Comandos",nav_support:"Suporte",nav_status:"Estado",nav_privacy:"Privacidade",nav_terms:"Termos",btn_add:"➕ Adicionar",btn_support:"💬 Suporte",pg_t:"Sobre o Carapuz201G",pg_s:"Conheça a filosofia, arquitetura e abordagem de privacidade deste bot.",blocks:ptB},
+"nl":{name:"Nederlands",flag:"🇳🇱",nav_home:"Home",nav_about:"Over",nav_features:"Functies",nav_commands:"Commando's",nav_support:"Ondersteuning",nav_status:"Status",nav_privacy:"Privacy",nav_terms:"Voorwaarden",btn_add:"➕ Toevoegen",btn_support:"💬 Support",pg_t:"Over Carapuz201G",pg_s:"Leer meer over de filosofie, architectuur en privacy van deze bot.",blocks:shortData.nl},
+"pl":{name:"Polski",flag:"🇵🇱",nav_home:"Strona główna",nav_about:"O bocie",nav_features:"Funkcje",nav_commands:"Komendy",nav_support:"Wsparcie",nav_status:"Status",nav_privacy:"Prywatność",nav_terms:"Regulamin",btn_add:"➕ Dodaj",btn_support:"💬 Wsparcie",pg_t:"O Carapuz201G",pg_s:"Poznaj filozofię, architekturę i podejście do prywatności tego bota.",blocks:shortData.pl},
+"sv":{name:"Svenska",flag:"🇸🇪",nav_home:"Hem",nav_about:"Om",nav_features:"Funktioner",nav_commands:"Kommandon",nav_support:"Support",nav_status:"Status",nav_privacy:"Integritet",nav_terms:"Villkor",btn_add:"➕ Lägg till",btn_support:"💬 Support",pg_t:"Om Carapuz201G",pg_s:"Lär dig mer om botens filosofi, arkitektur och integritetsskydd.",blocks:shortData.sv},
+"da":{name:"Dansk",flag:"🇩🇰",nav_home:"Hjem",nav_about:"Om",nav_features:"Funktioner",nav_commands:"Kommandoer",nav_support:"Support",nav_status:"Status",nav_privacy:"Privatliv",nav_terms:"Vilkår",btn_add:"➕ Tilføj",btn_support:"💬 Support",pg_t:"Om Carapuz201G",pg_s:"Lær mere om bottens filosofi, arkitektur og databeskyttelse.",blocks:shortData.da},
+"fi":{name:"Suomi",flag:"🇫🇮",nav_home:"Koti",nav_about:"Tietoa",nav_features:"Ominaisuudet",nav_commands:"Komennot",nav_support:"Tuki",nav_status:"Tila",nav_privacy:"Tietosuoja",nav_terms:"Ehdot",btn_add:"➕ Lisää",btn_support:"💬 Tuki",pg_t:"Tietoa Carapuz201G:stä",pg_s:"Tutustu botin filosofiaan, arkkitehtuuriin ja tietosuojaan.",blocks:shortData.fi},
+"el":{name:"Ελληνικά",flag:"🇬🇷",nav_home:"Αρχική",nav_about:"Σχετικά",nav_features:"Λειτουργίες",nav_commands:"Εντολές",nav_support:"Υποστήριξη",nav_status:"Κατάσταση",nav_privacy:"Απόρρητο",nav_terms:"Όροι",btn_add:"➕ Προσθήκη",btn_support:"💬 Υποστήριξη",pg_t:"Σχετικά με το Carapuz201G",pg_s:"Μάθετε για τη φιλοσοφία, την αρχιτεκτονική και το απόρρητο αυτού του bot.",blocks:shortData.el},
+"cs":{name:"Čeština",flag:"🇨🇿",nav_home:"Domů",nav_about:"O botu",nav_features:"Funkce",nav_commands:"Příkazy",nav_support:"Podpora",nav_status:"Stav",nav_privacy:"Soukromí",nav_terms:"Podmínky",btn_add:"➕ Přidat",btn_support:"💬 Podpora",pg_t:"O Carapuz201G",pg_s:"Poznejte filozofii, architekturu a přístup k soukromí tohoto bota.",blocks:shortData.cs},
+"sk":{name:"Slovenčina",flag:"🇸🇰",nav_home:"Domov",nav_about:"O bote",nav_features:"Funkcie",nav_commands:"Príkazy",nav_support:"Podpora",nav_status:"Stav",nav_privacy:"Súkromie",nav_terms:"Podmienky",btn_add:"➕ Pridať",btn_support:"💬 Podpora",pg_t:"O Carapuz201G",pg_s:"Spoznajte filozofiu a architektúru tohto bota.",blocks:shortData.sk},
+"hu":{name:"Magyar",flag:"🇭🇺",nav_home:"Kezdőlap",nav_about:"Rólunk",nav_features:"Funkciók",nav_commands:"Parancsok",nav_support:"Támogatás",nav_status:"Állapot",nav_privacy:"Adatvédelem",nav_terms:"Feltételek",btn_add:"➕ Hozzáadás",btn_support:"💬 Támogatás",pg_t:"A Carapuz201G-ról",pg_s:"Ismerje meg a bot filozófiáját és architektúráját.",blocks:shortData.hu},
+"ro":{name:"Română",flag:"🇷🇴",nav_home:"Acasă",nav_about:"Despre",nav_features:"Funcții",nav_commands:"Comenzi",nav_support:"Suport",nav_status:"Stare",nav_privacy:"Confidențialitate",nav_terms:"Termeni",btn_add:"➕ Adaugă",btn_support:"💬 Suport",pg_t:"Despre Carapuz201G",pg_s:"Aflați despre filozofia și arhitectura acestui bot.",blocks:shortData.ro},
+"bg":{name:"Български",flag:"🇧🇬",nav_home:"Начало",nav_about:"За бота",nav_features:"Функции",nav_commands:"Команди",nav_support:"Поддръжка",nav_status:"Състояние",nav_privacy:"Поверителност",nav_terms:"Условия",btn_add:"➕ Добави",btn_support:"💬 Поддръжка",pg_t:"За Carapuz201G",pg_s:"Научете за философията и архитектурата на този бот.",blocks:shortData.bg},
+"hr":{name:"Hrvatski",flag:"🇭🇷",nav_home:"Početna",nav_about:"O botu",nav_features:"Značajke",nav_commands:"Naredbe",nav_support:"Podrška",nav_status:"Status",nav_privacy:"Privatnost",nav_terms:"Uvjeti",btn_add:"➕ Dodaj",btn_support:"💬 Podrška",pg_t:"O Carapuz201G",pg_s:"Saznajte o filozofiji i arhitekturi ovog bota.",blocks:shortData.hr},
+"sl":{name:"Slovenščina",flag:"🇸🇮",nav_home:"Domov",nav_about:"O botu",nav_features:"Funkcije",nav_commands:"Ukazi",nav_support:"Podpora",nav_status:"Stanje",nav_privacy:"Zasebnost",nav_terms:"Pogoji",btn_add:"➕ Dodaj",btn_support:"💬 Podpora",pg_t:"O Carapuz201G",pg_s:"Spoznajte filozofijo in arhitekturo tega bota.",blocks:shortData.sl},
+"et":{name:"Eesti",flag:"🇪🇪",nav_home:"Avaleht",nav_about:"Teave",nav_features:"Funktsioonid",nav_commands:"Käsud",nav_support:"Tugi",nav_status:"Olek",nav_privacy:"Privaatsus",nav_terms:"Tingimused",btn_add:"➕ Lisa",btn_support:"💬 Tugi",pg_t:"Teave Carapuz201G kohta",pg_s:"Tutvu boti filosoofia ja arhitektuuriga.",blocks:shortData.et},
+"lv":{name:"Latviešu",flag:"🇱🇻",nav_home:"Sākums",nav_about:"Par",nav_features:"Funkcijas",nav_commands:"Komandas",nav_support:"Atbalsts",nav_status:"Statuss",nav_privacy:"Privātums",nav_terms:"Noteikumi",btn_add:"➕ Pievienot",btn_support:"💬 Atbalsts",pg_t:"Par Carapuz201G",pg_s:"Uzziniet par šī bota filozofiju un arhitektūru.",blocks:shortData.lv},
+"lt":{name:"Lietuvių",flag:"🇱🇹",nav_home:"Pradžia",nav_about:"Apie",nav_features:"Funkcijos",nav_commands:"Komandos",nav_support:"Palaikymas",nav_status:"Būsena",nav_privacy:"Privatumas",nav_terms:"Sąlygos",btn_add:"➕ Pridėti",btn_support:"💬 Palaikymas",pg_t:"Apie Carapuz201G",pg_s:"Sužinokite apie šio boto filosofiją ir architektūrą.",blocks:shortData.lt},
+"ga":{name:"Gaeilge",flag:"🇮🇪",nav_home:"Baile",nav_about:"Eolas",nav_features:"Gnéithe",nav_commands:"Orduithe",nav_support:"Tacaíocht",nav_status:"Stádas",nav_privacy:"Príobháideachas",nav_terms:"Téarmaí",btn_add:"➕ Cuir leis",btn_support:"💬 Tacaíocht",pg_t:"Faoi Carapuz201G",pg_s:"Foghlaim faoi fhealsúnacht agus ailtireacht an bot seo.",blocks:shortData.ga},
+"mt":{name:"Malti",flag:"🇲🇹",nav_home:"Paġna Ewlenija",nav_about:"Dwar",nav_features:"Karatteristiċi",nav_commands:"Kmandi",nav_support:"Appoġġ",nav_status:"Status",nav_privacy:"Privatezza",nav_terms:"Termini",btn_add:"➕ Żid",btn_support:"💬 Appoġġ",pg_t:"Dwar Carapuz201G",pg_s:"Tgħallem dwar il-filosofija u l-arkitettura ta' dan il-bot.",blocks:shortData.mt}
 };
 
 let lang=localStorage.getItem('c2g-lang')||'en-US';
 let theme=localStorage.getItem('c2g-theme')||'dark';
 
 document.addEventListener('DOMContentLoaded',()=>{
-setTheme(theme);buildLang();setLang(lang);setupEv();setupRv();
+setTheme(theme);buildLang();setLang(lang);setupEv();
 setTimeout(()=>document.getElementById('ldr').classList.add('hid'),1100);
 });
 
@@ -216,36 +276,27 @@ d.onclick=()=>{setLang(c);closeLM()};m.appendChild(d);
 }
 
 function setLang(c){
-if(!T[c])c='en-US';lang=c;localStorage.setItem('c2g-lang',c);
-const t=T[c];
+if(!T[c])c='en-US';lang=c;localStorage.setItem('c2g-lang',c);const t=T[c];
 document.getElementById('cF').textContent=t.flag;
 document.getElementById('cL').textContent=t.name;
 document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k]});
-// build blocks
-const sec=document.getElementById('content');sec.innerHTML='';
+const sec=document.getElementById('ct');sec.innerHTML='';
 if(t.blocks){t.blocks.forEach((b,i)=>{
-const d=document.createElement('div');d.className='cb2 rv';d.style.transitionDelay=i*.08+'s';
-d.innerHTML=`<h3>${b.icon} ${b.title}</h3><p>${b.body}</p>`;
-sec.appendChild(d);
+const d=document.createElement('div');d.className='blk rv';d.style.transitionDelay=i*.06+'s';
+d.innerHTML=`<h3>${b.i} ${b.t}</h3><p>${b.b}</p>`;sec.appendChild(d);
 })}
 document.querySelectorAll('.lo').forEach(o=>o.classList.remove('act'));
 const keys=Object.keys(T).sort((a,b)=>T[a].name.localeCompare(T[b].name));
 const idx=keys.indexOf(c);const opts=document.querySelectorAll('.lo');
 if(opts[idx])opts[idx].classList.add('act');
-document.documentElement.lang=c;
-setTimeout(setupRv,50);
+document.documentElement.lang=c;setTimeout(setupRv,50);
 }
 
 function togLM(){const m=document.getElementById('lMn'),b=document.getElementById('lBtn');if(m.classList.contains('show'))closeLM();else{m.classList.add('show');b.classList.add('open')}}
 function closeLM(){document.getElementById('lMn').classList.remove('show');document.getElementById('lBtn').classList.remove('open')}
 function openMM(){document.getElementById('mMn').classList.add('show');document.getElementById('mOv').classList.add('show');document.body.style.overflow='hidden'}
 function closeMM(){document.getElementById('mMn').classList.remove('show');document.getElementById('mOv').classList.remove('show');document.body.style.overflow=''}
-
-function setupRv(){
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1});
-document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
-}
-
+function setupRv(){const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1});document.querySelectorAll('.rv').forEach(el=>obs.observe(el))}
 function setupEv(){
 document.getElementById('thBtn').onclick=togTheme;
 document.getElementById('lBtn').onclick=e=>{e.stopPropagation();togLM()};
