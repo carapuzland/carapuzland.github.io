@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>✂️ AI BG Remover</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
 :root{--bg:#f0f4f8;--card:#fff;--pri:#ec4899;--tx:#1e293b;--bor:#e2e8f0;--r:16px}
 [data-theme="dark"]{--bg:#0f172a;--card:#1e293b;--tx:#f1f5f9;--bor:#334155}
@@ -25,14 +26,14 @@ canvas{max-width:100%;display:block;cursor:crosshair}
 #fill{height:100%;background:var(--pri);width:0%}
 </style>
 <script type="module">
-  import imglyRemoveBackground from "https://unpkg.com/@imgly/background-removal@1.4.3/dist/browser/esm/index.js";
+  import imglyRemoveBackground from "https://esm.sh/@imgly/background-removal@1.4.3?bundle";
   window.imglyRemoveBackground = imglyRemoveBackground;
 </script>
 </head>
 <body>
 <div class="hdr">
   <div class="hdr-btns">
-    <select id="langSel" onchange="chLang(this.value)"><option value="en">EN</option><option value="uk">UK</option><option value="ru">RU</option></select>
+    <select id="langSel" onchange="chLang(this.value)"><option value="en">EN</option><option value="uk">UK</option><option value="ru">RU</option><option value="de">DE</option></select>
     <button onclick="document.documentElement.setAttribute('data-theme',document.documentElement.getAttribute('data-theme')==='dark'?'':'dark');localStorage.setItem('bgTheme',document.documentElement.getAttribute('data-theme'))">🌓</button>
   </div>
   <h1 id="tTitle">✂️ AI Background Remover</h1>
@@ -55,12 +56,12 @@ canvas{max-width:100%;display:block;cursor:crosshair}
     <div class="tools">
       <button class="btn active" id="bErase" onclick="setMode('erase')">🔴 Erase</button>
       <button class="btn out" id="bRestore" onclick="setMode('restore')">🟢 Restore</button>
-      <label>Size: <input type="range" id="brushSize" min="5" max="100" value="30"></label>
+      <label><span id="tSize">Size</span>: <input type="range" id="brushSize" min="5" max="100" value="30"></label>
     </div>
     <div class="canvas-wrap"><canvas id="cvs"></canvas></div>
     <div class="tools">
       <button class="btn" id="bSave" onclick="download()">💾 Download PNG</button>
-      <button class="btn out" onclick="location.reload()">🔄 New Image</button>
+      <button class="btn out" id="bNew" onclick="location.reload()">🔄 New Image</button>
     </div>
   </div>
 </div>
@@ -68,26 +69,29 @@ canvas{max-width:100%;display:block;cursor:crosshair}
 <script>
 if(localStorage.getItem('bgTheme')==='dark') document.documentElement.setAttribute('data-theme','dark');
 const TR={
-  en:{title:'✂️ AI BG Remover',drop:'Drop image here',sub:'Runs locally in browser',load:'Processing...',erase:'🔴 Erase',restore:'🟢 Restore',save:'💾 Download PNG',edit:'Draw to edit mask'},
-  uk:{title:'✂️ Видалення фону',drop:'Киньте фото сюди',sub:'Працює локально в браузері',load:'Обробка...',erase:'🔴 Стерти',restore:'🟢 Відновити',save:'💾 Скачати PNG',edit:'Малюйте для редагування'},
-  ru:{title:'✂️ Удаление фона',drop:'Бросьте фото сюда',sub:'Работает локально в браузере',load:'Обработка...',erase:'🔴 Стереть',restore:'🟢 Восстановить',save:'💾 Скачать PNG',edit:'Рисуйте для правки'}
+  en:{title:'✂️ AI BG Remover',drop:'Drop image here or click',sub:'100% free · runs locally in browser · paste supported',load:'Processing...',erase:'🔴 Erase',restore:'🟢 Restore',save:'💾 Download PNG',edit:'Draw to edit mask',size:'Size',next:'🔄 New Image',err:'Background removal failed'},
+  uk:{title:'✂️ Видалення фону',drop:'Киньте фото сюди або натисніть',sub:'100% безкоштовно · працює локально в браузері · підтримує вставлення',load:'Обробка...',erase:'🔴 Стерти',restore:'🟢 Відновити',save:'💾 Завантажити PNG',edit:'Малюйте для редагування маски',size:'Розмір',next:'🔄 Нове зображення',err:'Не вдалося видалити фон'},
+  ru:{title:'✂️ Удаление фона',drop:'Бросьте фото сюда или нажмите',sub:'100% бесплатно · работает локально в браузере · поддерживает вставку',load:'Обработка...',erase:'🔴 Стереть',restore:'🟢 Восстановить',save:'💾 Скачать PNG',edit:'Рисуйте для правки маски',size:'Размер',next:'🔄 Новое изображение',err:'Не удалось удалить фон'},
+  de:{title:'✂️ Hintergrund entfernen',drop:'Bild hier ablegen oder klicken',sub:'100% kostenlos · läuft lokal im Browser · Einfügen unterstützt',load:'Wird verarbeitet...',erase:'🔴 Entfernen',restore:'🟢 Wiederherstellen',save:'💾 PNG herunterladen',edit:'Maske zum Bearbeiten zeichnen',size:'Größe',next:'🔄 Neues Bild',err:'Hintergrund konnte nicht entfernt werden'}
 };
-let lang=localStorage.getItem('bgLang')||'en';
+let lang=TR[localStorage.getItem('bgLang')]?localStorage.getItem('bgLang'):'en';
 const $=id=>document.getElementById(id);
 const t=k=>TR[lang][k];
 
-function chLang(l){lang=l;localStorage.setItem('bgLang',l);applyUI()}
+function chLang(l){lang=TR[l]?l:'en';localStorage.setItem('bgLang',lang);applyUI()}
 function applyUI(){
+  document.documentElement.lang=lang;
   $('langSel').value=lang; $('tTitle').textContent=t('title'); $('tDrop').textContent=t('drop');
   $('tSub').textContent=t('sub'); $('tLoad').textContent=t('load'); $('bErase').textContent=t('erase');
   $('bRestore').textContent=t('restore'); $('bSave').textContent=t('save'); $('tEdit').textContent=t('edit');
+  $('tSize').textContent=t('size'); $('bNew').textContent=t('next');
 }
 
 let origImg=null, maskImg=null, mode='erase', isDraw=false;
 const cvs=$('cvs'), ctx=cvs.getContext('2d');
 
-$('fi').onchange=async(e)=>{
-  const f=e.target.files[0]; if(!f)return;
+async function loadFile(f){
+  if(!f)return;
   $('dropZ').style.display='none'; $('loader').style.display='block'; $('prog').style.display='block';
 
   origImg=new Image(); origImg.src=URL.createObjectURL(f);
@@ -95,7 +99,6 @@ $('fi').onchange=async(e)=>{
 
   try{
     const blob = await window.imglyRemoveBackground(f, {
-      publicPath: "https://unpkg.com/@imgly/background-removal@1.4.3/dist/",
       progress: (k, c, tot) => { if(k.includes('fetch')) $('fill').style.width=(c/tot*100)+'%'; }
     });
 
@@ -105,8 +108,18 @@ $('fi').onchange=async(e)=>{
     $('loader').style.display='none'; $('editor').style.display='block';
     cvs.width=origImg.width; cvs.height=origImg.height;
     ctx.drawImage(maskImg,0,0);
-  }catch(err){alert('Error: '+err.message); location.reload();}
-};
+  }catch(err){alert(`${t('err')}: ${err.message}`); location.reload();}
+}
+
+$('fi').onchange=e=>loadFile(e.target.files[0]);
+
+['dragenter','dragover'].forEach(ev=>$('dropZ').addEventListener(ev,e=>{
+  e.preventDefault(); $('dropZ').style.borderColor='var(--pri)';
+}));
+['dragleave','drop'].forEach(ev=>$('dropZ').addEventListener(ev,e=>{
+  e.preventDefault(); $('dropZ').style.borderColor='var(--bor)';
+}));
+$('dropZ').addEventListener('drop',e=>loadFile(e.dataTransfer.files[0]));
 
 document.addEventListener('paste', e=>{
   const items=e.clipboardData.items;
@@ -114,7 +127,7 @@ document.addEventListener('paste', e=>{
     if(items[i].type.startsWith('image/')){
       const file=items[i].getAsFile();
       const dt=new DataTransfer(); dt.items.add(file); $('fi').files=dt.files;
-      $('fi').dispatchEvent(new Event('change')); break;
+      loadFile(file); break;
     }
   }
 });

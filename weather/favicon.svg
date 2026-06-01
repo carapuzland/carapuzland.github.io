@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Weather">
+  <defs>
+    <linearGradient id="sky" x1="8" y1="8" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5865f2"/>
+      <stop offset=".55" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#22c55e"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#08101d"/>
+  <circle cx="24" cy="24" r="10" fill="#fbbf24"/>
+  <path d="M22 44h24a9 9 0 0 0 0-18 13 13 0 0 0-24.5-4.7A11.5 11.5 0 0 0 22 44Z" fill="url(#sky)"/>
+</svg>

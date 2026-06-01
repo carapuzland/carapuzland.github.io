@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
@@ -121,13 +121,17 @@ a{color:inherit;text-decoration:none}
 .ld-f{height:100%;width:0%;background:var(--acc);border-radius:3px;animation:lfx 1.2s ease forwards}
 @keyframes lfx{to{width:100%}}
 </style>
+<link rel="stylesheet" href="assets/refresh.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<script defer src="assets/link-status.js"></script>
 </head>
 <body>
 <div class="ld-w" id="ldr"><div class="ld-e">🤖</div><div style="color:var(--tx2);font-size:.85rem;letter-spacing:2px">CARAPUZ201G</div><div class="ld-b"><div class="ld-f"></div></div></div>
 <header class="hdr">
 <div class="hdr-l">
-<a href="https://carapuzland.github.io" class="hm-lnk" title="CarapuzLand"><span class="em">🏝️</span></a>
-<a href="./" class="brand">Carapuz201G</a>
+<a href="https://carapuzland.github.io/" class="hm-lnk" title="CarapuzLand"><span class="em">🏝️</span></a>
+<a href="https://carapuzland.github.io/" class="brand">Carapuz201G</a>
 </div>
 <nav class="nav">
 <a href="./about/" data-i18n="nav_about">About</a>
@@ -141,8 +145,8 @@ a{color:inherit;text-decoration:none}
 <div class="hdr-r">
 <button class="th-btn" id="thBtn" title="Toggle theme">🌙</button>
 <div class="ld"><button class="lb" id="lBtn"><span class="fl" id="cF">🇺🇸</span><span class="ll" id="cL">English</span><span class="ar">▼</span></button><div class="lm" id="lMn"></div></div>
-<a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
-<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
+<a href="./support/#contact" class="btn btn-o" data-i18n="btn_support">💬 Support</a>
+<a href="./support/#invite" class="btn btn-a" data-i18n="btn_add">➕ Add Bot</a>
 <button class="mb" id="mBtn">☰</button>
 </div>
 </header>
@@ -160,8 +164,8 @@ a{color:inherit;text-decoration:none}
 <a href="./terms-of-service/" data-i18n="nav_terms">Terms of Service</a>
 </div>
 <div class="mab">
-<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
-<a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
+<a href="./support/#invite" class="btn btn-a" data-i18n="btn_add">➕ Add Bot</a>
+<a href="./support/#contact" class="btn btn-o" data-i18n="btn_support">💬 Support</a>
 </div>
 </div>
 <main>
@@ -171,14 +175,51 @@ a{color:inherit;text-decoration:none}
 <h1 class="hero-t" data-i18n="hero_t">Carapuz201G</h1>
 <p class="hero-s" data-i18n="hero_s">A powerful all-in-one Discord bot with moderation, economy, kingdoms, tickets, verification, voice, music, radio, giveaways, and optional local AI. Everything your server needs — in one bot.</p>
 <div class="hero-btns">
-<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a btn-lg" target="_blank" data-i18n="btn_add_lg">➕ Add to Discord</a>
-<a href="https://discord.gg/YOUR_INVITE" class="btn btn-o btn-lg" target="_blank" data-i18n="btn_support_lg">💬 Support Server</a>
+<a href="./support/#invite" class="btn btn-a btn-lg" data-i18n="btn_add_lg">➕ Add to Discord</a>
+<a href="./support/#contact" class="btn btn-o btn-lg" data-i18n="btn_support_lg">💬 Support Server</a>
 </div>
 <div class="hero-stats">
 <div class="hs"><div class="hs-v">150+</div><div class="hs-l" data-i18n="hs_srv">Servers</div></div>
 <div class="hs"><div class="hs-v">10K+</div><div class="hs-l" data-i18n="hs_usr">Users</div></div>
 <div class="hs"><div class="hs-v">50+</div><div class="hs-l" data-i18n="hs_cmd">Commands</div></div>
 <div class="hs"><div class="hs-v">99.9%</div><div class="hs-l" data-i18n="hs_up">Uptime</div></div>
+</div>
+</div>
+<div class="hero-visual" aria-label="Carapuz201G Discord control preview">
+<div class="bot-window">
+<div class="bot-topbar"><span>carapuz201g.bot</span><span class="bot-live">live</span></div>
+<div class="bot-screen">
+<div class="server-rail" aria-hidden="true">
+<span class="server-dot active">C</span>
+<span class="server-dot">M</span>
+<span class="server-dot">K</span>
+<span class="server-dot">T</span>
+</div>
+<div class="chat-panel">
+<div class="chat-title"># server-control</div>
+<div class="command-line">/setup moderation tickets economy</div>
+<div class="bot-reply">
+<div class="reply-head">Carapuz201G configured</div>
+<div class="reply-grid">
+<div class="reply-pill">Auto-mod ready</div>
+<div class="reply-pill">Tickets online</div>
+<div class="reply-pill">Economy synced</div>
+<div class="reply-pill">AI local mode</div>
+</div>
+</div>
+<div class="activity-list" aria-label="Recent bot activity">
+<div class="activity-item"><span class="activity-icon">01</span><span>Muted raid spam before it reached chat.</span></div>
+<div class="activity-item"><span class="activity-icon">02</span><span>Opened a ticket and assigned the support role.</span></div>
+<div class="activity-item"><span class="activity-icon">03</span><span>Queued music, radio, giveaways, and reminders.</span></div>
+</div>
+</div>
+<div class="side-panel">
+<div class="side-title">Realtime</div>
+<div class="side-card"><strong>42 ms</strong><span>gateway ping</span></div>
+<div class="side-card"><strong>99.9%</strong><span>uptime</span></div>
+<div class="side-card"><strong>8 modules</strong><span>enabled</span></div>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -205,7 +246,7 @@ a{color:inherit;text-decoration:none}
 <h2 class="cta-t" data-i18n="cta_t">Ready to get started?</h2>
 <p class="cta-s" data-i18n="cta_s">Add Carapuz201G to your server today and unlock all features instantly. It's free, powerful, and easy to set up.</p>
 <div class="cta-btns">
-<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a btn-lg" target="_blank" data-i18n="btn_add_lg">➕ Add to Discord</a>
+<a href="./support/#invite" class="btn btn-a btn-lg" data-i18n="btn_add_lg">➕ Add to Discord</a>
 <a href="./features/" class="btn btn-o btn-lg" data-i18n="btn_learn">📖 Learn More</a>
 </div>
 </div>

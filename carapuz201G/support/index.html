@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
@@ -74,13 +74,17 @@ a{color:inherit;text-decoration:none}
 .ld-f{height:100%;width:0%;background:var(--acc);border-radius:3px;animation:lfx 1.2s ease forwards}
 @keyframes lfx{to{width:100%}}
 </style>
+<link rel="stylesheet" href="../assets/refresh.css">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+<script defer src="../assets/link-status.js"></script>
 </head>
 <body>
 <div class="ld-w" id="ldr"><div class="ld-e">💬</div><div style="color:var(--tx2);font-size:.85rem;letter-spacing:2px">SUPPORT</div><div class="ld-b"><div class="ld-f"></div></div></div>
 <header class="hdr">
 <div class="hdr-l">
-<a href="https://carapuzland.github.io" class="hm-lnk" title="CarapuzLand"><span class="em">🏝️</span></a>
-<a href="../" class="brand">Carapuz201G</a>
+<a href="https://carapuzland.github.io/" class="hm-lnk" title="CarapuzLand"><span class="em">🏝️</span></a>
+<a href="https://carapuzland.github.io/" class="brand">Carapuz201G</a>
 </div>
 <nav class="nav">
 <a href="../about/" data-i18n="nav_about">About</a>
@@ -94,8 +98,8 @@ a{color:inherit;text-decoration:none}
 <div class="hdr-r">
 <button class="th-btn" id="thBtn" title="Toggle theme">🌙</button>
 <div class="ld"><button class="lb" id="lBtn"><span class="fl" id="cF">🇺🇸</span><span class="ll" id="cL">English</span><span class="ar">▼</span></button><div class="lm" id="lMn"></div></div>
-<a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
-<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
+<a href="#contact" class="btn btn-o" data-i18n="btn_support">💬 Support</a>
+<a href="#invite" class="btn btn-a" data-i18n="btn_add">➕ Add Bot</a>
 <button class="mb" id="mBtn">☰</button>
 </div>
 </header>
@@ -113,8 +117,8 @@ a{color:inherit;text-decoration:none}
 <a href="../terms-of-service/" data-i18n="nav_terms">Terms of Service</a>
 </div>
 <div class="mab">
-<a href="https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands" class="btn btn-a" target="_blank" data-i18n="btn_add">➕ Add Bot</a>
-<a href="https://discord.gg/YOUR_INVITE" class="btn btn-o" target="_blank" data-i18n="btn_support">💬 Support</a>
+<a href="#invite" class="btn btn-a" data-i18n="btn_add">➕ Add Bot</a>
+<a href="#contact" class="btn btn-o" data-i18n="btn_support">💬 Support</a>
 </div>
 </div>
 <main>
@@ -136,8 +140,8 @@ a{color:inherit;text-decoration:none}
 <script>
 const en={
 cards:[
-{i:"💬",t:"Support Server",d:"Join our Discord support server for real-time help, announcements, updates, and community discussion.",b:"Join Server",h:"https://discord.gg/YOUR_INVITE",ext:true},
-{i:"➕",t:"Add the Bot",d:"Add Carapuz201G to your Discord server with a single click and start configuring it immediately.",b:"Add Bot",h:"https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands",ext:true},
+{i:"💬",t:"Support Server",d:"Join our Discord support server for real-time help, announcements, updates, and community discussion.",b:"Join Server",h:"#contact",ext:false},
+{i:"➕",t:"Add the Bot",d:"Add Carapuz201G to your Discord server with a single click and start configuring it immediately.",b:"Add Bot",h:"#invite",ext:false},
 {i:"📋",t:"Commands List",d:"Need to know which command does what? Browse the full command list with search and filters.",b:"View Commands",h:"../commands/",ext:false}
 ],
 blocks:[
@@ -151,8 +155,8 @@ blocks:[
 
 const ru={
 cards:[
-{i:"💬",t:"Сервер поддержки",d:"Присоединяйтесь к нашему Discord-серверу поддержки для помощи в реальном времени, объявлений и общения.",b:"Присоединиться",h:"https://discord.gg/YOUR_INVITE",ext:true},
-{i:"➕",t:"Добавить бота",d:"Добавьте Carapuz201G на свой Discord-сервер одним кликом и начните настройку сразу.",b:"Добавить бота",h:"https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands",ext:true},
+{i:"💬",t:"Сервер поддержки",d:"Присоединяйтесь к нашему Discord-серверу поддержки для помощи в реальном времени, объявлений и общения.",b:"Присоединиться",h:"#contact",ext:false},
+{i:"➕",t:"Добавить бота",d:"Добавьте Carapuz201G на свой Discord-сервер одним кликом и начните настройку сразу.",b:"Добавить бота",h:"#invite",ext:false},
 {i:"📋",t:"Список команд",d:"Нужно узнать, какая команда что делает? Просмотрите полный список команд с поиском и фильтрами.",b:"Открыть команды",h:"../commands/",ext:false}
 ],
 blocks:[
@@ -166,8 +170,8 @@ blocks:[
 
 const uk={
 cards:[
-{i:"💬",t:"Сервер підтримки",d:"Приєднуйтесь до нашого Discord-сервера підтримки для допомоги в реальному часі.",b:"Приєднатися",h:"https://discord.gg/YOUR_INVITE",ext:true},
-{i:"➕",t:"Додати бота",d:"Додайте Carapuz201G на свій сервер одним кліком.",b:"Додати бота",h:"https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands",ext:true},
+{i:"💬",t:"Сервер підтримки",d:"Приєднуйтесь до нашого Discord-сервера підтримки для допомоги в реальному часі.",b:"Приєднатися",h:"#contact",ext:false},
+{i:"➕",t:"Додати бота",d:"Додайте Carapuz201G на свій сервер одним кліком.",b:"Додати бота",h:"#invite",ext:false},
 {i:"📋",t:"Список команд",d:"Перегляньте повний список команд з пошуком і фільтрами.",b:"Команди",h:"../commands/",ext:false}
 ],
 blocks:[
@@ -182,7 +186,7 @@ blocks:[
 /* Compact fallback for EU languages */
 function mkD(a,b,c,d,e,f){return{cards:a,blocks:[{i:"🛠️",t:b[0],b:b[1]},{i:"🐛",t:c[0],b:c[1]},{i:"🔒",t:d[0],b:d[1]},{i:"⚡",t:e[0],b:e[1]},{i:"📨",t:f[0],b:f[1]}]}}
 const de=mkD(
-[{i:"💬",t:"Support-Server",d:"Treten Sie unserem Discord-Server für Hilfe in Echtzeit bei.",b:"Beitreten",h:"https://discord.gg/YOUR_INVITE",ext:true},{i:"➕",t:"Bot hinzufügen",d:"Fügen Sie Carapuz201G zu Ihrem Server hinzu.",b:"Bot hinzufügen",h:"https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands",ext:true},{i:"📋",t:"Befehlsliste",d:"Sehen Sie sich alle Befehle an.",b:"Befehle",h:"../commands/",ext:false}],
+[{i:"💬",t:"Support-Server",d:"Treten Sie unserem Discord-Server für Hilfe in Echtzeit bei.",b:"Beitreten",h:"#contact",ext:false},{i:"➕",t:"Bot hinzufügen",d:"Fügen Sie Carapuz201G zu Ihrem Server hinzu.",b:"Bot hinzufügen",h:"#invite",ext:false},{i:"📋",t:"Befehlsliste",d:"Sehen Sie sich alle Befehle an.",b:"Befehle",h:"../commands/",ext:false}],
 ["Hilfe erhalten","Der schnellste Weg ist unser Support-Server. Dort können Sie Fragen stellen, Probleme melden und Feedback geben."],
 ["Fehlerberichte","Bitte beschreiben Sie den Fehler, erwartetes Verhalten, tatsächliches Verhalten und fügen Sie Screenshots oder Logs hinzu."],
 ["Datenschutz & Datenanfragen","Für Datenschutzfragen oder Löschanfragen öffnen Sie ein Ticket oder verwenden Sie <code>/support</code>."],
@@ -190,7 +194,7 @@ const de=mkD(
 ["Kontakt","Der Discord-Support-Server ist unser Hauptkontaktkanal."]
 );
 const fr=mkD(
-[{i:"💬",t:"Serveur de support",d:"Rejoignez notre serveur Discord.",b:"Rejoindre",h:"https://discord.gg/YOUR_INVITE",ext:true},{i:"➕",t:"Ajouter le bot",d:"Ajoutez Carapuz201G à votre serveur.",b:"Ajouter",h:"https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands",ext:true},{i:"📋",t:"Liste des commandes",d:"Consultez toutes les commandes.",b:"Commandes",h:"../commands/",ext:false}],
+[{i:"💬",t:"Serveur de support",d:"Rejoignez notre serveur Discord.",b:"Rejoindre",h:"#contact",ext:false},{i:"➕",t:"Ajouter le bot",d:"Ajoutez Carapuz201G à votre serveur.",b:"Ajouter",h:"#invite",ext:false},{i:"📋",t:"Liste des commandes",d:"Consultez toutes les commandes.",b:"Commandes",h:"../commands/",ext:false}],
 ["Obtenir de l'aide","Le moyen le plus rapide est notre serveur de support Discord."],
 ["Rapports de bugs","Décrivez le problème, le comportement attendu et joignez des captures ou logs."],
 ["Confidentialité & demandes de données","Pour les questions de confidentialité, ouvrez un ticket ou utilisez <code>/support</code>."],
@@ -198,7 +202,7 @@ const fr=mkD(
 ["Contact","Le serveur Discord est notre principal canal de contact."]
 );
 const es=mkD(
-[{i:"💬",t:"Servidor de soporte",d:"Únete a nuestro servidor de Discord.",b:"Unirse",h:"https://discord.gg/YOUR_INVITE",ext:true},{i:"➕",t:"Añadir bot",d:"Añade Carapuz201G a tu servidor.",b:"Añadir",h:"https://discord.com/oauth2/authorize?client_id=YOUR_ID&permissions=8&scope=bot%20applications.commands",ext:true},{i:"📋",t:"Lista de comandos",d:"Consulta todos los comandos.",b:"Comandos",h:"../commands/",ext:false}],
+[{i:"💬",t:"Servidor de soporte",d:"Únete a nuestro servidor de Discord.",b:"Unirse",h:"#contact",ext:false},{i:"➕",t:"Añadir bot",d:"Añade Carapuz201G a tu servidor.",b:"Añadir",h:"#invite",ext:false},{i:"📋",t:"Lista de comandos",d:"Consulta todos los comandos.",b:"Comandos",h:"../commands/",ext:false}],
 ["Cómo obtener ayuda","La forma más rápida es nuestro servidor de soporte."],
 ["Reportes de errores","Describe el problema, lo esperado y añade capturas o registros."],
 ["Privacidad y datos","Para solicitudes de datos usa un ticket o <code>/support</code>."],
@@ -242,13 +246,27 @@ d.innerHTML=`<span class="fl">${T[c].flag}</span><span>${T[c].name}</span>`;
 d.onclick=()=>{setLang(c);closeLM()};m.appendChild(d);
 });
 }
+
+const LINK_COPY={
+en:{contact:{t:"Support link status",d:"A public Discord invite is not configured in this static site yet. Use the commands page and the built-in <code>/support</code> command until the real invite is added.",b:"Support status"},invite:{t:"Bot invite status",d:"The Discord OAuth install URL needs the real application client ID. The broken placeholder link was removed so users are not sent to a dead Discord page.",b:"Invite status"}},
+ru:{contact:{t:"Статус ссылки поддержки",d:"Публичный Discord-инвайт пока не настроен на этом статическом сайте. Используйте страницу команд и встроенную команду <code>/support</code>, пока реальная ссылка не добавлена.",b:"Статус поддержки"},invite:{t:"Статус инвайта бота",d:"OAuth-ссылка установки Discord требует реальный client ID приложения. Сломанная заглушка удалена, чтобы пользователи не попадали на нерабочую страницу Discord.",b:"Статус инвайта"}},
+uk:{contact:{t:"Статус посилання підтримки",d:"Публічний Discord-інвайт поки не налаштований на цьому статичному сайті. Використовуйте сторінку команд і вбудовану команду <code>/support</code>, доки реальне посилання не додано.",b:"Статус підтримки"},invite:{t:"Статус інвайта бота",d:"OAuth-посилання встановлення Discord потребує реальний client ID застосунку. Зламану заглушку прибрано, щоб користувачі не потрапляли на неробочу сторінку Discord.",b:"Статус інвайта"}},
+de:{contact:{t:"Status des Support-Links",d:"Ein öffentlicher Discord-Einladungslink ist auf dieser statischen Seite noch nicht konfiguriert. Nutze vorerst die Befehlsseite und den integrierten Befehl <code>/support</code>.",b:"Support-Status"},invite:{t:"Status der Bot-Einladung",d:"Die Discord-OAuth-Installationsadresse benötigt die echte Application Client ID. Der kaputte Platzhalterlink wurde entfernt.",b:"Invite-Status"}},
+fr:{contact:{t:"Statut du lien de support",d:"L'invitation Discord publique n'est pas encore configurée sur ce site statique. Utilisez la page des commandes et la commande <code>/support</code> jusqu'à l'ajout du vrai lien.",b:"Statut support"},invite:{t:"Statut de l'invitation du bot",d:"L'URL OAuth Discord nécessite le vrai client ID de l'application. Le lien de remplacement cassé a été retiré.",b:"Statut invitation"}},
+es:{contact:{t:"Estado del enlace de soporte",d:"La invitación pública de Discord aún no está configurada en este sitio estático. Usa la página de comandos y el comando <code>/support</code> hasta que se agregue el enlace real.",b:"Estado de soporte"},invite:{t:"Estado de invitación del bot",d:"La URL OAuth de Discord necesita el client ID real de la aplicación. Se eliminó el enlace roto de marcador de posición.",b:"Estado de invitación"}}
+};
+function linkCopy(code, href){
+if(!href||href[0]!=='#')return null;
+const key=href.slice(1),base=code.split('-')[0];
+return (LINK_COPY[base]&&LINK_COPY[base][key])||(LINK_COPY.en&&LINK_COPY.en[key])||null;
+}
 function setLang(c){
 if(!T[c])c='en-US';lang=c;localStorage.setItem('c2g-lang',c);const t=T[c];
 document.getElementById('cF').textContent=t.flag;
 document.getElementById('cL').textContent=t.name;
 document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k]});
 const sec=document.getElementById('ct');let h='<div class="cg">';
-t.data.cards.forEach((card,i)=>{h+=`<div class="cc rv" style="transition-delay:${i*.06}s"><div class="cci">${card.i}</div><div class="cct">${card.t}</div><div class="ccd">${card.d}</div><a href="${card.h}" class="btn btn-a" ${card.ext?'target="_blank"':''}>${card.b}</a></div>`});
+t.data.cards.forEach((card,i)=>{const lc=linkCopy(c,card.h),id=card.h&&card.h[0]==='#'?` id="${card.h.slice(1)}"`:'';h+=`<div${id} class="cc rv" style="transition-delay:${i*.06}s"><div class="cci">${card.i}</div><div class="cct">${lc?lc.t:card.t}</div><div class="ccd">${lc?lc.d:card.d}</div><a href="${card.h}" class="btn btn-a" ${card.ext?'target="_blank"':''}>${lc?lc.b:card.b}</a></div>`});
 h+='</div>';
 t.data.blocks.forEach((b,i)=>{h+=`<div class="ib rv" style="transition-delay:${(i+3)*.06}s"><h3>${b.i} ${b.t}</h3><p>${b.b}</p></div>`});
 sec.innerHTML=h;

@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>📝 OCR Image to Text</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
 :root{--bg:#f0f4f8;--card:#fff;--pri:#7c3aed;--tx:#1e293b;--bor:#e2e8f0;--hov:#f8fafc}
 [data-theme="dark"]{--bg:#0f172a;--card:#1e293b;--tx:#f1f5f9;--bor:#334155;--hov:#334155}
@@ -28,13 +29,17 @@ textarea:focus{outline:none;border-color:var(--pri)}
 <body>
 <div class="hdr">
   <div class="hdr-btns">
-    <button onclick="document.documentElement.setAttribute('data-theme',document.documentElement.getAttribute('data-theme')==='dark'?'':'dark');localStorage.setItem('ocrTheme',document.documentElement.getAttribute('data-theme'))">🌓</button>
+    <select id="uiLangSel" onchange="changeUiLang(this.value)">
+      <option value="en">EN</option><option value="uk">UK</option>
+      <option value="ru">RU</option><option value="de">DE</option>
+    </select>
+    <button onclick="toggleTheme()" id="themeBtn" title="Toggle theme">🌓</button>
   </div>
-  <h1>📝 Image to Text (OCR)</h1>
+  <h1 id="tTitle">📝 Image to Text (OCR)</h1>
 </div>
 <div class="wrap">
   <div class="card">
-    <label style="font-weight:bold;display:block;margin-bottom:.5rem">Select Text Language:</label>
+    <label id="tTextLang" style="font-weight:bold;display:block;margin-bottom:.5rem">Select Text Language:</label>
     <select id="langSel" style="padding:.8rem;border-radius:8px;border:1px solid var(--bor);background:var(--hov);color:var(--tx);width:100%;margin-bottom:1rem;font-size:1rem" onchange="localStorage.setItem('ocrLang',this.value)">
       <option value="eng">🇬🇧 English</option>
       <option value="ukr">🇺🇦 Ukrainian</option>
@@ -46,8 +51,8 @@ textarea:focus{outline:none;border-color:var(--pri)}
     </select>
 
     <div class="drop" id="drop">
-      <h2 style="margin-bottom:.5rem">📸 Drop image here or click</h2>
-      <p style="color:var(--tx3)">Supports Paste (Ctrl+V)</p>
+      <h2 id="tDrop" style="margin-bottom:.5rem">📸 Drop image here or click</h2>
+      <p id="tPaste" style="color:var(--tx3)">Supports paste (Ctrl+V)</p>
       <input type="file" id="fi" accept="image/*">
     </div>
 
@@ -55,11 +60,36 @@ textarea:focus{outline:none;border-color:var(--pri)}
     <div id="stat" style="text-align:center;margin-top:.5rem;font-size:.85rem;color:var(--tx3);font-weight:bold"></div>
 
     <textarea id="out" placeholder="Extracted text will appear here..."></textarea>
-    <button class="btn" onclick="copy()">📋 Copy Text</button>
+    <button class="btn" id="copyBtn" onclick="copy()">📋 Copy Text</button>
   </div>
 </div>
 
 <script>
+const UI={
+  en:{title:'📝 Image to Text (OCR)',textLang:'Select text language:',drop:'📸 Drop image here or click',paste:'Supports paste (Ctrl+V)',ph:'Extracted text will appear here...',copy:'📋 Copy Text',done:'✅ Done!',copied:'Copied to clipboard!',empty:'Nothing to copy yet.',error:'❌ Error',statuses:{'loading tesseract core':'Loading OCR engine...','initializing tesseract':'Initializing OCR engine...','loading language traineddata':'Loading language data...','initializing api':'Preparing recognition...','recognizing text':'Recognizing text...'}},
+  uk:{title:'📝 Зображення в текст (OCR)',textLang:'Мова тексту на зображенні:',drop:'📸 Киньте зображення сюди або натисніть',paste:'Підтримує вставлення (Ctrl+V)',ph:'Розпізнаний текст зʼявиться тут...',copy:'📋 Скопіювати текст',done:'✅ Готово!',copied:'Скопійовано в буфер обміну!',empty:'Поки що нічого копіювати.',error:'❌ Помилка',statuses:{'loading tesseract core':'Завантаження OCR-движка...','initializing tesseract':'Ініціалізація OCR-движка...','loading language traineddata':'Завантаження мовних даних...','initializing api':'Підготовка розпізнавання...','recognizing text':'Розпізнавання тексту...'}},
+  ru:{title:'📝 Изображение в текст (OCR)',textLang:'Язык текста на изображении:',drop:'📸 Бросьте изображение сюда или нажмите',paste:'Поддерживает вставку (Ctrl+V)',ph:'Распознанный текст появится здесь...',copy:'📋 Скопировать текст',done:'✅ Готово!',copied:'Скопировано в буфер обмена!',empty:'Пока нечего копировать.',error:'❌ Ошибка',statuses:{'loading tesseract core':'Загрузка OCR-движка...','initializing tesseract':'Инициализация OCR-движка...','loading language traineddata':'Загрузка языковых данных...','initializing api':'Подготовка распознавания...','recognizing text':'Распознавание текста...'}},
+  de:{title:'📝 Bild zu Text (OCR)',textLang:'Textsprache auswählen:',drop:'📸 Bild hier ablegen oder klicken',paste:'Einfügen wird unterstützt (Strg+V)',ph:'Erkannter Text erscheint hier...',copy:'📋 Text kopieren',done:'✅ Fertig!',copied:'In die Zwischenablage kopiert!',empty:'Noch kein Text zum Kopieren.',error:'❌ Fehler',statuses:{'loading tesseract core':'OCR-Engine wird geladen...','initializing tesseract':'OCR-Engine wird initialisiert...','loading language traineddata':'Sprachdaten werden geladen...','initializing api':'Erkennung wird vorbereitet...','recognizing text':'Text wird erkannt...'}}
+};
+let uiLang=localStorage.getItem('ocrUiLang')||'en';
+function ui(k){return (UI[uiLang]&&UI[uiLang][k])||UI.en[k]||k}
+function toggleTheme(){
+  const isDark=document.documentElement.getAttribute('data-theme')==='dark';
+  document.documentElement.setAttribute('data-theme',isDark?'':'dark');
+  localStorage.setItem('ocrTheme',isDark?'light':'dark');
+}
+function changeUiLang(l){uiLang=UI[l]?l:'en';localStorage.setItem('ocrUiLang',uiLang);applyUI()}
+function mapStatus(status){return (UI[uiLang].statuses&&UI[uiLang].statuses[status])||status}
+function applyUI(){
+  document.documentElement.lang=uiLang;
+  document.getElementById('uiLangSel').value=uiLang;
+  document.getElementById('tTitle').textContent=ui('title');
+  document.getElementById('tTextLang').textContent=ui('textLang');
+  document.getElementById('tDrop').textContent=ui('drop');
+  document.getElementById('tPaste').textContent=ui('paste');
+  document.getElementById('out').placeholder=ui('ph');
+  document.getElementById('copyBtn').textContent=ui('copy');
+}
 if(localStorage.getItem('ocrTheme')==='dark') document.documentElement.setAttribute('data-theme','dark');
 if(localStorage.getItem('ocrLang')) document.getElementById('langSel').value=localStorage.getItem('ocrLang');
 
@@ -72,24 +102,37 @@ document.addEventListener('paste',e=>{
 
 fi.onchange=e=>{if(e.target.files[0]) runOCR(e.target.files[0])};
 
+['dragenter','dragover'].forEach(ev=>document.getElementById('drop').addEventListener(ev,e=>{
+  e.preventDefault(); document.getElementById('drop').style.borderColor='var(--pri)';
+}));
+['dragleave','drop'].forEach(ev=>document.getElementById('drop').addEventListener(ev,e=>{
+  e.preventDefault(); document.getElementById('drop').style.borderColor='var(--bor)';
+}));
+document.getElementById('drop').addEventListener('drop',e=>runOCR(e.dataTransfer.files[0]));
+
 async function runOCR(file){
+  if(!file)return;
   prog.style.display='block'; fill.style.width='0%'; out.value='';
   const lang=document.getElementById('langSel').value;
   try{
     const worker = await Tesseract.createWorker(lang, 1, {
       logger: m => {
-        stat.textContent = m.status;
+        stat.textContent = mapStatus(m.status);
         if(m.status==='recognizing text') fill.style.width=(m.progress*100)+'%';
       }
     });
     const {data} = await worker.recognize(file);
     await worker.terminate();
     out.value = data.text;
-    stat.textContent='✅ Done!';
-  }catch(e){stat.textContent='❌ Error: '+e.message;}
+    stat.textContent=ui('done');
+  }catch(e){stat.textContent=`${ui('error')}: ${e.message}`;}
 }
 
-function copy(){navigator.clipboard.writeText(out.value); alert('Copied to clipboard!');}
+function copy(){
+  if(!out.value.trim()){alert(ui('empty'));return}
+  navigator.clipboard.writeText(out.value); alert(ui('copied'));
+}
+applyUI();
 </script>
 </body>
 </html>

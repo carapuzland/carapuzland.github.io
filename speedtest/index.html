@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>⚡ SpeedTest Pro</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <style>
   :root {
@@ -126,8 +127,8 @@
   <div class="res-grid">
     <div class="res-box"><div class="res-ic">⬇️</div><div class="res-val" id="rDown">—</div><div class="res-lbl" id="t_dl">Download</div><div style="font-size:0.7rem;color:var(--tx3)">Mbps</div></div>
     <div class="res-box"><div class="res-ic">⬆️</div><div class="res-val" id="rUp">—</div><div class="res-lbl" id="t_ul">Upload</div><div style="font-size:0.7rem;color:var(--tx3)">Mbps</div></div>
-    <div class="res-box"><div class="res-ic">🏓</div><div class="res-val" id="rPing">—</div><div class="res-lbl">Ping</div><div style="font-size:0.7rem;color:var(--tx3)">ms</div></div>
-    <div class="res-box"><div class="res-ic">📊</div><div class="res-val" id="rJitter">—</div><div class="res-lbl">Jitter</div><div style="font-size:0.7rem;color:var(--tx3)">ms</div></div>
+    <div class="res-box"><div class="res-ic">🏓</div><div class="res-val" id="rPing">—</div><div class="res-lbl" id="t_ping">Ping</div><div style="font-size:0.7rem;color:var(--tx3)">ms</div></div>
+    <div class="res-box"><div class="res-ic">📊</div><div class="res-val" id="rJitter">—</div><div class="res-lbl" id="t_jitter">Jitter</div><div style="font-size:0.7rem;color:var(--tx3)">ms</div></div>
   </div>
 
   <!-- Quality & Chart -->
@@ -158,8 +159,10 @@
 const TRANSLATIONS = {
   en: {
     mainTitle:'⚡ SpeedTest Pro', subTitle:'Download · Upload · Ping · Jitter · Services',
-    dl:'Download', ul:'Upload', start:'▶ Start Test', running:'⏳ Testing...', done:'✅ Test Complete!',
+    dl:'Download', ul:'Upload', ping:'Ping', jitter:'Jitter', start:'▶ Start Test', ready:'Press Start to begin', running:'⏳ Testing...', done:'✅ Test Complete!',
     ipTitle:'🌍 IP & Provider Info', srvTitle:'🌐 Services Availability', btnCheck:'🔄 Check',
+    ipAddress:'IP Address', provider:'Provider (ISP)', location:'Location', asn:'ASN',
+    ipBlocked:'AdBlocker or privacy extension blocked IP check.<br>Disable tracker blocking to see IP info.',
     qosTitle:'📈 Network Quality',
     errDNS:'Blocked / DNS', errTime:'Timeout',
     phPing:'🏓 Measuring Ping & Jitter...', phDown:'⬇️ Testing Download Speed...', phUp:'⬆️ Testing Upload Speed...',
@@ -168,8 +171,10 @@ const TRANSLATIONS = {
   },
   uk: {
     mainTitle:'⚡ SpeedTest Pro', subTitle:'Завантаження · Віддача · Пінг · Джитер · Сервіси',
-    dl:'Завант.', ul:'Віддача', start:'▶ Почати Тест', running:'⏳ Тестування...', done:'✅ Тест Завершено!',
+    dl:'Завант.', ul:'Віддача', ping:'Пінг', jitter:'Джитер', start:'▶ Почати Тест', ready:'Натисніть старт, щоб почати', running:'⏳ Тестування...', done:'✅ Тест Завершено!',
     ipTitle:'🌍 Інформація про IP та Провайдера', srvTitle:'🌐 Доступність Сервісів', btnCheck:'🔄 Перевірити',
+    ipAddress:'IP-адреса', provider:'Провайдер (ISP)', location:'Локація', asn:'ASN',
+    ipBlocked:'AdBlocker або розширення приватності заблокувало перевірку IP.<br>Вимкніть блокування трекерів, щоб побачити інформацію про IP.',
     qosTitle:'📈 Якість Мережі',
     errDNS:'Блок / DNS', errTime:'Таймаут',
     phPing:'🏓 Вимірювання Пінгу та Джитеру...', phDown:'⬇️ Тестування Завантаження...', phUp:'⬆️ Тестування Віддачі...',
@@ -178,13 +183,27 @@ const TRANSLATIONS = {
   },
   ru: {
     mainTitle:'⚡ SpeedTest Pro', subTitle:'Скачивание · Отдача · Пинг · Джиттер · Сервисы',
-    dl:'Скачивание', ul:'Отдача', start:'▶ Начать Тест', running:'⏳ Тестируем...', done:'✅ Тест Завершен!',
+    dl:'Скачивание', ul:'Отдача', ping:'Пинг', jitter:'Джиттер', start:'▶ Начать Тест', ready:'Нажмите старт, чтобы начать', running:'⏳ Тестируем...', done:'✅ Тест Завершен!',
     ipTitle:'🌍 Информация об IP и Провайдере', srvTitle:'🌐 Доступность Сервисов', btnCheck:'🔄 Проверить',
+    ipAddress:'IP-адрес', provider:'Провайдер (ISP)', location:'Локация', asn:'ASN',
+    ipBlocked:'AdBlocker или расширение приватности заблокировало проверку IP.<br>Отключите блокировку трекеров, чтобы увидеть данные IP.',
     qosTitle:'📈 Качество Сети',
     errDNS:'Блок / DNS', errTime:'Таймаут',
     phPing:'🏓 Измерение Пинга и Джиттера...', phDown:'⬇️ Тестирование Скачивания...', phUp:'⬆️ Тестирование Отдачи...',
     qosStream:'Стриминг (4K/HD)', qosGame:'Онлайн Игры', qosVideo:'Видеозвонки', qosBrowse:'Серфинг в Интернете',
     exc:'Отлично', good:'Хорошо', fair:'Удовлетворительно', poor:'Плохо'
+  },
+  de: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Download · Upload · Ping · Jitter · Dienste',
+    dl:'Download', ul:'Upload', ping:'Ping', jitter:'Jitter', start:'▶ Test starten', ready:'Start drücken, um zu beginnen', running:'⏳ Test läuft...', done:'✅ Test abgeschlossen!',
+    ipTitle:'🌍 IP- und Provider-Info', srvTitle:'🌐 Dienstverfügbarkeit', btnCheck:'🔄 Prüfen',
+    ipAddress:'IP-Adresse', provider:'Provider (ISP)', location:'Standort', asn:'ASN',
+    ipBlocked:'AdBlocker oder Datenschutz-Erweiterung hat die IP-Prüfung blockiert.<br>Deaktiviere Tracker-Blockierung, um die IP-Info zu sehen.',
+    qosTitle:'📈 Netzwerkqualität',
+    errDNS:'Blockiert / DNS', errTime:'Zeitüberschreitung',
+    phPing:'🏓 Ping und Jitter werden gemessen...', phDown:'⬇️ Download-Geschwindigkeit wird getestet...', phUp:'⬆️ Upload-Geschwindigkeit wird getestet...',
+    qosStream:'Streaming (4K/HD)', qosGame:'Online-Gaming', qosVideo:'Videoanrufe', qosBrowse:'Surfen',
+    exc:'Ausgezeichnet', good:'Gut', fair:'Okay', poor:'Schlecht'
   }
 };
 
@@ -201,32 +220,46 @@ function toggleTheme() {
 }
 
 function changeLang(l) {
+  if(!TRANSLATIONS[l]) l='en';
   currentLang = l; localStorage.setItem('speedLang', l);
+  document.documentElement.lang = currentLang;
   $('langSel').value = l;
   $('t_mainTitle').textContent = t('mainTitle'); $('t_subTitle').textContent = t('subTitle');
   $('t_dl').textContent = t('dl'); $('t_ul').textContent = t('ul');
+  $('t_ping').textContent = t('ping'); $('t_jitter').textContent = t('jitter');
   $('t_ipTitle').textContent = t('ipTitle'); $('t_srvTitle').textContent = t('srvTitle');
   $('t_btnCheck').innerHTML = t('btnCheck'); $('t_qosTitle').textContent = t('qosTitle');
   if(!isTesting) $('btnStart').textContent = t('start');
-  if(!isTesting && currentGaugeVal===0) $('statusTxt').textContent = "Press Start to begin";
+  if(!isTesting && currentGaugeVal===0) $('statusTxt').textContent = t('ready');
+  if(lastIpData) renderIPInfo(lastIpData);
+  else if($('ipInfo').dataset.state==='blocked') $('ipInfo').innerHTML = t('ipBlocked');
 }
 
 /* ════════════════════════════════════════════════════════════
    2. IP & SERVICES LOGIC
    ════════════════════════════════════════════════════════════ */
+let lastIpData = null;
+
+function renderIPInfo(d) {
+  $('ipInfo').dataset.state = 'ok';
+  $('ipInfo').innerHTML = `
+    <b>${t('ipAddress')}:</b> ${d.ip} <br>
+    <b>${t('provider')}:</b> <span style="color:var(--pri);font-weight:bold">${d.org}</span> <br>
+    <b>${t('location')}:</b> ${d.city}, ${d.region}, ${d.country_name} ${d.country_code} <br>
+    <b>${t('asn')}:</b> ${d.asn}
+  `;
+}
+
 async function loadIPInfo() {
   try {
     const r = await fetch('https://ipapi.co/json/');
     const d = await r.json();
     if(d.error) throw new Error("API Limit");
-    $('ipInfo').innerHTML = `
-      <b>IP Address:</b> ${d.ip} <br>
-      <b>Provider (ISP):</b> <span style="color:var(--pri);font-weight:bold">${d.org}</span> <br>
-      <b>Location:</b> ${d.city}, ${d.region}, ${d.country_name} ${d.country_code} <br>
-      <b>ASN:</b> ${d.asn}
-    `;
+    lastIpData = d;
+    renderIPInfo(d);
   } catch(e) {
-    $('ipInfo').innerHTML = 'AdBlocker or privacy extension blocked IP check. <br> Disable tracker blocking to see IP info.';
+    $('ipInfo').dataset.state = 'blocked';
+    $('ipInfo').innerHTML = t('ipBlocked');
   }
 }
 
@@ -241,21 +274,37 @@ const SERVICES = [
   {n:'Zoom', u:'https://zoom.us', i:'📹'}, {n:'PayPal', u:'https://www.paypal.com', i:'💳'}
 ];
 
-async function checkServices() {
-  const grid = $('srvGrid'); grid.innerHTML = '';
-  SERVICES.forEach(s => {
-    const id = 's_' + s.n.replace(/[^a-zA-Z0-9]/g, '');
-    grid.innerHTML += `<div class="srv-item"><div class="srv-name">${s.i} ${s.n}</div><div class="srv-stat" id="${id}">...</div></div>`;
+function probeService(url, timeout = 5000) {
+  return new Promise((resolve, reject) => {
+    let done = false;
+    const img = new Image();
+    const finish = (ok, reason = 'DNS') => {
+      if(done) return;
+      done = true;
+      clearTimeout(timer);
+      ok ? resolve() : reject(reason);
+    };
+    const timer = setTimeout(() => finish(false, 'TIMEOUT'), timeout);
+    try {
+      const u = new URL(url);
+      img.referrerPolicy = 'no-referrer';
+      img.onload = () => finish(true);
+      img.onerror = () => finish(false);
+      img.src = `${u.origin}/favicon.ico?_=${Date.now()}`;
+    } catch(e) {
+      finish(false);
+    }
   });
+}
+
+async function checkServices() {
+  renderServices('...');
 
   for(const s of SERVICES) {
     const id = 's_' + s.n.replace(/[^a-zA-Z0-9]/g, '');
     const st = performance.now();
     try {
-      await Promise.race([
-        fetch(s.u, {mode:'no-cors', cache:'no-store'}),
-        new Promise((_, r) => setTimeout(() => r('TIMEOUT'), 5000))
-      ]);
+      await probeService(s.u, 5000);
       const time = Math.round(performance.now() - st);
       let cls = 's-up'; if(time > 800) cls = 's-warn'; if(time > 2000) cls = 's-down';
       $(id).innerHTML = `<span class="${cls}">${time} ms</span>`;
@@ -264,6 +313,14 @@ async function checkServices() {
       $(id).innerHTML = `<span class="s-down">${errTxt}</span>`;
     }
   }
+}
+
+function renderServices(status = '—') {
+  const grid = $('srvGrid'); grid.innerHTML = '';
+  SERVICES.forEach(s => {
+    const id = 's_' + s.n.replace(/[^a-zA-Z0-9]/g, '');
+    grid.innerHTML += `<div class="srv-item"><div class="srv-name">${s.i} ${s.n}</div><div class="srv-stat" id="${id}">${status}</div></div>`;
+  });
 }
 
 /* ════════════════════════════════════════════════════════════
@@ -339,6 +396,7 @@ async function runSpeedTest() {
 
   ['rDown', 'rUp', 'rPing', 'rJitter'].forEach(id => { $(id).textContent = '...'; $(id).style.color = ''; });
   $('qosCard').style.display = 'none'; $('chartWrap').style.display = 'none';
+  $('qosGrid').style.display = 'none';
   $('progBar').style.display = 'block'; $('progFill').style.width = '0%';
 
   try {
@@ -474,6 +532,7 @@ function calcQoS(dl, ul, ping, jit) {
     <div class="qos-box" style="background:${bg}"><div class="qos-ic">📹</div><div class="qos-title">${t('qosVideo')}</div><div class="qos-val" style="color:${video.c}">${video.ic} ${video.t}</div></div>
     <div class="qos-box" style="background:${bg}"><div class="qos-ic">🌐</div><div class="qos-title">${t('qosBrowse')}</div><div class="qos-val" style="color:${browse.c}">${browse.ic} ${browse.t}</div></div>
   `;
+  $('qosGrid').style.display = 'grid';
 }
 
 // Bootstrap
@@ -482,7 +541,7 @@ document.addEventListener('DOMContentLoaded', () => {
   $('langSel').value = currentLang;
   changeLang(currentLang);
   loadIPInfo();
-  checkServices();
+  renderServices();
 });
 </script>
 </body>
