@@ -7,26 +7,39 @@
     fr:{invite:"➕ Statut invitation",contact:"💬 Statut support",inviteTitle:"L'invitation OAuth Discord n'est pas encore configurée.",contactTitle:"L'invitation publique Discord de support n'est pas encore configurée."},
     es:{invite:"➕ Estado invitación",contact:"💬 Estado soporte",inviteTitle:"La invitación OAuth de Discord aún no está configurada.",contactTitle:"La invitación pública de soporte de Discord aún no está configurada."}
   };
+  const VS_RE=/[\uFE0E\uFE0F]/g;
+  const EMOJI_RE=new RegExp('(?:\\p{Regional_Indicator}{2}|[#*0-9]\\uFE0F?\\u20E3|(?:\\p{Emoji_Presentation}|\\p{Extended_Pictographic})(?:\\uFE0F|\\uFE0E)?|[\\u26A1\\u26A0\\u2705\\u274C\\u25B6\\u2B06\\u2B07\\u2600\\u2601\\u2614\\u26C5\\u26C8])','gu');
   function langBase(){
     return (document.documentElement.lang||"en").toLowerCase().split("-")[0];
   }
   function copy(){
     return LABELS[langBase()]||LABELS.en;
   }
+  function plainLabel(text){
+    EMOJI_RE.lastIndex=0;
+    return (text||"").replace(EMOJI_RE,"").replace(VS_RE,"").replace(/\s+/g," ").trim();
+  }
+  function setLabel(a,label){
+    if(plainLabel(a.textContent)===plainLabel(label))return false;
+    a.textContent=label;
+    return true;
+  }
   function rewrite(){
     const c=copy();
+    let changed=false;
     document.querySelectorAll('a[href$="#invite"],a[href="#invite"]').forEach(a=>{
-      if(a.textContent!==c.invite)a.textContent=c.invite;
+      if(setLabel(a,c.invite))changed=true;
       a.title=c.inviteTitle;
       a.removeAttribute("target");
       a.rel="";
     });
     document.querySelectorAll('a[href$="#contact"],a[href="#contact"]').forEach(a=>{
-      if(a.textContent!==c.contact)a.textContent=c.contact;
+      if(setLabel(a,c.contact))changed=true;
       a.title=c.contactTitle;
       a.removeAttribute("target");
       a.rel="";
     });
+    if(changed&&window.SiteIcons)window.SiteIcons.refresh();
   }
   document.addEventListener("DOMContentLoaded",()=>{
     rewrite();
