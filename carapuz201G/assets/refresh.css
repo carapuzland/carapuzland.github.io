@@ -277,8 +277,8 @@ body::before {
 }
 
 .hero-i {
-  width: 70px;
-  height: 70px;
+  width: 58px;
+  height: 58px;
   margin-bottom: 1.4rem;
   display: inline-flex;
   align-items: center;
@@ -372,8 +372,8 @@ body::before {
 .bot-portrait {
   position: relative;
   z-index: 3;
-  width: min(240px, 48vw);
-  margin: 0 1.2rem -2.45rem auto;
+  width: min(142px, 34vw);
+  margin: 0 1.25rem -1.35rem auto;
   pointer-events: none;
   filter: drop-shadow(0 22px 34px rgba(2, 6, 23, 0.45));
 }
@@ -819,8 +819,8 @@ body::before {
   }
 
   .bot-portrait {
-    width: min(170px, 48vw);
-    margin: 0 0.8rem -1.55rem auto;
+    width: min(118px, 34vw);
+    margin: 0 0.8rem -1.05rem auto;
   }
 
   .hero-t {
