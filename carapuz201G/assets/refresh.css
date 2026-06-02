@@ -115,6 +115,14 @@ body::before {
   box-shadow: 0 10px 24px var(--glw);
 }
 
+.hm-lnk .em {
+  width: 30px;
+  height: 30px;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 7px 14px rgba(56, 189, 248, 0.28));
+}
+
 .brand {
   color: var(--tx);
   font-size: 1rem;
@@ -269,8 +277,8 @@ body::before {
 }
 
 .hero-i {
-  width: 58px;
-  height: 58px;
+  width: 70px;
+  height: 70px;
   margin-bottom: 1.4rem;
   display: inline-flex;
   align-items: center;
@@ -278,9 +286,18 @@ body::before {
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
   background: var(--shell);
-  font-size: 2rem;
+  padding: 0.34rem;
+  font-size: 0;
   animation: none;
   filter: none;
+}
+
+.hero-i img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(88, 101, 242, 0.28));
 }
 
 .hero-t {
@@ -352,6 +369,21 @@ body::before {
   z-index: 2;
 }
 
+.bot-portrait {
+  position: relative;
+  z-index: 3;
+  width: min(240px, 48vw);
+  margin: 0 1.2rem -2.45rem auto;
+  pointer-events: none;
+  filter: drop-shadow(0 22px 34px rgba(2, 6, 23, 0.45));
+}
+
+.bot-portrait img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .bot-window {
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
@@ -360,6 +392,22 @@ body::before {
     linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 36%),
     rgba(9, 13, 24, 0.72);
   box-shadow: var(--shadow-soft);
+}
+
+.ld-e {
+  width: 96px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  font-size: 0;
+  filter: drop-shadow(0 14px 28px rgba(88, 101, 242, 0.32));
+}
+
+.ld-e img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
 }
 
 [data-theme="light"] .bot-window {
@@ -764,10 +812,15 @@ body::before {
   }
 
   .hero-i {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     margin-bottom: 1rem;
-    font-size: 1.65rem;
+    padding: 0.28rem;
+  }
+
+  .bot-portrait {
+    width: min(170px, 48vw);
+    margin: 0 0.8rem -1.55rem auto;
   }
 
   .hero-t {
