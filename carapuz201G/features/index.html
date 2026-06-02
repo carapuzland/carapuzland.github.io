@@ -236,15 +236,16 @@ const navI18n={
 "fi":{nav_home:"Koti",nav_about:"Tietoa",nav_features:"Ominaisuudet",nav_commands:"Komennot",nav_support:"Tuki",nav_status:"Tila",nav_privacy:"Tietosuoja",nav_terms:"Ehdot",btn_add:"➕ Lisää",btn_support:"💬 Tuki",pg_t:"Ominaisuudet",pg_s:"Kaikki mitä Carapuz201G voi tehdä palvelimellesi."}
 };
 // Remaining EU nav copies
-['el','cs','sk','hu','ro','bg','hr','sl','et','lv','lt','ga','mt'].forEach(l=>{
+['el','cs','sk','hu','ro','bg','hr','sl','et','lv','lt','ga','mt','be'].forEach(l=>{
 if(!navI18n[l])navI18n[l]={...baseNav,pg_t:"Features",pg_s:"Everything Carapuz201G can do for your Discord server."}
 });
 
 const T={};
-T["en-US"]={name:"English (US)",flag:"🇺🇸",...baseNav,pg_t:"Features",pg_s:"Everything Carapuz201G can do for your Discord server — from moderation to music to AI.",f:enF};
-T["en-GB"]={name:"English (UK)",flag:"🇬🇧",...baseNav,pg_t:"Features",pg_s:"Everything Carapuz201G can do for your Discord server — from moderation to music to AI.",f:enF};
+T["en-us"]={name:"English (US)",flag:"🇺🇸",...baseNav,pg_t:"Features",pg_s:"Everything Carapuz201G can do for your Discord server — from moderation to music to AI.",f:enF};
+T["en-gb"]={name:"English (UK)",flag:"🇬🇧",...baseNav,pg_t:"Features",pg_s:"Everything Carapuz201G can do for your Discord server — from moderation to music to AI.",f:enF};
 T["ru"]={name:"Русский",flag:"🇷🇺",...navI18n.ru,f:ruF};
 T["uk"]={name:"Українська",flag:"🇺🇦",...navI18n.uk,f:ukF};
+T.be={...T.ru,name:"Беларуская",flag:"🇧🇾",nav_home:"Галоўная",nav_about:"Пра бота",nav_features:"Функцыі",nav_commands:"Каманды",nav_support:"Падтрымка",nav_status:"Статус",nav_privacy:"Канфідэнцыяльнасць",nav_terms:"Умовы",btn_add:"➕ Дадаць",btn_support:"💬 Падтрымка",pg_t:"Функцыі",pg_s:"Усё, што Carapuz201G можа зрабіць для вашага Discord-сервера."};
 
 const euFlags={de:"🇩🇪",fr:"🇫🇷",es:"🇪🇸",it:"🇮🇹",pt:"🇵🇹",nl:"🇳🇱",pl:"🇵🇱",sv:"🇸🇪",da:"🇩🇰",fi:"🇫🇮",el:"🇬🇷",cs:"🇨🇿",sk:"🇸🇰",hu:"🇭🇺",ro:"🇷🇴",bg:"🇧🇬",hr:"🇭🇷",sl:"🇸🇮",et:"🇪🇪",lv:"🇱🇻",lt:"🇱🇹",ga:"🇮🇪",mt:"🇲🇹"};
 const euNames={de:"Deutsch",fr:"Français",es:"Español",it:"Italiano",pt:"Português",nl:"Nederlands",pl:"Polski",sv:"Svenska",da:"Dansk",fi:"Suomi",el:"Ελληνικά",cs:"Čeština",sk:"Slovenčina",hu:"Magyar",ro:"Română",bg:"Български",hr:"Hrvatski",sl:"Slovenščina",et:"Eesti",lv:"Latviešu",lt:"Lietuvių",ga:"Gaeilge",mt:"Malti"};
@@ -252,7 +253,8 @@ Object.keys(euFlags).forEach(l=>{
 T[l]={name:euNames[l],flag:euFlags[l],...(navI18n[l]||baseNav),pg_t:navI18n[l]?.pg_t||"Features",pg_s:navI18n[l]?.pg_s||"Everything Carapuz201G can do for your Discord server.",f:euF[l]||euF.da};
 });
 
-let lang=localStorage.getItem('c2g-lang')||'en-US';
+let lang=localStorage.getItem('c2g-lang')||'en-us';
+if(lang==='en-US')lang='en-us';if(lang==='en-GB')lang='en-gb';
 let theme=localStorage.getItem('c2g-theme')||'dark';
 
 document.addEventListener('DOMContentLoaded',()=>{
@@ -273,7 +275,7 @@ d.onclick=()=>{setLang(c);closeLM()};m.appendChild(d);
 }
 
 function setLang(c){
-if(!T[c])c='en-US';lang=c;localStorage.setItem('c2g-lang',c);const t=T[c];
+if(c==='en-US')c='en-us';if(c==='en-GB')c='en-gb';if(!T[c])c='en-us';lang=c;localStorage.setItem('c2g-lang',c);const t=T[c];
 document.getElementById('cF').textContent=t.flag;
 document.getElementById('cL').textContent=t.name;
 document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k]});

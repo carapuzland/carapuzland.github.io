@@ -96,8 +96,7 @@
 <div class="hdr">
   <div class="controls">
     <select id="langSel" onchange="changeLang(this.value)">
-      <option value="en">🇬🇧 EN</option><option value="uk">🇺🇦 UK</option>
-      <option value="ru">🇷🇺 RU</option><option value="de">🇩🇪 DE</option>
+      <option value="en-gb">🇬🇧 EN-GB</option><option value="en-us">🇺🇸 EN-US</option><option value="uk">🇺🇦 UK</option><option value="ru">🇷🇺 RU</option><option value="be">🇧🇾 BE</option><option value="bg">🇧🇬 BG</option><option value="hr">🇭🇷 HR</option><option value="cs">🇨🇿 CS</option><option value="da">🇩🇰 DA</option><option value="nl">🇳🇱 NL</option><option value="et">🇪🇪 ET</option><option value="fi">🇫🇮 FI</option><option value="fr">🇫🇷 FR</option><option value="de">🇩🇪 DE</option><option value="el">🇬🇷 EL</option><option value="hu">🇭🇺 HU</option><option value="ga">🇮🇪 GA</option><option value="it">🇮🇹 IT</option><option value="lv">🇱🇻 LV</option><option value="lt">🇱🇹 LT</option><option value="mt">🇲🇹 MT</option><option value="pl">🇵🇱 PL</option><option value="pt">🇵🇹 PT</option><option value="ro">🇷🇴 RO</option><option value="sk">🇸🇰 SK</option><option value="sl">🇸🇮 SL</option><option value="es">🇪🇸 ES</option><option value="sv">🇸🇪 SV</option>
     </select>
     <button onclick="toggleTheme()" title="Toggle Theme">🌓</button>
   </div>
@@ -207,7 +206,266 @@ const TRANSLATIONS = {
   }
 };
 
-let currentLang = localStorage.getItem('speedLang') || 'en';
+Object.assign(TRANSLATIONS, {
+  'en-gb': {...TRANSLATIONS.en},
+  'en-us': {...TRANSLATIONS.en},
+  be: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Спампоўка · Аддача · Ping · Jitter · Сэрвісы',
+    dl:'Спампоўка', ul:'Аддача', ping:'Ping', jitter:'Jitter', start:'▶ Пачаць тэст', ready:'Націсніце старт', running:'⏳ Тэставанне...', done:'✅ Тэст завершаны!',
+    ipTitle:'🌍 IP і правайдар', srvTitle:'🌐 Даступнасць сэрвісаў', btnCheck:'🔄 Праверыць',
+    ipAddress:'IP-адрас', provider:'Правайдар (ISP)', location:'Месца', asn:'ASN',
+    ipBlocked:'AdBlocker або пашырэнне прыватнасці заблакіравала праверку IP.<br>Адключыце блакіроўку трэкераў, каб убачыць IP.',
+    qosTitle:'📈 Якасць сеткі', errDNS:'Блок / DNS', errTime:'Тайм-аўт',
+    phPing:'🏓 Вымярэнне ping і jitter...', phDown:'⬇️ Тэст спампоўкі...', phUp:'⬆️ Тэст аддачы...',
+    qosStream:'Streaming (4K/HD)', qosGame:'Анлайн-гульні', qosVideo:'Відэазванкі', qosBrowse:'Вэб-сёрфінг',
+    exc:'Выдатна', good:'Добра', fair:'Сярэдне', poor:'Дрэнна'
+  },
+  bg: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Изтегляне · Качване · Ping · Jitter · Услуги',
+    dl:'Изтегляне', ul:'Качване', ping:'Ping', jitter:'Jitter', start:'▶ Стартирай тест', ready:'Натиснете старт', running:'⏳ Тестване...', done:'✅ Тестът завърши!',
+    ipTitle:'🌍 IP и доставчик', srvTitle:'🌐 Достъпност на услуги', btnCheck:'🔄 Провери',
+    ipAddress:'IP адрес', provider:'Доставчик (ISP)', location:'Локация', asn:'ASN',
+    ipBlocked:'AdBlocker или разширение за поверителност блокира IP проверката.<br>Изключете блокирането на тракери, за да видите IP.',
+    qosTitle:'📈 Качество на мрежата', errDNS:'Блок / DNS', errTime:'Таймаут',
+    phPing:'🏓 Измерване на ping и jitter...', phDown:'⬇️ Тест на изтегляне...', phUp:'⬆️ Тест на качване...',
+    qosStream:'Стрийминг (4K/HD)', qosGame:'Онлайн игри', qosVideo:'Видео разговори', qosBrowse:'Уеб сърфиране',
+    exc:'Отлично', good:'Добро', fair:'Средно', poor:'Лошо'
+  },
+  hr: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Preuzimanje · Upload · Ping · Jitter · Usluge',
+    dl:'Preuzim.', ul:'Upload', ping:'Ping', jitter:'Jitter', start:'▶ Pokreni test', ready:'Pritisnite start', running:'⏳ Testiranje...', done:'✅ Test završen!',
+    ipTitle:'🌍 IP i pružatelj', srvTitle:'🌐 Dostupnost usluga', btnCheck:'🔄 Provjeri',
+    ipAddress:'IP adresa', provider:'Pružatelj (ISP)', location:'Lokacija', asn:'ASN',
+    ipBlocked:'AdBlocker ili proširenje privatnosti blokiralo je IP provjeru.<br>Isključite blokiranje trackera za prikaz IP-a.',
+    qosTitle:'📈 Kvaliteta mreže', errDNS:'Blok / DNS', errTime:'Timeout',
+    phPing:'🏓 Mjerenje ping i jitter...', phDown:'⬇️ Test preuzimanja...', phUp:'⬆️ Test uploada...',
+    qosStream:'Streaming (4K/HD)', qosGame:'Online igre', qosVideo:'Video pozivi', qosBrowse:'Web pregledavanje',
+    exc:'Izvrsno', good:'Dobro', fair:'Osrednje', poor:'Loše'
+  },
+  da: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Download · Upload · Ping · Jitter · Tjenester',
+    dl:'Download', ul:'Upload', ping:'Ping', jitter:'Jitter', start:'▶ Start test', ready:'Tryk start', running:'⏳ Tester...', done:'✅ Test færdig!',
+    ipTitle:'🌍 IP og udbyder', srvTitle:'🌐 Tjenesters tilgængelighed', btnCheck:'🔄 Tjek',
+    ipAddress:'IP-adresse', provider:'Udbyder (ISP)', location:'Placering', asn:'ASN',
+    ipBlocked:'AdBlocker eller privatlivsudvidelse blokerede IP-tjekket.<br>Slå trackerblokering fra for at se IP-info.',
+    qosTitle:'📈 Netværkskvalitet', errDNS:'Blokeret / DNS', errTime:'Timeout',
+    phPing:'🏓 Måler ping og jitter...', phDown:'⬇️ Tester download...', phUp:'⬆️ Tester upload...',
+    qosStream:'Streaming (4K/HD)', qosGame:'Online gaming', qosVideo:'Videoopkald', qosBrowse:'Websurfing',
+    exc:'Fremragende', good:'God', fair:'Middel', poor:'Dårlig'
+  },
+  et: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Allalaadimine · Üleslaadimine · Ping · Jitter · Teenused',
+    dl:'Allalaad.', ul:'Üleslaad.', ping:'Ping', jitter:'Jitter', start:'▶ Alusta testi', ready:'Vajuta start', running:'⏳ Testimine...', done:'✅ Test valmis!',
+    ipTitle:'🌍 IP ja teenusepakkuja', srvTitle:'🌐 Teenuste saadavus', btnCheck:'🔄 Kontrolli',
+    ipAddress:'IP-aadress', provider:'Teenusepakkuja (ISP)', location:'Asukoht', asn:'ASN',
+    ipBlocked:'AdBlocker või privaatsuslaiendus blokeeris IP-kontrolli.<br>Lülita jälgijate blokeerimine välja, et näha IP infot.',
+    qosTitle:'📈 Võrgu kvaliteet', errDNS:'Blokeeritud / DNS', errTime:'Aegumine',
+    phPing:'🏓 Ping ja jitter mõõtmine...', phDown:'⬇️ Allalaadimise test...', phUp:'⬆️ Üleslaadimise test...',
+    qosStream:'Voogedastus (4K/HD)', qosGame:'Online-mängud', qosVideo:'Videokõned', qosBrowse:'Veebisirvimine',
+    exc:'Suurepärane', good:'Hea', fair:'Keskmine', poor:'Halb'
+  },
+  fi: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Lataus · Lähetys · Ping · Jitter · Palvelut',
+    dl:'Lataus', ul:'Lähetys', ping:'Ping', jitter:'Jitter', start:'▶ Käynnistä testi', ready:'Paina aloitusta', running:'⏳ Testataan...', done:'✅ Testi valmis!',
+    ipTitle:'🌍 IP ja palveluntarjoaja', srvTitle:'🌐 Palveluiden saatavuus', btnCheck:'🔄 Tarkista',
+    ipAddress:'IP-osoite', provider:'Palveluntarjoaja (ISP)', location:'Sijainti', asn:'ASN',
+    ipBlocked:'AdBlocker tai yksityisyyslaajennus esti IP-tarkistuksen.<br>Poista seurannan esto käytöstä nähdäksesi IP-tiedot.',
+    qosTitle:'📈 Verkon laatu', errDNS:'Estetty / DNS', errTime:'Aikakatkaisu',
+    phPing:'🏓 Mitataan ping ja jitter...', phDown:'⬇️ Testataan latausta...', phUp:'⬆️ Testataan lähetystä...',
+    qosStream:'Suoratoisto (4K/HD)', qosGame:'Verkkopelit', qosVideo:'Videopuhelut', qosBrowse:'Web-selailu',
+    exc:'Erinomainen', good:'Hyvä', fair:'Kohtalainen', poor:'Huono'
+  },
+  fr: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Téléchargement · Envoi · Ping · Gigue · Services',
+    dl:'Télécharg.', ul:'Envoi', ping:'Ping', jitter:'Gigue', start:'▶ Lancer le test', ready:'Appuyez sur démarrer', running:'⏳ Test en cours...', done:'✅ Test terminé !',
+    ipTitle:'🌍 Infos IP et fournisseur', srvTitle:'🌐 Disponibilité des services', btnCheck:'🔄 Vérifier',
+    ipAddress:'Adresse IP', provider:'Fournisseur (ISP)', location:'Localisation', asn:'ASN',
+    ipBlocked:'Une extension de confidentialité a bloqué la vérification IP.<br>Désactivez le blocage des traceurs pour voir les infos IP.',
+    qosTitle:'📈 Qualité réseau', errDNS:'Bloqué / DNS', errTime:'Délai dépassé',
+    phPing:'🏓 Mesure du ping et de la gigue...', phDown:'⬇️ Test du téléchargement...', phUp:'⬆️ Test de l’envoi...',
+    qosStream:'Streaming (4K/HD)', qosGame:'Jeux en ligne', qosVideo:'Appels vidéo', qosBrowse:'Navigation web',
+    exc:'Excellent', good:'Bon', fair:'Moyen', poor:'Mauvais'
+  },
+  es: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Descarga · Subida · Ping · Jitter · Servicios',
+    dl:'Descarga', ul:'Subida', ping:'Ping', jitter:'Jitter', start:'▶ Iniciar test', ready:'Pulsa iniciar para comenzar', running:'⏳ Probando...', done:'✅ Test completado!',
+    ipTitle:'🌍 IP y proveedor', srvTitle:'🌐 Disponibilidad de servicios', btnCheck:'🔄 Verificar',
+    ipAddress:'Dirección IP', provider:'Proveedor (ISP)', location:'Ubicación', asn:'ASN',
+    ipBlocked:'Un bloqueador o extensión de privacidad bloqueó la comprobación IP.<br>Desactiva el bloqueo de rastreadores para ver la IP.',
+    qosTitle:'📈 Calidad de red', errDNS:'Bloqueado / DNS', errTime:'Tiempo agotado',
+    phPing:'🏓 Midiendo ping y jitter...', phDown:'⬇️ Probando descarga...', phUp:'⬆️ Probando subida...',
+    qosStream:'Streaming (4K/HD)', qosGame:'Juegos online', qosVideo:'Videollamadas', qosBrowse:'Navegación web',
+    exc:'Excelente', good:'Bueno', fair:'Regular', poor:'Malo'
+  },
+  it: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Download · Upload · Ping · Jitter · Servizi',
+    dl:'Download', ul:'Upload', ping:'Ping', jitter:'Jitter', start:'▶ Avvia test', ready:'Premi avvia per iniziare', running:'⏳ Test in corso...', done:'✅ Test completato!',
+    ipTitle:'🌍 Info IP e provider', srvTitle:'🌐 Disponibilità servizi', btnCheck:'🔄 Controlla',
+    ipAddress:'Indirizzo IP', provider:'Provider (ISP)', location:'Posizione', asn:'ASN',
+    ipBlocked:'AdBlocker o estensione privacy ha bloccato il controllo IP.<br>Disattiva il blocco tracker per vedere le info IP.',
+    qosTitle:'📈 Qualità rete', errDNS:'Bloccato / DNS', errTime:'Timeout',
+    phPing:'🏓 Misura ping e jitter...', phDown:'⬇️ Test download...', phUp:'⬆️ Test upload...',
+    qosStream:'Streaming (4K/HD)', qosGame:'Giochi online', qosVideo:'Videochiamate', qosBrowse:'Navigazione web',
+    exc:'Eccellente', good:'Buono', fair:'Discreto', poor:'Scarso'
+  },
+  pl: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Pobieranie · Wysyłanie · Ping · Jitter · Usługi',
+    dl:'Pobieranie', ul:'Wysyłanie', ping:'Ping', jitter:'Jitter', start:'▶ Start testu', ready:'Naciśnij start, aby zacząć', running:'⏳ Testowanie...', done:'✅ Test zakończony!',
+    ipTitle:'🌍 IP i dostawca', srvTitle:'🌐 Dostępność usług', btnCheck:'🔄 Sprawdź',
+    ipAddress:'Adres IP', provider:'Dostawca (ISP)', location:'Lokalizacja', asn:'ASN',
+    ipBlocked:'AdBlocker lub rozszerzenie prywatności zablokowało sprawdzenie IP.<br>Wyłącz blokowanie trackerów, aby zobaczyć IP.',
+    qosTitle:'📈 Jakość sieci', errDNS:'Blok / DNS', errTime:'Timeout',
+    phPing:'🏓 Pomiar ping i jitter...', phDown:'⬇️ Test pobierania...', phUp:'⬆️ Test wysyłania...',
+    qosStream:'Streaming (4K/HD)', qosGame:'Gry online', qosVideo:'Wideorozmowy', qosBrowse:'Przeglądanie',
+    exc:'Świetnie', good:'Dobrze', fair:'Średnio', poor:'Słabo'
+  },
+  pt: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Download · Upload · Ping · Jitter · Serviços',
+    dl:'Download', ul:'Upload', ping:'Ping', jitter:'Jitter', start:'▶ Iniciar teste', ready:'Pressione iniciar para começar', running:'⏳ Testando...', done:'✅ Teste concluído!',
+    ipTitle:'🌍 IP e provedor', srvTitle:'🌐 Disponibilidade dos serviços', btnCheck:'🔄 Verificar',
+    ipAddress:'Endereço IP', provider:'Provedor (ISP)', location:'Localização', asn:'ASN',
+    ipBlocked:'AdBlocker ou extensão de privacidade bloqueou a verificação de IP.<br>Desative o bloqueio de rastreadores para ver o IP.',
+    qosTitle:'📈 Qualidade da rede', errDNS:'Bloqueado / DNS', errTime:'Tempo esgotado',
+    phPing:'🏓 Medindo ping e jitter...', phDown:'⬇️ Testando download...', phUp:'⬆️ Testando upload...',
+    qosStream:'Streaming (4K/HD)', qosGame:'Jogos online', qosVideo:'Videochamadas', qosBrowse:'Navegação web',
+    exc:'Excelente', good:'Bom', fair:'Regular', poor:'Ruim'
+  },
+  nl: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Download · Upload · Ping · Jitter · Diensten',
+    dl:'Download', ul:'Upload', ping:'Ping', jitter:'Jitter', start:'▶ Test starten', ready:'Druk op start om te beginnen', running:'⏳ Test loopt...', done:'✅ Test voltooid!',
+    ipTitle:'🌍 IP en provider', srvTitle:'🌐 Beschikbaarheid diensten', btnCheck:'🔄 Controleren',
+    ipAddress:'IP-adres', provider:'Provider (ISP)', location:'Locatie', asn:'ASN',
+    ipBlocked:'AdBlocker of privacy-extensie blokkeerde de IP-check.<br>Zet trackerblokkering uit om IP-info te zien.',
+    qosTitle:'📈 Netwerkkwaliteit', errDNS:'Geblokkeerd / DNS', errTime:'Timeout',
+    phPing:'🏓 Ping en jitter meten...', phDown:'⬇️ Download testen...', phUp:'⬆️ Upload testen...',
+    qosStream:'Streaming (4K/HD)', qosGame:'Online gamen', qosVideo:'Videogesprekken', qosBrowse:'Webbrowsen',
+    exc:'Uitstekend', good:'Goed', fair:'Redelijk', poor:'Slecht'
+  },
+  ro: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Descărcare · Upload · Ping · Jitter · Servicii',
+    dl:'Descărcare', ul:'Upload', ping:'Ping', jitter:'Jitter', start:'▶ Pornește testul', ready:'Apasă start pentru a începe', running:'⏳ Se testează...', done:'✅ Test finalizat!',
+    ipTitle:'🌍 IP și furnizor', srvTitle:'🌐 Disponibilitatea serviciilor', btnCheck:'🔄 Verifică',
+    ipAddress:'Adresă IP', provider:'Furnizor (ISP)', location:'Locație', asn:'ASN',
+    ipBlocked:'AdBlockerul sau extensia de confidențialitate a blocat verificarea IP.<br>Dezactivează blocarea trackerelor pentru a vedea IP-ul.',
+    qosTitle:'📈 Calitatea rețelei', errDNS:'Blocat / DNS', errTime:'Timeout',
+    phPing:'🏓 Se măsoară ping și jitter...', phDown:'⬇️ Se testează descărcarea...', phUp:'⬆️ Se testează uploadul...',
+    qosStream:'Streaming (4K/HD)', qosGame:'Jocuri online', qosVideo:'Apeluri video', qosBrowse:'Navigare web',
+    exc:'Excelent', good:'Bun', fair:'Mediu', poor:'Slab'
+  },
+  sv: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Nedladdning · Uppladdning · Ping · Jitter · Tjänster',
+    dl:'Nedladdn.', ul:'Uppladdn.', ping:'Ping', jitter:'Jitter', start:'▶ Starta test', ready:'Tryck start för att börja', running:'⏳ Testar...', done:'✅ Test klart!',
+    ipTitle:'🌍 IP och leverantör', srvTitle:'🌐 Tjänsters tillgänglighet', btnCheck:'🔄 Kontrollera',
+    ipAddress:'IP-adress', provider:'Leverantör (ISP)', location:'Plats', asn:'ASN',
+    ipBlocked:'AdBlocker eller integritetstillägg blockerade IP-kontrollen.<br>Stäng av spårningsblockering för att se IP-info.',
+    qosTitle:'📈 Nätverkskvalitet', errDNS:'Blockerat / DNS', errTime:'Timeout',
+    phPing:'🏓 Mäter ping och jitter...', phDown:'⬇️ Testar nedladdning...', phUp:'⬆️ Testar uppladdning...',
+    qosStream:'Streaming (4K/HD)', qosGame:'Onlinespel', qosVideo:'Videosamtal', qosBrowse:'Webbsurfning',
+    exc:'Utmärkt', good:'Bra', fair:'Okej', poor:'Dålig'
+  },
+  cs: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Stahování · Odesílání · Ping · Jitter · Služby',
+    dl:'Stahování', ul:'Odesílání', ping:'Ping', jitter:'Jitter', start:'▶ Spustit test', ready:'Stiskněte start', running:'⏳ Testování...', done:'✅ Test hotov!',
+    ipTitle:'🌍 IP a poskytovatel', srvTitle:'🌐 Dostupnost služeb', btnCheck:'🔄 Ověřit',
+    ipAddress:'IP adresa', provider:'Poskytovatel (ISP)', location:'Poloha', asn:'ASN',
+    ipBlocked:'AdBlocker nebo rozšíření soukromí zablokovalo IP kontrolu.<br>Vypněte blokování trackerů pro zobrazení IP.',
+    qosTitle:'📈 Kvalita sítě', errDNS:'Blok / DNS', errTime:'Timeout',
+    phPing:'🏓 Měření ping a jitter...', phDown:'⬇️ Test stahování...', phUp:'⬆️ Test odesílání...',
+    qosStream:'Streaming (4K/HD)', qosGame:'Online hry', qosVideo:'Videohovory', qosBrowse:'Prohlížení webu',
+    exc:'Výborné', good:'Dobré', fair:'Průměrné', poor:'Špatné'
+  },
+  hu: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Letöltés · Feltöltés · Ping · Jitter · Szolgáltatások',
+    dl:'Letöltés', ul:'Feltöltés', ping:'Ping', jitter:'Jitter', start:'▶ Teszt indítása', ready:'Nyomd meg a startot', running:'⏳ Tesztelés...', done:'✅ Teszt kész!',
+    ipTitle:'🌍 IP és szolgáltató', srvTitle:'🌐 Szolgáltatások elérhetősége', btnCheck:'🔄 Ellenőrzés',
+    ipAddress:'IP-cím', provider:'Szolgáltató (ISP)', location:'Hely', asn:'ASN',
+    ipBlocked:'AdBlocker vagy adatvédelmi bővítmény blokkolta az IP-ellenőrzést.<br>Kapcsold ki a trackerblokkolást az IP-adatokhoz.',
+    qosTitle:'📈 Hálózatminőség', errDNS:'Blokkolt / DNS', errTime:'Időtúllépés',
+    phPing:'🏓 Ping és jitter mérése...', phDown:'⬇️ Letöltés tesztelése...', phUp:'⬆️ Feltöltés tesztelése...',
+    qosStream:'Streaming (4K/HD)', qosGame:'Online játék', qosVideo:'Videóhívások', qosBrowse:'Böngészés',
+    exc:'Kiváló', good:'Jó', fair:'Közepes', poor:'Gyenge'
+  },
+  el: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Λήψη · Αποστολή · Ping · Jitter · Υπηρεσίες',
+    dl:'Λήψη', ul:'Αποστολή', ping:'Ping', jitter:'Jitter', start:'▶ Έναρξη τεστ', ready:'Πατήστε έναρξη', running:'⏳ Δοκιμή...', done:'✅ Το τεστ ολοκληρώθηκε!',
+    ipTitle:'🌍 IP και πάροχος', srvTitle:'🌐 Διαθεσιμότητα υπηρεσιών', btnCheck:'🔄 Έλεγχος',
+    ipAddress:'Διεύθυνση IP', provider:'Πάροχος (ISP)', location:'Τοποθεσία', asn:'ASN',
+    ipBlocked:'AdBlocker ή επέκταση απορρήτου μπλόκαρε τον έλεγχο IP.<br>Απενεργοποιήστε το μπλοκάρισμα tracker για να δείτε IP.',
+    qosTitle:'📈 Ποιότητα δικτύου', errDNS:'Μπλοκ / DNS', errTime:'Χρονικό όριο',
+    phPing:'🏓 Μέτρηση ping και jitter...', phDown:'⬇️ Δοκιμή λήψης...', phUp:'⬆️ Δοκιμή αποστολής...',
+    qosStream:'Streaming (4K/HD)', qosGame:'Online παιχνίδια', qosVideo:'Βιντεοκλήσεις', qosBrowse:'Πλοήγηση',
+    exc:'Άριστα', good:'Καλά', fair:'Μέτρια', poor:'Κακά'
+  },
+  ga: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Íoslódáil · Uaslódáil · Ping · Jitter · Seirbhísí',
+    dl:'Íoslódáil', ul:'Uaslódáil', ping:'Ping', jitter:'Jitter', start:'▶ Tosaigh tástáil', ready:'Brúigh tosú', running:'⏳ Á thástáil...', done:'✅ Tástáil críochnaithe!',
+    ipTitle:'🌍 IP agus soláthraí', srvTitle:'🌐 Infhaighteacht seirbhísí', btnCheck:'🔄 Seiceáil',
+    ipAddress:'Seoladh IP', provider:'Soláthraí (ISP)', location:'Suíomh', asn:'ASN',
+    ipBlocked:'Chuir AdBlocker nó breiseán príobháideachais bac ar sheiceáil IP.<br>Múch blocáil rianaithe chun IP a fheiceáil.',
+    qosTitle:'📈 Cáilíocht líonra', errDNS:'Bloc / DNS', errTime:'Am istigh',
+    phPing:'🏓 Ping agus jitter á dtomhas...', phDown:'⬇️ Íoslódáil á thástáil...', phUp:'⬆️ Uaslódáil á thástáil...',
+    qosStream:'Sruthú (4K/HD)', qosGame:'Cluichí ar líne', qosVideo:'Glaonna físe', qosBrowse:'Brabhsáil gréasáin',
+    exc:'Ar fheabhas', good:'Go maith', fair:'Measartha', poor:'Go dona'
+  },
+  lv: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Lejupielāde · Augšupielāde · Ping · Jitter · Pakalpojumi',
+    dl:'Lejupiel.', ul:'Augšupiel.', ping:'Ping', jitter:'Jitter', start:'▶ Sākt testu', ready:'Nospiediet start', running:'⏳ Testēšana...', done:'✅ Tests pabeigts!',
+    ipTitle:'🌍 IP un pakalpojumu sniedzējs', srvTitle:'🌐 Pakalpojumu pieejamība', btnCheck:'🔄 Pārbaudīt',
+    ipAddress:'IP adrese', provider:'Pakalpojumu sniedzējs (ISP)', location:'Atrašanās vieta', asn:'ASN',
+    ipBlocked:'AdBlocker vai privātuma paplašinājums bloķēja IP pārbaudi.<br>Izslēdziet izsekošanas bloķēšanu, lai redzētu IP.',
+    qosTitle:'📈 Tīkla kvalitāte', errDNS:'Bloķēts / DNS', errTime:'Noildze',
+    phPing:'🏓 Mēra ping un jitter...', phDown:'⬇️ Testē lejupielādi...', phUp:'⬆️ Testē augšupielādi...',
+    qosStream:'Straumēšana (4K/HD)', qosGame:'Tiešsaistes spēles', qosVideo:'Videozvani', qosBrowse:'Tīmekļa pārlūkošana',
+    exc:'Izcili', good:'Labi', fair:'Vidēji', poor:'Slikti'
+  },
+  lt: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Atsisiuntimas · Įkėlimas · Ping · Jitter · Paslaugos',
+    dl:'Atsisiunt.', ul:'Įkėlimas', ping:'Ping', jitter:'Jitter', start:'▶ Pradėti testą', ready:'Paspauskite start', running:'⏳ Testuojama...', done:'✅ Testas baigtas!',
+    ipTitle:'🌍 IP ir tiekėjas', srvTitle:'🌐 Paslaugų pasiekiamumas', btnCheck:'🔄 Tikrinti',
+    ipAddress:'IP adresas', provider:'Tiekėjas (ISP)', location:'Vieta', asn:'ASN',
+    ipBlocked:'AdBlocker arba privatumo plėtinys užblokavo IP patikrą.<br>Išjunkite sekimo blokavimą, kad matytumėte IP.',
+    qosTitle:'📈 Tinklo kokybė', errDNS:'Blokuota / DNS', errTime:'Laikas baigėsi',
+    phPing:'🏓 Matuojamas ping ir jitter...', phDown:'⬇️ Testuojamas atsisiuntimas...', phUp:'⬆️ Testuojamas įkėlimas...',
+    qosStream:'Srautinis perdavimas (4K/HD)', qosGame:'Internetiniai žaidimai', qosVideo:'Vaizdo skambučiai', qosBrowse:'Naršymas',
+    exc:'Puiku', good:'Gerai', fair:'Vidutiniškai', poor:'Blogai'
+  },
+  mt: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Download · Upload · Ping · Jitter · Servizzi',
+    dl:'Download', ul:'Upload', ping:'Ping', jitter:'Jitter', start:'▶ Ibda test', ready:'Agħfas start', running:'⏳ Qed jiġi ttestjat...', done:'✅ Test lest!',
+    ipTitle:'🌍 IP u fornitur', srvTitle:'🌐 Disponibbiltà tas-servizzi', btnCheck:'🔄 Iċċekkja',
+    ipAddress:'Indirizz IP', provider:'Fornitur (ISP)', location:'Post', asn:'ASN',
+    ipBlocked:'AdBlocker jew estensjoni tal-privatezza imblukkat il-verifika IP.<br>Itfi l-imblukkar tat-trackers biex tara IP.',
+    qosTitle:'📈 Kwalità tan-netwerk', errDNS:'Blokkat / DNS', errTime:'Timeout',
+    phPing:'🏓 Kejl ta’ ping u jitter...', phDown:'⬇️ Test tad-download...', phUp:'⬆️ Test tal-upload...',
+    qosStream:'Streaming (4K/HD)', qosGame:'Logħob online', qosVideo:'Video calls', qosBrowse:'Web browsing',
+    exc:'Eċċellenti', good:'Tajjeb', fair:'Medju', poor:'Ħażin'
+  },
+  sk: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Sťahovanie · Odosielanie · Ping · Jitter · Služby',
+    dl:'Sťahovanie', ul:'Odosiel.', ping:'Ping', jitter:'Jitter', start:'▶ Spustiť test', ready:'Stlačte štart', running:'⏳ Testovanie...', done:'✅ Test hotový!',
+    ipTitle:'🌍 IP a poskytovateľ', srvTitle:'🌐 Dostupnosť služieb', btnCheck:'🔄 Overiť',
+    ipAddress:'IP adresa', provider:'Poskytovateľ (ISP)', location:'Poloha', asn:'ASN',
+    ipBlocked:'AdBlocker alebo rozšírenie súkromia zablokovalo IP kontrolu.<br>Vypnite blokovanie trackerov pre zobrazenie IP.',
+    qosTitle:'📈 Kvalita siete', errDNS:'Blok / DNS', errTime:'Timeout',
+    phPing:'🏓 Meranie ping a jitter...', phDown:'⬇️ Test sťahovania...', phUp:'⬆️ Test odosielania...',
+    qosStream:'Streaming (4K/HD)', qosGame:'Online hry', qosVideo:'Videohovory', qosBrowse:'Prehliadanie webu',
+    exc:'Výborné', good:'Dobré', fair:'Priemerné', poor:'Zlé'
+  },
+  sl: {
+    mainTitle:'⚡ SpeedTest Pro', subTitle:'Prenos dol · Prenos gor · Ping · Jitter · Storitve',
+    dl:'Prenos dol', ul:'Prenos gor', ping:'Ping', jitter:'Jitter', start:'▶ Začni test', ready:'Pritisnite start', running:'⏳ Testiranje...', done:'✅ Test končan!',
+    ipTitle:'🌍 IP in ponudnik', srvTitle:'🌐 Dostopnost storitev', btnCheck:'🔄 Preveri',
+    ipAddress:'IP naslov', provider:'Ponudnik (ISP)', location:'Lokacija', asn:'ASN',
+    ipBlocked:'AdBlocker ali razširitev zasebnosti je blokirala preverjanje IP.<br>Izklopite blokiranje sledilnikov za prikaz IP.',
+    qosTitle:'📈 Kakovost omrežja', errDNS:'Blok / DNS', errTime:'Timeout',
+    phPing:'🏓 Merjenje ping in jitter...', phDown:'⬇️ Test prenosa dol...', phUp:'⬆️ Test prenosa gor...',
+    qosStream:'Streaming (4K/HD)', qosGame:'Spletne igre', qosVideo:'Video klici', qosBrowse:'Brskanje',
+    exc:'Odlično', good:'Dobro', fair:'Srednje', poor:'Slabo'
+  }
+});
+
+const savedSpeedLang = localStorage.getItem('speedLang');
+let currentLang = savedSpeedLang === 'en' ? 'en-gb' : (TRANSLATIONS[savedSpeedLang] ? savedSpeedLang : 'en-gb');
 const $ = id => document.getElementById(id);
 function t(key) { return (TRANSLATIONS[currentLang] && TRANSLATIONS[currentLang][key]) ? TRANSLATIONS[currentLang][key] : (TRANSLATIONS['en'][key] || key); }
 
@@ -220,7 +478,7 @@ function toggleTheme() {
 }
 
 function changeLang(l) {
-  if(!TRANSLATIONS[l]) l='en';
+  if(!TRANSLATIONS[l]) l='en-gb';
   currentLang = l; localStorage.setItem('speedLang', l);
   document.documentElement.lang = currentLang;
   $('langSel').value = l;

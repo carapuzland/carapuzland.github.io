@@ -230,8 +230,8 @@ mt:mkShort(["X'inhu Carapuz201G?","Bot Discord qawwi all-in-one f'Python. Modera
 };
 
 const T={
-"en-US":{name:"English (US)",flag:"🇺🇸",nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"About Carapuz201G",pg_s:"Learn what makes this bot tick — its philosophy, architecture, and approach to your data.",blocks:enB},
-"en-GB":{name:"English (UK)",flag:"🇬🇧",nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"About Carapuz201G",pg_s:"Learn what makes this bot tick — its philosophy, architecture, and approach to your data.",blocks:enB},
+"en-us":{name:"English (US)",flag:"🇺🇸",nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"About Carapuz201G",pg_s:"Learn what makes this bot tick — its philosophy, architecture, and approach to your data.",blocks:enB},
+"en-gb":{name:"English (UK)",flag:"🇬🇧",nav_home:"Home",nav_about:"About",nav_features:"Features",nav_commands:"Commands",nav_support:"Support",nav_status:"Status",nav_privacy:"Privacy Policy",nav_terms:"Terms of Service",btn_add:"➕ Add Bot",btn_support:"💬 Support",pg_t:"About Carapuz201G",pg_s:"Learn what makes this bot tick — its philosophy, architecture, and approach to your data.",blocks:enB},
 "ru":{name:"Русский",flag:"🇷🇺",nav_home:"Главная",nav_about:"О боте",nav_features:"Функции",nav_commands:"Команды",nav_support:"Поддержка",nav_status:"Статус",nav_privacy:"Конфиденциальность",nav_terms:"Условия",btn_add:"➕ Добавить",btn_support:"💬 Поддержка",pg_t:"О боте Carapuz201G",pg_s:"Узнайте, что делает этого бота особенным — философия, архитектура и подход к вашим данным.",blocks:ruB},
 "uk":{name:"Українська",flag:"🇺🇦",nav_home:"Головна",nav_about:"Про бота",nav_features:"Функції",nav_commands:"Команди",nav_support:"Підтримка",nav_status:"Статус",nav_privacy:"Конфіденційність",nav_terms:"Умови",btn_add:"➕ Додати",btn_support:"💬 Підтримка",pg_t:"Про бота Carapuz201G",pg_s:"Дізнайтеся, що робить цього бота особливим — філософія, архітектура та підхід до ваших даних.",blocks:ukB},
 "de":{name:"Deutsch",flag:"🇩🇪",nav_home:"Startseite",nav_about:"Über",nav_features:"Funktionen",nav_commands:"Befehle",nav_support:"Support",nav_status:"Status",nav_privacy:"Datenschutz",nav_terms:"Nutzungsbedingungen",btn_add:"➕ Hinzufügen",btn_support:"💬 Support",pg_t:"Über Carapuz201G",pg_s:"Erfahren Sie mehr über Philosophie, Architektur und Datenschutz dieses Bots.",blocks:deB},
@@ -258,8 +258,10 @@ const T={
 "ga":{name:"Gaeilge",flag:"🇮🇪",nav_home:"Baile",nav_about:"Eolas",nav_features:"Gnéithe",nav_commands:"Orduithe",nav_support:"Tacaíocht",nav_status:"Stádas",nav_privacy:"Príobháideachas",nav_terms:"Téarmaí",btn_add:"➕ Cuir leis",btn_support:"💬 Tacaíocht",pg_t:"Faoi Carapuz201G",pg_s:"Foghlaim faoi fhealsúnacht agus ailtireacht an bot seo.",blocks:shortData.ga},
 "mt":{name:"Malti",flag:"🇲🇹",nav_home:"Paġna Ewlenija",nav_about:"Dwar",nav_features:"Karatteristiċi",nav_commands:"Kmandi",nav_support:"Appoġġ",nav_status:"Status",nav_privacy:"Privatezza",nav_terms:"Termini",btn_add:"➕ Żid",btn_support:"💬 Appoġġ",pg_t:"Dwar Carapuz201G",pg_s:"Tgħallem dwar il-filosofija u l-arkitettura ta' dan il-bot.",blocks:shortData.mt}
 };
+T.be={...T.ru,name:"Беларуская",flag:"🇧🇾",nav_home:"Галоўная",nav_about:"Пра бота",nav_features:"Функцыі",nav_commands:"Каманды",nav_support:"Падтрымка",nav_status:"Статус",nav_privacy:"Канфідэнцыяльнасць",nav_terms:"Умовы",btn_add:"➕ Дадаць",btn_support:"💬 Падтрымка",pg_t:"Пра Carapuz201G",pg_s:"Даведайцеся пра філасофію, архітэктуру і падыход да даных гэтага бота."};
 
-let lang=localStorage.getItem('c2g-lang')||'en-US';
+let lang=localStorage.getItem('c2g-lang')||'en-us';
+if(lang==='en-US')lang='en-us';if(lang==='en-GB')lang='en-gb';
 let theme=localStorage.getItem('c2g-theme')||'dark';
 
 document.addEventListener('DOMContentLoaded',()=>{
@@ -280,7 +282,7 @@ d.onclick=()=>{setLang(c);closeLM()};m.appendChild(d);
 }
 
 function setLang(c){
-if(!T[c])c='en-US';lang=c;localStorage.setItem('c2g-lang',c);const t=T[c];
+if(c==='en-US')c='en-us';if(c==='en-GB')c='en-gb';if(!T[c])c='en-us';lang=c;localStorage.setItem('c2g-lang',c);const t=T[c];
 document.getElementById('cF').textContent=t.flag;
 document.getElementById('cL').textContent=t.name;
 document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(t[k])el.textContent=t[k]});

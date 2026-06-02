@@ -33,7 +33,7 @@ canvas{max-width:100%;display:block;cursor:crosshair}
 <body>
 <div class="hdr">
   <div class="hdr-btns">
-    <select id="langSel" onchange="chLang(this.value)"><option value="en">EN</option><option value="uk">UK</option><option value="ru">RU</option><option value="de">DE</option></select>
+    <select id="langSel" onchange="chLang(this.value)"><option value="en-gb">EN-GB</option><option value="en-us">EN-US</option><option value="uk">UK</option><option value="ru">RU</option><option value="be">BE</option><option value="bg">BG</option><option value="hr">HR</option><option value="cs">CS</option><option value="da">DA</option><option value="nl">NL</option><option value="et">ET</option><option value="fi">FI</option><option value="fr">FR</option><option value="de">DE</option><option value="el">EL</option><option value="hu">HU</option><option value="ga">GA</option><option value="it">IT</option><option value="lv">LV</option><option value="lt">LT</option><option value="mt">MT</option><option value="pl">PL</option><option value="pt">PT</option><option value="ro">RO</option><option value="sk">SK</option><option value="sl">SL</option><option value="es">ES</option><option value="sv">SV</option></select>
     <button onclick="document.documentElement.setAttribute('data-theme',document.documentElement.getAttribute('data-theme')==='dark'?'':'dark');localStorage.setItem('bgTheme',document.documentElement.getAttribute('data-theme'))">🌓</button>
   </div>
   <h1 id="tTitle">✂️ AI Background Remover</h1>
@@ -72,13 +72,41 @@ const TR={
   en:{title:'✂️ AI BG Remover',drop:'Drop image here or click',sub:'100% free · runs locally in browser · paste supported',load:'Processing...',erase:'🔴 Erase',restore:'🟢 Restore',save:'💾 Download PNG',edit:'Draw to edit mask',size:'Size',next:'🔄 New Image',err:'Background removal failed'},
   uk:{title:'✂️ Видалення фону',drop:'Киньте фото сюди або натисніть',sub:'100% безкоштовно · працює локально в браузері · підтримує вставлення',load:'Обробка...',erase:'🔴 Стерти',restore:'🟢 Відновити',save:'💾 Завантажити PNG',edit:'Малюйте для редагування маски',size:'Розмір',next:'🔄 Нове зображення',err:'Не вдалося видалити фон'},
   ru:{title:'✂️ Удаление фона',drop:'Бросьте фото сюда или нажмите',sub:'100% бесплатно · работает локально в браузере · поддерживает вставку',load:'Обработка...',erase:'🔴 Стереть',restore:'🟢 Восстановить',save:'💾 Скачать PNG',edit:'Рисуйте для правки маски',size:'Размер',next:'🔄 Новое изображение',err:'Не удалось удалить фон'},
-  de:{title:'✂️ Hintergrund entfernen',drop:'Bild hier ablegen oder klicken',sub:'100% kostenlos · läuft lokal im Browser · Einfügen unterstützt',load:'Wird verarbeitet...',erase:'🔴 Entfernen',restore:'🟢 Wiederherstellen',save:'💾 PNG herunterladen',edit:'Maske zum Bearbeiten zeichnen',size:'Größe',next:'🔄 Neues Bild',err:'Hintergrund konnte nicht entfernt werden'}
+  de:{title:'✂️ Hintergrund entfernen',drop:'Bild hier ablegen oder klicken',sub:'100% kostenlos · läuft lokal im Browser · Einfügen unterstützt',load:'Wird verarbeitet...',erase:'🔴 Entfernen',restore:'🟢 Wiederherstellen',save:'💾 PNG herunterladen',edit:'Maske zum Bearbeiten zeichnen',size:'Größe',next:'🔄 Neues Bild',err:'Hintergrund konnte nicht entfernt werden'},
+  fr:{title:'✂️ Supprimer le fond',drop:'Déposez une image ou cliquez',sub:'100% gratuit · local dans le navigateur · collage pris en charge',load:'Traitement...',erase:'🔴 Effacer',restore:'🟢 Restaurer',save:'💾 Télécharger PNG',edit:'Dessinez pour modifier le masque',size:'Taille',next:'🔄 Nouvelle image',err:'La suppression du fond a échoué'},
+  es:{title:'✂️ Quitar fondo',drop:'Suelta una imagen o haz clic',sub:'100% gratis · local en el navegador · admite pegar',load:'Procesando...',erase:'🔴 Borrar',restore:'🟢 Restaurar',save:'💾 Descargar PNG',edit:'Dibuja para editar la máscara',size:'Tamaño',next:'🔄 Nueva imagen',err:'No se pudo quitar el fondo'},
+  it:{title:'✂️ Rimuovi sfondo',drop:'Trascina un’immagine o clicca',sub:'100% gratis · locale nel browser · incolla supportato',load:'Elaborazione...',erase:'🔴 Cancella',restore:'🟢 Ripristina',save:'💾 Scarica PNG',edit:'Disegna per modificare la maschera',size:'Dimensione',next:'🔄 Nuova immagine',err:'Rimozione sfondo non riuscita'},
+  pl:{title:'✂️ Usuwanie tła',drop:'Upuść obraz lub kliknij',sub:'100% za darmo · lokalnie w przeglądarce · obsługa wklejania',load:'Przetwarzanie...',erase:'🔴 Usuń',restore:'🟢 Przywróć',save:'💾 Pobierz PNG',edit:'Rysuj, aby edytować maskę',size:'Rozmiar',next:'🔄 Nowy obraz',err:'Nie udało się usunąć tła'},
+  pt:{title:'✂️ Remover fundo',drop:'Solte uma imagem ou clique',sub:'100% grátis · local no navegador · colar suportado',load:'Processando...',erase:'🔴 Apagar',restore:'🟢 Restaurar',save:'💾 Baixar PNG',edit:'Desenhe para editar a máscara',size:'Tamanho',next:'🔄 Nova imagem',err:'Falha ao remover o fundo'},
+  nl:{title:'✂️ Achtergrond verwijderen',drop:'Sleep een afbeelding of klik',sub:'100% gratis · lokaal in de browser · plakken ondersteund',load:'Verwerken...',erase:'🔴 Wissen',restore:'🟢 Herstellen',save:'💾 PNG downloaden',edit:'Teken om het masker te bewerken',size:'Grootte',next:'🔄 Nieuwe afbeelding',err:'Achtergrond verwijderen mislukt'},
+  ro:{title:'✂️ Eliminare fundal',drop:'Trage o imagine aici sau apasă',sub:'100% gratuit · local în browser · lipire acceptată',load:'Se procesează...',erase:'🔴 Șterge',restore:'🟢 Restaurează',save:'💾 Descarcă PNG',edit:'Desenează pentru a edita masca',size:'Dimensiune',next:'🔄 Imagine nouă',err:'Eliminarea fundalului a eșuat'},
+  sv:{title:'✂️ Ta bort bakgrund',drop:'Släpp en bild här eller klicka',sub:'100% gratis · körs lokalt i webbläsaren · klistra in stöds',load:'Bearbetar...',erase:'🔴 Radera',restore:'🟢 Återställ',save:'💾 Ladda ned PNG',edit:'Rita för att redigera masken',size:'Storlek',next:'🔄 Ny bild',err:'Bakgrunden kunde inte tas bort'},
+  cs:{title:'✂️ Odstranit pozadí',drop:'Přetáhněte obrázek nebo klikněte',sub:'100% zdarma · lokálně v prohlížeči · podporuje vložení',load:'Zpracování...',erase:'🔴 Vymazat',restore:'🟢 Obnovit',save:'💾 Stáhnout PNG',edit:'Kreslením upravíte masku',size:'Velikost',next:'🔄 Nový obrázek',err:'Odstranění pozadí selhalo'},
+  hu:{title:'✂️ Háttér eltávolítása',drop:'Húzz ide egy képet vagy kattints',sub:'100% ingyenes · helyben fut a böngészőben · beillesztés támogatott',load:'Feldolgozás...',erase:'🔴 Törlés',restore:'🟢 Visszaállítás',save:'💾 PNG letöltése',edit:'Rajzzal szerkeszd a maszkot',size:'Méret',next:'🔄 Új kép',err:'A háttér eltávolítása sikertelen'},
+  el:{title:'✂️ Αφαίρεση φόντου',drop:'Σύρετε εικόνα εδώ ή κάντε κλικ',sub:'100% δωρεάν · τοπικά στο πρόγραμμα περιήγησης · υποστήριξη επικόλλησης',load:'Επεξεργασία...',erase:'🔴 Διαγραφή',restore:'🟢 Επαναφορά',save:'💾 Λήψη PNG',edit:'Σχεδιάστε για επεξεργασία μάσκας',size:'Μέγεθος',next:'🔄 Νέα εικόνα',err:'Η αφαίρεση φόντου απέτυχε'}
 };
-let lang=TR[localStorage.getItem('bgLang')]?localStorage.getItem('bgLang'):'en';
+Object.assign(TR,{
+  'en-gb':{...TR.en,title:'✂️ AI Background Remover'},
+  'en-us':{...TR.en,title:'✂️ AI Background Remover'},
+  be:{title:'✂️ Выдаленне фону',drop:'Перацягніце выяву сюды або націсніце',sub:'100% бясплатна · працуе лакальна ў браўзеры · падтрымлівае ўстаўку',load:'Апрацоўка...',erase:'🔴 Сцерці',restore:'🟢 Аднавіць',save:'💾 Спампаваць PNG',edit:'Малюйце, каб змяніць маску',size:'Памер',next:'🔄 Новая выява',err:'Не ўдалося выдаліць фон'},
+  bg:{title:'✂️ Премахване на фон',drop:'Пуснете изображение тук или кликнете',sub:'100% безплатно · работи локално в браузъра · поддържа поставяне',load:'Обработка...',erase:'🔴 Изтрий',restore:'🟢 Възстанови',save:'💾 Изтегли PNG',edit:'Рисувайте, за да редактирате маската',size:'Размер',next:'🔄 Ново изображение',err:'Премахването на фона не успя'},
+  hr:{title:'✂️ Uklanjanje pozadine',drop:'Ispustite sliku ovdje ili kliknite',sub:'100% besplatno · radi lokalno u pregledniku · podržava lijepljenje',load:'Obrada...',erase:'🔴 Izbriši',restore:'🟢 Vrati',save:'💾 Preuzmi PNG',edit:'Crtajte za uređivanje maske',size:'Veličina',next:'🔄 Nova slika',err:'Uklanjanje pozadine nije uspjelo'},
+  da:{title:'✂️ Fjern baggrund',drop:'Slip billede her eller klik',sub:'100% gratis · kører lokalt i browseren · indsæt understøttet',load:'Behandler...',erase:'🔴 Slet',restore:'🟢 Gendan',save:'💾 Download PNG',edit:'Tegn for at redigere masken',size:'Størrelse',next:'🔄 Nyt billede',err:'Fjernelse af baggrund mislykkedes'},
+  et:{title:'✂️ Tausta eemaldamine',drop:'Lohista pilt siia või klõpsa',sub:'100% tasuta · töötab brauseris kohapeal · kleepimine toetatud',load:'Töötlemine...',erase:'🔴 Kustuta',restore:'🟢 Taasta',save:'💾 Laadi PNG alla',edit:'Maski muutmiseks joonista',size:'Suurus',next:'🔄 Uus pilt',err:'Tausta eemaldamine ebaõnnestus'},
+  fi:{title:'✂️ Taustan poisto',drop:'Pudota kuva tähän tai klikkaa',sub:'100% ilmainen · toimii paikallisesti selaimessa · liittäminen tuettu',load:'Käsitellään...',erase:'🔴 Poista',restore:'🟢 Palauta',save:'💾 Lataa PNG',edit:'Muokkaa maskia piirtämällä',size:'Koko',next:'🔄 Uusi kuva',err:'Taustan poisto epäonnistui'},
+  ga:{title:'✂️ Bain cúlra',drop:'Scaoil íomhá anseo nó cliceáil',sub:'100% saor in aisce · ritheann sé go háitiúil sa bhrabhsálaí · tacaítear le greamú',load:'Á phróiseáil...',erase:'🔴 Scrios',restore:'🟢 Athchóirigh',save:'💾 Íoslódáil PNG',edit:'Tarraing chun an masc a chur in eagar',size:'Méid',next:'🔄 Íomhá nua',err:'Theip ar bhaint an chúlra'},
+  lv:{title:'✂️ Fona noņemšana',drop:'Nometiet attēlu šeit vai klikšķiniet',sub:'100% bez maksas · darbojas lokāli pārlūkā · atbalsta ielīmēšanu',load:'Apstrāde...',erase:'🔴 Dzēst',restore:'🟢 Atjaunot',save:'💾 Lejupielādēt PNG',edit:'Zīmējiet, lai labotu masku',size:'Izmērs',next:'🔄 Jauns attēls',err:'Fona noņemšana neizdevās'},
+  lt:{title:'✂️ Fono šalinimas',drop:'Įmeskite vaizdą čia arba spustelėkite',sub:'100% nemokamai · veikia lokaliai naršyklėje · palaiko įklijavimą',load:'Apdorojama...',erase:'🔴 Ištrinti',restore:'🟢 Atkurti',save:'💾 Atsisiųsti PNG',edit:'Pieškite, kad redaguotumėte kaukę',size:'Dydis',next:'🔄 Naujas vaizdas',err:'Fono pašalinti nepavyko'},
+  mt:{title:'✂️ Neħħi l-isfond',drop:'Waqqa stampa hawn jew ikklikkja',sub:'100% b’xejn · jaħdem lokalment fil-browser · paste appoġġjat',load:'Qed jiġi pproċessat...',erase:'🔴 Ħassar',restore:'🟢 Irrestawra',save:'💾 Niżżel PNG',edit:'Pinġi biex teditja l-maskra',size:'Daqs',next:'🔄 Stampa ġdida',err:'It-tneħħija tal-isfond falliet'},
+  sk:{title:'✂️ Odstránenie pozadia',drop:'Presuňte obrázok sem alebo kliknite',sub:'100% zadarmo · beží lokálne v prehliadači · podporuje vloženie',load:'Spracovanie...',erase:'🔴 Vymazať',restore:'🟢 Obnoviť',save:'💾 Stiahnuť PNG',edit:'Kreslením upravte masku',size:'Veľkosť',next:'🔄 Nový obrázok',err:'Odstránenie pozadia zlyhalo'},
+  sl:{title:'✂️ Odstranjevanje ozadja',drop:'Spustite sliko sem ali kliknite',sub:'100% brezplačno · deluje lokalno v brskalniku · podpira lepljenje',load:'Obdelava...',erase:'🔴 Izbriši',restore:'🟢 Obnovi',save:'💾 Prenesi PNG',edit:'Rišite za urejanje maske',size:'Velikost',next:'🔄 Nova slika',err:'Odstranjevanje ozadja ni uspelo'}
+});
+const savedBgLang=localStorage.getItem('bgLang');
+let lang=savedBgLang==='en'?'en-gb':(TR[savedBgLang]?savedBgLang:'en-gb');
 const $=id=>document.getElementById(id);
 const t=k=>TR[lang][k];
 
-function chLang(l){lang=TR[l]?l:'en';localStorage.setItem('bgLang',lang);applyUI()}
+function chLang(l){lang=TR[l]?l:'en-gb';localStorage.setItem('bgLang',lang);applyUI()}
 function applyUI(){
   document.documentElement.lang=lang;
   $('langSel').value=lang; $('tTitle').textContent=t('title'); $('tDrop').textContent=t('drop');
@@ -99,7 +127,10 @@ async function loadFile(f){
 
   try{
     const blob = await window.imglyRemoveBackground(f, {
-      progress: (k, c, tot) => { if(k.includes('fetch')) $('fill').style.width=(c/tot*100)+'%'; }
+      publicPath: 'https://staticimgly.com/@imgly/background-removal-data/1.4.3/dist/',
+      progress: (k, c, tot) => {
+        if(String(k).includes('fetch') && tot) $('fill').style.width=(c/tot*100)+'%';
+      }
     });
 
     maskImg=new Image(); maskImg.src=URL.createObjectURL(blob);

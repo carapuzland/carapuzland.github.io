@@ -191,13 +191,27 @@ sections:[
 ]
 };
 
-const T = { en: TOS_EN, ru: TOS_RU, de: TOS_DE };
+const T = {};
+const LEGAL_LANGS = [
+  ['en-gb','English (UK)','🇬🇧',TOS_EN], ['en-us','English (US)','🇺🇸',TOS_EN],
+  ['uk','Українська','🇺🇦',TOS_EN], ['ru','Русский','🇷🇺',TOS_RU], ['be','Беларуская','🇧🇾',TOS_EN],
+  ['bg','Български','🇧🇬',TOS_EN], ['hr','Hrvatski','🇭🇷',TOS_EN], ['cs','Čeština','🇨🇿',TOS_EN],
+  ['da','Dansk','🇩🇰',TOS_EN], ['nl','Nederlands','🇳🇱',TOS_EN], ['et','Eesti','🇪🇪',TOS_EN],
+  ['fi','Suomi','🇫🇮',TOS_EN], ['fr','Français','🇫🇷',TOS_EN], ['de','Deutsch','🇩🇪',TOS_DE],
+  ['el','Ελληνικά','🇬🇷',TOS_EN], ['hu','Magyar','🇭🇺',TOS_EN], ['ga','Gaeilge','🇮🇪',TOS_EN],
+  ['it','Italiano','🇮🇹',TOS_EN], ['lv','Latviešu','🇱🇻',TOS_EN], ['lt','Lietuvių','🇱🇹',TOS_EN],
+  ['mt','Malti','🇲🇹',TOS_EN], ['pl','Polski','🇵🇱',TOS_EN], ['pt','Português','🇵🇹',TOS_EN],
+  ['ro','Română','🇷🇴',TOS_EN], ['sk','Slovenčina','🇸🇰',TOS_EN], ['sl','Slovenščina','🇸🇮',TOS_EN],
+  ['es','Español','🇪🇸',TOS_EN], ['sv','Svenska','🇸🇪',TOS_EN]
+];
+LEGAL_LANGS.forEach(([code,name,flag,base])=>{ T[code]={...base,name,flag}; });
 
-let lang = localStorage.getItem('c2g-lang-legal') || 'en';
+let lang = localStorage.getItem('c2g-lang-legal') || 'en-gb';
 let theme = localStorage.getItem('c2g-theme') || 'dark';
 
 document.addEventListener('DOMContentLoaded',()=>{
-  if(!T[lang]) lang='en';
+  if(lang==='en') lang='en-gb';
+  if(!T[lang]) lang='en-gb';
   setTheme(theme); buildLang(); setLang(lang); setupEv();
   setTimeout(()=>document.getElementById('ldr').classList.add('hid'),1100);
 });
@@ -221,7 +235,9 @@ function buildLang(){
 }
 
 function setLang(c){
-  if(!T[c]) c='en'; lang=c; localStorage.setItem('c2g-lang-legal',c);
+  if(c==='en') c='en-gb';
+  if(!T[c]) c='en-gb';
+  lang=c; localStorage.setItem('c2g-lang-legal',c);
   const t=T[c];
   document.getElementById('cF').textContent=t.flag;
   document.getElementById('cL').textContent=t.name;
