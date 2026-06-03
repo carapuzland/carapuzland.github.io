@@ -297,7 +297,7 @@ body::before {
   height: 100%;
   display: block;
   object-fit: contain;
-  filter: drop-shadow(0 8px 16px rgba(88, 101, 242, 0.28));
+  filter: none;
 }
 
 .hero-t {
@@ -375,7 +375,7 @@ body::before {
   width: min(142px, 34vw);
   margin: 0 1.25rem -1.35rem auto;
   pointer-events: none;
-  filter: drop-shadow(0 22px 34px rgba(2, 6, 23, 0.45));
+  filter: drop-shadow(0 22px 34px rgba(2, 6, 23, 0.36));
 }
 
 .bot-portrait img {
@@ -400,7 +400,7 @@ body::before {
   display: grid;
   place-items: center;
   font-size: 0;
-  filter: drop-shadow(0 14px 28px rgba(88, 101, 242, 0.32));
+  filter: drop-shadow(0 14px 28px rgba(2, 6, 23, 0.32));
 }
 
 .ld-e img {

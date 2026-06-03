@@ -1,34 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-labelledby="title desc" color="#e2e8f0">
   <title id="title">CarapuzLand island icon</title>
-  <desc id="desc">A simple flat island icon with a palm tree, sand, sun, and waves.</desc>
-  <defs>
-    <linearGradient id="sand" x1="34" y1="62" x2="128" y2="92" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fde68a"/>
-      <stop offset="1" stop-color="#f59e0b"/>
-    </linearGradient>
-    <linearGradient id="leaf" x1="58" y1="18" x2="134" y2="60" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#86efac"/>
-      <stop offset="1" stop-color="#14b8a6"/>
-    </linearGradient>
-    <linearGradient id="water" x1="25" y1="85" x2="137" y2="108" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#38bdf8"/>
-      <stop offset="1" stop-color="#22d3ee"/>
-    </linearGradient>
-  </defs>
+  <desc id="desc">Outline island icon with a palm tree and waves.</desc>
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M31 81c11-17 31-26 49-26s38 9 49 26c-11 11-31 17-49 17s-38-6-49-17Z" stroke-width="7"/>
+    <path d="M58 83h38" stroke-width="5" opacity=".75"/>
+    <path d="M38 103c14 6 32 9 42 9s28-3 42-9" stroke-width="7"/>
+    <path d="M51 114c11 3 23 4 29 4s18-1 29-4" stroke-width="5" opacity=".65"/>
 
-  <g fill="none" fill-rule="evenodd">
-    <ellipse cx="80" cy="97" rx="57" ry="12" fill="#0ea5e9" opacity=".18"/>
-    <path d="M29 79c12-18 33-27 51-27s39 9 51 27c-11 12-33 18-51 18S40 91 29 79Z" fill="url(#sand)" stroke="#f8fafc" stroke-width="4"/>
-    <path d="M36 91c15 7 34 10 44 10s29-3 44-10" stroke="url(#water)" stroke-width="8" stroke-linecap="round"/>
-    <path d="M43 105c14 4 29 6 37 6s23-2 37-6" stroke="#7dd3fc" stroke-width="5" stroke-linecap="round" opacity=".75"/>
+    <path d="M80 78c3-21 9-40 18-58" stroke-width="8"/>
+    <path d="M97 23c-16-6-33 0-45 17 18-2 31 5 41 19" stroke-width="6"/>
+    <path d="M101 21c8-13 23-20 40-17-6 17-20 28-40 32" stroke-width="6"/>
+    <path d="M103 28c17-3 31 3 41 15-16 6-31 4-42-8" stroke-width="6"/>
+    <path d="M91 33c-14 4-25 14-30 28 16-3 28-11 37-24" stroke-width="6"/>
 
-    <path d="M84 76c3-19 8-37 16-55" stroke="#a16207" stroke-width="9" stroke-linecap="round"/>
-    <path d="M97 24c-16-7-33-2-47 14 21-1 37 6 47 19Z" fill="url(#leaf)" stroke="#ecfeff" stroke-width="3" stroke-linejoin="round"/>
-    <path d="M101 23c9-14 24-19 43-15-8 17-22 26-42 29Z" fill="url(#leaf)" stroke="#ecfeff" stroke-width="3" stroke-linejoin="round"/>
-    <path d="M103 28c17-3 31 2 43 15-17 7-33 5-47-6Z" fill="url(#leaf)" stroke="#ecfeff" stroke-width="3" stroke-linejoin="round"/>
-    <path d="M93 31c-14 3-25 12-31 27 17-3 29-10 38-23Z" fill="#22c55e" stroke="#ecfeff" stroke-width="3" stroke-linejoin="round"/>
-
-    <circle cx="126" cy="31" r="11" fill="#f8fafc" opacity=".95"/>
-    <circle cx="126" cy="31" r="5" fill="#fde68a"/>
+    <circle cx="126" cy="31" r="10" stroke-width="5"/>
   </g>
 </svg>
