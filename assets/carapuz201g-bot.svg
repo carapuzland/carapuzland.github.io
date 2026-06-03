@@ -1,20 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-labelledby="title desc" color="#e2e8f0">
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title desc" color="#e2e8f0">
   <title id="title">Carapuz201G bot icon</title>
-  <desc id="desc">Outline robot bot icon with an antenna and face screen.</desc>
-  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M80 28V15" stroke-width="7"/>
-    <circle cx="80" cy="10" r="6" stroke-width="5"/>
-
-    <path d="M39 57H30c-4 0-7 3-7 7v12c0 4 3 7 7 7h9" stroke-width="7"/>
-    <path d="M121 57h9c4 0 7 3 7 7v12c0 4-3 7-7 7h-9" stroke-width="7"/>
-    <rect x="39" y="29" width="82" height="66" rx="22" stroke-width="7"/>
-    <rect x="54" y="43" width="52" height="30" rx="15" stroke-width="6"/>
-
-    <circle cx="69" cy="58" r="4.5" fill="currentColor" stroke="none"/>
-    <circle cx="91" cy="58" r="4.5" fill="currentColor" stroke="none"/>
-    <path d="M68 79c7 5 17 5 24 0" stroke-width="5"/>
-
-    <path d="M58 96h44l8 13H50Z" stroke-width="7"/>
-    <path d="M65 109h30" stroke-width="5" opacity=".7"/>
+  <desc id="desc">Clean outline robot bot icon with antenna and face.</desc>
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+    <path d="M32 17v-8"/>
+    <circle cx="32" cy="7" r="3"/>
+    <rect x="14" y="19" width="36" height="31" rx="11"/>
+    <path d="M14 34h-4c-3 0-5 2-5 5s2 5 5 5h4"/>
+    <path d="M50 34h4c3 0 5 2 5 5s-2 5-5 5h-4"/>
+    <rect x="22" y="28" width="20" height="11" rx="5.5"/>
+    <circle cx="28" cy="33.5" r="1.8" fill="currentColor" stroke="none"/>
+    <circle cx="36" cy="33.5" r="1.8" fill="currentColor" stroke="none"/>
+    <path d="M25 44c4 3 10 3 14 0"/>
+    <path d="M25 53h14"/>
   </g>
 </svg>

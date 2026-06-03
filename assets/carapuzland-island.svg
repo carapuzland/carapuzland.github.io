@@ -1,18 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-labelledby="title desc" color="#e2e8f0">
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title desc" color="#e2e8f0">
   <title id="title">CarapuzLand island icon</title>
-  <desc id="desc">Outline island icon with a palm tree and waves.</desc>
-  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M31 81c11-17 31-26 49-26s38 9 49 26c-11 11-31 17-49 17s-38-6-49-17Z" stroke-width="7"/>
-    <path d="M58 83h38" stroke-width="5" opacity=".75"/>
-    <path d="M38 103c14 6 32 9 42 9s28-3 42-9" stroke-width="7"/>
-    <path d="M51 114c11 3 23 4 29 4s18-1 29-4" stroke-width="5" opacity=".65"/>
-
-    <path d="M80 78c3-21 9-40 18-58" stroke-width="8"/>
-    <path d="M97 23c-16-6-33 0-45 17 18-2 31 5 41 19" stroke-width="6"/>
-    <path d="M101 21c8-13 23-20 40-17-6 17-20 28-40 32" stroke-width="6"/>
-    <path d="M103 28c17-3 31 3 41 15-16 6-31 4-42-8" stroke-width="6"/>
-    <path d="M91 33c-14 4-25 14-30 28 16-3 28-11 37-24" stroke-width="6"/>
-
-    <circle cx="126" cy="31" r="10" stroke-width="5"/>
+  <desc id="desc">Clean outline island icon with a palm tree and water line.</desc>
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+    <path d="M12 47c9-6 31-6 40 0"/>
+    <path d="M17 54c8 3 22 3 30 0" opacity=".7"/>
+    <path d="M27 45c2-15 9-24 21-31"/>
+    <path d="M34 16c-8-4-18-1-23 7 11 0 19 4 24 12"/>
+    <path d="M37 15c7-7 17-7 25-1-9 2-15 8-19 17"/>
+    <path d="M39 23c9-1 17 2 22 9-9 3-17 1-24-5"/>
   </g>
 </svg>
