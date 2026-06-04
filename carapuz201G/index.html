@@ -60,8 +60,6 @@ a{color:inherit;text-decoration:none}
 .hero{padding:7rem 2rem 4rem;text-align:center;background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);position:relative;overflow:hidden;transition:background var(--tr);min-height:75vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(88,101,242,.15) 0%,transparent 60%);pointer-events:none}
 .hero-c{position:relative;z-index:2;max-width:750px}
-.hero-i{font-size:5rem;margin-bottom:1rem;display:inline-block;animation:hb 4s ease-in-out infinite;filter:drop-shadow(0 8px 24px var(--shd))}
-@keyframes hb{0%,100%{transform:translateY(0) rotate(-2deg)}25%{transform:translateY(-14px) rotate(1deg)}50%{transform:translateY(-4px) rotate(-1deg)}75%{transform:translateY(-18px) rotate(2deg)}}
 .hero-t{font-size:3rem;font-weight:800;margin-bottom:.7rem;background:linear-gradient(135deg,var(--tx),var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-s{font-size:1.1rem;color:var(--tx2);line-height:1.7;margin-bottom:2rem;max-width:620px;margin-left:auto;margin-right:auto}
 .hero-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem}
@@ -112,7 +110,7 @@ a{color:inherit;text-decoration:none}
 /* RESPONSIVE */
 @media(max-width:1024px){.nav{display:none}.mb{display:flex}.hdr-r .btn{display:none}}
 @media(max-width:768px){.hero{padding:5.5rem 1.25rem 2.5rem;min-height:auto}.hero-t{font-size:2rem}.hero-s{font-size:.95rem}.sec{padding:2.5rem 1.25rem}.fg{grid-template-columns:1fr}.lb .ll{display:none}.stb{flex-direction:column;text-align:center}.stb-r{justify-content:center}.hero-stats{gap:1.25rem}}
-@media(max-width:480px){.hero-t{font-size:1.6rem}.hero-i{font-size:3.5rem}.fc{padding:1.25rem}.qn{grid-template-columns:1fr}.cta{padding:2rem 1.25rem}}
+@media(max-width:480px){.hero-t{font-size:1.6rem}.fc{padding:1.25rem}.qn{grid-template-columns:1fr}.cta{padding:2rem 1.25rem}}
 .rv{opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s}.rv.vis{opacity:1;transform:translateY(0)}
 .ld-w{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;transition:opacity .4s,visibility .4s}.ld-w.hid{opacity:0;visibility:hidden}
 .ld-e{font-size:2.8rem;animation:lba 1s ease-in-out infinite}
@@ -128,10 +126,10 @@ a{color:inherit;text-decoration:none}
 <script src="/assets/site-icons.js" defer></script>
 </head>
 <body>
-<div class="ld-w" id="ldr"><div class="ld-e"><img src="/assets/carapuz201g-bot.svg" alt="" aria-hidden="true"></div><div style="color:var(--tx2);font-size:.85rem;letter-spacing:2px">CARAPUZ201G</div><div class="ld-b"><div class="ld-f"></div></div></div>
+<div class="ld-w" id="ldr"><div class="ld-e">C</div><div style="color:var(--tx2);font-size:.85rem;letter-spacing:2px">CARAPUZ201G</div><div class="ld-b"><div class="ld-f"></div></div></div>
 <header class="hdr">
 <div class="hdr-l">
-<a href="https://carapuzland.github.io/" class="hm-lnk" title="CarapuzLand" aria-label="CarapuzLand"><svg class="em" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M9 13v2"/><path d="M15 13v2"/></svg></a>
+<a href="https://carapuzland.github.io/" class="hm-lnk" title="CarapuzLand" aria-label="CarapuzLand"><svg class="em" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></a>
 <a href="https://carapuzland.github.io/" class="brand">Carapuz201G</a>
 </div>
 <nav class="nav">
@@ -172,7 +170,6 @@ a{color:inherit;text-decoration:none}
 <main>
 <section class="hero">
 <div class="hero-c">
-<div class="hero-i"><img src="/assets/carapuz201g-bot.svg" alt="Carapuz201G Discord bot"></div>
 <h1 class="hero-t" data-i18n="hero_t">Carapuz201G</h1>
 <p class="hero-s" data-i18n="hero_s">A powerful all-in-one Discord bot with moderation, economy, kingdoms, tickets, verification, voice, music, radio, giveaways, and optional local AI. Everything your server needs — in one bot.</p>
 <div class="hero-btns">
@@ -187,7 +184,6 @@ a{color:inherit;text-decoration:none}
 </div>
 </div>
 <div class="hero-visual" aria-label="Carapuz201G Discord control preview">
-<div class="bot-portrait"><img src="/assets/carapuz201g-bot.svg" alt="" aria-hidden="true"></div>
 <div class="bot-window">
 <div class="bot-topbar"><span>carapuz201g.bot</span><span class="bot-live">live</span></div>
 <div class="bot-screen">

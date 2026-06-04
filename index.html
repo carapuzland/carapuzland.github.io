@@ -139,15 +139,6 @@
             align-items: center; justify-content: center; text-align: center;
             padding: 6rem 2rem 3rem; min-height: 60vh;
         }
-        .hero-icon {
-            color: var(--text-accent); margin-bottom: 2rem;
-            filter: drop-shadow(0 0 25px var(--glow));
-            animation: hero-bounce 4s ease-in-out infinite;
-        }
-        @keyframes hero-bounce {
-            0%, 100% { transform: translateY(0) rotate(-4deg); }
-            50% { transform: translateY(-20px) rotate(4deg); }
-        }
         .hero-title {
             font-size: clamp(2.8rem, 9vw, 5rem); font-weight: 900; margin-bottom: 1.2rem;
             background: var(--hero-gradient);
@@ -319,7 +310,6 @@
         <div id="miniIslands"></div>
 
         <section class="hero">
-            <i data-lucide="palmtree" class="hero-icon" style="width: 110px; height: 110px"></i>
             <h1 class="hero-title" data-i18n="hero_title">CarapuzLand</h1>
             <p class="hero-subtitle" data-i18n="hero_subtitle">Digital creator crafting programs, bots, websites, and tools. Explore the islands below to discover my projects.</p>
         </section>
@@ -634,7 +624,7 @@ const TRANSLATIONS = {
    ISLAND CARDS CONFIG — CAI ADDED
    ================================================================ */
 const ISLAND_CONFIG = [
-    { id: "carapuz201G", icon: "bot", href: "/carapuz201G", accent: "#5865F2" },
+    { id: "carapuz201G", icon: "message-circle", href: "/carapuz201G", accent: "#5865F2" },
     { id: "cai", icon: "brain", href: "#cai", accent: "#c084fc", placeholder: true },
     { id: "weather", icon: "cloud-sun", href: "/weather", accent: "#38bdf8" },
     { id: "bg-remove", icon: "image", href: "/bg-remove", accent: "#a78bfa" },
