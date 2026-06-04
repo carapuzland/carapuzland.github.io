@@ -165,9 +165,9 @@
         .island-card {
             background: var(--bg-card); backdrop-filter: blur(15px);
             border: 1px solid var(--border-color); border-radius: 24px;
-            padding: 2.4rem 2.1rem; text-decoration: none; color: inherit;
+            padding: 2rem; text-decoration: none; color: inherit;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            display: flex; flex-direction: column; gap: 1.2rem;
+            display: flex; flex-direction: column; gap: 1rem;
             position: relative; overflow: hidden;
             box-shadow: 0 10px 30px var(--shadow-color);
         }
@@ -182,9 +182,59 @@
             box-shadow: 0 40px 80px var(--shadow-color);
         }
 
-        .card-icon { width: 50px; height: 50px; color: var(--text-accent); margin-bottom: 0.5rem; transition: 0.3s; }
+        .card-icon { width: 50px; height: 50px; color: var(--text-accent); margin-bottom: 0.25rem; transition: 0.3s; flex: none; }
         .island-card:hover .card-icon {
             transform: rotate(8deg) scale(1.08);
+        }
+        .card-project-mark {
+            position: relative;
+            width: 64px;
+            height: 64px;
+            display: grid;
+            place-items: center;
+            border-radius: 18px;
+            color: #fff;
+            background:
+                radial-gradient(circle at 72% 20%, rgba(255, 255, 255, 0.32), transparent 26%),
+                linear-gradient(135deg, #5865f2 0%, #22d3ee 100%);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 16px 36px rgba(88, 101, 242, 0.28);
+            overflow: hidden;
+        }
+        .card-project-mark::before {
+            content: "/";
+            position: absolute;
+            top: 0.46rem;
+            left: 0.62rem;
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.9rem;
+            font-weight: 900;
+        }
+        .card-project-mark::after {
+            content: "";
+            position: absolute;
+            right: -0.85rem;
+            bottom: -0.9rem;
+            width: 2.8rem;
+            height: 2.8rem;
+            border-radius: 999px;
+            border: 0.55rem solid rgba(255, 255, 255, 0.18);
+        }
+        .card-project-mark span {
+            position: relative;
+            z-index: 1;
+            font-size: 0.92rem;
+            font-weight: 950;
+            letter-spacing: 0.08em;
+        }
+        .island-card:hover .card-project-mark {
+            transform: translateY(-3px) scale(1.04);
+        }
+        .island-card[data-id="carapuz201G"] {
+            border-color: rgba(88, 101, 242, 0.34);
+            background:
+                linear-gradient(180deg, rgba(88, 101, 242, 0.1), transparent 42%),
+                var(--bg-card);
         }
         .card-title { font-size: 1.6rem; font-weight: 800; }
         .card-desc { color: var(--text-secondary); font-size: 1rem; line-height: 1.6; }
@@ -624,7 +674,7 @@ const TRANSLATIONS = {
    ISLAND CARDS CONFIG — CAI ADDED
    ================================================================ */
 const ISLAND_CONFIG = [
-    { id: "carapuz201G", icon: "message-circle", href: "/carapuz201G", accent: "#5865F2" },
+    { id: "carapuz201G", icon: "server", mark: "201G", href: "/carapuz201G", accent: "#5865F2" },
     { id: "cai", icon: "brain", href: "#cai", accent: "#c084fc", placeholder: true },
     { id: "weather", icon: "cloud-sun", href: "/weather", accent: "#38bdf8" },
     { id: "bg-remove", icon: "image", href: "/bg-remove", accent: "#a78bfa" },
@@ -718,10 +768,13 @@ function buildIslandCards() {
     grid.innerHTML = ISLAND_CONFIG.map(island => {
         const placeholderClass = island.placeholder ? ' is-placeholder' : '';
         const placeholderAttr = island.placeholder ? ' data-placeholder="true"' : '';
+        const visual = island.mark
+            ? `<div class="card-icon card-project-mark" aria-hidden="true"><span>${island.mark}</span></div>`
+            : `<i data-lucide="${island.icon}" class="card-icon" style="color: ${island.accent}"></i>`;
 
         return `
         <a href="${island.href}" class="island-card${placeholderClass}" data-id="${island.id}" style="--card-accent: ${island.accent}"${placeholderAttr}>
-            <i data-lucide="${island.icon}" class="card-icon" style="color: ${island.accent}"></i>
+            ${visual}
             <div class="card-title">${island.id}</div>
             <div class="card-desc">...</div>
             <span class="card-tag" style="color: ${island.accent}; background: ${island.accent}15">${island.id}</span>
