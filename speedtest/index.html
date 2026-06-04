@@ -22,13 +22,17 @@
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--tx); transition: background 0.3s, color 0.3s; min-height: 100vh; }
 
   /* Header */
-  .hdr { background: linear-gradient(135deg, #0f172a, #1e3a8a, #3b82f6); color: white; padding: 1.8rem 1rem; text-align: center; position: relative; }
+  .hdr { background: linear-gradient(135deg, #0f172a, #1e3a8a, #3b82f6); color: white; padding: 1.8rem 7rem; text-align: center; position: relative; }
+  .hdr-home { position: absolute; top: 1rem; left: 1rem; width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; color: white; text-decoration: none; border-radius: 12px; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 8px 18px rgba(0,0,0,0.18); backdrop-filter: blur(8px); transition: 0.2s; }
+  .hdr-home svg { width: 24px; height: 24px; display: block; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+  .hdr-home:hover { transform: translateY(-2px); background: rgba(255,255,255,0.28); }
   .hdr h1 { font-size: 2.2rem; margin-bottom: 0.3rem; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
   .hdr p { opacity: 0.9; font-size: 1rem; }
   .controls { position: absolute; top: 1rem; right: 1rem; display: flex; gap: 0.5rem; }
   .controls select, .controls button { background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3); padding: 0.5rem; border-radius: 8px; cursor: pointer; font-size: 0.9rem; backdrop-filter: blur(5px); outline: none; }
   .controls select option { background: #1e293b; color: white; }
   .controls button:hover { background: rgba(255,255,255,0.3); }
+  @media (max-width: 640px) { .hdr { padding: 4.4rem 1rem 1.35rem; } .hdr-home { top: 0.85rem; left: 0.85rem; } .controls { top: 0.85rem; right: 0.85rem; } }
 
   /* Main Wrapper */
   .wrap { max-width: 900px; margin: 0 auto; padding: 1.5rem 1rem; }
@@ -95,6 +99,9 @@
 <body>
 
 <div class="hdr">
+  <a class="hdr-home" href="https://carapuzland.github.io/" title="CarapuzLand" aria-label="CarapuzLand">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-2 8 9-12h-7l2-8Z"/></svg>
+  </a>
   <div class="controls">
     <select id="langSel" onchange="changeLang(this.value)">
       <option value="en-gb">🇬🇧 EN-GB</option><option value="en-us">🇺🇸 EN-US</option><option value="uk">🇺🇦 UK</option><option value="ru">🇷🇺 RU</option><option value="be">🇧🇾 BE</option><option value="bg">🇧🇬 BG</option><option value="hr">🇭🇷 HR</option><option value="cs">🇨🇿 CS</option><option value="da">🇩🇰 DA</option><option value="nl">🇳🇱 NL</option><option value="et">🇪🇪 ET</option><option value="fi">🇫🇮 FI</option><option value="fr">🇫🇷 FR</option><option value="de">🇩🇪 DE</option><option value="el">🇬🇷 EL</option><option value="hu">🇭🇺 HU</option><option value="ga">🇮🇪 GA</option><option value="it">🇮🇹 IT</option><option value="lv">🇱🇻 LV</option><option value="lt">🇱🇹 LT</option><option value="mt">🇲🇹 MT</option><option value="pl">🇵🇱 PL</option><option value="pt">🇵🇹 PT</option><option value="ro">🇷🇴 RO</option><option value="sk">🇸🇰 SK</option><option value="sl">🇸🇮 SL</option><option value="es">🇪🇸 ES</option><option value="sv">🇸🇪 SV</option>

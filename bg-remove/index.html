@@ -9,9 +9,13 @@
 :root{--bg:#f0f4f8;--card:#fff;--pri:#ec4899;--tx:#1e293b;--bor:#e2e8f0;--r:16px}
 [data-theme="dark"]{--bg:#0f172a;--card:#1e293b;--tx:#f1f5f9;--bor:#334155}
 body{font-family:sans-serif;background:var(--bg);color:var(--tx);margin:0;transition:.3s}
-.hdr{background:linear-gradient(135deg,#4c1d95,#ec4899);color:#fff;padding:1.5rem;text-align:center;position:relative}
+.hdr{background:linear-gradient(135deg,#4c1d95,#ec4899);color:#fff;padding:1.5rem 7rem;text-align:center;position:relative}
+.hdr-home{position:absolute;top:1rem;left:1rem;width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;border-radius:12px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);box-shadow:0 8px 18px rgba(0,0,0,.16);backdrop-filter:blur(8px);transition:.2s}
+.hdr-home svg{width:24px;height:24px;display:block;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.hdr-home:hover{transform:translateY(-2px);background:rgba(255,255,255,.24)}
 .hdr-btns{position:absolute;top:1rem;right:1rem;display:flex;gap:.5rem}
 .hdr-btns select,.hdr-btns button{background:rgba(0,0,0,.2);color:#fff;border:none;border-radius:8px;padding:.5rem;cursor:pointer}
+@media(max-width:640px){.hdr{padding:4.25rem 1rem 1.25rem}.hdr-home{top:.85rem;left:.85rem}.hdr-btns{top:.85rem;right:.85rem}}
 .wrap{max-width:900px;margin:2rem auto;padding:0 1rem}
 .drop{border:3px dashed var(--bor);padding:3rem 1rem;text-align:center;border-radius:var(--r);background:var(--card);cursor:pointer;position:relative}
 .drop input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
@@ -33,6 +37,9 @@ canvas{max-width:100%;display:block;cursor:crosshair}
 </head>
 <body>
 <div class="hdr">
+  <a class="hdr-home" href="https://carapuzland.github.io/" title="CarapuzLand" aria-label="CarapuzLand">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.6 8.6 19 19"/><path d="M8.6 15.4 19 5"/></svg>
+  </a>
   <div class="hdr-btns">
     <select id="langSel" onchange="chLang(this.value)"><option value="en-gb">EN-GB</option><option value="en-us">EN-US</option><option value="uk">UK</option><option value="ru">RU</option><option value="be">BE</option><option value="bg">BG</option><option value="hr">HR</option><option value="cs">CS</option><option value="da">DA</option><option value="nl">NL</option><option value="et">ET</option><option value="fi">FI</option><option value="fr">FR</option><option value="de">DE</option><option value="el">EL</option><option value="hu">HU</option><option value="ga">GA</option><option value="it">IT</option><option value="lv">LV</option><option value="lt">LT</option><option value="mt">MT</option><option value="pl">PL</option><option value="pt">PT</option><option value="ro">RO</option><option value="sk">SK</option><option value="sl">SL</option><option value="es">ES</option><option value="sv">SV</option></select>
     <button onclick="document.documentElement.setAttribute('data-theme',document.documentElement.getAttribute('data-theme')==='dark'?'':'dark');localStorage.setItem('bgTheme',document.documentElement.getAttribute('data-theme'))">🌓</button>

@@ -8,7 +8,7 @@
 <style>
 :root{--bg:#111827;--card:#1f2937;--pri:#10b981;--tx:#f3f4f6;--bor:#374151}
 [data-theme="light"]{--bg:#f0f4f8;--card:#fff;--tx:#1e293b;--bor:#e2e8f0}
-body{font-family:sans-serif;background:var(--bg);color:var(--tx);text-align:center;padding:2rem;transition:.3s}
+body{font-family:sans-serif;background:var(--bg);color:var(--tx);text-align:center;padding:5rem 2rem 2rem;transition:.3s}
 .card{background:var(--card);max-width:600px;margin:0 auto;padding:2rem;border-radius:12px;border:1px solid var(--bor);box-shadow:0 8px 30px rgba(0,0,0,.1)}
 .drop{border:3px dashed var(--bor);padding:3rem;border-radius:12px;margin:1.5rem 0;cursor:pointer;position:relative;background:rgba(128,128,128,.1);transition:.3s}
 .drop:hover{border-color:var(--pri)}
@@ -18,13 +18,20 @@ body{font-family:sans-serif;background:var(--bg);color:var(--tx);text-align:cent
 .res{margin-top:1.5rem;padding:1rem;background:rgba(0,0,0,.2);border-radius:8px;word-break:break-all;display:none}
 .btn{display:inline-block;margin-top:1rem;padding:.8rem 1.5rem;background:var(--pri);color:#fff;text-decoration:none;border-radius:8px;font-weight:bold;transition:.2s}
 .btn:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgba(16,185,129,.4)}
+.home-link{position:absolute;top:1rem;left:1rem;width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;color:var(--tx);text-decoration:none;border-radius:12px;background:var(--card);border:1px solid var(--bor);box-shadow:0 8px 18px rgba(0,0,0,.16);transition:.2s}
+.home-link svg{width:24px;height:24px;display:block;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none;color:var(--pri)}
+.home-link:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(16,185,129,.24)}
 .controls{position:absolute;top:1rem;right:1rem;display:flex;gap:.5rem}
 .controls select,.controls button{background:transparent;border:1px solid var(--bor);color:var(--tx);padding:.5rem;border-radius:8px;cursor:pointer}
 .controls select option{background:var(--card);color:var(--tx)}
+@media(max-width:640px){body{padding:5rem 1rem 1.5rem}.home-link{top:.85rem;left:.85rem}.controls{top:.85rem;right:.85rem}.card{padding:1.35rem}}
 </style>
 <script src="/assets/site-icons.js" defer></script>
 </head>
 <body>
+<a class="home-link" href="https://carapuzland.github.io/" title="CarapuzLand" aria-label="CarapuzLand">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 20 7v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V7l8-4Z"/><path d="m9 12 2 2 4-5"/></svg>
+</a>
 <div class="controls">
     <select id="langSel" onchange="changeLang(this.value)">
         <option value="en-gb">EN-GB</option><option value="en-us">EN-US</option><option value="uk">UK</option><option value="ru">RU</option><option value="be">BE</option><option value="bg">BG</option><option value="hr">HR</option><option value="cs">CS</option><option value="da">DA</option><option value="nl">NL</option><option value="et">ET</option><option value="fi">FI</option><option value="fr">FR</option><option value="de">DE</option><option value="el">EL</option><option value="hu">HU</option><option value="ga">GA</option><option value="it">IT</option><option value="lv">LV</option><option value="lt">LT</option><option value="mt">MT</option><option value="pl">PL</option><option value="pt">PT</option><option value="ro">RO</option><option value="sk">SK</option><option value="sl">SL</option><option value="es">ES</option><option value="sv">SV</option>

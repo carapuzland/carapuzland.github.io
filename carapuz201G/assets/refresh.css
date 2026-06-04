@@ -97,8 +97,8 @@ body::before {
 }
 
 .hm-lnk {
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   justify-content: center;
   color: var(--tx);
   border: 1px solid var(--line-strong);
@@ -116,10 +116,15 @@ body::before {
 }
 
 .hm-lnk .em {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   display: block;
   object-fit: contain;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
   filter: drop-shadow(0 7px 14px rgba(56, 189, 248, 0.28));
 }
 
