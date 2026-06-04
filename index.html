@@ -70,10 +70,11 @@
             display: flex; align-items: center; justify-content: space-between;
         }
         .header-logo {
-            display: flex; align-items: center;
+            display: flex; align-items: center; gap: 0.75rem;
             font-size: 1.4rem; font-weight: 800; color: var(--text-primary);
             text-decoration: none;
         }
+        .header-logo i { color: var(--text-accent); animation: float-logo 3s ease-in-out infinite; }
         @keyframes float-logo { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
 
         .header-controls { display: flex; align-items: center; gap: 0.75rem; }
@@ -139,6 +140,15 @@
             align-items: center; justify-content: center; text-align: center;
             padding: 6rem 2rem 3rem; min-height: 60vh;
         }
+        .hero-icon {
+            color: var(--text-accent); margin-bottom: 2rem;
+            filter: drop-shadow(0 0 25px var(--glow));
+            animation: hero-bounce 4s ease-in-out infinite;
+        }
+        @keyframes hero-bounce {
+            0%, 100% { transform: translateY(0) rotate(-4deg); }
+            50% { transform: translateY(-20px) rotate(4deg); }
+        }
         .hero-title {
             font-size: clamp(2.8rem, 9vw, 5rem); font-weight: 900; margin-bottom: 1.2rem;
             background: var(--hero-gradient);
@@ -157,15 +167,15 @@
             margin-bottom: 3.5rem; letter-spacing: 1px; color: var(--text-primary);
         }
         .islands-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem; max-width: 1320px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem; max-width: 1200px; margin: 0 auto;
         }
 
         /* ============ ISLAND CARD ============ */
         .island-card {
             background: var(--bg-card); backdrop-filter: blur(15px);
-            border: 1px solid var(--border-color); border-radius: 24px;
-            padding: 2.4rem 2.1rem; text-decoration: none; color: inherit;
+            border: 1px solid var(--border-color); border-radius: 32px;
+            padding: 3rem 2.5rem; text-decoration: none; color: inherit;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex; flex-direction: column; gap: 1.2rem;
             position: relative; overflow: hidden;
@@ -183,9 +193,6 @@
         }
 
         .card-icon { width: 50px; height: 50px; color: var(--text-accent); margin-bottom: 0.5rem; transition: 0.3s; }
-        .island-card:hover .card-icon {
-            transform: rotate(8deg) scale(1.08);
-        }
         .card-title { font-size: 1.6rem; font-weight: 800; }
         .card-desc { color: var(--text-secondary); font-size: 1rem; line-height: 1.6; }
         .card-tag {
@@ -193,23 +200,15 @@
             padding: 6px 14px; border-radius: 100px; font-size: 0.8rem;
             font-weight: 700; width: fit-content; text-transform: uppercase; letter-spacing: 0.5px;
         }
-
-        .island-card.is-placeholder {
-            cursor: default;
-        }
+        .island-card.is-placeholder { cursor: default; }
         .island-card.is-placeholder::after {
             content: "WIP";
-            position: absolute;
-            top: 1.2rem;
-            right: 1.2rem;
-            padding: 0.25rem 0.55rem;
-            border-radius: 999px;
+            position: absolute; top: 1.2rem; right: 1.2rem;
+            padding: 0.25rem 0.55rem; border-radius: 999px;
             color: var(--card-accent);
             background: color-mix(in srgb, var(--card-accent) 16%, transparent);
             border: 1px solid color-mix(in srgb, var(--card-accent) 30%, transparent);
-            font-size: 0.68rem;
-            font-weight: 900;
-            letter-spacing: 0.08em;
+            font-size: 0.68rem; font-weight: 900; letter-spacing: 0.08em;
         }
 
         /* Специальная подсветка для CAI */
@@ -227,9 +226,8 @@
 
         /* ============ FOOTER ============ */
         .footer {
-            background: var(--bg-header); padding: 4rem 2rem; text-align: center;
+            background: #000; padding: 6rem 2rem; text-align: center;
             border-top: 1px solid var(--border-color); position: relative; z-index: 10;
-            backdrop-filter: blur(20px);
         }
         .footer p { color: var(--text-secondary); margin-bottom: 1rem; }
         .footer a { color: var(--text-accent); text-decoration: none; font-weight: 700; }
@@ -242,30 +240,19 @@
         }
         .page-loader.hidden { opacity: 0; visibility: hidden; }
         .status-toast {
-            position: fixed;
-            left: 50%;
-            bottom: 1.5rem;
-            transform: translate(-50%, 18px);
-            z-index: 10001;
+            position: fixed; left: 50%; bottom: 1.5rem;
+            transform: translate(-50%, 18px); z-index: 10001;
             max-width: min(420px, calc(100vw - 2rem));
-            padding: 0.85rem 1rem;
-            border-radius: 14px;
-            color: var(--text-primary);
-            background: var(--bg-header);
+            padding: 0.85rem 1rem; border-radius: 14px;
+            color: var(--text-primary); background: var(--bg-header);
             border: 1px solid var(--border-color);
             box-shadow: 0 18px 50px var(--shadow-color);
             backdrop-filter: blur(18px);
-            opacity: 0;
-            pointer-events: none;
+            opacity: 0; pointer-events: none;
             transition: opacity 0.25s, transform 0.25s;
-            text-align: center;
-            font-size: 0.92rem;
-            line-height: 1.45;
+            text-align: center; font-size: 0.92rem; line-height: 1.45;
         }
-        .status-toast.show {
-            opacity: 1;
-            transform: translate(-50%, 0);
-        }
+        .status-toast.show { opacity: 1; transform: translate(-50%, 0); }
 
         .ripple {
             position: fixed; width: 10px; height: 10px; border: 2px solid var(--text-accent);
@@ -290,6 +277,7 @@
 
     <header class="header">
         <a href="#" class="header-logo">
+            <i data-lucide="anchor"></i>
             <span>CarapuzLand</span>
         </a>
         <div class="header-controls">
@@ -310,6 +298,7 @@
         <div id="miniIslands"></div>
 
         <section class="hero">
+            <i data-lucide="palmtree" class="hero-icon" style="width: 110px; height: 110px"></i>
             <h1 class="hero-title" data-i18n="hero_title">CarapuzLand</h1>
             <p class="hero-subtitle" data-i18n="hero_subtitle">Digital creator crafting programs, bots, websites, and tools. Explore the islands below to discover my projects.</p>
         </section>
@@ -624,7 +613,7 @@ const TRANSLATIONS = {
    ISLAND CARDS CONFIG — CAI ADDED
    ================================================================ */
 const ISLAND_CONFIG = [
-    { id: "carapuz201G", icon: "server", href: "/carapuz201G", accent: "#5865F2" },
+    { id: "carapuz201G", icon: "bot", href: "/carapuz201G", accent: "#5865F2" },
     { id: "cai", icon: "brain", href: "#cai", accent: "#c084fc", placeholder: true },
     { id: "weather", icon: "cloud-sun", href: "/weather", accent: "#38bdf8" },
     { id: "bg-remove", icon: "image", href: "/bg-remove", accent: "#a78bfa" },
@@ -640,9 +629,21 @@ let currentLang = localStorage.getItem('cl-lang') || 'en-gb';
 let currentTheme = localStorage.getItem('cl-theme') || 'dark';
 
 const CAI_PLACEHOLDER = {
-    "en-gb": { desc: "Work is in progress. This section will open when the CAI project is ready.", tag: "Work in progress", toast: "CAI is still in progress. The section will appear here later." },
-    ru: { desc: "Работа идет. Раздел откроется, когда проект CAI будет готов.", tag: "В работе", toast: "CAI пока в работе. Раздел появится здесь позже." },
-    uk: { desc: "Робота триває. Розділ відкриється, коли проєкт CAI буде готовий.", tag: "В роботі", toast: "CAI поки в роботі. Розділ з'явиться тут пізніше." }
+    "en-gb": {
+        desc: "Work is in progress. This section will open when the CAI project is ready.",
+        tag: "Work in progress",
+        toast: "CAI is still in progress. The section will appear here later."
+    },
+    ru: {
+        desc: "Работа идет. Раздел откроется, когда проект CAI будет готов.",
+        tag: "В работе",
+        toast: "CAI пока в работе. Раздел появится здесь позже."
+    },
+    uk: {
+        desc: "Робота триває. Розділ відкриється, коли проєкт CAI буде готовий.",
+        tag: "В роботі",
+        toast: "CAI поки в роботі. Розділ з'явиться тут пізніше."
+    }
 };
 
 function refreshLucideIcons() {
@@ -778,13 +779,12 @@ function generateFloatingIslands() {
 
 function toggleLangMenu() { document.getElementById('langMenu').classList.toggle('show'); }
 
-let toastTimer;
 function showStatusToast(message) {
     const toast = document.getElementById('statusToast');
     toast.textContent = message;
     toast.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
+    clearTimeout(showStatusToast.timer);
+    showStatusToast.timer = setTimeout(() => toast.classList.remove('show'), 2400);
 }
 
 function setupEventListeners() {
@@ -792,14 +792,13 @@ function setupEventListeners() {
     document.getElementById('langBtn').onclick = (e) => { e.stopPropagation(); toggleLangMenu(); };
     window.onclick = () => document.getElementById('langMenu').classList.remove('show');
 
-    document.getElementById('islandsGrid').addEventListener('click', (e) => {
-        const card = e.target.closest('[data-placeholder="true"]');
-        if (!card) return;
-        e.preventDefault();
-        showStatusToast(caiPlaceholderText().toast);
-    });
-
     document.addEventListener('click', (e) => {
+        const placeholderCard = e.target.closest('.island-card[data-placeholder="true"]');
+        if (placeholderCard) {
+            e.preventDefault();
+            showStatusToast(caiPlaceholderText().toast);
+        }
+
         const rip = document.createElement('div');
         rip.className = 'ripple';
         rip.style.left = e.clientX + 'px';
